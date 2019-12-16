@@ -3,7 +3,12 @@ hello
 Teerayut
 Tosaporn
 Auttapon
+<<<<<<< HEAD
 CR7 VS LM10
+=======
+asenal0-3
+Pee
+>>>>>>> 79c080745b79f5f43b09c7a81d27c7d416bfba36
 =======
 Teerayuttapum
 <<<<<<< HEAD
