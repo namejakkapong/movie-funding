@@ -3,6 +3,7 @@ hello
 Teerayut
 Tosaporn
 Auttapon
+CR7 VS LM10
 =======
 Teerayuttapum
 <<<<<<< HEAD
