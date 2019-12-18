@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedAnimations } from 'src/app/shared/animations/shared-animations';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from '../../shared/services/auth.service';
+import { AuthService } from '../auth.service';
+// import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+// import { AuthService } from '../../shared/services/auth.service';
 import { Router, RouteConfigLoadStart, ResolveStart, RouteConfigLoadEnd, ResolveEnd } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
     selector: 'app-login',
@@ -13,10 +15,9 @@ import { Router, RouteConfigLoadStart, ResolveStart, RouteConfigLoadEnd, Resolve
 export class LoginComponent implements OnInit {
     loading: boolean;
     loadingText: string;
-    signinForm: FormGroup;
+
     constructor(
-        private fb: FormBuilder,
-        private auth: AuthService,
+        private authService: AuthService,
         private router: Router
     ) { }
 
@@ -30,17 +31,15 @@ export class LoginComponent implements OnInit {
             if (event instanceof RouteConfigLoadEnd || event instanceof ResolveEnd) {
                 this.loading = false;
             }
-        });
-
-        this.signinForm = this.fb.group({
-            email: ['test@example.com', Validators.required],
-            password: ['1234', Validators.required]
-        });
+        });     
     }
 
-    signin() {
-        this.loading = true;
-        this.loadingText = 'Sigining in...';
+    onLogin(form: NgForm) {
+        if(form.invalid) {
+          return;
+        }
+        console.log(form.value);
+        this.authService.login(form.value.email, form.value.password);
     }
 
 }

@@ -2,14 +2,23 @@
 
 namespace App;
 
+use App\Transformers\UserTransformer;
+use Laravel\Passport\HasApiTokens;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\softDeletes;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, HasApiTokens, SoftDeletes;
 
+    public $transformer = UserTransformer::class;
+    
+    const VERIFIED_USER = '1';
+    const UNVERIFIED_USER = '0';
+    const ADMIN_USER = 'true';
+    const REGULAR_USER = 'false';
     /**
      * The attributes that are mass assignable.
      *
@@ -36,4 +45,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function isAdmin()
+    {
+        return $this->admin == USER::ADMIN_USER;
+    }
+
+    public function isVerified()
+    {
+        return $this->verified == USER::VERIFIED_USER;
+    }
+
+    public static function generateVerificationCode()
+    {
+        return str_random(40);
+    }
 }
