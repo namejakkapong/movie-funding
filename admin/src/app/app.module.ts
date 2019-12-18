@@ -9,13 +9,22 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './shared/inmemory-db/inmemory-db.service';
 import { HttpClientModule } from '@angular/common/http';
 
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { SharedComponentsModule } from './shared/components/shared-components.module';
+
+import { LoginComponent } from './auth/login/login.component'
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedComponentsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService, { passThruUnknownUrl: true }),

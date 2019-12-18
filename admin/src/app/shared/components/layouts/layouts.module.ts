@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminLayoutSidebarCompactComponent } from './admin-layout-sidebar-compact/admin-layout-sidebar-compact.component';
-import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
-import { BlankLayoutComponent } from './blank-layout/blank-layout.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { SharedPipesModule } from '../../pipes/shared-pipes.module';
@@ -21,8 +19,6 @@ const components = [
     FooterComponent,
     CustomizerComponent,
     AdminLayoutSidebarCompactComponent,
-    AuthLayoutComponent,
-    BlankLayoutComponent,
 ];
 
 @NgModule({
