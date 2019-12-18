@@ -1,18 +1,21 @@
-hello
-<<<<<<< HEAD
-Teerayut
-Tosaporn
-Auttapon
-<<<<<<< HEAD
-CR7 VS LM10
-=======
-asenal0-3
-Pee
->>>>>>> 79c080745b79f5f43b09c7a81d27c7d416bfba36
-=======
-Teerayuttapum
-<<<<<<< HEAD
-remote
-=======
->>>>>>> e9b5798c63fea8372b319e7b5b2dd35c7c65266a
->>>>>>> 02e0b37c66bd1ded2fb90ce2209a2a641d99f394
+- Project Film Crownfunding
+  - Jakkapong
+  - Teerayut
+  - Tosaporn
+  - Auttapon
+  - CR7 VS LM10
+  - asenal0-3
+  - Pee
+  - Teerayuttapum
+  - remote
+
+- Set up Github
+- ดาวน์โหลดโปรเจคลงเครื่อง
+ - git fetch
+ - git status
+ - git pull
+- อัพโหลดโปรเจคขึ้น git
+ - git add .
+ - git status
+ - git commit - "คอมเม้นสิ่งที่ตัวเองได้เพิ่มหรือแก้ไข"
+ - git push
