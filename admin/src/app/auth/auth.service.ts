@@ -69,7 +69,7 @@ export class AuthService {
           // console.log(expirationDate);
           this.saveAuthData(token , expirationDate,  response.data.data);
           this.getAuthName();
-          // this.router.navigate(['/']);
+          this.router.navigate(['/']);
           // console.log(response);
         }
       } , error => {
@@ -87,7 +87,7 @@ export class AuthService {
         this.authStatusListener.next(false);
         clearTimeout(this.tokenTimer);
         this.clearAuthData();
-        this.router.navigate(['/']);
+        this.router.navigate(['/auth/login']);
         console.log(response);
       } , error => {
         this.token = null;
@@ -95,7 +95,7 @@ export class AuthService {
         this.authStatusListener.next(false);
         clearTimeout(this.tokenTimer);
         this.clearAuthData();
-        this.router.navigate(['/']);
+        this.router.navigate(['/auth/login']);
         console.log(error);
       });
   }
@@ -127,7 +127,7 @@ export class AuthService {
     localStorage.setItem('expiration' , expirationDate.toISOString());
     localStorage.setItem('name' , data.name);
     localStorage.setItem('profile_picture' , data.profile_picture);
-    localStorage.setItem('username' , data.username);
+    localStorage.setItem('email' , data.email);
     localStorage.setItem('user_id' , data.id);
   }
 
@@ -136,7 +136,7 @@ export class AuthService {
     localStorage.removeItem('expiration');
     localStorage.removeItem('name');
     localStorage.removeItem('profile_picture');
-    localStorage.removeItem('username');
+    localStorage.removeItem('email');
     localStorage.removeItem('user_id');
   }
 
@@ -145,7 +145,7 @@ export class AuthService {
     const expirationDate = localStorage.getItem('expiration');
     const name = localStorage.getItem('name');
     const profile_picture = localStorage.getItem('profile_picture');
-    const username = localStorage.getItem('username');
+    const email = localStorage.getItem('email');
     const user_id = localStorage.getItem('user_id');
     if (!token || !expirationDate) {
       return;
@@ -155,7 +155,7 @@ export class AuthService {
         expirationDate: new Date(expirationDate),
         name: name,
         profile_picture: profile_picture,
-        username: username,
+        email: email,
         user_id: user_id
       };
     }
@@ -166,20 +166,20 @@ export class AuthService {
     const expirationDate = localStorage.getItem('expiration');
     const name = localStorage.getItem('name');
     const profile_picture = localStorage.getItem('profile_picture');
-    const username = localStorage.getItem('username');
+    const email = localStorage.getItem('email');
     const user_id = localStorage.getItem('user_id');
     if (!token || !expirationDate) {
         this.authDataUpdated.next('');
         return this.authData = {
           name: '',
-          username: '',
+          email: '',
           profile_picture: '',
           user_id: '',
         };
     } else {
       this.authData = {
         name: name,
-        username: username,
+        email: email,
         profile_picture: profile_picture,
         user_id: user_id,
       };

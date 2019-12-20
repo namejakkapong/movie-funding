@@ -7,17 +7,20 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './shared/inmemory-db/inmemory-db.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SharedComponentsModule } from './shared/components/shared-components.module';
 
-import { LoginComponent } from './auth/login/login.component'
+import { LoginComponent } from './auth/login/login.component';
+import { HomeComponent } from './views/home/home.component'
+import { AuthInterceptor } from './auth/auth-interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,9 @@ import { LoginComponent } from './auth/login/login.component'
     InMemoryWebApiModule.forRoot(InMemoryDataService, { passThruUnknownUrl: true }),
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS , useClass: AuthInterceptor , multi: true},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

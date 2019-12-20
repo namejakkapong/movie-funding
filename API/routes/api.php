@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('login', 'APIAuth\LoginController@login');
+Route::get('logout', 'APIAuth\LoginController@logout')->middleware('auth:api');

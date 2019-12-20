@@ -5,6 +5,7 @@ import { AuthService } from '../auth.service';
 // import { AuthService } from '../../shared/services/auth.service';
 import { Router, RouteConfigLoadStart, ResolveStart, RouteConfigLoadEnd, ResolveEnd } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-login',
@@ -15,6 +16,8 @@ import { NgForm } from '@angular/forms';
 export class LoginComponent implements OnInit {
     loading: boolean;
     loadingText: string;
+    userIsAuthenticated = false;
+    private authListenerSubs: Subscription;
 
     constructor(
         private authService: AuthService,
@@ -22,6 +25,15 @@ export class LoginComponent implements OnInit {
     ) { }
 
     ngOnInit() {
+        this.userIsAuthenticated = this.authService.getIsAuth();
+        this.authListenerSubs = this.authService.getAuthStatusListerner()
+        .subscribe(isAuthenticated => {
+            this.userIsAuthenticated = isAuthenticated;
+        });
+        if (this.userIsAuthenticated) {
+            this.router.navigate(['']);
+        }
+
         this.router.events.subscribe(event => {
             if (event instanceof RouteConfigLoadStart || event instanceof ResolveStart) {
                 this.loadingText = 'Loading Dashboard Module...';

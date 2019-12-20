@@ -4,6 +4,9 @@ import { AuthGaurd } from './shared/services/auth.gaurd';
 import { AdminLayoutSidebarCompactComponent } from './shared/components/layouts/admin-layout-sidebar-compact/admin-layout-sidebar-compact.component';
 
 import { LoginComponent } from './auth/login/login.component';
+import { DashboadDefaultComponent } from './views/dashboard/dashboad-default/dashboad-default.component';
+import { HomeComponent } from './views/home/home.component';
+import { AuthGuard } from './auth/auth.guard';
 const adminRoutes: Routes = [
   {
     path: 'dashboard',
@@ -16,16 +19,19 @@ const adminRoutes: Routes = [
 ];
 
 const routes: Routes = [
+  // {
+  //   path: '',
+  //   redirectTo: 'dashboard/default',
+  //   pathMatch: 'full'
+  // },
+  // {
+  //   path: '',
+  //   component: AdminLayoutSidebarCompactComponent,
+  //   canActivate: [AuthGaurd],
+  //   children: adminRoutes
+  // },
   {
-    path: '',
-    redirectTo: 'dashboard/default',
-    pathMatch: 'full'
-  },
-  {
-    path: '',
-    component: AdminLayoutSidebarCompactComponent,
-    canActivate: [AuthGaurd],
-    children: adminRoutes
+    path: '', component: HomeComponent, canActivate: [AuthGuard]
   },
   {
     path: 'auth/login', component: LoginComponent
@@ -38,6 +44,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: true })],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }
