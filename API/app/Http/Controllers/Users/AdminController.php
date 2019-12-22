@@ -97,8 +97,10 @@ class AdminController extends ApiController
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        //
+        $user = User::where('id', $id)->where('user_status', 'admin')->where('admin', 'true')->firstOrFail();
+        $user->delete();
+        return $this->showOneTransform("insert data admin complete" , $user , 200);
     }
 }
