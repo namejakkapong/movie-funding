@@ -8,6 +8,7 @@
   - Pee
   - Teerayuttapum
   - remote
+  - bas
 
 - Set up Github
 - ดาวน์โหลดโปรเจคลงเครื่อง
