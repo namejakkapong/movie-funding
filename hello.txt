@@ -8,11 +8,8 @@
   - Pee
   - Teerayuttapum
   - remote
-<<<<<<< HEAD
   - bas
-=======
   - piyanat
->>>>>>> f1d6642c96f705bd0cc2f94a3350d5114e796f95
 
 - Set up Github
 - ดาวน์โหลดโปรเจคลงเครื่อง
