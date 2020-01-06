@@ -1,7 +1,9 @@
 import { Component, OnInit } from "@angular/core";
+import { Subscription } from 'rxjs';
 import { NavigationService } from "src/app/shared/services/navigation.service";
 import { SearchService } from "src/app/shared/services/search.service";
-import { AuthService } from "src/app/shared/services/auth.service";
+// import { AuthService } from "src/app/shared/services/auth.service";
+import { AuthService } from '../../../../../auth/auth.service';
 
 @Component({
   selector: "app-header-sidebar-compact",
@@ -10,11 +12,17 @@ import { AuthService } from "src/app/shared/services/auth.service";
 })
 export class HeaderSidebarCompactComponent implements OnInit {
   notifications: any[];
+  
+  // auth
+  userIsAuthenticated = false;
+  private authListenerSubs: Subscription;
+  public getAuthUser: any;
+  private nameSub: Subscription;
 
   constructor(
     private navService: NavigationService,
     public searchService: SearchService,
-    private auth: AuthService
+    private authService: AuthService
   ) {
     this.notifications = [
       {
@@ -63,7 +71,21 @@ export class HeaderSidebarCompactComponent implements OnInit {
     ];
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+        // auth
+        this.userIsAuthenticated = this.authService.getIsAuth();
+        this.authListenerSubs = this.authService.getAuthStatusListerner()
+          .subscribe(isAuthenticated => {
+            this.userIsAuthenticated = isAuthenticated;
+        });
+        console.log(this.userIsAuthenticated);
+        this.getAuthUser = this.authService.getAuthName();
+          this.nameSub = this.authService.getAuthDataUpdateListener()
+            .subscribe(response => {
+              console.log('test : ', response);
+              this.getAuthUser = response;
+        });
+  }
 
   toggelSidebar() {
     const state = this.navService.sidebarState;
@@ -71,7 +93,7 @@ export class HeaderSidebarCompactComponent implements OnInit {
     state.childnavOpen = !state.childnavOpen;
   }
 
-  signout() {
-    this.auth.signout();
+  onLogout() {
+    this.authService.logout();
   }
 }

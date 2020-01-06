@@ -6,11 +6,16 @@ import { AdminLayoutSidebarCompactComponent } from './shared/components/layouts/
 import { LoginComponent } from './auth/login/login.component';
 import { DashboadDefaultComponent } from './views/dashboard/dashboad-default/dashboad-default.component';
 import { HomeComponent } from './views/home/home.component';
+
 import { AuthGuard } from './auth/auth.guard';
 const adminRoutes: Routes = [
   {
     path: 'dashboard',
     loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule)
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./views/admin/admin.module').then(m => m.AccountModule)
   },
   {
     path: 'users',
@@ -19,19 +24,19 @@ const adminRoutes: Routes = [
 ];
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   redirectTo: 'dashboard/default',
-  //   pathMatch: 'full'
-  // },
-  // {
-  //   path: '',
-  //   component: AdminLayoutSidebarCompactComponent,
-  //   canActivate: [AuthGaurd],
-  //   children: adminRoutes
-  // },
+  {
+    path: '',
+    redirectTo: 'dashboard/default',
+    pathMatch: 'full'
+  },
   {
     path: '', component: HomeComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: '',
+    component: AdminLayoutSidebarCompactComponent,
+    canActivate: [AuthGaurd],
+    children: adminRoutes
   },
   {
     path: 'auth/login', component: LoginComponent
@@ -43,7 +48,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
   providers: [AuthGuard]
 })

@@ -135,6 +135,15 @@ export class NavigationService {
                 { icon: 'i-Remove-User', name: 'ผู้ใช้ที่ถูกแบน', state: '/sessions/banned', type: 'link' }
             ]
         },
+        {
+            name: 'บัญชีผู้ใช้',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+            type: 'dropDown',
+            icon: 'i-Gear',
+            sub: [
+                { icon: 'i-Administrator', name: 'จัดการบัญชีผู้ใช้', state: '/admin/account', type: 'link' }
+            ]
+        },
         // {
         //     name: 'Pages',
         //     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',

@@ -67,7 +67,7 @@
         <div class="header-part-right">
             <i class="i-Magnifi-Glass1 header-icon" role="button" (click)="searchService.searchOpen = true"></i>
             <i fullScreenWindow class="i-Full-Screen header-icon d-none d-sm-inline-block" role="button"></i>
-            <div ngbDropdown [placement]="'bottom-right'" class="d-none d-sm-inline-block">
+            <!-- <div ngbDropdown [placement]="'bottom-right'" class="d-none d-sm-inline-block">
                 <i ngbDropdownToggle class="i-Gear text-muted header-icon" role="button"></i>
                 <div ngbDropdownMenu class="menu-icon-grid-dropdown">
                     <div class="menu-icon-grid">
@@ -79,7 +79,7 @@
                         <a href="#"><i class="i-Ambulance"></i> Support</a>
                     </div>
                 </div>
-            </div>
+            </div> -->
     
             <div ngbDropdown [placement]="'bottom-right'">
                 <div class="badge-top-container">
@@ -109,11 +109,11 @@
     
                 <div ngbDropdownMenu aria-labelledby="userDropdown">
                     <div class="dropdown-header">
-                        <i class="i-Lock-User mr-1"></i> Timothy Carlson
+                        <i class="i-Lock-User mr-1"></i> {{getAuthUser.name}}
                     </div>
-                    <button class="dropdown-item">Account settings</button>
-                    <button class="dropdown-item">Billing history</button>
-                    <button class="dropdown-item" (click)="signout()">Sign out</button>
+                    <a type="button" class="dropdown-item" routerLink="/admin/account">จัดการบัญชีผู้ใช้</a>
+                    <!-- <button class="dropdown-item">Billing history</button> -->
+                    <button class="dropdown-item text-danger" (click)="onLogout()">ออกจากระบบ</button>
                 </div>
             </div>
     

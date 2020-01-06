@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
 
         this.router.events.subscribe(event => {
             if (event instanceof RouteConfigLoadStart || event instanceof ResolveStart) {
-                this.loadingText = 'Loading Dashboard Module...';
+                this.loadingText = 'Loading Dashboard...';
 
                 this.loading = true;
             }
@@ -47,7 +47,10 @@ export class LoginComponent implements OnInit {
     }
 
     onLogin(form: NgForm) {
+        this.loading = true;
+        this.loadingText = 'Logging in...';
         if(form.invalid) {
+          this.loading = false;
           return;
         }
         console.log(form.value);

@@ -13,14 +13,14 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SharedComponentsModule } from './shared/components/shared-components.module';
 
 import { LoginComponent } from './auth/login/login.component';
-import { HomeComponent } from './views/home/home.component'
+import { HomeComponent } from './views/home/home.component';
 import { AuthInterceptor } from './auth/auth-interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
