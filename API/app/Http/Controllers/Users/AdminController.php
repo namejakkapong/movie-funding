@@ -22,15 +22,6 @@ class AdminController extends ApiController
         return $this->showAllTransform("update categories order success" , $users , 200);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -65,16 +56,6 @@ class AdminController extends ApiController
         return $this->showOneTransform("insert data admin complete" , $user , 200);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(User $user)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.

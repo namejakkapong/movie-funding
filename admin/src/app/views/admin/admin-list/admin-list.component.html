@@ -32,13 +32,14 @@
                 </div>
               </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3" *ngFor="let admin of admins">
             <div class="card card-profile-1 mb-4">
                 <div class="card-body text-center">
                     <div class="avatar box-shadow-2 mb-3">
-                        <img src="./assets/images/faces/16.jpg" alt="">
+                        <img src="{{ admin.profile_picture }}" alt="">
                     </div>
-                    <h5 class="m-0"><a href=""> Jassica Hike </a></h5>
+                    <h5 class="m-0"><a href=""> {{ admin.name }} </a></h5>
+                    <h5 class="m-0"><a href=""> {{ admin.email }} </a></h5>
                     <p class="mt-0">Administrator</p>
                     <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae cumque.</p> -->
                     <!-- <button class="btn btn-primary btn-rounded">ดูข้อมูลผู้ดูแลระบบ</button> -->

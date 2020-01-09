@@ -8,13 +8,15 @@ import { AdminAddComponent } from './admin-add/admin-add.component';
 import { AdminEditComponent } from './admin-edit/admin-edit.component';
 import { SharedComponentsModule } from 'src/app/shared/components/shared-components.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedComponentsModule,
     NgbModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    FormsModule
   ],
   declarations: [AccountComponent, AdminListComponent, AdminAddComponent, AdminEditComponent]
 })

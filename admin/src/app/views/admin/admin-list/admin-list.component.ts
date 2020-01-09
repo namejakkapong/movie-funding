@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../auth/auth.service';
 import { Subscription } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AdminService } from '../../../services/admin.service';
 
 @Component({
   selector: 'app-admin-list',
@@ -10,11 +11,18 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AdminListComponent implements OnInit {
   confirmResut;
-  
-  constructor(private modalService: NgbModal) {
+  public admins: any;
+
+  constructor(private modalService: NgbModal, private adminService: AdminService) {
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.adminService.index()
+      .subscribe(response => {
+        this.admins = response.data;
+        console.log(this.admins);
+      });
+  }
   
   open(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' })
