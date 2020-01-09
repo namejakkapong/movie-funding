@@ -11,14 +11,17 @@ import { AuthGuard } from './auth/auth.guard';
 const adminRoutes: Routes = [
   {
     path: 'dashboard',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule)
   },
   {
     path: 'admin',
-    loadChildren: () => import('./views/admin/admin.module').then(m => m.AccountModule)
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./views/admin/admin.module').then(m => m.AdminModule)
   },
   {
     path: 'users',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./views/users/users.module').then(m => m.UsersModule)
   },
 ];

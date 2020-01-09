@@ -141,7 +141,8 @@ export class NavigationService {
             type: 'dropDown',
             icon: 'i-Gear',
             sub: [
-                { icon: 'i-Administrator', name: 'จัดการบัญชีผู้ใช้', state: '/admin/account', type: 'link' }
+                { icon: 'i-Lock-User', name: 'จัดการบัญชีผู้ใช้', state: '/admin/account', type: 'link' },
+                { icon: 'i-Administrator', name: 'ข้อมูลผู้ดูแลระบบ', state: '/admin/admin-list', type: 'link' }
             ]
         },
         // {
