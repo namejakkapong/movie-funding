@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGaurd } from './shared/services/auth.gaurd';
-import { AdminLayoutSidebarCompactComponent } from './shared/components/layouts/admin-layout-sidebar-compact/admin-layout-sidebar-compact.component';
+import { AdminLayoutSidebarLargeComponent } from './shared/components/layouts/admin-layout-sidebar-large/admin-layout-sidebar-large.component';
 
 import { LoginComponent } from './auth/login/login.component';
 import { DashboadDefaultComponent } from './views/dashboard/dashboad-default/dashboad-default.component';
@@ -37,7 +37,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: AdminLayoutSidebarCompactComponent,
+    component: AdminLayoutSidebarLargeComponent,
     canActivate: [AuthGaurd],
     children: adminRoutes
   },

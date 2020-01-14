@@ -57,73 +57,6 @@ export class NavigationService {
                 { icon: 'i-Statistic', name: 'ข้อมูลทั่วไป', state: '/dashboard/default', type: 'link' }
             ]
         },
-        // {
-        //     name: 'UI kits',
-        //     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing.',
-        //     type: 'dropDown',
-        //     icon: 'i-Library',
-        //     sub: [
-        //         { icon: 'i-Bell', name: 'Alerts', state: '/uikits/alerts', type: 'link' },
-        //         { icon: 'i-Split-Horizontal-2-Window', name: 'Accordions', state: '/uikits/accordions', type: 'link' },
-        //         { icon: 'i-Medal-2', name: 'Badges', state: '/uikits/badges', type: 'link' },
-        //         {
-        //             icon: 'i-Arrow-Right-in-Circle',
-        //             name: 'Buttons',
-        //             type: 'dropDown',
-        //             sub: [
-        //                 { name: 'Bootstrap Buttons', state: '/uikits/buttons', type: 'link' },
-        //                 { name: 'Loding Buttons', state: '/uikits/buttons-loading', type: 'link' }
-        //             ]
-        //         },
-        //         { icon: 'i-ID-Card', name: 'Cards', state: '/uikits/cards', type: 'link' },
-        //         { icon: 'i-Line-Chart-2', name: 'Cards metrics', state: '/uikits/cards-metrics', type: 'link' },
-        //         { icon: 'i-Credit-Card', name: 'Cards widget', state: '/uikits/cards-widget', type: 'link' },
-        //         { icon: 'i-Full-Cart', name: 'Cards ecommerce', state: '/uikits/cards-ecommerce', type: 'link' },
-        //         { icon: 'i-Duplicate-Window', name: 'Modals', state: '/uikits/modals', type: 'link' },
-        //         { icon: 'i-Speach-Bubble-3', name: 'Popover', state: '/uikits/popover', type: 'link' },
-        //         { icon: 'i-Like', name: 'Rating', state: '/uikits/rating', type: 'link' },
-        //         { icon: 'i-Loading-3', name: 'Loaders', state: '/uikits/loaders', type: 'link' },
-        //     ]
-        // },
-        // {
-        //     name: 'Apps',
-        //     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-        //     type: 'dropDown',
-        //     icon: 'i-Computer-Secure',
-        //     sub: [
-        //         { icon: 'i-Add-File', name: 'Invoice Builder', state: '/invoice', type: 'link' },
-        //         { icon: 'i-Email', name: 'Inbox', state: '/inbox', type: 'link' },
-        //         { icon: 'i-Speach-Bubble-3', name: 'Chat', state: '/chat', type: 'link' },
-        //         { icon: 'i-Calendar', name: 'Calendar', state: '/calendar', type: 'link' },
-        //     ]
-        // },
-        // {
-        //     name: 'Forms',
-        //     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-        //     type: 'dropDown',
-        //     icon: 'i-File-Clipboard-File--Text',
-        //     sub: [
-        //         { icon: 'i-File-Clipboard-Text--Image', name: 'Basic components', state: '/forms/basic', type: 'link' },
-        //         { icon: 'i-Split-Vertical', name: 'Form layouts', state: '/forms/layouts', type: 'link' },
-        //         { icon: 'i-Receipt-4', name: 'Input Group', state: '/forms/input-group', type: 'link' },
-        //         { icon: 'i-File-Edit', name: 'Input Mask', state: '/forms/input-mask', type: 'link' },
-        //         { icon: 'i-Tag-2', name: 'Tag Input', state: '/forms/tag-input', type: 'link' },
-        //         { icon: 'i-Width-Window', name: 'Wizard', state: '/forms/wizard', type: 'link' },
-        //         { icon: 'i-Crop-2', name: 'Image Cropper', state: '/forms/img-cropper', type: 'link' },
-        //     ]
-        // },
-        // {
-        //     name: 'Data Tables',
-        //     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-        //     type: 'dropDown',
-        //     icon: 'i-File-Horizontal-Text',
-        //     sub: [
-        //         { icon: 'i-File-Horizontal-Text', name: 'List', state: '/tables/list', type: 'link' },
-        //         { icon: 'i-Full-View-Window', name: 'Fullscreen', state: '/tables/full', type: 'link' },
-        //         { icon: 'i-Code-Window', name: 'Paging', state: '/tables/paging', type: 'link' },
-        //         { icon: 'i-Filter-2', name: 'Filter', state: '/tables/filter', type: 'link' },
-        //     ]
-        // },
         {
             name: 'ข้อมูลผู้ใช้งาน',
             description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
@@ -131,8 +64,25 @@ export class NavigationService {
             icon: 'i-Administrator',
             sub: [
                 { icon: 'i-Checked-User', name: 'ผู้ใช้', state: '/users/creator&fundraiser', type: 'link' },
-                { icon: 'i-Add-User', name: 'ลงทะเบียนผู้สร้างภาพยนตร์', state: '/users/creator', type: 'link' },
-                { icon: 'i-Remove-User', name: 'ผู้ใช้ที่ถูกแบน', state: '/sessions/banned', type: 'link' }
+                { icon: 'i-Add-User', name: 'เพิ่มผู้ใช้', state: '/users/create', type: 'link' },
+            ]
+        },
+        {
+            name: 'ภาพยนตร์',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipisicing.',
+            type: 'dropDown',
+            icon: 'i-Film',
+            sub: [
+                { icon: 'i-Video-4', name: 'ภาพยนตร์', state: '', type: 'link' },
+                {
+                    icon: 'i-Video-5',
+                    name: 'เพิ่มข้อมูล',
+                    type: 'dropDown',
+                    sub: [
+                        { name: 'เพิ่มภาพยนตร์', state: '', type: 'link' },
+                        { name: 'เพิ่มประเภทภาพยนตร์', state: '', type: 'link' }
+                    ]
+                },
             ]
         },
         {
@@ -145,31 +95,6 @@ export class NavigationService {
                 { icon: 'i-Administrator', name: 'ข้อมูลผู้ดูแลระบบ', state: '/admin/admin-list', type: 'link' }
             ]
         },
-        // {
-        //     name: 'Pages',
-        //     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-        //     type: 'dropDown',
-        //     icon: 'i-Windows-2',
-        //     sub: [
-        //         { icon: 'i-Male', name: 'User Profile', state: '/pages/profile', type: 'link' }
-        //     ]
-        // },
-        // {
-        //     name: 'Icons',
-        //     description: '600+ premium icons',
-        //     type: 'link',
-        //     icon: 'i-Cloud-Sun',
-        //     state: '/icons/iconsmind'
-        // },
-        // {
-        //     name: 'Others',
-        //     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-        //     type: 'dropDown',
-        //     icon: 'i-Double-Tap',
-        //     sub: [
-        //         { icon: 'i-Error-404-Window', name: 'Not found', state: '/others/404', type: 'link' }
-        //     ]
-        // },
         {
             name: 'Doc',
             type: 'extLink',
