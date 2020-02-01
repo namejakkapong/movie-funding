@@ -17,9 +17,9 @@ class CreateEducationTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->string('graduation_year', 5);
-            $table->string('level', 5);
+            $table->string('level', 50);
             $table->string('subject', 200);
-            $table->string('faculty', 200);
+            $table->string('faculty', 200)->nullable();
             $table->string('school', 200);
             $table->timestamps();
             $table->foreign('user_id')
