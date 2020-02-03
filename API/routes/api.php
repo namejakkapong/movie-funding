@@ -22,3 +22,4 @@ Route::get('logout', 'APIAuth\LoginController@logout')->middleware('auth:api');
 Route::resource('admins', 'Users\AdminController');
 Route::resource('users', 'Users\UserController');
 Route::resource('users.educations', 'Educations\EducationController');
+Route::resource('users.experience', 'Work\WorkExperienceController');
