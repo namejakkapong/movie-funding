@@ -31,7 +31,7 @@
             [rowHeight]="60"
             [scrollbarV]="true"
             [scrollbarH]="true"
-            [rows]="filteredProducts">
+            [rows]="filteredUsers">
             <ngx-datatable-column name="photo" [maxWidth]="120">
                 <ng-template ngx-datatable-header-template>
                   รูปภาพ
@@ -50,12 +50,12 @@
                   อีเมล
                 </ng-template>
               </ngx-datatable-column>
-              <ngx-datatable-column name="category">
+              <ngx-datatable-column name="id">
                 <ng-template ngx-datatable-header-template>
                   สถานะ
                 </ng-template>
               </ngx-datatable-column>
-              <ngx-datatable-column name="subtitle">
+              <ngx-datatable-column name="id">
                 <ng-template ngx-datatable-header-template>
                   จัดการ
                 </ng-template>
@@ -64,7 +64,7 @@
                   placement="bottom"
                   ngbPopover="ดูข้อมูล"
                   triggers="mouseenter:mouseleave"
-                  routerLink="/users/creator&fundraiser/yourname"
+                  (click)="viewUser(value)"
                   >
                     <i class="i-Eye"></i>
                   </a>
@@ -86,7 +86,7 @@
                     </div>
                     <div class="modal-footer border-top-0">
                       <button type="button" class="btn btn-light btn-rounded" (click)="modal.dismiss('cancel')">ยกเลิก</button>
-                      <button type="button" ngbAutofocus class="btn btn-danger btn-rounded" (click)="modal.close('Ok')">ยืนยัน</button>
+                      <button type="button" ngbAutofocus class="btn btn-danger btn-rounded" (click)="modal.close('Ok')" (click)="delete(value)">ยืนยัน</button>
                     </div>
                   </ng-template>                 
               </ng-template>

@@ -27,7 +27,7 @@ class UserController extends ApiController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(AdminRequest $request)
+    public function store(Request $request)
     {
         $user = new User([
             'name' => $request->name,

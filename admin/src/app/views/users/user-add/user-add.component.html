@@ -15,7 +15,7 @@
             <div class="card card-profile-1 mb-12">
                 <div class="card-body">
                     <!-- <div class="card-title mb-3">เพิ่มนักลงทุน หรือ ผู้สร้างภาพยนตร์</div> -->
-                    <form>
+                    <form (submit)="onAddUser(formUser)" #formUser="ngForm">
                         <div class="row">
                             <div class="col-md-2">
                                 <label class="mb-4">รูปภาพประจำตัว</label>
@@ -74,9 +74,9 @@
         
             
                                     <div class="col-md-12">
-                                        <!-- <button type="submit" class="btn btn-main btn-block" >บันทึกข้อมูล</button> -->
+                                        <button type="submit" class="btn btn-main btn-block" >บันทึกข้อมูล</button>
         
-                                        <btn-loading  btnClass="btn-primary btn-rounded" [loading]="loading">บันทึกข้อมูล</btn-loading>
+                                       <!-- <btn-loading  btnClass="btn-primary btn-rounded" [loading]="loading">บันทึกข้อมูล</btn-loading> -->
                                     </div>
                                 </div>
                             </div>

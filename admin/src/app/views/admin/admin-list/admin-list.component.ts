@@ -41,4 +41,12 @@ export class AdminListComponent implements OnInit {
     });
 
   }
+
+  viewAdmin(id) {
+    console.log(id);
+  }
+
+  view(color,size) {
+    console.log(color +' ' + size);
+  }
 }

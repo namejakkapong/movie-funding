@@ -10,7 +10,7 @@ const routes: Routes = [
     component: UserListComponent
   },
   {
-    path: 'creator&fundraiser/yourname',
+    path: 'creator&fundraiser/:id',
     component: UserViewComponent
   },
   {
