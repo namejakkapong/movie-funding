@@ -44,6 +44,9 @@ export class AdminService {
 
   destroy(id: string)
   {
+    this.http.delete<{data: any}>(BACKEND_URL + '/admins/' + id).subscribe(response=>{
+      console.log(response.data);
+    });
     // BACKEND_URL = http://localhost:8000/api/admins , method DELETE
   }
 }
