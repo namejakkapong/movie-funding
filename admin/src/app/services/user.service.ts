@@ -45,4 +45,8 @@ export class UserService {
     // BACKEND_URL = http://localhost:8000/api/admins , method DELETE
   }
 
+  getEducation(id: string){
+    return this.http.get<{data: any}>(BACKEND_URL + '/users/'+ id +'/educations');
+  }
+
 }

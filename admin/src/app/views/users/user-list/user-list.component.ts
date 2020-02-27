@@ -76,7 +76,7 @@ export class UserListComponent implements OnInit {
 
 	  viewUser(id) {
 		  //console.log(id);
-		  this.router.navigate(['users/creator&fundraiser/' + id ]);
+		  this.router.navigate(['users/creator&fundraiser/' + id]);
 	  }
 
 	  delete(id) {
@@ -84,5 +84,11 @@ export class UserListComponent implements OnInit {
 		  this.userService.destroy(id);
 		  this.getUsers();
 	  }
+
+	  
+
+	  
+	
+	
 
 }
