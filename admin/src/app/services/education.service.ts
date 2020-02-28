@@ -26,7 +26,7 @@ export class EducationService {
       faculty: faculty,
       school: school,
     };
-    this.http.post<{data: any}>(BACKEND_URL + '/users'+ id + 'educations', data)
+    this.http.post<{data: any}>(BACKEND_URL + '/users/'+ id + '/educations', data)
     .subscribe(response => {
       console.log(response.data);
     });

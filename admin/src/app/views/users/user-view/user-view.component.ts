@@ -48,7 +48,10 @@ export class UserViewComponent implements OnInit {
 
   }
   
-  
+  addEducation(id) {
+    // console.log(id);
+    this.router.navigate(['educations/add/' + id]);
+  }
 
  
 }

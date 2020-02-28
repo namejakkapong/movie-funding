@@ -7,11 +7,11 @@
                 <div class="card-body">
                     <div class="card-title mb-3">เพิ่มข้อมูลการศึกษา</div>
 
-                    <form (submit)="onAddEducation(id)">
+                    <form (submit)="onAddEducation(formEducation)" #formEducation="ngForm">
                         <div class="row">
                             <div class="col-md-6 form-group mb-3">
                                 <label>ปีที่จบการศึกษา</label>
-                                <input type="text" class="form-control form-control-rounded" name="graduation_year" ngModel placeholder="graduation_year">
+                                <input type="text" class="form-control form-control-rounded" name="graduation_year" ngModel placeholder="graduation year">
                             </div>
                             <div class="col-md-6 form-group mb-3">
                                 <label for="lastName">ระดับการศึกษา</label>
@@ -30,7 +30,7 @@
                                 <input type="text" class="form-control form-control-rounded" name="school" ngModel placeholder="school">
                             </div>
                             <div class="col-md-12">
-                            <button type="submit" class="btn btn-main btn-block" >บันทึกข้อมูล</button>
+                            <button type="submit" class="btn btn-primary btn-block" >บันทึกข้อมูล</button>
                             </div>
                         </div>
 
