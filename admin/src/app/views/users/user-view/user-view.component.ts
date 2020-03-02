@@ -52,6 +52,8 @@ export class UserViewComponent implements OnInit {
     // console.log(id);
     this.router.navigate(['educations/add/' + id]);
   }
-
- 
+  addExperience(id) {
+    // console.log(id);
+    this.router.navigate(['experiences/add/' + id]);
+  }
 }

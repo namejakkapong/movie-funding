@@ -16,4 +16,20 @@ export class ExperienceService {
   {
     return this.http.get<{data: any}>(BACKEND_URL + '/users/'+ id +'/experience');
   }
+
+  store(id: string ,start: string, end: string, position: string, workplace: string)
+  {
+    // BACKEND_URL = http://localhost:8000/api/admins , method POST
+    const data = {
+      start: start,
+      end: end,
+      position: position,
+      workplace: workplace,
+      
+    };
+    this.http.post<{data: any}>(BACKEND_URL + '/users/'+ id + '/experience', data)
+    .subscribe(response => {
+      console.log(response.data);
+    });
+  }
 }

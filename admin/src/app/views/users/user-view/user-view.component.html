@@ -8,9 +8,7 @@
             <li>ชื่อผู้ใช้งาน</li>
         </ul>
     </div>
-    
     <div class="separator-breadcrumb border-top"></div>
-
     <div class="card user-profile o-hidden mb-4">
         <div class="header-cover" style="background-image: url('assets/images/photo-wide-1.jpg')"></div>
         <div class="user-info">
@@ -140,7 +138,6 @@
                                 </div>
                             </li>
                         </ul> -->
-
                     </ng-template>
                 </ngb-tab>
                 <ngb-tab title="อัลบั้ม">
@@ -158,7 +155,6 @@
                                             </p>
                                         </div>
                                         <div class="p-1 text-left card-footer font-weight-light d-flex">
-
                                             <span class="d-flex align-items-center"><i class="i-Calendar-4 mr-2"></i>03.12.2018</span>
                                         </div>
                                     </div>
@@ -182,7 +178,6 @@
                                             </p>
                                         </div>
                                         <div class="p-1 text-left card-footer font-weight-light d-flex">
-
                                             <span class="d-flex align-items-center"><i class="i-Calendar-4 mr-2"></i>03.12.2018</span>
                                         </div>
                                     </div>
@@ -194,23 +189,41 @@
             </ngb-tabset>
         </div>
     </div>
-
 </div>
 <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0" (click)="addEducation(user?.id)">Add Educations</button>
-<button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0" routerLink="/experiences/experience/add">Add Experiences</button>
-
-<hr>
+<button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0" (click)="addExperience(user?.id)">Add Experiences</button>
 <div *ngFor="let education of educations">
-    <p>{{education.level}}</p>
-    <p>{{education.graduation_year}}</p>
+    <div class="separator-breadcrumb border-top"></div>
+    <!-- MANAGE ACCOUNT -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-12">
+                <div class="card-body">
+    <div class="card-title mb-3">ข้อมูลการศึกษา</div>
+    <p>ปีที่จบการศึกษา : {{education.graduation_year}}</p>
+    <p>ระดับการศึกษา : {{education.level}}</p>
+    <p>สาขาวิชา/วิชาเอก/สารการศึกษา : {{education.subject}}</p>
+    <p>คณะ : {{education.faculty}}</p>
+    <p>โรงเรียน/สถานศึกษา : {{education.school}}</p>    
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
 <div *ngFor="let experience of experiences">
-    <p>{{experience.user_id}}</p>
-    <p>{{experience.start_year}}</p>
-    <p>{{experience.end_year}}</p>
-    <p>{{experience.position}}</p>
-    <p>{{experience.workplace}}</p>  
+    <div class="separator-breadcrumb border-top"></div>
+    <!-- MANAGE ACCOUNT -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-12">
+                <div class="card-body">
+    <div class="card-title mb-3">ประสบการณ์ทำงาน</div>
+    <p>ปีที่เริ่มทำงาน : {{experience.start_year}}</p>
+    <p>ปีที่ออกจากงาน : {{experience.end_year}}</p>
+    <p>ตำแหน่ง : {{experience.position}}</p>
+    <p>ที่ทำงาน : {{experience.workplace}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-
