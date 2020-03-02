@@ -25,12 +25,11 @@ export class ExperienceAddComponent implements OnInit {
         console.log(this.id);
       }
     });
-
   }
 
   onAddExperience(form: NgForm){
     console.log(form.value);
-    // this.experienceService.store(this.id, form.value.start, form.value.end, form.value.position, form.value.workplace);
+    this.experienceService.store(this.id, form.value.start, form.value.end, form.value.position, form.value.workplace);
   }
 
 }

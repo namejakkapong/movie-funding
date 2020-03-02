@@ -21,8 +21,8 @@ export class ExperienceService {
   {
     // BACKEND_URL = http://localhost:8000/api/admins , method POST
     const data = {
-      start: start,
-      end: end,
+      start_year: start,
+      end_year: end,
       position: position,
       workplace: workplace,
       

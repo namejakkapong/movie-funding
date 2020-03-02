@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ExperienceAddComponent } from './experience-add/experience-add/experience-add.component';
+import { ExperienceAddComponent } from './experience-add/experience-add.component';
+
 
 const routes: Routes = [
   {
