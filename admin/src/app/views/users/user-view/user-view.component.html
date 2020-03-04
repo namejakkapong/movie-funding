@@ -202,14 +202,59 @@
     <div class="card-title mb-3">ข้อมูลการศึกษา</div>
     <p>ปีที่จบการศึกษา : {{education.graduation_year}}</p>
     <p>ระดับการศึกษา : {{education.level}}</p>
-    <p>สาขาวิชา/วิชาเอก/สารการศึกษา : {{education.subject}}</p>
+    <p>สาขาวิชา/วิชาเอก/สายการศึกษา : {{education.subject}}</p>
     <p>คณะ : {{education.faculty}}</p>
-    <p>โรงเรียน/สถานศึกษา : {{education.school}}</p>    
+    <p>โรงเรียน/สถานศึกษา : {{education.school}}</p>
+    <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0" (click)="DeleteInfor(user?.id, education.id)">ลบ</button>
+    <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0" (click)="open(modalEditEducation)">แก้ไข</button>       
                 </div>
             </div>
         </div>
     </div>
+    <!-- MODEL CROPPER --------------------------------------------------------------------------------------------------------------->
+<ng-template #modalEditEducation let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">แก้ไขข้อมูลการศึกษา</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form (submit)="editEducation(formEducation,education.id)" #formEducation="ngForm">
+    <div class="modal-body">
+            <p>{{education.id}}</p>
+            <div class="row">
+                <div class="col-md-6 form-group mb-3">
+                    <label>ปีที่จบการศึกษา</label>
+                    <input type="text" class="form-control form-control-rounded" name="graduation_year" ngModel="{{education.graduation_year}}" #yearInput="ngModel" required placeholder="graduation year">
+                </div>
+                <div class="col-md-6 form-group mb-3">
+                    <label>ระดับการศึกษา</label>
+                    <input type="text" class="form-control form-control-rounded" name="level" ngModel="{{education.level}}" #levelInput="ngModel" required placeholder="level">
+                </div>
+                <div class="col-md-6 form-group mb-3">
+                    <label>สาขาวิชา/วิชาเอก</label>
+                    <input type="text" class="form-control form-control-rounded" name="subject" ngModel="{{education.subject}}" #subjectInput="ngModel" required placeholder="subject">
+                </div>
+                <div class="col-md-6 form-group mb-3">
+                    <label>คณะ</label>
+                    <input type="text" class="form-control form-control-rounded" name="faculty" ngModel="{{education.faculty}}" #facultyInput="ngModel" required placeholder="faculty">
+                </div>
+                <div class="col-md-6 form-group mb-3">
+                    <label>โรงเรียน/สถานศึกษา</label>
+                    <input type="text" class="form-control form-control-rounded" name="school" ngModel="{{education.school}}" #schoolInput="ngModel" required placeholder="school">
+                </div>
+            </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary btn-block" >บันทึกข้อมูล</button>
+      <!-- <button type="submit" class="btn btn-primary btn-block" >บันทึกข้อมูล</button> -->
+        
+    </div>
+</form>
+  </ng-template>
+  <!-- MODEL CROPPER --------------------------------------------------------------------------------------------------------------->
 </div>
+
 <div *ngFor="let experience of experiences">
     <div class="separator-breadcrumb border-top"></div>
     <!-- MANAGE ACCOUNT -->
@@ -227,3 +272,5 @@
         </div>
     </div>
 </div>
+
+

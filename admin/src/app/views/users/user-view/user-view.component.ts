@@ -4,6 +4,8 @@ import { EducationService } from 'src/app/services/education.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Router } from '@angular/router';
 import { ExperienceService } from 'src/app/services/experience.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-user-view',
@@ -16,7 +18,7 @@ export class UserViewComponent implements OnInit {
   public educations: any;
   public experiences: any;
 
-  constructor(private userService: UserService,private experienceService: ExperienceService, private educationService: EducationService, private route: ActivatedRoute, private router: Router) {
+  constructor(private userService: UserService,private experienceService: ExperienceService, private educationService: EducationService, private route: ActivatedRoute, private router: Router, private modalService: NgbModal) {
    }
 
   ngOnInit() {
@@ -55,5 +57,28 @@ export class UserViewComponent implements OnInit {
   addExperience(id) {
     // console.log(id);
     this.router.navigate(['experiences/add/' + id]);
+  }
+
+  DeleteInfor(user_id , education_id) {
+    // console.log(id + edu_id);
+    this.educationService.destroy(user_id , education_id);
+    
+  }
+
+  editEducation(form: NgForm,education_id: string) {
+    // console.log(this.id);
+    // console.log(education_id);
+    this.educationService.update(education_id,this.id,form.value.graduation_year, form.value.level, form.value.subject, form.value.faculty, form.value.school);
+    
+    // this.modalService.dismissAll();
+  }
+
+  open(modal) {
+    this.modalService.open(modal, { ariaLabelledBy: 'modal-basic-title' })
+    .result.then((result) => {
+      console.log(result);
+    }, (reason) => {
+      console.log('Err!', reason);
+    });
   }
 }
