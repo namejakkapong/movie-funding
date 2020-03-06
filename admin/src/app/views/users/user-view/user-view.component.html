@@ -4,8 +4,8 @@
         <ul>
             <li><a href="">ผู้ใช้งาน</a></li>
             <!-- <li>Creator & Fundraiser</li> -->
-            <li><a href="">นักลงทุน & นักสร้างภาพยนตร์</a></li>
-            <li>ชื่อผู้ใช้งาน</li>
+            <!-- <li><a href="">นักลงทุน & นักสร้างภาพยนตร์</a></li> -->
+            <li>{{user?.name}}</li>
         </ul>
     </div>
     <div class="separator-breadcrumb border-top"></div>
@@ -47,7 +47,7 @@
                             <div class="col-md-4 col-6">
                                 <div class="mb-4">
                                     <p class="text-primary mb-1"><i class="i-Email text-16 mr-1"></i> อีเมล</p>
-                                    <span>example@ui-lib.com</span>
+                                    <span>{{user?.email}}</span>
                                 </div>
                                 <div class="mb-4">
                                     <p class="text-primary mb-1"><i class="i-Telephone text-16 mr-1"></i> เบอร์โทรศัพท์</p>

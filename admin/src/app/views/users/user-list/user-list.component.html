@@ -50,16 +50,19 @@
                   อีเมล
                 </ng-template>
               </ngx-datatable-column>
-              <ngx-datatable-column name="id">
+              <ngx-datatable-column name="user_status">
                 <ng-template ngx-datatable-header-template>
                   สถานะ
+                </ng-template>
+                <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                  สมาชิก
                 </ng-template>
               </ngx-datatable-column>
               <ngx-datatable-column name="id">
                 <ng-template ngx-datatable-header-template>
                   จัดการ
                 </ng-template>
-                <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                <ng-template ngx-datatable-cell-template let-value="value">
                   <a type="button" class="pointer mr-4"
                   placement="bottom"
                   ngbPopover="ดูข้อมูล"
@@ -86,7 +89,7 @@
                     </div>
                     <div class="modal-footer border-top-0">
                       <button type="button" class="btn btn-light btn-rounded" (click)="modal.dismiss('cancel')">ยกเลิก</button>
-                      <button type="button" ngbAutofocus class="btn btn-danger btn-rounded" (click)="modal.close('Ok')" (click)="delete(value)">ยืนยัน</button>
+                      <button type="button" ngbAutofocus class="btn btn-danger btn-rounded" (click)="modal.close('Ok')" >ยืนยัน</button>
                     </div>
                   </ng-template>                 
               </ng-template>

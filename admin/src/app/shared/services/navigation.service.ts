@@ -73,14 +73,14 @@ export class NavigationService {
             type: 'dropDown',
             icon: 'i-Film',
             sub: [
-                { icon: 'i-Video-4', name: 'ภาพยนตร์', state: '', type: 'link' },
+                { icon: 'i-Video-4', name: 'ภาพยนตร์', state: '/movies/all', type: 'link' },
                 {
                     icon: 'i-Video-5',
                     name: 'เพิ่มข้อมูล',
                     type: 'dropDown',
                     sub: [
-                        { name: 'เพิ่มภาพยนตร์', state: '', type: 'link' },
-                        { name: 'เพิ่มประเภทภาพยนตร์', state: '', type: 'link' }
+                        { name: 'เพิ่มภาพยนตร์', state: '/movies/movie-add', type: 'link' },
+                        { name: 'เพิ่มประเภทภาพยนตร์', state: '/movies/movie-category', type: 'link' }
                     ]
                 },
             ]

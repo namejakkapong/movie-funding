@@ -25,6 +25,11 @@ const adminRoutes: Routes = [
     loadChildren: () => import('./views/users/users.module').then(m => m.UsersModule)
   },
   {
+    path: 'movies',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./views/movies/movies.module').then(m => m.MoviesModule)
+  },
+  {
     path: 'educations',
     loadChildren: () => import('./views/education/education.module').then(m => m.EducationModule)
   },

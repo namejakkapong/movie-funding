@@ -42,12 +42,7 @@ export class UserListComponent implements OnInit {
 	}
 
 	confirm(content) {
-		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', centered: true })
-		.result.then((result) => {
-		  this.confirmResut = `Closed with: ${result}`;
-		}, (reason) => {
-		  this.confirmResut = `Dismissed with: ${reason}`;
-		});
+		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', centered: true });
 	  }
 
 	filerData(val) {
