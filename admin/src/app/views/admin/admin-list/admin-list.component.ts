@@ -41,6 +41,13 @@ export class AdminListComponent implements OnInit {
     });
 
   }
+  getAdmins() {
+		this.adminService.index()
+		.subscribe(response => {
+		  this.admins = [...response.data];
+		});
+	}
+
 
   viewAdmin(id) {
     console.log(id);
@@ -49,4 +56,12 @@ export class AdminListComponent implements OnInit {
   view(color,size) {
     console.log(color +' ' + size);
   }
+
+
+  delete(id){
+    // console.log(1);
+    this.adminService.destroy(id);
+    this.getAdmins();
+  }
+
 }

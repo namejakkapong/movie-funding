@@ -1,0 +1,43 @@
+<div class="separator-breadcrumb border-top"></div>
+
+    <!-- MANAGE ACCOUNT -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-12">
+                <div class="card-body">
+                    <div class="card-title mb-3">เพิ่มข้อมูลการศึกษา</div>
+
+                    <form (submit)="onAddEducation(formEducation)" #formEducation="ngForm">
+                        <div class="row">
+                            <div class="col-md-6 form-group mb-3">
+                                <label>ปีที่จบการศึกษา</label>
+                                <input type="text" class="form-control form-control-rounded" name="graduation_year" ngModel placeholder="graduation year">
+                            </div>
+                            <div class="col-md-6 form-group mb-3">
+                                <label for="lastName">ระดับการศึกษา</label>
+                                <input type="text" class="form-control form-control-rounded" name="level" ngModel placeholder="level">
+                            </div>
+                            <div class="col-md-6 form-group mb-3">
+                                <label for="lastName">สาขาวิชา/วิชาเอก/สารการศึกษา</label>
+                                <input type="text" class="form-control form-control-rounded" name="subject" ngModel placeholder="subject">
+                            </div>
+                            <div class="col-md-6 form-group mb-3">
+                                <label for="lastName">คณะ(เว้นว่างได้)</label>
+                                <input type="text" class="form-control form-control-rounded" name="faculty" ngModel placeholder="faculty">
+                            </div>
+                            <div class="col-md-6 form-group mb-3">
+                                <label for="lastName">โรงเรียน/สถานศึกษา</label>
+                                <input type="text" class="form-control form-control-rounded" name="school" ngModel placeholder="school">
+                            </div>
+                            <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary btn-block" >บันทึกข้อมูล</button>
+                            </div>
+                        </div>
+
+                        
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
