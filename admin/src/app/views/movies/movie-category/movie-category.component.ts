@@ -20,6 +20,10 @@ export class MovieCategoryComponent implements OnInit {
      form.reset();
   }
 
+  onEditCategory(form :NgForm) {
+    console.log(form.value);
+ }
+
   confirm(content) {
 		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', centered: true });
 	  }
