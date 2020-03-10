@@ -4,8 +4,8 @@
         <ul>
             <li><a href="">ผู้ใช้งาน</a></li>
             <!-- <li>Creator & Fundraiser</li> -->
-            <!-- <li><a href="">นักลงทุน & นักสร้างภาพยนตร์</a></li> -->
-            <li>{{user?.name}}</li>
+            <li><a href="">นักลงทุน & นักสร้างภาพยนตร์</a></li>
+            <li>ชื่อผู้ใช้งาน</li>
         </ul>
     </div>
     <div class="separator-breadcrumb border-top"></div>
@@ -47,7 +47,7 @@
                             <div class="col-md-4 col-6">
                                 <div class="mb-4">
                                     <p class="text-primary mb-1"><i class="i-Email text-16 mr-1"></i> อีเมล</p>
-                                    <span>{{user?.email}}</span>
+                                    <span>example@ui-lib.com</span>
                                 </div>
                                 <div class="mb-4">
                                     <p class="text-primary mb-1"><i class="i-Telephone text-16 mr-1"></i> เบอร์โทรศัพท์</p>
@@ -267,10 +267,49 @@
     <p>ปีที่ออกจากงาน : {{experience.end_year}}</p>
     <p>ตำแหน่ง : {{experience.position}}</p>
     <p>ที่ทำงาน : {{experience.workplace}}</p>
+    <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0" (click)="deleteWork(user?.id, experience.id)">ลบ</button>
+    <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0" (click)="open(modalEditExperience)">แก้ไข</button>
                 </div>
             </div>
         </div>
     </div>
+    <!-- MODEL CROPPER --------------------------------------------------------------------------------------------------------------->
+<ng-template #modalEditExperience let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">แก้ไขข้อมูลประสบการณ์ทำงาน</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form (submit)="editExperience(formExperience,experience.id)" #formExperience="ngForm">
+    <div class="modal-body">
+            <p>{{experience.id}}</p>
+            <div class="row">
+                <div class="col-md-6 form-group mb-3">
+                    <label>ปีที่เริ่มทำงาน</label>
+                    <input type="text" class="form-control form-control-rounded" name="start_year" ngModel="{{experience.start_year}}" #yearInput="ngModel" required placeholder="start year">
+                </div>
+                <div class="col-md-6 form-group mb-3">
+                    <label>ปีที่ออกจากงาน</label>
+                    <input type="text" class="form-control form-control-rounded" name="end_year" ngModel="{{experience.end_year}}" #levelInput="ngModel" required placeholder="level">
+                </div>
+                <div class="col-md-6 form-group mb-3">
+                    <label>ตำแหน่ง</label>
+                    <input type="text" class="form-control form-control-rounded" name="position" ngModel="{{experience.position}}" #subjectInput="ngModel" required placeholder="position">
+                </div>
+                <div class="col-md-6 form-group mb-3">
+                    <label>ที่ทำงาน</label>
+                    <input type="text" class="form-control form-control-rounded" name="workplace" ngModel="{{experience.workplace}}" #facultyInput="ngModel" required placeholder="workplace">
+                </div>
+        
+            </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary btn-block" >บันทึกข้อมูล</button>
+      <!-- <button type="submit" class="btn btn-primary btn-block" >บันทึกข้อมูล</button> -->
+        
+    </div>
+</form>
+  </ng-template>
+  <!-- MODEL CROPPER --------------------------------------------------------------------------------------------------------------->
 </div>
-
-

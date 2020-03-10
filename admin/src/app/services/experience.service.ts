@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from './../../environments/environment.prod';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 const BACKEND_URL = environment.apiUrl;
 
@@ -10,7 +11,7 @@ const BACKEND_URL = environment.apiUrl;
 })
 export class ExperienceService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private modalService: NgbModal) { }
 
   index(id: string)
   {
@@ -29,6 +30,25 @@ export class ExperienceService {
     };
     this.http.post<{data: any}>(BACKEND_URL + '/users/'+ id + '/experience', data)
     .subscribe(response => {
+      console.log(response.data);
+    });
+  }
+
+  update(education_id: string , user_id: string,start_year: string,end_year: string,position: string,workplace: string)
+  {
+    console.log(education_id);
+    console.log(user_id);
+    console.log(start_year,end_year,position,workplace);
+    this.modalService.dismissAll();
+   
+  }
+
+  destroy(user_id : string, experience_id: string)
+  {
+    // console.log(user_id);
+    // console.log(experience_id);
+     
+    this.http.delete<{data: any}>(BACKEND_URL + '/users/'+ user_id +'/experience/' + experience_id).subscribe(response=>{
       console.log(response.data);
     });
   }
