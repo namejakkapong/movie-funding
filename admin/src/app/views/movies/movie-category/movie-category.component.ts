@@ -10,23 +10,23 @@ import { CategorieService } from 'src/app/services/categorie.service';
 })
 export class MovieCategoryComponent implements OnInit {
   
-  constructor(private categorieSevice: CategorieService, private modalService: NgbModal) { }
+  constructor(private categorieService: CategorieService, private modalService: NgbModal) { }
 
   ngOnInit() {
-
+    this.categorieService.index()
   }
 
   onAddCategory(form :NgForm) {
-     this.categorieSevice.store(form.value.name, form.value.eng);
+     this.categorieService.store(form.value.name, form.value.eng);
   }
 
   onEditCategory(form :NgForm) {
-    this.categorieSevice.update(form.value.name, form.value.eng);
+    this.categorieService.update(form.value.name, form.value.eng);
  }
 
  deleteCat(id){
   // console.log(1);
-  this.categorieSevice.destroy(id);
+  this.categorieService.destroy(id);
   
   }
 
