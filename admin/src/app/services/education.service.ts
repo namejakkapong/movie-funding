@@ -36,10 +36,18 @@ export class EducationService {
 
   update(education_id: string , user_id: string, graduation_year: string, level: string, subject: string, faculty: string, school: string)
   {
-    console.log(education_id);
-    console.log(user_id);
-    console.log(graduation_year,level,subject,faculty,school);
-    this.modalService.dismissAll();
+    const data = {
+      graduation_year: graduation_year,
+      level: level,
+      subject: subject,
+      faculty: faculty,
+      school: school,
+    };
+    this.http.patch<{data: any}>(BACKEND_URL + '/users/'+ user_id + '/educations/'+ education_id, data)
+    .subscribe(response => {
+      console.log(response.data);
+      this.modalService.dismissAll();
+    });
    
   }
 
