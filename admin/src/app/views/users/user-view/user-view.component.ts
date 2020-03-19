@@ -90,7 +90,11 @@ export class UserViewComponent implements OnInit {
     //  console.log(this.id);
     //  console.log(experience_id);
     this.experienceService.update(experience_id,this.id,form.value.start_year, form.value.end_year, form.value.position, form.value.workplace);
+<<<<<<< HEAD
     this.getExperience(this.id);
+=======
+    
+>>>>>>> 69799417e65699bb1b01876cc23ff2cf9b9407fc
     //this.modalService.dismissAll();
   }
 

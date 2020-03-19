@@ -34,6 +34,7 @@ export class ExperienceService {
     });
   }
 
+<<<<<<< HEAD
   update(experience_id: string , user_id: string,start_year: string,end_year: string,position: string,workplace: string)
   {
     const data = {
@@ -48,6 +49,15 @@ export class ExperienceService {
       console.log(response.data);
       this.modalService.dismissAll();
     });
+=======
+  update(education_id: string , user_id: string,start_year: string,end_year: string,position: string,workplace: string)
+  {
+    console.log(education_id);
+    console.log(user_id);
+    console.log(start_year,end_year,position,workplace);
+    this.modalService.dismissAll();
+   
+>>>>>>> 69799417e65699bb1b01876cc23ff2cf9b9407fc
   }
 
   destroy(user_id : string, experience_id: string)
@@ -59,4 +69,8 @@ export class ExperienceService {
       console.log(response.data);
     });
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 69799417e65699bb1b01876cc23ff2cf9b9407fc

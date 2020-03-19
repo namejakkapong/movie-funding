@@ -11,6 +11,7 @@ import { CategorieService } from 'src/app/services/categorie.service';
 export class MovieCategoryComponent implements OnInit {
   categories: any;
   
+<<<<<<< HEAD
 
   
   constructor(private categorieService: CategorieService, private modalService: NgbModal) { }
@@ -48,6 +49,27 @@ export class MovieCategoryComponent implements OnInit {
     this.getCategorie();
     
     }
+=======
+  constructor(private categorieService: CategorieService, private modalService: NgbModal) { }
+
+  ngOnInit() {
+    this.categorieService.index()
+  }
+
+  onAddCategory(form :NgForm) {
+     this.categorieService.store(form.value.name, form.value.eng);
+  }
+
+  onEditCategory(form :NgForm) {
+    this.categorieService.update(form.value.name, form.value.eng);
+ }
+
+ deleteCat(id){
+  // console.log(1);
+  this.categorieService.destroy(id);
+  
+  }
+>>>>>>> 69799417e65699bb1b01876cc23ff2cf9b9407fc
 
   confirm(content) {
 		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', centered: true });
