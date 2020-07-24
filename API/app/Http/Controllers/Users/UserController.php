@@ -69,7 +69,6 @@ class UserController extends ApiController
         return $this->showOneTransform("insert data user complete" , $user , 200);
     }
 
-
     /**
      * Update the specified resource in storage.
      *
