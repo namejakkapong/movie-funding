@@ -19,7 +19,7 @@ class CreateMoviesTable extends Migration
             $table->string('name', 50);
             $table->string('name_eng', 50);
             $table->longText('details')->nullable();
-            $table->string('descripton', 200);
+            $table->string('description', 200);
             $table->decimal('total', 9,2);
             $table->enum('status',['on','off'])->default('off');
             $table->date('start');

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Movie;
 use App\Movie;
 use App\User;
 use App\Category;
-use App\Http\Controllers\Movie\MovieController;
+// use App\Http\Controllers\Movie\MovieController;
 use App\Http\Controllers\ApiController;
 use Illuminate\Http\Request;
 
@@ -38,18 +38,22 @@ class MovieController extends ApiController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(User $user, Category $categories, Request $request)
+    public function store(Request $request)
     {
-        $movies = new Movie([
-            'user_id' => $user->id,
-            'category_id' => $categories->id,
+        $movie = new Movie([
+            'category_id' => $request->category_id,
             'name' => $request->name,
-            'concept' => $request->concept,
-            'resume' => $request->resume,
-            'expenditure' => $request->expenditure
+            'name_eng' => $request->name_eng,
+            'details' => $request->details,
+            'description' => $request->description,
+            'total' => $request->total, 
+            'status' => $request->status,
+            'start' => $request->start,
+            'end' => $request->end
+            
         ]);
-        $movies->save();
-        return $this->showOneTransform("insert data work complete" , $movies, 200);
+        $movie->save();
+        return $movie;
     }
 
     /**
@@ -83,7 +87,7 @@ class MovieController extends ApiController
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**

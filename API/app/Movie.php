@@ -4,6 +4,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Transformers\EducationTransformer;
 
 class Movie extends Model
 {
@@ -13,7 +14,8 @@ class Movie extends Model
         'name',
         'name_eng',
         'details',
-        'descripton',
+        'description',
+        'total',
         'status',
         'start',
         'end'
