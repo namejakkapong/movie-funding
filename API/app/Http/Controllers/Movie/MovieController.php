@@ -64,7 +64,7 @@ class MovieController extends ApiController
      */
     public function show($id)
     {
-        //return $id; (   1. รับ id เข้ามา เพื่อเช็คว่าตรงกับ id ที่เราจะแสดง )
+        //return $id; (1. รับ id เข้ามา เพื่อเช็คว่าตรงกับ id ที่เราจะแสดง)
         $movies = Movie::where('id', $id)->firstOrFail();
         return $movies;
     }
@@ -89,9 +89,9 @@ class MovieController extends ApiController
      */
     public function update(Request $request, $id)
     {
-        //return $id; (   1. รับ id เข้ามา เพื่อเช็คว่าตรงกับ id ที่เราจะแก้ไขรึป่าว )
-        //return $request; (  3.  รับข้อมูลที่กรอกเข้ามา เพื่อเช็คว่าตรงกับ ข้อมูล ตาม database )
-        $movie = Movie::where('id', $id)->firstOrFail(); //2.  เอา id ที่รับเข้ามาเทียบกับ $id ของ Movie
+        //return $id; (1. รับ id เข้ามา เพื่อเช็คว่าตรงกับ id ที่เราจะแก้ไขรึป่าว)
+        //return $request; (3.  รับข้อมูลที่กรอกเข้ามา เพื่อเช็คว่าตรงกับ ข้อมูล ตาม database)
+        $movie = Movie::where('id', $id)->firstOrFail(); //(2.  เอา id ที่รับเข้ามาเทียบกับ $id ของ Movie)
         $movie->name = $request->name;
         $movie->name_eng = $request->name_eng;
         $movie->details = $request->details;
