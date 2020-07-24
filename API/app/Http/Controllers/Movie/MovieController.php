@@ -64,7 +64,9 @@ class MovieController extends ApiController
      */
     public function show($id)
     {
-        //
+        return $id; //(   1. รับ id เข้ามา เพื่อเช็คว่าตรงกับ id ที่เราจะแสดง )
+        $movie = Movie::where('id', $id)->firstOrFail();
+        return $movie;
     }
 
     /**
@@ -110,6 +112,10 @@ class MovieController extends ApiController
      */
     public function destroy($id)
     {
-        //
+        //return $id; (   1. รับ id เข้ามา เพื่อเช็คว่าตรงกับ id ที่เราจะลบรึป่าว )
+        
+        $movie = Movie::where('id', $id)->firstOrFail();
+        $movie->delete();
+        return $movie;
     }
 }
