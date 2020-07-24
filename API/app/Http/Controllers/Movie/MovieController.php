@@ -64,9 +64,9 @@ class MovieController extends ApiController
      */
     public function show($id)
     {
-        return $id; //(   1. รับ id เข้ามา เพื่อเช็คว่าตรงกับ id ที่เราจะแสดง )
-        $movie = Movie::where('id', $id)->firstOrFail();
-        return $movie;
+        //return $id; (   1. รับ id เข้ามา เพื่อเช็คว่าตรงกับ id ที่เราจะแสดง )
+        $movies = Movie::where('id', $id)->firstOrFail();
+        return $movies;
     }
 
     /**
