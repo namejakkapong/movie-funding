@@ -8,7 +8,13 @@ const BACKEND_URL = environment.apiUrl;
   providedIn: 'root'
 })
 export class ExperienceService {
+<<<<<<< HEAD
   constructor(private http: HttpClient, private modalService: NgbModal) { }
+=======
+
+  constructor(private http: HttpClient, private modalService: NgbModal) { }
+
+>>>>>>> de034fb6bff5a8bc489075e68690cd86f4f4cfc8
   index(id: string)
   {
     return this.http.get<{data: any}>(BACKEND_URL + '/users/'+ id +'/experience');
@@ -27,6 +33,7 @@ export class ExperienceService {
       console.log(response.data);
     });
   }
+<<<<<<< HEAD
   update(education_id: string , user_id: string,start_year: string,end_year: string,position: string,workplace: string)
   {
     console.log(education_id);
@@ -38,8 +45,44 @@ export class ExperienceService {
   {
     // console.log(user_id);
     // console.log(experience_id);
+=======
+
+  update(experience_id: string , user_id: string,start_year: string,end_year: string,position: string,workplace: string)
+  {
+    const data = {
+      start_year: start_year,
+      end_year: end_year,
+      position: position,
+      workplace: workplace,
+      
+    };
+    this.http.patch<{data: any}>(BACKEND_URL + '/users/'+ user_id + '/experience/'+ experience_id, data)
+    .subscribe(response => {
+      console.log(response.data);
+      this.modalService.dismissAll();
+    });
+  
+  {
+   
+    console.log(user_id);
+    console.log(start_year,end_year,position,workplace);
+    this.modalService.dismissAll();
+   
+  }
+
+
+  {
+    // console.log(user_id);
+    // console.log(experience_id);
+     
+>>>>>>> de034fb6bff5a8bc489075e68690cd86f4f4cfc8
     this.http.delete<{data: any}>(BACKEND_URL + '/users/'+ user_id +'/experience/' + experience_id).subscribe(response=>{
       console.log(response.data);
     });
   }
+<<<<<<< HEAD
 }
+=======
+}
+}
+>>>>>>> de034fb6bff5a8bc489075e68690cd86f4f4cfc8

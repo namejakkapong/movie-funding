@@ -22,7 +22,7 @@ export class UserService {
     //BACKEND_URL = http://localhost:8000/api/admins/2
   }
 
-  store(name: string, email: string, password: string, password_confirmation)
+  store(name: string, email: string, password: string, password_confirmation,selectFileCover:any)
   {
     // BACKEND_URL = http://localhost:8000/api/admins , method POST
     const data = {
@@ -30,6 +30,7 @@ export class UserService {
       email: email,
       password: password,
       password_confirmation: password_confirmation,
+      profile_picture: selectFileCover,
     };
     this.http.post<{data: any}>(BACKEND_URL + '/users', data)
     .subscribe(response => {

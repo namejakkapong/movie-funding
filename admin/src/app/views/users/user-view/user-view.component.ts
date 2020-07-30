@@ -34,22 +34,29 @@ export class UserViewComponent implements OnInit {
           this.user = response.data;
           console.log(this.user);
         });
-        this.educationService.index(this.id)
-        .subscribe(response => {
-          this.educations = response.data;
-          console.log(this.educations);
-        });
-        this.experienceService.index(this.id)
-        .subscribe(response => {
-          this.experiences = response.data;
-          console.log(this.experiences);
-        });
+        this.getEducation(this.id);
+        this.getExperience(this.id);
+       
       }
     });
 
 
   }
-  
+  getEducation(id){
+    this.educationService.index(id)
+        .subscribe(response => {
+          this.educations = response.data;
+          console.log(this.educations);
+        });
+  }
+
+  getExperience(id){
+    this.experienceService.index(id)
+    .subscribe(response => {
+      this.experiences = response.data;
+      console.log(this.experiences);
+    });
+  }
   addEducation(id) {
     // console.log(id);
     this.router.navigate(['educations/add/' + id]);
@@ -67,7 +74,11 @@ export class UserViewComponent implements OnInit {
 
   deleteWork(user_id , experience_id) {
     //console.log(user_id + experience_id);
+<<<<<<< HEAD
     this.experienceService.destroy(user_id , experience_id);
+=======
+    // this.experienceService.destroy(user_id , experience_id);
+>>>>>>> de034fb6bff5a8bc489075e68690cd86f4f4cfc8
     
   }
 
@@ -75,7 +86,7 @@ export class UserViewComponent implements OnInit {
     // console.log(this.id);
     // console.log(education_id);
     this.educationService.update(education_id,this.id,form.value.graduation_year, form.value.level, form.value.subject, form.value.faculty, form.value.school);
-    
+    this.getEducation(this.id);
     // this.modalService.dismissAll();
   }
 
