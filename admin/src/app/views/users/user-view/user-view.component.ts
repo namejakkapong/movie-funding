@@ -74,11 +74,7 @@ export class UserViewComponent implements OnInit {
 
   deleteWork(user_id , experience_id) {
     //console.log(user_id + experience_id);
-<<<<<<< HEAD
-    this.experienceService.destroy(user_id , experience_id);
-=======
     // this.experienceService.destroy(user_id , experience_id);
->>>>>>> de034fb6bff5a8bc489075e68690cd86f4f4cfc8
     
   }
 

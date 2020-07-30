@@ -18,6 +18,7 @@ class Movie extends Model
         'total',
         'status',
         'start',
-        'end'
+        'end',
+        'movie_image'
     ];
 }
