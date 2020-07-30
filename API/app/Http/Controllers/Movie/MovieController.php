@@ -48,7 +48,7 @@ class MovieController extends ApiController
             $image = str_replace('data:image/gif;base64,', '', $image);
 	        $image = str_replace(' ', '+', $image);
 	        $imageName = md5(rand()*time()).'.'.'png';
-	        \File::put(public_path(). '/images/profile/' . $imageName, base64_decode($image));
+	        \File::put(public_path(). '/images/movie/' . $imageName, base64_decode($image));
 
             
         }else{
@@ -144,10 +144,10 @@ class MovieController extends ApiController
             $ext = base64ext($request->image_cover);
             $image = str_replace(' ', '+', $image[1]);
             $imageName = md5(rand()*time()).'.'.$ext;
-            \File::put(public_path(). '/images/cover/' . $imageName, base64_decode($image));
+            \File::put(public_path(). '/images/movie/' . $imageName, base64_decode($image));
 
             if ($movie->image_cover != '') {
-                @unlink(public_path().'/images/cover/'.$movie->image_cover);
+                @unlink(public_path().'/images/movie/'.$movie->image_cover);
             }
             $movie->image_cover = $imageName;
             $movie->save();
