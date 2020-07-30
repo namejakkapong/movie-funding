@@ -54,7 +54,7 @@ export class AdminListComponent implements OnInit {
   }
 
   view(color,size) {
-    console.log(color +' ' + size);
+    console.log(color +' '+ size);
   }
 
 

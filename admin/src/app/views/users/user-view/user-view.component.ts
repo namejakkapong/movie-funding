@@ -65,6 +65,12 @@ export class UserViewComponent implements OnInit {
     
   }
 
+  deleteWork(user_id , experience_id) {
+    //console.log(user_id + experience_id);
+    this.experienceService.destroy(user_id , experience_id);
+    
+  }
+
   editEducation(form: NgForm,education_id: string) {
     // console.log(this.id);
     // console.log(education_id);
@@ -72,6 +78,15 @@ export class UserViewComponent implements OnInit {
     
     // this.modalService.dismissAll();
   }
+
+  editExperience(form: NgForm,experience_id: string) {
+    //  console.log(this.id);
+    //  console.log(experience_id);
+    this.experienceService.update(experience_id,this.id,form.value.start_year, form.value.end_year, form.value.position, form.value.workplace);
+    
+    //this.modalService.dismissAll();
+  }
+
 
   open(modal) {
     this.modalService.open(modal, { ariaLabelledBy: 'modal-basic-title' })

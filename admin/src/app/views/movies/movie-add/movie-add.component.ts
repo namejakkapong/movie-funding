@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { id } from '@swimlane/ngx-datatable/release/utils';
 
 @Component({
   selector: 'app-movie-add',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieAddComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+
+  }
 
   ngOnInit() {
   }
 
+  onAddMovie(form: NgForm){
+    console.log(form.form.value);
+  }
+
+
 }
+
+
+

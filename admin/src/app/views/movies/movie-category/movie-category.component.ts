@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CategorieService } from '../../../services/categorie.service'
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-movie-category',
@@ -8,15 +10,19 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./movie-category.component.scss']
 })
 export class MovieCategoryComponent implements OnInit {
-  
-  constructor(private modalService: NgbModal) { }
+  confirmResut;
+  public admins: any;
+
+  constructor(private categorieService: CategorieService, private modalService: NgbModal) {
+   }
 
   ngOnInit() {
 
   }
 
   onAddCategory(form :NgForm) {
-     console.log(form.value);
+    //  console.log(form.value);
+this.categorieService.store(form.value.name, form.value.eng);
      form.reset();
   }
 
@@ -26,6 +32,13 @@ export class MovieCategoryComponent implements OnInit {
 
   confirm(content) {
 		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', centered: true });
-	  }
+    }
+    
 
-}
+  deleteCat(id){
+    // console.log(1);
+    this.categorieService.destroy(id);
+    
+    }
+
+  }

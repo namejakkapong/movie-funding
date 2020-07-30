@@ -12,6 +12,7 @@ import { MovieCategoryComponent } from './movie-category/movie-category.componen
 import { MovieAddComponent } from './movie-add/movie-add.component';
 
 
+
 @NgModule({
   declarations: [MovieListComponent, MovieCategoryComponent, MovieAddComponent],
   imports: [
@@ -21,7 +22,8 @@ import { MovieAddComponent } from './movie-add/movie-add.component';
     ReactiveFormsModule,
     NgbModule,
     NgxDatatableModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule
   ]
 })
 export class MoviesModule { }
