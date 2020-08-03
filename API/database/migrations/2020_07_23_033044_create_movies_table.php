@@ -24,6 +24,7 @@ class CreateMoviesTable extends Migration
             $table->enum('status',['on','off'])->default('off');
             $table->date('start');
             $table->date('end');
+            $table->string('movie_image')->nullable();
             $table->timestamps();
             $table->foreign('category_id')
             ->references('id')->on('categories')

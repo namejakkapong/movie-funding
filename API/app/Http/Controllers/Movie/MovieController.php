@@ -40,6 +40,21 @@ class MovieController extends ApiController
      */
     public function store(Request $request)
     {
+        if ($request->movie_image) {
+            $image = $request->movie_image;  // your base64 encoded
+            $image = str_replace('data:image/png;base64,', '', $image);
+            $image = str_replace('data:image/jpg;base64,', '', $image);
+            $image = str_replace('data:image/jpeg;base64,', '', $image);
+            $image = str_replace('data:image/gif;base64,', '', $image);
+	        $image = str_replace(' ', '+', $image);
+	        $imageName = md5(rand()*time()).'.'.'png';
+	        \File::put(public_path(). '/images/movie/' . $imageName, base64_decode($image));
+
+            
+        }else{
+            $imageName ='';
+        }
+
         $movie = new Movie([
             'category_id' => $request->category_id,
             'name' => $request->name,
@@ -49,7 +64,8 @@ class MovieController extends ApiController
             'total' => $request->total, 
             'status' => $request->status,
             'start' => $request->start,
-            'end' => $request->end
+            'end' => $request->end,
+            'movie_image' => $imageName
             
         ]);
         $movie->save();
@@ -117,6 +133,26 @@ class MovieController extends ApiController
         $movie = Movie::where('id', $id)->firstOrFail();
         $movie->delete();
         return $movie;
+    }
+
+    public function uploadImageCover(Request $request)
+    {
+        $movie = Movie::find($request->movie()->id);
+        if ($request->image_cover) {
+            $image = $request->image_cover;
+            $image = explode(',', $image);
+            $ext = base64ext($request->image_cover);
+            $image = str_replace(' ', '+', $image[1]);
+            $imageName = md5(rand()*time()).'.'.$ext;
+            \File::put(public_path(). '/images/movie/' . $imageName, base64_decode($image));
+
+            if ($movie->image_cover != '') {
+                @unlink(public_path().'/images/movie/'.$movie->image_cover);
+            }
+            $movie->image_cover = $imageName;
+            $movie->save();
+        }
+        
     }
 
 }
