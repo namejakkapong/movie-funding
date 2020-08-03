@@ -1,0 +1,130 @@
+<div  class="">
+    <div class="breadcrumb">
+        <h1>ภาพยนตร์</h1>
+        <ul>
+            <li><a href="">ภาพยนตร์</a></li>
+            <li>เพิ่มข้อมูล</li>
+        </ul>
+    </div>
+    
+    <div class="separator-breadcrumb border-top"></div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="card-title mb-3">เพิ่มข้อมูล ภาพยนตร์</div>
+                   
+                   <form (submit)="onAddMovie(formMovie)" #formMovie="ngForm">
+                    <!-- <form (submit)="onTest('31')"> -->
+                       
+                            <!-- <div class="col-md-6 form-group mb-3">
+                                <label for="firstName">ชื่อภาษาไทย</label>
+                                <input type="text" class="form-control" name="name" placeholder="ชื่อภาษาไทย">
+                            </div>
+
+                            <div class="col-md-6 form-group mb-3">
+                                <label for="firstName">ชื่อภาษาอังกฤษ</label>
+                                <input type="text" class="form-control" name="name_eng" placeholder="ชื่อภาษาอังกฤษ">
+                            </div>
+
+                        <div class="col-md-6 form-group mb-3">
+                            <label for="lastName">รายละเอียด</label>
+                            <textarea class="form-control" name="detail" rows="10" placeholder="รายละเอียด"></textarea>
+                        </div>
+
+                        <div class="col-md-6 form-group mb-3">
+                            <label for="lastName">ลักษณะ</label>
+                            <input type="text" class="form-control" id="description" placeholder="ลักษณะ">
+                        </div>
+
+                        <div class="col-md-6 form-group mb-3">
+                            <label for="lastName">ทั้งหมด</label>
+                            <input type="text" class="form-control" id="total" placeholder="ยอดระดมทุน">
+                        </div>
+
+                        <div class="col-md-6 form-group mb-3">
+                            <label for="lastName">สถานะ</label>
+                            <input type="text" class="form-control" id="status" placeholder="สถานะ">
+                        </div>
+
+                        <label> อัพโหลด รูปภาพ</label>
+                        <div class="col-md-6 form-group mb-3">
+                            <input type="file" class="custom-file-input" id="customfile" name="image">
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div> -->
+
+                        <div class="col-md-12 form-group mb-3">
+                            <label>ชื่อภาษาไทย</label>
+                            <input type="text" class="form-control form-control-rounded" name="name" ngModel placeholder="ชื่อภาษาไทย">
+                        </div>
+
+                        <div class="col-md-12 form-group mb-3">
+                            <label>ชื่อภาษาอังกฤษ</label>
+                            <input type="text" class="form-control form-control-rounded" name="name_eng" ngModel placeholder="ชื่อภาษาอังกฤษ">
+                        </div>
+
+                        <div class="col-md-12 form-group mb-3">
+                            <label>แนวคิด</label>
+                            <textarea class="form-control" name="detail" rows="10" ngModel placeholder="แนวคิด"></textarea>
+                        </div>
+
+                        <div class="col-md-12 form-group mb-3">
+                            <label>ลักษณะ</label>
+                            <input type="text" class="form-control form-control-rounded" name="description" ngModel placeholder="ลักษณะ">
+                        </div>
+
+                        <div class="col-md-12 form-group mb-3">
+                            <label>ยอดระดมทุน</label>
+                            <input type="text" class="form-control form-control-rounded" name="total" ngModel placeholder="ยอดระดมทุน">
+                        </div>
+
+                        <div class="col-md-12 form-group mb-3">
+                            <label>สถานะ</label>
+                            <input type="text" class="form-control form-control-rounded" name="status" ngModel placeholder="สถานะ">
+                        </div>
+                        
+                        <label> อัพโหลด รูปภาพ</label>
+                        <div class="col-md-6 form-group mb-3">
+                            <input type="file" class="custom-file-input" id="customfile" name="image">
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+
+                            
+
+           
+                        <!-- <div class="col-md-6 form-group mb-3">
+                            <label for="picker1">เริ่มโปรเจค</label><i class="i-Film"></i>
+                            <div class="input-group">
+                                <input name="start" class="form-control" placeholder="yyyy-mm-dd"
+                                    ngbDatepicker #dp="ngbDatepicker">
+                                <div class="input-group-append">
+                                    <button class="btn btn-secondary" (click)="dp.toggle()" type="button">
+                                        <i class="icon-regular i-Calendar-4"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 form-group mb-3">
+                            <label for="picker1">เริ่มโปรเจค</label><i class="i-Film"></i>
+                            <div class="input-group">
+                                <input name="end" class="form-control" placeholder="yyyy-mm-dd"
+                                    ngbDatepicker #dp="ngbDatepicker">
+                                <div class="input-group-append">
+                                    <button class="btn btn-secondary" (click)="dp.toggle()" type="button">
+                                        <i class="icon-regular i-Calendar-4"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div> -->
+                        
+                        <!-- <button type="submit" class="btn btn-primary btn-rounded m-1">submit</button> -->
+                       <button type="submit" class="btn btn-primary  ">เพิ่มข้อมูล</button>
+                       
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

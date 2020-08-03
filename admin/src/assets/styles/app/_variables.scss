@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'Anuphan';
+    src: url('./fonts/anuphan-light-webfont.eot');
+    src: url('./fonts/anuphan-light-webfont.eot#iefix') format('embedded-opentype'),
+         url('./fonts/anuphan-light-webfont.woff2') format('woff2'),
+         url('./fonts/anuphan-light-webfont.woff') format('woff'),
+         url('./fonts/anuphan-light-webfont.ttf') format('truetype'),
+         url('./fonts/anuphan-light-webfont.svg#Anuphan') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+// $font-family-heading: 'Nunito', sans-serif;
+// $font-family-base: 'Nunito', sans-serif;
+$font-family-heading: 'Anuphan', sans-serif;
+$font-family-base: 'Anuphan', sans-serif;
+$font-size-base: .813rem;
+
+
+// // LAYOUT VARS
+// $topbar-height: 80px;
+// $topbar-height-mobile: 70px;
+
+// $sidebar-left-width: 120px;
+// $sidebar-left-width-mobile: 90px;
+// $sidebar-left-secondary-width: 220px;
+// $sidebar-left-secondary-width-mobile: 190px;
+// $side-clearance: 20px;
+
+// GLOBAL COLORS
+$facebook: rgb(55, 101, 201);
+$google: rgb(236, 65, 44);
+$twitter: rgb(3, 159, 245);
