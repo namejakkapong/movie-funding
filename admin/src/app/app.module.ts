@@ -16,6 +16,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './views/home/home.component';
 import { AuthInterceptor } from './auth/auth-interceptor';
 
+
 @NgModule({
   declarations: [
     AppComponent,

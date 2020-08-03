@@ -47,20 +47,11 @@
                 <div class="d-flex border-bottom justify-content-between p-3" *ngFor="let categorie of categories" >
                     <div class="flex-grow-1">
                         <span class="text-small text-muted">ประเภทภาพยนตร์</span>
-<<<<<<< HEAD
-                        <h5 class="m-0">{{ categorie?.name }}</h5>  
-                         
-                    </div>
-                    <div class="flex-grow-1">
-                        <span class="text-small text-muted">ภาษาอังกฤษ</span>
-                        <h5 class="m-0">{{ categorie?.eng }}</h5>
-=======
                         <h5 class="m-0">{{ categories?.name }}</h5>
                     </div>
                     <div class="flex-grow-1">
                         <span class="text-small text-muted">ภาษาอังกฤษ</span>
                         <h5 class="m-0">{{ categories?.eng }}</h5>
->>>>>>> 69799417e65699bb1b01876cc23ff2cf9b9407fc
                     </div>
                     
                     <div class="flex-grow-1">
@@ -97,27 +88,21 @@
                         <div class="modal-body">
                                 <div class="form-group">
                                     <label for="lastName">ชื่อประเภทภาพยนตร์</label>
-<<<<<<< HEAD
                                     <input type="text" class="form-control form-control-rounded" name="name" ngModel #categoryInput="ngModel" required placeholder="e.g. แอคชั่น">
                                 </div>
                                 <div class="form-group">
                                     <label for="lastName">ชื่อประเภทภาพยนตร์ (ภาษาอังกฤษ)</label>
                                     <input type="text" class="form-control form-control-rounded" name="eng" ngModel #categoryLanguageInput="ngModel" required placeholder="e.g. Action">
-=======
-<<<<<<< HEAD
                                     <input type="text" class="form-control form-control-rounded" name="name" ngModel="{{categorie.name}}" #categoryInput="ngModel" required placeholder="e.g. แอคชั่น">
                                 </div>
                                 <div class="form-group">
                                     <label for="lastName">ชื่อประเภทภาพยนตร์ (ภาษาอังกฤษ)</label>
                                     <input type="text" class="form-control form-control-rounded" name="eng" ngModel="{{categorie.eng}}" #categoryLanguageInput="ngModel" required placeholder="e.g. Action">
-=======
                                     <input type="text" class="form-control form-control-rounded" name="name" ngModel #categoryInput="ngModel" required placeholder="e.g. แอคชั่น">
                                 </div>
                                 <div class="form-group">
                                     <label for="lastName">ชื่อประเภทภาพยนตร์ (ภาษาอังกฤษ)</label>
                                     <input type="text" class="form-control form-control-rounded" name="eng" ngModel #categoryLanguageInput="ngModel" required placeholder="e.g. Action">
->>>>>>> 69799417e65699bb1b01876cc23ff2cf9b9407fc
->>>>>>> de034fb6bff5a8bc489075e68690cd86f4f4cfc8
                                 </div>
                         </div>
                         <div class="modal-footer">
@@ -137,15 +122,10 @@
                         </div>
                         <div class="modal-footer border-top-0">
                         <button type="button" class="btn btn-light btn-rounded" (click)="modal.dismiss()">ยกเลิก</button>
-<<<<<<< HEAD
                         <button type="button" ngbAutofocus class="btn btn-danger btn-rounded" (click)="modal.close()" (click)="deleteCat(categories.id)">ยืนยัน</button>
-=======
-<<<<<<< HEAD
                         <button type="button" ngbAutofocus class="btn btn-danger btn-rounded" (click)="modal.close()" (click)="deleteCat(categorie.id)">ยืนยัน</button>
-=======
+
                         <button type="button" ngbAutofocus class="btn btn-danger btn-rounded" (click)="modal.close()" (click)="deleteCat(categories.id)">ยืนยัน</button>
->>>>>>> 69799417e65699bb1b01876cc23ff2cf9b9407fc
->>>>>>> de034fb6bff5a8bc489075e68690cd86f4f4cfc8
                         </div>
                     </ng-template> 
 

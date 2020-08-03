@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieAddComponent } from './movie-add/movie-add.component';
 import { MovieCategoryComponent } from './movie-category/movie-category.component';
+import { MovieViewComponent } from './movie-view/movie-view.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,12 @@ const routes: Routes = [
   {
     path: 'movie-category',
     component: MovieCategoryComponent
-  }
+  },
+  {
+    path: 'detail',
+    component: MovieViewComponent
+  },
+
 ];
 
 @NgModule({
