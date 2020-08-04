@@ -8,12 +8,12 @@ class Verification extends Model
 {
     protected $fillable = [
         'user_id',
-        'card_number',
-        'passport_number',
+        'status',
+        'number',
         'tel',
         'address',
-        'card_pic',
-        'passport_pic'
+        'card_pic'
+        
 
     ];
 }

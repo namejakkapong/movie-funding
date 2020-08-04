@@ -17,12 +17,11 @@ class CreateVerificationsTable extends Migration
         Schema::create('verifications', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->string('card_number');
-            $table->string('passport_number');
+            $table->enum('status',['card','passport'])->default('card');
+            $table->string('number');
             $table->string('tel');
             $table->string('address');
             $table->string('card_pic');
-            $table->string('passport_pic');
             $table->timestamps();
             $table->foreign('user_id')
             ->references('id')->on('users')
