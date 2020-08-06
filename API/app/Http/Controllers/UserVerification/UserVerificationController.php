@@ -52,28 +52,13 @@ class UserVerificationController extends Controller
             $imageName ='';
         }
 
-        if ($request->passport_pic) {
-            $image = $request->passport_pic;  // your base64 encoded
-            $image = str_replace('data:image/png;base64,', '', $image);
-            $image = str_replace('data:image/jpg;base64,', '', $image);
-            $image = str_replace('data:image/jpeg;base64,', '', $image);
-            $image = str_replace('data:image/gif;base64,', '', $image);
-	        $image = str_replace(' ', '+', $image);
-	        $imageName = md5(rand()*time()).'.'.'png';
-            \File::put(public_path(). '/images/verification/passport_pic' . $imageName, base64_decode($image));
-            
-        }else{
-            $imageName ='';
-        }
-
         $verification = new Verification([
             'user_id' => $request->user_id,
+            'status' => $request->status,
             'card_number' => $request->card_number,
-            'passport_number' => $request->passport_number,
             'tel' => $request->tel,
             'address' => $request->address,
             'card_pic' => $request->card_pic, 
-            'passport_pic' => $request->passport_pic
             
         ]);
         $verification->save();

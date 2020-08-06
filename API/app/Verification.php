@@ -9,7 +9,7 @@ class Verification extends Model
     protected $fillable = [
         'user_id',
         'status',
-        'number',
+        'card_number',
         'tel',
         'address',
         'card_pic'

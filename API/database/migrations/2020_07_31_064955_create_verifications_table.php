@@ -18,7 +18,7 @@ class CreateVerificationsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->enum('status',['card','passport'])->default('card');
-            $table->string('number');
+            $table->string('card_number');
             $table->string('tel');
             $table->string('address');
             $table->string('card_pic');
