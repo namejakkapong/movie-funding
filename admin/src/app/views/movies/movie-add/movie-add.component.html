@@ -16,6 +16,7 @@
                     <div class="card-title mb-3">เพิ่มข้อมูล ภาพยนตร์</div>
                    
                    <form (submit)="onAddMovie(formMovie)" #formMovie="ngForm">
+                   
                     <!-- <form (submit)="onTest('31')"> -->
                        
                             <!-- <div class="col-md-6 form-group mb-3">
@@ -53,6 +54,17 @@
                             <input type="file" class="custom-file-input" id="customfile" name="image">
                             <label class="custom-file-label" for="customFile">Choose file</label>
                         </div> -->
+                        <div class="col-md-12 form-group mb-3">
+                            <label>ประเภทหนัง</label>
+                            <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+                              <option selected>ประเภทหนัง</option>
+                              <option value="1">แอคชั่น</option>
+                              <option value="2">โรแมนติก</option>
+                              <option value="3">คอมมาดี้</option>
+                              <option value="4">สยองขวัญ</option>
+                            </select>
+                        </div>
+                   
 
                         <div class="col-md-12 form-group mb-3">
                             <label>ชื่อภาษาไทย</label>
@@ -86,7 +98,7 @@
                         
                         <label> อัพโหลด รูปภาพ</label>
                         <div class="col-md-6 form-group mb-3">
-                            <input type="file" class="custom-file-input" id="customfile" name="image">
+                            <input type="file" class="custom-file-input" id="customfile" name="image" ngModel>
                             <label class="custom-file-label" for="customFile">Choose file</label>
                             </div>
 
@@ -120,7 +132,7 @@
                         </div> -->
                         
                         <!-- <button type="submit" class="btn btn-primary btn-rounded m-1">submit</button> -->
-                       <button type="submit" class="btn btn-primary  ">เพิ่มข้อมูล</button>
+                       <button type="submit" class="btn btn-primary ">เพิ่มข้อมูล</button>
                        
                     </form>
                 </div>

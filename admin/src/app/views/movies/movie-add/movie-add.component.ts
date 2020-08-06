@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieService } from 'src/app/services/movie.service';
 import { NgForm } from '@angular/forms';
-import { id } from '@swimlane/ngx-datatable/release/utils';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-movie-add',
@@ -9,7 +10,7 @@ import { id } from '@swimlane/ngx-datatable/release/utils';
 })
 export class MovieAddComponent implements OnInit {
 
-  constructor() { 
+  constructor(private movieService: MovieService, private modalService: NgbModal) { 
 
   }
 
@@ -17,7 +18,7 @@ export class MovieAddComponent implements OnInit {
   }
 
   onAddMovie(form: NgForm){
-    console.log(form.form.value);
+    this.movieService.store(form.value.name, form.value.name_eng, form.value.detail, form.value.description, form.value.total,form.value.status,form.value.image);
   }
 
 

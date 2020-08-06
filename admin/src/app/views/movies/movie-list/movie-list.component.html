@@ -9,7 +9,23 @@
     
     <div class="separator-breadcrumb border-top"></div>
 
-    <div class="row row-cols-1 row-cols-md-3">
+    <div class="row">
+    <div class="col-md-6" *ngFor="let movie of movies">
+      <div class="card mb-4 o-hidden">
+        <img class="card-img-top" [src]="movie.movie_image" alt="">
+        <div class="card-body">
+          <p class="card-text"> : {{movie.movie_image}}</p>
+         <p class="card-text">ชื่อเรื่อง : {{movie.name}}</p>
+         <p class="card-text">ชื่อเรื่อง : {{movie.name_eng}}</p>
+         <p class="card-text">ลักษณะ : {{movie.description}}</p>
+          <button type="button" class="btn btn-primary" (click)="viewMovie('movie.id')">ดูรายละเอียด</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button type="button" class="btn btn-primary" routerLink="/movies/view">ดูรายละเอียด</button>
+  <!-- ---------------------------------------------------------------------------------------------------- -->
+    <!-- <div class="row row-cols-1 row-cols-md-3">
         <div class="col mb-4">
           <div class="card">
             <img class="mx-auto d-block" src="assets/images/movies/myhero.jpg" alt="">
@@ -50,7 +66,7 @@
                 </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
     
 </div>
