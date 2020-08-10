@@ -95,7 +95,14 @@ class UserVerificationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $verification = Verification::where('id', $id)->firstOrFail();
+        $verification->status = $request->status;
+        $verification->card_number = $request->card_number;
+        $verification->tel = $request->tel;
+        $verification->address = $request->address;
+        // $verification->card_pic = $request->card_pic;
+        $verification->save();
+        return $verification;
     }
 
     /**
@@ -106,6 +113,8 @@ class UserVerificationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $verification = Verification::where('id', $id)->firstOrFail();
+        $verification->delete();
+        return $verification;
     }
 }
