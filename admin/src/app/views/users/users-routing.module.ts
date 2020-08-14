@@ -4,6 +4,8 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { UserViewComponent } from './user-view/user-view.component';
 
+
+
 const routes: Routes = [
   {
     path: 'creator&fundraiser',
@@ -17,7 +19,7 @@ const routes: Routes = [
     path: 'create',
     component: UserAddComponent
   },
-
+  
 ];
 
 @NgModule({

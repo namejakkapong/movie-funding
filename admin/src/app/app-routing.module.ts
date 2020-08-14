@@ -7,7 +7,9 @@ import { LoginComponent } from './auth/login/login.component';
 import { DashboadDefaultComponent } from './views/dashboard/dashboad-default/dashboad-default.component';
 import { HomeComponent } from './views/home/home.component';
 
+
 import { AuthGuard } from './auth/auth.guard';
+import { VerificationAddComponent } from './views/verification/verification-add/verification-add.component';
 const adminRoutes: Routes = [
   {
     path: 'dashboard',
@@ -36,6 +38,10 @@ const adminRoutes: Routes = [
   {
     path: 'experiences',
     loadChildren: () => import('./views/experience/experience.module').then(m => m.ExperienceModule)
+  },
+  {
+    path: 'verification',
+    component: VerificationAddComponent
   },
 ];
 

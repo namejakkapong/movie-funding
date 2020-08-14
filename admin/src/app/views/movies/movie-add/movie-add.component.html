@@ -77,8 +77,8 @@
                         </div>
 
                         <div class="col-md-12 form-group mb-3">
-                            <label>แนวคิด</label>
-                            <textarea class="form-control" name="detail" rows="10" ngModel placeholder="แนวคิด"></textarea>
+                            <label>รายละเอียด</label>
+                            <textarea class="form-control" name="detail" rows="10" ngModel placeholder="รายละเอียด"></textarea>
                         </div>
 
                         <div class="col-md-12 form-group mb-3">
@@ -95,12 +95,49 @@
                             <label>สถานะ</label>
                             <input type="text" class="form-control form-control-rounded" name="status" ngModel placeholder="สถานะ">
                         </div>
-                        
+
+                        <!-- <p>
+                        <label for="date">เริ่มการระดมทุน</label>
+                        <input type="date" id="date">
+                        </p>
+                        <p>
+                            <label for="date">สิ้นสุดการระดมทุน</label>
+                            <input type="date" id="date">
+                            </p> -->
+                    
+                            <div class="col-md-6 form-group mb-3">
+                                <label for="picker1">เริ่มการระดมทุน</label>
+                                <div class="input-group">
+                                    <input id="picker1" class="form-control form-control-rounded" placeholder="yyyy-mm-dd" name="dp"
+                                        ngbDatepicker #dp="ngbDatepicker">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-secondary btn-rounded" (click)="dp.toggle()" type="button">
+                                            <i class="icon-regular i-Calendar-4"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 form-group mb-3">
+                                <label for="picker1">สิ้นสุดการระดมทุน</label>
+                                <div class="input-group">
+                                    <input id="picker1" class="form-control form-control-rounded" placeholder="yyyy-mm-dd" name="dp"
+                                        ngbDatepicker #dp="ngbDatepicker">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-secondary btn-rounded" (click)="dp.toggle()" type="button">
+                                            <i class="icon-regular i-Calendar-4"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 form-group mb-3">
                         <label> อัพโหลด รูปภาพ</label>
                         <div class="col-md-6 form-group mb-3">
                             <input type="file" class="custom-file-input" id="customfile" name="image" ngModel>
                             <label class="custom-file-label" for="customFile">Choose file</label>
                             </div>
+                        </div>
 
                             
 
@@ -131,9 +168,11 @@
                             </div>
                         </div> -->
                         
+                        
                         <!-- <button type="submit" class="btn btn-primary btn-rounded m-1">submit</button> -->
-                       <button type="submit" class="btn btn-primary ">เพิ่มข้อมูล</button>
-                       
+                        <div class="col-md-6 form-group mb-3">
+                        <button type="submit" class="btn btn-primary ">เพิ่มข้อมูล</button>
+                    </div>
                     </form>
                 </div>
             </div>

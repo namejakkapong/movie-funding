@@ -15,6 +15,13 @@ import { SharedComponentsModule } from './shared/components/shared-components.mo
 import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './views/home/home.component';
 import { AuthInterceptor } from './auth/auth-interceptor';
+import { VerificationAddComponent } from './views/verification/verification-add/verification-add.component';
+import { VerificationViewComponent } from './views/verification/verification-view/verification-view.component';
+
+
+
+
+
 
 
 @NgModule({
@@ -22,6 +29,13 @@ import { AuthInterceptor } from './auth/auth-interceptor';
     AppComponent,
     LoginComponent,
     HomeComponent,
+    VerificationAddComponent,
+    VerificationViewComponent,
+  
+    
+    
+   
+  
   ],
   imports: [
     BrowserModule,

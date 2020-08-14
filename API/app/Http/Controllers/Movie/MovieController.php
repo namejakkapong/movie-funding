@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Movie;
 use App\Movie;
 use App\User;
 use App\Category;
+use App\Http\Resources\Movie as MovieResource;
 // use App\Http\Controllers\Movie\MovieController;
 use App\Http\Controllers\ApiController;
 use Illuminate\Http\Request;
@@ -19,7 +20,7 @@ class MovieController extends ApiController
     public function index()
     {
         $movies = Movie::all();
-        return $movies;
+        return MovieResource::collection($movies);
     }
         
     /**
