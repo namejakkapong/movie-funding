@@ -6,6 +6,7 @@ import { UserViewComponent } from './user-view/user-view.component';
 
 
 
+
 const routes: Routes = [
   {
     path: 'creator&fundraiser',
@@ -19,6 +20,7 @@ const routes: Routes = [
     path: 'create',
     component: UserAddComponent
   },
+  
   
 ];
 

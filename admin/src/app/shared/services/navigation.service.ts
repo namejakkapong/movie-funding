@@ -63,8 +63,9 @@ export class NavigationService {
             type: 'dropDown',
             icon: 'i-Administrator',
             sub: [
-                { icon: 'i-Checked-User', name: 'ผู้ใช้', state: '/users/creator&fundraiser', type: 'link' },
+                { icon: 'i-Add-UserStar', name: 'ผู้ใช้', state: '/users/creator&fundraiser', type: 'link' },
                 { icon: 'i-Add-User', name: 'เพิ่มผู้ใช้', state: '/users/create', type: 'link' },
+                { icon: 'i-Checked-User', name: 'ยืนยันตัวตน', state: '/verification-view', type: 'link' },
             ]
         },
         {

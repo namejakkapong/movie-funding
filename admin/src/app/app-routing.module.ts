@@ -10,6 +10,8 @@ import { HomeComponent } from './views/home/home.component';
 
 import { AuthGuard } from './auth/auth.guard';
 import { VerificationAddComponent } from './views/verification/verification-add/verification-add.component';
+import { VerificationViewComponent } from './views/verification/verification-view/verification-view.component';
+import { ProgressViewComponent } from './views/progress/progress-view/progress-view.component';
 const adminRoutes: Routes = [
   {
     path: 'dashboard',
@@ -66,7 +68,15 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: 'others/404'
-  }
+  },
+  {
+    path: 'verification-view',
+    component: VerificationViewComponent
+  },
+  {
+    path: 'progress-view',
+    component: ProgressViewComponent
+  },
 ];
 
 @NgModule({

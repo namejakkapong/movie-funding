@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { VerificationService } from 'src/app/services/verification.service';
 
 @Component({
   selector: 'app-verification-view',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./verification-view.component.scss']
 })
 export class VerificationViewComponent implements OnInit {
+  public verifications: any;
 
-  constructor() { }
+  constructor(private modalService: NgbModal,private verificationService: VerificationService) {
+
+   }
 
   ngOnInit() {
-  }
+  
+   this.verificationService.index()
+  .subscribe(response => {
+    this.verifications = response.data;
+     console.log(this.verifications);
 
-}
+    });
+   }
+ }
