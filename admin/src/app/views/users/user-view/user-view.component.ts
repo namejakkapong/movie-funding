@@ -103,4 +103,9 @@ export class UserViewComponent implements OnInit {
       console.log('Err!', reason);
     });
   }
+
+  onEditUser(form: NgForm) {
+    console.log(form.value);
+    this.userService.update(this.id, form.value.name, form.value.address, form.value.district, form.value.amphoe , form.value.province , form.value.zipcode , form.value.country , form.value.career , form.value.workplace);
+  }
 }

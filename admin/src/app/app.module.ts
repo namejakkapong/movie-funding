@@ -24,6 +24,7 @@ import { ProgressViewComponent } from './views/progress/progress-view/progress-v
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,7 @@ import { ProgressViewComponent } from './views/progress/progress-view/progress-v
     // VerificationAddComponent,
     VerificationViewComponent,
     ProgressViewComponent,
+   
 
     
     

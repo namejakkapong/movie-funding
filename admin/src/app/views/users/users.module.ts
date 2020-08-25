@@ -11,6 +11,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { UserViewComponent } from './user-view/user-view.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
 // import { VerificationAddComponent } from './verification-add/verification-add.component';
 
 
@@ -28,6 +29,6 @@ import { UserViewComponent } from './user-view/user-view.component';
     UsersRoutingModule,
     // VerificationAddComponent,
   ],
-  declarations: [ UserListComponent, UserAddComponent, UserViewComponent]
+  declarations: [ UserListComponent, UserAddComponent, UserViewComponent, UserEditComponent]
 })
 export class UsersModule { }
