@@ -9,7 +9,7 @@ import { HomeComponent } from './views/home/home.component';
 
 
 import { AuthGuard } from './auth/auth.guard';
-import { VerificationAddComponent } from './views/verification/verification-add/verification-add.component';
+// import { VerificationAddComponent } from './views/verification/verification-add/verification-add.component';
 import { VerificationViewComponent } from './views/verification/verification-view/verification-view.component';
 import { ProgressViewComponent } from './views/progress/progress-view/progress-view.component';
 const adminRoutes: Routes = [
@@ -41,10 +41,10 @@ const adminRoutes: Routes = [
     path: 'experiences',
     loadChildren: () => import('./views/experience/experience.module').then(m => m.ExperienceModule)
   },
-  {
-    path: 'verification',
-    component: VerificationAddComponent
-  },
+  // {
+  //   path: 'verification',
+  //   component: VerificationAddComponent
+  // },
 ];
 
 const routes: Routes = [

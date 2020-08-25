@@ -15,7 +15,7 @@ import { SharedComponentsModule } from './shared/components/shared-components.mo
 import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './views/home/home.component';
 import { AuthInterceptor } from './auth/auth-interceptor';
-import { VerificationAddComponent } from './views/verification/verification-add/verification-add.component';
+// import { VerificationAddComponent } from './views/verification/verification-add/verification-add.component';
 import { VerificationViewComponent } from './views/verification/verification-view/verification-view.component';
 import { ProgressViewComponent } from './views/progress/progress-view/progress-view.component';
 
@@ -29,7 +29,7 @@ import { ProgressViewComponent } from './views/progress/progress-view/progress-v
     AppComponent,
     LoginComponent,
     HomeComponent,
-    VerificationAddComponent,
+    // VerificationAddComponent,
     VerificationViewComponent,
     ProgressViewComponent,
 
