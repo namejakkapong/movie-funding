@@ -39,39 +39,32 @@
                                 </div>
                                 <div class="mb-4">
                                     <p class="text-primary mb-1"><i class="i-Edit-Map text-16 mr-1"></i> ที่อยู่</p>
-                                    <span>292/35 ต.ขามเรียง อ.กันทรวิชัย</span>
+                                    <span>{{user?.address}} ต.{{user?.district}} อ.{{user?.amphoe}} จ.{{user?.province}} รหัสไปรษณีย์ {{user?.zipcode}}   </span>
                                 </div>
                                 <div class="mb-4">
                                     <p class="text-primary mb-1"><i class="i-Globe text-16 mr-1"></i>ประเทศ</p>
-                                    <span>มหาสารคาม, ไทย</span>
+                                    <span>{{user?.country}}</span>
                                 </div>
                             </div>
                             <div class="col-md-4 col-6">
                                 <div class="mb-4">
                                     <p class="text-primary mb-1"><i class="i-Email text-16 mr-1"></i> อีเมล</p>
-                                    <span>example@ui-lib.com</span>
+                                    <span>{{user?.email}}</span>
                                 </div>
                                 <div class="mb-4">
                                     <p class="text-primary mb-1"><i class="i-Telephone text-16 mr-1"></i> เบอร์โทรศัพท์</p>
-                                    <span>092-1526980</span>
+                                    <span>(ข้อมูล tel)</span>
                                 </div>
-                                <div class="mb-4">
-                                    <p class="text-primary mb-1"><i class="i-Cloud-Weather text-16 mr-1"></i> เว็บไชต์</p>
-                                    <span>www.ui-lib.com</span>
-                                </div>
+                                
                             </div>
                             <div class="col-md-4 col-6">
                                 <div class="mb-4">
                                     <p class="text-primary mb-1"><i class="i-Business-ManWoman text-16 mr-1"></i> อาชีพ</p>
-                                    <span>ผู้กำกับภาพยนตร์</span>
-                                </div>
-                                <div class="mb-4">
-                                    <p class="text-primary mb-1"><i class="i-Medal-3 text-16 mr-1"></i> ประสบการณ์ทำงาน</p>
-                                    <span>8 ปี</span>
+                                    <span>{{user?.career}}</span>
                                 </div>
                                 <div class="mb-4">
                                     <p class="text-primary mb-1"><i class="i-Home1 text-16 mr-1"></i> สถานที่ทำงาน</p>
-                                    <span>Workpoint</span>
+                                    <span>{{user?.workplace}}</span>
                                 </div>
                             </div>
                         </div>
@@ -99,171 +92,270 @@
                                 <p class="text-16 mt-1">Music</p>
                             </div>
                         </div>
+                        
                     </ng-template>
                 </ngb-tab>
+                <!-- ==================================================   ข้อมูลการศึกษา   ========================================================== -->
                 <ngb-tab title="ข้อมูลการศึกษา">
                     <ng-template ngbTabContent>
-                        <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0" (click)="addEducation(user?.id)">Add Educations</button>
+                        <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0" (click)="addEducation(user?.id)">เพิ่มข้อมูลการศึกษา</button>
                         
-
-
-
-
-                    </ng-template>
-                </ngb-tab>
-                <ngb-tab title="อัลบั้ม">
-                    <ng-template ngbTabContent>
-                        <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0" (click)="addExperience(user?.id)">Add Experiences</button>
-                        
-                        
-
-                    </ng-template>
-                </ngb-tab>
-                <ngb-tab title="อื่นๆ">
-                    <ng-template ngbTabContent>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="card text-white o-hidden mb-3">
-                                    <img class="card-img" src="assets/images/products/headphone-1.jpg" alt="">
-                                    <div class="card-img-overlay">
-                                        <div class="text-center pt-4">
-                                            <h5 class="card-title mb-2 text-white">ชื่อเพลย์ลิสต์</h5>
-                                            <div class="separator border-top mb-2"></div>
-                                            <p class="text-small font-italic">
-                                               ในเพลย์ลิสต์ 12 วิดีโอ
-                                            </p>
-                                        </div>
-                                        <div class="p-1 text-left card-footer font-weight-light d-flex">
-                                            <span class="d-flex align-items-center"><i class="i-Calendar-4 mr-2"></i>03.12.2018</span>
+                        <div *ngFor="let education of educations">
+                            <div class="separator-breadcrumb border-top"></div>
+                            <!-- MANAGE ACCOUNT -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card mb-12">
+                                        <div class="card-body">
+                            <div class="card-title mb-3">ข้อมูลการศึกษา</div>
+                            <p>ปีที่จบการศึกษา : {{education.graduation_year}}</p>
+                            <p>ระดับการศึกษา : {{education.level}}</p>
+                            <p>สาขาวิชา/วิชาเอก/สายการศึกษา : {{education.subject}}</p>
+                            <p>คณะ : {{education.faculty}}</p>
+                            <p>โรงเรียน/สถานศึกษา : {{education.school}}</p>
+                            <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0" (click)="DeleteInfor(user?.id, education.id)">ลบ</button>
+                            <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0" (click)="open(modalEditEducation)">แก้ไข</button>       
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <!-- MODEL CROPPER --------------------------------------------------------------------------------------------------------------->
+                        <ng-template #modalEditEducation let-modal>
+                            <div class="modal-header">
+                              <h4 class="modal-title" id="modal-basic-title">แก้ไขข้อมูลการศึกษา</h4>
+                              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <form (submit)="editEducation(formEducation,education.id)" #formEducation="ngForm">
+                            <div class="modal-body">
+                                    <p>{{education.id}}</p>
+                                    <div class="row">
+                                        <div class="col-md-6 form-group mb-3">
+                                            <label>ปีที่จบการศึกษา</label>
+                                            <input type="text" class="form-control form-control-rounded" name="graduation_year" ngModel="{{education.graduation_year}}" #yearInput="ngModel" required placeholder="graduation year">
+                                        </div>
+                                        <div class="col-md-6 form-group mb-3">
+                                            <label>ระดับการศึกษา</label>
+                                            <input type="text" class="form-control form-control-rounded" name="level" ngModel="{{education.level}}" #levelInput="ngModel" required placeholder="level">
+                                        </div>
+                                        <div class="col-md-6 form-group mb-3">
+                                            <label>สาขาวิชา/วิชาเอก</label>
+                                            <input type="text" class="form-control form-control-rounded" name="subject" ngModel="{{education.subject}}" #subjectInput="ngModel" required placeholder="subject">
+                                        </div>
+                                        <div class="col-md-6 form-group mb-3">
+                                            <label>คณะ</label>
+                                            <input type="text" class="form-control form-control-rounded" name="faculty" ngModel="{{education.faculty}}" #facultyInput="ngModel" required placeholder="faculty">
+                                        </div>
+                                        <div class="col-md-6 form-group mb-3">
+                                            <label>โรงเรียน/สถานศึกษา</label>
+                                            <input type="text" class="form-control form-control-rounded" name="school" ngModel="{{education.school}}" #schoolInput="ngModel" required placeholder="school">
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary btn-block" >บันทึกข้อมูล</button>
+                              <!-- <button type="submit" class="btn btn-primary btn-block" >บันทึกข้อมูล</button> -->
+                                
+                            </div>
+                        </form>
+                          </ng-template>
+                          <!-- MODEL CROPPER --------------------------------------------------------------------------------------------------------------->
                         </div>
+
+                    </ng-template>
+                </ngb-tab>
+                <!-- ==================================================   ประสบการณ์ทำงาน   ======================================================== -->
+                <ngb-tab title="ประสบการณ์ทำงาน">
+                    <ng-template ngbTabContent>
+                        <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0" (click)="addExperience(user?.id)">เพิ่มข้อมูลประสบการณ์ทำงาน</button>
+                        
+                        <div *ngFor="let experience of experiences">
+                            <div class="separator-breadcrumb border-top"></div>
+                            <!-- MANAGE ACCOUNT -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card mb-12">
+                                        <div class="card-body">
+                            <div class="card-title mb-3">ประสบการณ์ทำงาน</div>
+                            <p>ปีที่เริ่มทำงาน : {{experience.start_year}}</p>
+                            <p>ปีที่ออกจากงาน : {{experience.end_year}}</p>
+                            <p>ตำแหน่ง : {{experience.position}}</p>
+                            <p>ที่ทำงาน : {{experience.workplace}}</p>
+                            <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0" (click)="deleteWork(user?.id, experience.id)">ลบ</button>
+                            <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0" (click)="open(modalEditExperience)">แก้ไข</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- MODEL CROPPER --------------------------------------------------------------------------------------------------------------->
+                        <ng-template #modalEditExperience let-modal>
+                            <div class="modal-header">
+                              <h4 class="modal-title" id="modal-basic-title">แก้ไขข้อมูลประสบการณ์ทำงาน</h4>
+                              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <form (submit)="editExperience(formExperience,experience.id)" #formExperience="ngForm">
+                            <div class="modal-body">
+                                    <p>{{experience.id}}</p>
+                                    <div class="row">
+                                        <div class="col-md-6 form-group mb-3">
+                                            <label>ปีที่เริ่มทำงาน</label>
+                                            <input type="text" class="form-control form-control-rounded" name="start_year" ngModel="{{experience.start_year}}" #yearInput="ngModel" required placeholder="start year">
+                                        </div>
+                                        <div class="col-md-6 form-group mb-3">
+                                            <label>ปีที่ออกจากงาน</label>
+                                            <input type="text" class="form-control form-control-rounded" name="end_year" ngModel="{{experience.end_year}}" #levelInput="ngModel" required placeholder="level">
+                                        </div>
+                                        <div class="col-md-6 form-group mb-3">
+                                            <label>ตำแหน่ง</label>
+                                            <input type="text" class="form-control form-control-rounded" name="position" ngModel="{{experience.position}}" #subjectInput="ngModel" required placeholder="position">
+                                        </div>
+                                        <div class="col-md-6 form-group mb-3">
+                                            <label>ที่ทำงาน</label>
+                                            <input type="text" class="form-control form-control-rounded" name="workplace" ngModel="{{experience.workplace}}" #facultyInput="ngModel" required placeholder="workplace">
+                                        </div>
+                                
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary btn-block" >บันทึกข้อมูล</button>
+                              <!-- <button type="submit" class="btn btn-primary btn-block" >บันทึกข้อมูล</button> -->
+                                
+                            </div>
+                        </form>
+                          </ng-template>
+                          <!-- MODEL CROPPER --------------------------------------------------------------------------------------------------------------->
+                        </div>
+
+                    </ng-template>
+                </ngb-tab>
+                <!-- =====================================================      แก้ไข     ========================================================== -->
+                <ngb-tab title="แก้ไขข้อมูลส่วนตัว">
+                    <ng-template ngbTabContent>
+                        
+
+                        <!-- MANAGE ACCOUNT -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-profile-1 mb-12">
+                <div class="card-body">
+                    <!-- <div class="card-title mb-3">เพิ่มนักลงทุน หรือ ผู้สร้างภาพยนตร์</div> -->
+                    <form (submit)="onEditUser(formUser)" #formUser="ngForm">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label class="mb-4">รูปภาพประจำตัว</label>
+                                <div class="avatar mb-3" *ngIf="!imageCoverPreview">
+                                    <img src="./assets/images/faces/1.jpg">
+                                </div>
+                                <div *ngIf="imageCoverPreview !== '' && imageCoverPreview">
+                                    <img [src]="imageCoverPreview">
+                                </div>
+
+                                <section id="intro-wrap" class="intro-three-Wrap text-center">
+                                    <div class="intro-three-Description">
+                                      <span>
+                                      <button type="button" class="btn btn-outline-white" (click)="fileCover.click()"><i class="fas fa-camera"></i> อัพโหลดรูปภาพ</button>
+                                      <input class="d-none" type="file" #fileCover #fileCoverReset  (change)="onImageCover($event)" accept="image/*">
+                                      </span>
+                                      <span *ngIf="imageCoverPreview !== '' && imageCoverPreview">
+                                          <!-- <button type="button" class="btn btn-success mr-2" (click)="onUploadImageCover()"><i class="far fa-check-circle"></i> บันทึก </button>
+                                          <button type="button" class="btn btn-outline-white border-0" (click)="onCancelImagCover()">ยกเลิก</button> -->
+                                      </span>
+                                    </div>
+                                    <div class="overlay">
+                                    </div>
+
+                                  </section>
+                                  
+                            </div>
+                            <div class="col-md-10">
+                                <div class="row">
+                                    <div class="col-md-12 form-group mb-3">
+                                        <label>อีเมล (ชื่อผู้ใช้งาน)</label>
+                                        <input type="text" class="form-control form-control-rounded" name="email" ngModel="{{user?.email}}" #emailInput="ngModel" required placeholder="อีเมล (ชื่อผู้ใช้งาน)">
+                                    </div>
+                                    <div class="col-md-6 form-group mb-3">
+                                        <label>รหัสผ่าน</label>
+                                        <input type="password" class="form-control form-control-rounded" name="password" ngModel="{{user?.password}}" #passwordInput="ngModel" placeholder="รหัสผ่าน">
+                                    </div>
+            
+                                    <div class="col-md-6 form-group mb-3">
+                                        <label>ยืนยันรหัสผ่าน</label>
+                                        <input type="password" class="form-control form-control-rounded" name="password_confirmation" ngModel="{{user?.password_confirmation}}" #password_confirmationInput="ngModel" required placeholder="ยืนยันรหัสผ่าน">
+                                    </div>
+                                    <div class="col-md-6 form-group mb-3">
+                                        <label>ชื่อ - นามสกุล</label>
+                                        <input type="text" class="form-control form-control-rounded" name="name" ngModel="{{user?.name}}" #nameInput="ngModel" required placeholder="ชื่อ - นามสกุล">
+                                    </div>
+                                    <!-- <div class="col-md-6 form-group mb-3">
+                                        <label>วันเกิด</label>
+                                        <div class="input-group">
+                                            <input id="picker1" class="form-control form-control-rounded" placeholder="yyyy-mm-dd" name="birthday"
+                                                ngbDatepicker #birthday="ngbDatepicker">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-secondary btn-rounded" (click)="birthday.toggle()" type="button">
+                                                    <i class="icon-regular i-Calendar-4"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <div class="col-md-6 form-group mb-3">
+                                        <label>ที่อยู่</label>
+                                        <input type="text" class="form-control form-control-rounded" name="address" ngModel="{{user?.address}}" #addressInput="ngModel" required placeholder="ที่อยู่">
+                                    </div>
+                                    <div class="col-md-6 form-group mb-3">
+                                        <label>ตำบล</label>
+                                        <input type="text" class="form-control form-control-rounded" name="district" ngModel="{{user?.district}}" #districtInput="ngModel" required placeholder="ตำบล">
+                                    </div>
+                                    <div class="col-md-6 form-group mb-3">
+                                        <label>อำเภอ</label>
+                                        <input type="text" class="form-control form-control-rounded" name="amphoe" ngModel="{{user?.amphoe}}" #amphoeInput="ngModel" required placeholder="อำเภอ">
+                                    </div>
+                                    <div class="col-md-6 form-group mb-3">
+                                        <label>จังหวัด</label>
+                                        <input type="text" class="form-control form-control-rounded" name="province" ngModel="{{user?.province}}" #provinceInput="ngModel" required placeholder="จังหวัด">
+                                    </div>
+                                    <div class="col-md-6 form-group mb-3">
+                                        <label>รหัสไปรษณีย์</label>
+                                        <input type="text" class="form-control form-control-rounded" name="zipcode" ngModel="{{user?.zipcode}}" #zipcodeInput="ngModel" required placeholder="รหัสไปรษณีย์">
+                                    </div>
+                                    <div class="col-md-6 form-group mb-3">
+                                        <label>ประเทศ</label>
+                                        <input type="text" class="form-control form-control-rounded" name="country" ngModel="{{user?.country}}" #countryInput="ngModel" required placeholder="ประเทศ">
+                                    </div>
+                                    <div class="col-md-6 form-group mb-3">
+                                        <label>อาชีพ</label>
+                                        <input type="text" class="form-control form-control-rounded" name="career" ngModel="{{user?.career}}" #careerInput="ngModel" required placeholder="อาชีพ">
+                                    </div>
+                                    <div class="col-md-6 form-group mb-3">
+                                        <label>สถานที่ทำงาน</label>
+                                        <input type="text" class="form-control form-control-rounded" name="workplace" ngModel="{{user?.workplace}}" #workplaceInput="ngModel" required placeholder="สถานที่ทำงาน">
+                                    </div>
+                                    
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn btn-main btn-block" >บันทึกข้อมูล</button>
+        
+                                       <!-- <btn-loading  btnClass="btn-primary btn-rounded" [loading]="loading">บันทึกข้อมูล</btn-loading> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
                     </ng-template>
                 </ngb-tab>
             </ngb-tabset>
         </div>
     </div>
 </div>
-<div *ngFor="let education of educations">
-    <div class="separator-breadcrumb border-top"></div>
-    <!-- MANAGE ACCOUNT -->
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card mb-12">
-                <div class="card-body">
-    <div class="card-title mb-3">ข้อมูลการศึกษา</div>
-    <p>ปีที่จบการศึกษา : {{education.graduation_year}}</p>
-    <p>ระดับการศึกษา : {{education.level}}</p>
-    <p>สาขาวิชา/วิชาเอก/สายการศึกษา : {{education.subject}}</p>
-    <p>คณะ : {{education.faculty}}</p>
-    <p>โรงเรียน/สถานศึกษา : {{education.school}}</p>
-    <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0" (click)="DeleteInfor(user?.id, education.id)">ลบ</button>
-    <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0" (click)="open(modalEditEducation)">แก้ไข</button>       
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- MODEL CROPPER --------------------------------------------------------------------------------------------------------------->
-<ng-template #modalEditEducation let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">แก้ไขข้อมูลการศึกษา</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <form (submit)="editEducation(formEducation,education.id)" #formEducation="ngForm">
-    <div class="modal-body">
-            <p>{{education.id}}</p>
-            <div class="row">
-                <div class="col-md-6 form-group mb-3">
-                    <label>ปีที่จบการศึกษา</label>
-                    <input type="text" class="form-control form-control-rounded" name="graduation_year" ngModel="{{education.graduation_year}}" #yearInput="ngModel" required placeholder="graduation year">
-                </div>
-                <div class="col-md-6 form-group mb-3">
-                    <label>ระดับการศึกษา</label>
-                    <input type="text" class="form-control form-control-rounded" name="level" ngModel="{{education.level}}" #levelInput="ngModel" required placeholder="level">
-                </div>
-                <div class="col-md-6 form-group mb-3">
-                    <label>สาขาวิชา/วิชาเอก</label>
-                    <input type="text" class="form-control form-control-rounded" name="subject" ngModel="{{education.subject}}" #subjectInput="ngModel" required placeholder="subject">
-                </div>
-                <div class="col-md-6 form-group mb-3">
-                    <label>คณะ</label>
-                    <input type="text" class="form-control form-control-rounded" name="faculty" ngModel="{{education.faculty}}" #facultyInput="ngModel" required placeholder="faculty">
-                </div>
-                <div class="col-md-6 form-group mb-3">
-                    <label>โรงเรียน/สถานศึกษา</label>
-                    <input type="text" class="form-control form-control-rounded" name="school" ngModel="{{education.school}}" #schoolInput="ngModel" required placeholder="school">
-                </div>
-            </div>
-    </div>
-    <div class="modal-footer">
-        <button type="submit" class="btn btn-primary btn-block" >บันทึกข้อมูล</button>
-      <!-- <button type="submit" class="btn btn-primary btn-block" >บันทึกข้อมูล</button> -->
-        
-    </div>
-</form>
-  </ng-template>
-  <!-- MODEL CROPPER --------------------------------------------------------------------------------------------------------------->
-</div>
 
-<div *ngFor="let experience of experiences">
-    <div class="separator-breadcrumb border-top"></div>
-    <!-- MANAGE ACCOUNT -->
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card mb-12">
-                <div class="card-body">
-    <div class="card-title mb-3">ประสบการณ์ทำงาน</div>
-    <p>ปีที่เริ่มทำงาน : {{experience.start_year}}</p>
-    <p>ปีที่ออกจากงาน : {{experience.end_year}}</p>
-    <p>ตำแหน่ง : {{experience.position}}</p>
-    <p>ที่ทำงาน : {{experience.workplace}}</p>
-    <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0" (click)="deleteWork(user?.id, experience.id)">ลบ</button>
-    <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0" (click)="open(modalEditExperience)">แก้ไข</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- MODEL CROPPER --------------------------------------------------------------------------------------------------------------->
-<ng-template #modalEditExperience let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">แก้ไขข้อมูลประสบการณ์ทำงาน</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <form (submit)="editExperience(formExperience,experience.id)" #formExperience="ngForm">
-    <div class="modal-body">
-            <p>{{experience.id}}</p>
-            <div class="row">
-                <div class="col-md-6 form-group mb-3">
-                    <label>ปีที่เริ่มทำงาน</label>
-                    <input type="text" class="form-control form-control-rounded" name="start_year" ngModel="{{experience.start_year}}" #yearInput="ngModel" required placeholder="start year">
-                </div>
-                <div class="col-md-6 form-group mb-3">
-                    <label>ปีที่ออกจากงาน</label>
-                    <input type="text" class="form-control form-control-rounded" name="end_year" ngModel="{{experience.end_year}}" #levelInput="ngModel" required placeholder="level">
-                </div>
-                <div class="col-md-6 form-group mb-3">
-                    <label>ตำแหน่ง</label>
-                    <input type="text" class="form-control form-control-rounded" name="position" ngModel="{{experience.position}}" #subjectInput="ngModel" required placeholder="position">
-                </div>
-                <div class="col-md-6 form-group mb-3">
-                    <label>ที่ทำงาน</label>
-                    <input type="text" class="form-control form-control-rounded" name="workplace" ngModel="{{experience.workplace}}" #facultyInput="ngModel" required placeholder="workplace">
-                </div>
-        
-            </div>
-    </div>
-    <div class="modal-footer">
-        <button type="submit" class="btn btn-primary btn-block" >บันทึกข้อมูล</button>
-      <!-- <button type="submit" class="btn btn-primary btn-block" >บันทึกข้อมูล</button> -->
-        
-    </div>
-</form>
-  </ng-template>
-  <!-- MODEL CROPPER --------------------------------------------------------------------------------------------------------------->
-</div>
+
+

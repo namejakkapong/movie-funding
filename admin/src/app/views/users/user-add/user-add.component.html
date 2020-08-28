@@ -47,51 +47,23 @@
                                 <div class="row">
                                     <div class="col-md-12 form-group mb-3">
                                         <label>อีเมล (ชื่อผู้ใช้งาน)</label>
-                                        <input type="text" class="form-control form-control-rounded" name="email" ngModel placeholder="Enter Email">
+                                        <input type="text" class="form-control form-control-rounded" name="email" ngModel placeholder="อีเมล (ชื่อผู้ใช้งาน)">
                                     </div>
                                     <div class="col-md-6 form-group mb-3">
                                         <label>รหัสผ่าน</label>
-                                        <input type="password" class="form-control form-control-rounded" name="password" ngModel placeholder="Enter your password">
+                                        <input type="password" class="form-control form-control-rounded" name="password" ngModel placeholder="รหัสผ่าน">
                                     </div>
             
                                     <div class="col-md-6 form-group mb-3">
                                         <label>ยืนยันรหัสผ่าน</label>
-                                        <input type="password" class="form-control form-control-rounded" name="password_confirmation" ngModel placeholder="Enter confirm password">
+                                        <input type="password" class="form-control form-control-rounded" name="password_confirmation" ngModel placeholder="ยืนยันรหัสผ่าน">
                                     </div>
                                     <div class="col-md-6 form-group mb-3">
-                                        <label>ชื่อ</label>
-                                        <input type="text" class="form-control form-control-rounded" name="first_name" ngModel placeholder="Enter your first name">
+                                        <label>ชื่อ - นามสกุล</label>
+                                        <input type="text" class="form-control form-control-rounded" name="name" ngModel placeholder="ชื่อ - นามสกุล">
                                     </div>
             
-                                    <div class="col-md-6 form-group mb-3">
-                                        <label>นามสกุล</label>
-                                        <input type="text" class="form-control form-control-rounded" name="last_name" ngModel placeholder="Enter your last name">
-                                    </div>
-                                    <div class="col-md-6 form-group mb-3">
-                                        <label>วันเกิด</label>
-                                        <div class="input-group">
-                                            <input id="picker1" class="form-control form-control-rounded" placeholder="yyyy-mm-dd" name="dp"
-                                                ngbDatepicker #dp="ngbDatepicker">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-secondary btn-rounded" (click)="dp.toggle()" type="button">
-                                                    <i class="icon-regular i-Calendar-4"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 form-group mb-3">
-                                        <label>เบอร์โทรศัพท์</label>
-                                        <input type="text" class="form-control form-control-rounded" name="phone" ngModel placeholder="Enter your phone">
-                                    </div>
-            
-                                    <div class="col-md-6 form-group mb-3">
-                                        <label>สถานะ</label>
-                                        <select class="form-control form-control-rounded">
-                                            <option>นักลงทุน</option>
-                                            <option>ผู้สร้างภาพยนตร์</option>
-                                        </select>
-                                    </div>
-                                      
+                                
             
                                     <div class="col-md-12">
                                         <button type="submit" class="btn btn-main btn-block" >บันทึกข้อมูล</button>

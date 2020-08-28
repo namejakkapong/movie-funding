@@ -80,6 +80,17 @@ class UserController extends ApiController
     {
         $user = User::where('id', $id)->where('user_status', 'member')->firstOrFail();
         $user->name = $request->name;
+        // $user->profile_picture = $request->profile_picture;
+        // $user->birthday = $request->birthday;
+        $user->address = $request->address;
+        $user->district = $request->district;
+        $user->amphoe = $request->amphoe;
+        $user->province = $request->province;
+        $user->zipcode = $request->zipcode;
+        $user->country = $request->country;
+        $user->career = $request->career;
+        $user->workplace = $request->workplace;
+
         $user->save();
         return $this->showOneTransform("insert data user complete" , $user , 200);
     }

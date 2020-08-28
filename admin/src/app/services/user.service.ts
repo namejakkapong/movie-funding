@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from './../../environments/environment.prod';
 import { HttpClient } from '@angular/common/http';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 const BACKEND_URL = environment.apiUrl;
 
@@ -9,7 +10,7 @@ const BACKEND_URL = environment.apiUrl;
 })
 export class UserService {
 	
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private modalService: NgbModal) { }
   index()
   {
     return this.http.get<{data: any}>(BACKEND_URL + '/users');
@@ -50,4 +51,26 @@ export class UserService {
     return this.http.get<{data: any}>(BACKEND_URL + '/users/'+ id +'/educations');
   }
 
+  update(user_id: string, name: string, address: string, district: string, amphoe: string, province: string, zipcode: string, country: string, career: string, workplace: string)
+  {
+    const data = {
+      name: name,
+      address: address,
+      district: district,
+      amphoe: amphoe,
+      province: province,
+      zipcode: zipcode,
+      country: country,
+      career: career,
+      workplace: workplace,
+      
+      
+    };
+    this.http.patch<{data: any}>(BACKEND_URL + '/users/'+ user_id , data)
+    .subscribe(response => {
+      console.log(response.data);
+      this.modalService.dismissAll();
+    });
+  
+  }
 }
