@@ -41,10 +41,6 @@ const adminRoutes: Routes = [
     path: 'experiences',
     loadChildren: () => import('./views/experience/experience.module').then(m => m.ExperienceModule)
   },
-  // {
-  //   path: 'verification',
-  //   component: VerificationAddComponent
-  // },
 ];
 
 const routes: Routes = [

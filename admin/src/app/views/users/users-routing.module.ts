@@ -4,6 +4,8 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { UserViewComponent } from './user-view/user-view.component';
 import { VerificationComponent } from './verification/verification.component';
+import { VerificationAddComponent } from './verification-add/verification-add.component';
+import { VerificationViewComponent } from './verification-view/verification-view.component';
 
 const routes: Routes = [
   {
@@ -21,6 +23,18 @@ const routes: Routes = [
   {
     path: 'verification',
     component: VerificationComponent
+  },
+  {
+    path: 'verification',
+    component: VerificationComponent
+  },
+  {
+    path: 'verification/id',
+    component: VerificationViewComponent
+  },
+  {
+    path: 'verification/add/id',
+    component: VerificationAddComponent
   },
 
 ];

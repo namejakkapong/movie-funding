@@ -39,7 +39,9 @@
                                 </div>
                                 <div class="mb-4">
                                     <p class="text-primary mb-1"><i class="i-Edit-Map text-16 mr-1"></i> ที่อยู่</p>
-                                    <span>{{user?.address}} ต.{{user?.district}} อ.{{user?.amphoe}} จ.{{user?.province}} รหัสไปรษณีย์ {{user?.zipcode}}   </span>
+                                    <span *ngIf="!user?.address">ยังไม่มีข้อมูล</span>
+                                    <span *ngIf="user?.address">{{user?.address}}</span>
+                                    ต.{{user?.district}} อ.{{user?.amphoe}} จ.{{user?.province}} รหัสไปรษณีย์ {{user?.zipcode}}
                                 </div>
                                 <div class="mb-4">
                                     <p class="text-primary mb-1"><i class="i-Globe text-16 mr-1"></i>ประเทศ</p>
@@ -53,7 +55,7 @@
                                 </div>
                                 <div class="mb-4">
                                     <p class="text-primary mb-1"><i class="i-Telephone text-16 mr-1"></i> เบอร์โทรศัพท์</p>
-                                    <span>(ข้อมูล tel)</span>
+                                    <span>{{user?.tel}}</span>
                                 </div>
                                 
                             </div>
