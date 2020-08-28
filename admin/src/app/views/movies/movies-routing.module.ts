@@ -8,7 +8,7 @@ import { MovieViewComponent } from './movie-view/movie-view.component';
 
 const routes: Routes = [
   {
-    path: 'all',
+    path: '',
     component: MovieListComponent
   },
   {

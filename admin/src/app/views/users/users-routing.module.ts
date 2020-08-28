@@ -3,10 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { UserViewComponent } from './user-view/user-view.component';
-// import { VerificationAddComponent } from './verification-add/verification-add.component';
-
-
-
+import { VerificationComponent } from './verification/verification.component';
 
 const routes: Routes = [
   {
@@ -21,12 +18,11 @@ const routes: Routes = [
     path: 'create',
     component: UserAddComponent
   },
-  // {
-  //   path: 'verification/add',
-  //   component: VerificationAddComponent
-  // },
-  
-  
+  {
+    path: 'verification',
+    component: VerificationComponent
+  },
+
 ];
 
 @NgModule({

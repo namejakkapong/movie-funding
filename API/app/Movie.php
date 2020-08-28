@@ -21,4 +21,9 @@ class Movie extends Model
         'end',
         'movie_image'
     ];
+
+    public function category()
+    {
+    	return $this->hasOne('App\Category', 'id', 'category_id');
+    }
 }

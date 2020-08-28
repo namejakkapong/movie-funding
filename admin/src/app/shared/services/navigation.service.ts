@@ -63,9 +63,9 @@ export class NavigationService {
             type: 'dropDown',
             icon: 'i-Administrator',
             sub: [
-                { icon: 'i-Add-UserStar', name: 'ผู้ใช้', state: '/users/creator&fundraiser', type: 'link' },
+                { icon: 'i-Business-ManWoman', name: 'ผู้ใช้', state: '/users/creator&fundraiser', type: 'link' },
                 { icon: 'i-Add-User', name: 'เพิ่มผู้ใช้', state: '/users/create', type: 'link' },
-                { icon: 'i-Checked-User', name: 'ยืนยันตัวตน', state: '/verification-view', type: 'link' },
+                { icon: 'i-Checked-User', name: 'ยืนยันตัวตน', state: '/users/verification', type: 'link' },
             ]
         },
         {
@@ -74,7 +74,7 @@ export class NavigationService {
             type: 'dropDown',
             icon: 'i-Film',
             sub: [
-                { icon: 'i-Video-4', name: 'ภาพยนตร์', state: '/movies/all', type: 'link' },
+                { icon: 'i-Video-4', name: 'ภาพยนตร์', state: '/movies', type: 'link' },
                 {
                     icon: 'i-Video-5',
                     name: 'เพิ่มข้อมูล',
