@@ -4954,6 +4954,15 @@
                 "flare",
                 "reporting"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+>>>>>>> ff214c9eb7f64b48c4cd237670f3928ef23e92e4
             "time": "2020-08-26T18:06:23+00:00"
         },
         {
@@ -6125,6 +6134,15 @@
                 "highlight.php",
                 "syntax"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://github.com/allejo",
+                    "type": "github"
+                }
+            ],
+>>>>>>> ff214c9eb7f64b48c4cd237670f3928ef23e92e4
             "time": "2020-08-27T03:24:44+00:00"
         },
         {

@@ -48,18 +48,18 @@ export class EducationService {
       console.log(response.data);
       this.modalService.dismissAll();
     });
-   
+
   }
 
   destroy(user_id : string, education_id: string)
   {
     // console.log(user_id);
     // console.log(education_id);
-     
+
     this.http.delete<{data: any}>(BACKEND_URL + '/users/'+ user_id +'/educations/' + education_id).subscribe(response=>{
       console.log(response.data);
     });
   }
 
-  
+
 }
