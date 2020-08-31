@@ -19,20 +19,25 @@ export class UserListComponent implements OnInit {
 	filteredUsers;
 
 
-	constructor(private titleService:Title, private modalService: NgbModal,private userService: UserService, private router: Router) {
+	constructor(
+    private titleService:Title,
+    private modalService: NgbModal,
+    private userService: UserService,
+    private router: Router
+    ) {
 		this.titleService.setTitle("Creator & Fundraiser | User");
 	 }
 
 	ngOnInit() {
 		this.getUsers();
-	
+
 		this.searchControl.valueChanges
 		.pipe(debounceTime(200))
 		.subscribe(value => {
 		  this.filerData(value);
 		});
 	}
-	
+
 	getUsers() {
 		this.userService.index()
 		.subscribe(response => {
@@ -51,12 +56,12 @@ export class UserListComponent implements OnInit {
 		} else {
 		  return this.filteredUsers = [...this.users];
 		}
-	
+
 		const columns = Object.keys(this.users[0]);
 		if (!columns.length) {
 		  return;
 		}
-	
+
 		const rows = this.users.filter(function(d) {
 		  for (let i = 0; i <= columns.length; i++) {
 			const column = columns[i];
@@ -80,10 +85,10 @@ export class UserListComponent implements OnInit {
 		  this.getUsers();
 	  }
 
-	  
 
-	  
-	
-	
+
+
+
+
 
 }

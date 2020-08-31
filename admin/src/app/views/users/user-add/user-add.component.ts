@@ -9,7 +9,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./user-add.component.scss']
 })
 export class UserAddComponent implements OnInit {
-  
+
   private orderSub: Subscription;
   imagePreview: any;
   selectFile: any;
@@ -24,10 +24,11 @@ export class UserAddComponent implements OnInit {
   onAddUser(form: NgForm)
   {
       console.log(form.value);
-      
+
       console.log(this.selectFileCover);
       // this.userService.store(form.form.value.first_name +' '+ form.form.value.last_name, form.form.value.email, form.form.value.password, form.form.value.password_confirmation,this.selectFileCover);
   }
+
   onImagePicked(event: Event) {
     const file = (event.target as HTMLInputElement).files[0];
     const reader = new FileReader();
