@@ -1,1 +1,58 @@
-<p>verification-view works!</p>
+<div class="">
+    <div class="breadcrumb">
+        <h1>ข้อมูลยืนยันตัวตน</h1>
+    </div>
+    <div class="separator-breadcrumb border-top"></div>
+    <div class="row">
+      <div class="col-md-12">
+          <div class="card card-profile-1 mb-12">
+                <div class="card-body">
+                    <div class="col-md-10">
+                        <form (submit)="onAddVerification(formVerification)" #formVerification="ngForm">
+                            <label class="form-check-label" for="exampleRadios1"> เลขบัตรประชาชน </label>
+                            <div class="col-md-7">
+                                 <div class="card mb-4 o-hidden">
+                                    <div class="card-body">
+                                         <p>1458899779963 {{verification?.card_number}}</p>
+                                     </div>
+                                 </div>
+                            </div>
+                            
+                                <div class="col-md-2">
+                                    <label class="mb-2">รูปภาพประจำตัว</label>
+                                         <div class="mb-2" *ngIf="!imageCoverPreview">
+                                            <img src="./assets/images/card/1.png">
+                                </div>
+                                            <div *ngIf="imageCoverPreview !== '' && imageCoverPreview">
+                                                <img [src]="imageCoverPreview">
+                                            </div>
+                                </div>
+
+                                <label class="form-check-label" for="exampleRadios1"> เบอร์โทรศัพท์ </label>
+                                    <div class="col-md-7">
+                                        <div class="card mb-4 o-hidden">
+                                            <div class="card-body">
+                                                <p>0854464466 {{verification?.tel}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                <label class="form-check-label" for="exampleRadios1"> ที่อยู่ตามภูมิลําเนา </label>
+                                    <div class="col-md-7">
+                                        <div class="card mb-4 o-hidden">
+                                            <div class="card-body">
+                                                <p>162 หมู่14 ต.เหนือเมือง อ.เมือง จ.ร้อยเอ็ด 45000 {{verification?.address}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                            <button type="button" class="btn btn-success m-1">อนุมัติ</button>
+                            <button type="button" class="btn btn-outline-danger m-1">ไม่อนุมัติ</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

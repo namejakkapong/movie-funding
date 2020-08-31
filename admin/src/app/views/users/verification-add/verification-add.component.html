@@ -1,1 +1,84 @@
-<p>verification-add works!</p>
+<div class="">
+    <div class="breadcrumb">
+        <h1>เพิ่มข้อมูลยืนยันตัวตน</h1>
+    </div>
+    <div class="separator-breadcrumb border-top"></div>
+    <div class="row">
+      <div class="col-md-12">
+          <div class="card card-profile-1 mb-12">
+              <div class="card-body">
+                <div class="col-md-10">
+                  <form (submit)="onAddVerification(formVerification)" #formVerification="ngForm">
+  
+  
+                  <div class="form-check">
+                      <input class="form-check-input" type="radio" name="status" ngModel id="exampleRadios1"  value="card" checked>
+                      <label class="form-check-label" for="exampleRadios1"> เลขบัตรประชาชน </label>
+                  </div>
+                  <div class="form-check">
+                      <input class="form-check-input" type="radio" name="status" ngModel id="exampleRadios2"  value="passport">
+                      <label class="form-check-label" for="exampleRadios2"> Passport </label>
+                  </div>
+                  <div>
+                      <div class="col-md-6 form-group mb-3">
+                          <label>เลขบัตร</label>
+                          <input type="text" class="form-control form-control-rounded" name="card_number" ngModel placeholder="เลขบัตร">
+                      </div>
+                      <!-- =============================    รูปภาพตัวอย่าง    ======================================================================================================= -->
+                    <div class="col-md-2">
+                      <label class="mb-2">รูปภาพประจำตัว</label>
+                      <div class="mb-2" *ngIf="!imageCoverPreview">
+                          <img src="./assets/images/card/1.png">
+                      </div>
+                      <div *ngIf="imageCoverPreview !== '' && imageCoverPreview">
+                          <img [src]="imageCoverPreview">
+                      </div>
+                      <section id="intro-wrap" class="intro-three-Wrap text-center">
+                          <div class="intro-three-Description">
+                            <span>
+                            <button type="file" class="btn btn-outline-white" id="customfile" (click)="fileCover.click()"><i class="fas fa-camera"></i> อัพโหลดรูปภาพ</button>
+                            <input class="d-none" ngModel type="file" #fileCover #fileCoverReset  (change)="onImageCover($event)" accept="image/*">
+                            </span>
+                            <span *ngIf="imageCoverPreview !== '' && imageCoverPreview">
+                                <!-- <button type="button" class="btn btn-success mr-2" (click)="onUploadImageCover()"><i class="far fa-check-circle"></i> บันทึก </button>
+                                <button type="button" class="btn btn-outline-white border-0" (click)="onCancelImagCover()">ยกเลิก</button> -->
+                            </span>
+                          </div>
+                          <div class="overlay">
+                          </div>
+                        </section>
+                  </div>
+                  <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+                      <!-- <div class="col-md-6 form-group mb-3">
+                        <label> อัพโหลด รูปภาพ</label>
+                        <div class="col-md-6 form-group mb-3">
+                            <input type="file" class="custom-file-input" id="customfile" name="card_pic" ngModel>
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                      </div> -->
+                      <br>
+                      <div class="col-md-6 form-group mb-3">
+                          <label>เบอร์โทรศัพท์</label>
+                          <input type="text" class="form-control form-control-rounded" name="tel" ngModel placeholder="เบอร์โทรศัพท์">
+                      </div>
+                      <div class="col-md-6 form-group mb-3">
+                          <label>ที่อยู่ตามภูมิลําเนา</label>
+                          <input type="text" class="form-control form-control-rounded" name="address" ngModel placeholder="ที่อยู่ตามภูมิลําเนา">
+                      </div>
+  
+  
+                      <div class="col-md-2">
+                          <button type="submit" class="btn btn-main btn-block" >บันทึกข้อมูล</button>
+                        <!-- <btn-loading  btnClass="btn-primary btn-rounded" [loading]="loading">บันทึกข้อมูล</btn-loading> -->
+                      </div>
+                  </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+  
+  
+  </div>
