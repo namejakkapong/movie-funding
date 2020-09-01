@@ -8,12 +8,18 @@ class Verification extends Model
 {
     protected $fillable = [
         'user_id',
-        'status',
+        'type',
         'card_number',
         'tel',
         'address',
-        'card_pic'
-        
+        'card_pic',
+        'status',
+
 
     ];
+
+    public function user()
+    {
+    	return $this->hasOne('App\User', 'id', 'user_id');
+    }
 }

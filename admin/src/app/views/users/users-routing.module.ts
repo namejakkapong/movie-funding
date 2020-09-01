@@ -33,7 +33,7 @@ const routes: Routes = [
     component: VerificationViewComponent
   },
   {
-    path: 'verification/add/id',
+    path: 'verification/add/:id',
     component: VerificationAddComponent
   },
 

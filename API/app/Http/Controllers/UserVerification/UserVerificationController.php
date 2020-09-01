@@ -16,7 +16,7 @@ class UserVerificationController extends Controller
      */
     public function index()
     {
-        $verifications = Verification::all();
+        $verifications = Verification::where('status', 'disapproval')->with('user')->get();
         return $verifications;
     }
 
@@ -47,7 +47,7 @@ class UserVerificationController extends Controller
 	        $image = str_replace(' ', '+', $image);
 	        $imageName = md5(rand()*time()).'.'.'png';
             \File::put(public_path(). '/images/verification/card_pic' . $imageName, base64_decode($image));
-            
+
         }else{
             $imageName ='';
         }
@@ -58,8 +58,8 @@ class UserVerificationController extends Controller
             'card_number' => $request->card_number,
             'tel' => $request->tel,
             'address' => $request->address,
-            'card_pic' => $request->card_pic, 
-            
+            'card_pic' => $request->card_pic,
+
         ]);
         $verification->save();
         return $verification;

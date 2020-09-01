@@ -15,7 +15,7 @@ class UserTransformer extends TransformerAbstract
     protected $defaultIncludes = [
         //
     ];
-    
+
     /**
      * List of resources possible to include
      *
@@ -24,7 +24,7 @@ class UserTransformer extends TransformerAbstract
     protected $availableIncludes = [
         //
     ];
-    
+
     /**
      * A Fractal transformer.
      *
@@ -44,6 +44,8 @@ class UserTransformer extends TransformerAbstract
             'profile_picture' => (string)$profile_picture,
             'user_status' => (string)$user->user_status,
             'admin' => (string)$user->admin,
+            'zipcode' => (string)$user->zipcode,
+            'country' => (string)$user->country,
             'created_at' => (string)$user->created_at,
             'updated_at' => (string)$user->updated_at,
         ];
