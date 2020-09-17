@@ -115,7 +115,7 @@
                             <p>สาขาวิชา/วิชาเอก/สายการศึกษา : {{education.subject}}</p>
                             <p>คณะ : {{education.faculty}}</p>
                             <p>โรงเรียน/สถานศึกษา : {{education.school}}</p>
-                            <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0" (click)="DeleteInfor(user?.id, education.id)">ลบ</button>
+                            <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0" (click)="deleteEducation(user?.id, education.id)">ลบ</button>
                             <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0" (click)="open(modalEditEducation)">แก้ไข</button>
                                         </div>
                                     </div>
@@ -184,7 +184,7 @@
                             <p>ปีที่ออกจากงาน : {{experience.end_year}}</p>
                             <p>ตำแหน่ง : {{experience.position}}</p>
                             <p>ที่ทำงาน : {{experience.workplace}}</p>
-                            <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0" (click)="deleteWork(user?.id, experience.id)">ลบ</button>
+                            <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0" (click)="deleteExperienceWork(user?.id, experience.id)">ลบ</button>
                             <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0" (click)="open(modalEditExperience)">แก้ไข</button>
                                         </div>
                                     </div>
@@ -303,6 +303,10 @@
                                             </div>
                                         </div>
                                     </div> -->
+                                    <div class="col-md-6 form-group mb-3">
+                                      <label>เบอร์โทรศัพท์</label>
+                                      <input type="text" class="form-control form-control-rounded" name="tel" ngModel="{{user?.tel}}" #telInput="ngModel" required placeholder="เบอร์โทรศัพท์">
+                                  </div>
                                     <div class="col-md-6 form-group mb-3">
                                         <label>ที่อยู่</label>
                                         <input type="text" class="form-control form-control-rounded" name="address" ngModel="{{user?.address}}" #addressInput="ngModel" required placeholder="ที่อยู่">

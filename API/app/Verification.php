@@ -10,10 +10,10 @@ class Verification extends Model
         'user_id',
         'type',
         'card_number',
-        'tel',
+        'status',
         'address',
         'card_pic',
-        'status',
+
 
 
     ];

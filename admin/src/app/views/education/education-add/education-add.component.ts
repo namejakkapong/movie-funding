@@ -11,6 +11,7 @@ import { EducationService } from 'src/app/services/education.service';
 })
 export class EducationAddComponent implements OnInit {
   private id: string;
+  public educations: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -28,9 +29,12 @@ export class EducationAddComponent implements OnInit {
 
   }
 
+
   onAddEducation(form: NgForm){
       console.log(form.value);
       this.educationService.store(this.id, form.value.graduation_year, form.value.level, form.value.subject, form.value.faculty, form.value.school);
+
+
   }
 
 }

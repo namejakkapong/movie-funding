@@ -39,14 +39,14 @@ class UserController extends ApiController
 	        $imageName = md5(rand()*time()).'.'.'png';
 	        \File::put(public_path(). '/images/profile/' . $imageName, base64_decode($image));
 
-            
+
         }else{
             $imageName ='';
         }
         $user = new User([
             'name' => $request->name,
             'email' => $request->email,
-            'user_status' => 'member',   
+            'user_status' => 'member',
             'profile_picture' => $imageName,
             'admin' => User::REGULAR_USER,
             'verified' => User::VERIFIED_USER,
@@ -82,6 +82,7 @@ class UserController extends ApiController
         $user->name = $request->name;
         // $user->profile_picture = $request->profile_picture;
         // $user->birthday = $request->birthday;
+        $user->tel = $request->tel;
         $user->address = $request->address;
         $user->district = $request->district;
         $user->amphoe = $request->amphoe;

@@ -14,7 +14,7 @@ class User extends Authenticatable
     use Notifiable, HasApiTokens, SoftDeletes;
 
     public $transformer = UserTransformer::class;
-    
+
     const VERIFIED_USER = '1';
     const UNVERIFIED_USER = '0';
     const ADMIN_USER = 'true';
@@ -25,19 +25,20 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 
-        'email', 
-        'password', 
-        'profile_picture', 
-        'user_status', 
-        'admin', 
-        'address', 
-        'district', 
-        'amphoe', 
-        'province', 
-        'zipcode', 
-        'country', 
-        'career', 
+        'name',
+        'email',
+        'password',
+        'profile_picture',
+        'user_status',
+        'admin',
+        'tel',
+        'address',
+        'district',
+        'amphoe',
+        'province',
+        'zipcode',
+        'country',
+        'career',
         'workplace'
     ];
 

@@ -37,7 +37,7 @@ export class VerificationAddComponent implements OnInit {
     console.log(form.value);
 
     console.log(this.selectFileCover);
-    // this.verificationService.store(this.id, form.value.status, form.value.card_number, form.value.card_pic, form.value.tel, form.value.address);
+    this.verificationService.store(form.value.type, form.value.card_number, form.value.card_pic, form.value.status, form.value.address);
   }
 
   onImagePicked(event: Event) {

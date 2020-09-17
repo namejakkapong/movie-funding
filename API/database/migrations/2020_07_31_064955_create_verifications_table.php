@@ -17,9 +17,9 @@ class CreateVerificationsTable extends Migration
         Schema::create('verifications', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->enum('status',['card','passport'])->default('card');
+            $table->enum('type',['card','passport'])->default('card');
             $table->string('card_number');
-            $table->string('tel');
+            $table->enum('status',['approve','disapproval'])->default('disapproval');
             $table->string('address');
             $table->string('card_pic');
             $table->timestamps();

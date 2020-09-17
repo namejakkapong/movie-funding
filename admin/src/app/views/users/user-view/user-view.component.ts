@@ -67,21 +67,24 @@ export class UserViewComponent implements OnInit {
   addEducation(id) {
     // console.log(id);
     this.router.navigate(['educations/add/' + id]);
+
   }
   addExperience(id) {
     // console.log(id);
     this.router.navigate(['experiences/add/' + id]);
   }
 
-  DeleteInfor(user_id , education_id) {
-    // console.log(id + edu_id);
+  deleteEducation(user_id , education_id) {
+    console.log(user_id + education_id);
     this.educationService.destroy(user_id , education_id);
+    this.getEducation(this.id);
 
   }
 
-  deleteWork(user_id , experience_id) {
-    //console.log(user_id + experience_id);
-    // this.experienceService.destroy(user_id , experience_id);
+  deleteExperienceWork(user_id , experience_id) {
+    console.log(user_id + experience_id);
+    this.experienceService.destroy(user_id , experience_id);
+    this.getExperience(this.id);
 
   }
 
@@ -97,7 +100,7 @@ export class UserViewComponent implements OnInit {
     //  console.log(this.id);
     //  console.log(experience_id);
     this.experienceService.update(experience_id,this.id,form.value.start_year, form.value.end_year, form.value.position, form.value.workplace);
-
+    this.getExperience(this.id);
     //this.modalService.dismissAll();
   }
 
@@ -113,6 +116,7 @@ export class UserViewComponent implements OnInit {
 
   onEditUser(form: NgForm) {
     console.log(form.value);
-    this.userService.update(this.id, form.value.name, form.value.address, form.value.district, form.value.amphoe , form.value.province , form.value.zipcode , form.value.country , form.value.career , form.value.workplace);
+    this.userService.update(this.id, form.value.name, form.value.tel, form.value.address, form.value.district, form.value.amphoe , form.value.province , form.value.zipcode , form.value.country , form.value.career , form.value.workplace);
+    this.ngOnInit();
   }
 }

@@ -53,10 +53,10 @@ class UserVerificationController extends Controller
         }
 
         $verification = new Verification([
-            'user_id' => $request->user_id,
-            'status' => $request->status,
+            'user_id' => $request->id,
+            'type' => $request->type,
             'card_number' => $request->card_number,
-            'tel' => $request->tel,
+            'status' => $request->status,
             'address' => $request->address,
             'card_pic' => $request->card_pic,
 
@@ -96,9 +96,9 @@ class UserVerificationController extends Controller
     public function update(Request $request, $id)
     {
         $verification = Verification::where('id', $id)->firstOrFail();
-        $verification->status = $request->status;
+        $verification->type = $request->type;
         $verification->card_number = $request->card_number;
-        $verification->tel = $request->tel;
+        $verification->status = $request->status;
         $verification->address = $request->address;
         // $verification->card_pic = $request->card_pic;
         $verification->save();

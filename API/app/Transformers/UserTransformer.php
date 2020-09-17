@@ -44,10 +44,18 @@ class UserTransformer extends TransformerAbstract
             'profile_picture' => (string)$profile_picture,
             'user_status' => (string)$user->user_status,
             'admin' => (string)$user->admin,
+            'tel' => (string)$user->tel,
+            'address' => (string)$user->address,
+            'district' => (string)$user->district,
+            'amphoe' => (string)$user->amphoe,
+            'province' => (string)$user->province,
             'zipcode' => (string)$user->zipcode,
             'country' => (string)$user->country,
+            'career' => (string)$user->career,
+            'workplace'=> (string)$user->workplace,
             'created_at' => (string)$user->created_at,
             'updated_at' => (string)$user->updated_at,
+
         ];
     }
 }

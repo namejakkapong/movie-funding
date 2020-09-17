@@ -37,16 +37,18 @@ export class UserService {
   {
     this.http.delete<{data: any}>(BACKEND_URL + '/users/' + id).subscribe(response=>{
       console.log(response.data);
+      this.modalService.dismissAll();
     });
     // BACKEND_URL = http://localhost:8000/api/admins , method DELETE
   }
   getEducation(id: string){
     return this.http.get<{data: any}>(BACKEND_URL + '/users/'+ id +'/educations');
   }
-  update(user_id: string, name: string, address: string, district: string, amphoe: string, province: string, zipcode: string, country: string, career: string, workplace: string)
+  update(user_id: string, name: string, tel: string, address: string, district: string, amphoe: string, province: string, zipcode: string, country: string, career: string, workplace: string)
   {
     const data = {
       name: name,
+      tel: tel,
       address: address,
       district: district,
       amphoe: amphoe,
@@ -56,7 +58,7 @@ export class UserService {
       career: career,
       workplace: workplace,
 
-      
+
     };
     this.http.patch<{data: any}>(BACKEND_URL + '/users/'+ user_id , data)
     .subscribe(response => {

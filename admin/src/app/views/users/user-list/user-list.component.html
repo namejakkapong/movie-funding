@@ -7,7 +7,7 @@
           <li>นักลงทุน & นักสร้างภาพยนตร์</li>
       </ul>
   </div>
-  
+
   <div class="separator-breadcrumb border-top"></div>
 
   <!-- data table filter -->
@@ -71,7 +71,7 @@
                   >
                     <i class="i-Eye"></i>
                   </a>
-                  <a type="button" class="pointer" 
+                  <a type="button" class="pointer"
                   (click)="confirm(modalConfirm)"
                   placement="bottom"
                   ngbPopover="ลบ"
@@ -83,15 +83,18 @@
                   <ng-template #modalConfirm let-modal>
                     <div class="modal-body">
                       <p><strong>คุณต้องการลบข้อมูลโปรไฟล์ของ <span class="text-primary">"ชื่อผู้ใช้งาน"</span> หรือไม่ ?</strong></p>
-                      <p>All information associated to this user profile will be permanently deleted.
-                      <span class="text-danger">This operation can not be undone.</span>
+                      <p>ข้อมูลทั้งหมดที่เกี่ยวข้องกับโปรไฟล์ผู้ใช้นี้จะถูกลบอย่างถาวร
+
+                        <!-- All information associated to this user profile will be permanently deleted. -->
+                      <span class="text-danger">การดำเนินการนี้ไม่สามารถยกเลิกได้</span>
+                      <!-- This operation can not be undone.  -->
                       </p>
                     </div>
                     <div class="modal-footer border-top-0">
                       <button type="button" class="btn btn-light btn-rounded" (click)="modal.dismiss('cancel')">ยกเลิก</button>
-                      <button type="button" ngbAutofocus class="btn btn-danger btn-rounded" (click)="modal.close('Ok')" >ยืนยัน</button>
+                      <button type="button" ngbAutofocus class="btn btn-danger btn-rounded" (click)="delete(value)" >ยืนยัน</button>
                     </div>
-                  </ng-template>                 
+                  </ng-template>
               </ng-template>
               </ngx-datatable-column>
           </ngx-datatable>

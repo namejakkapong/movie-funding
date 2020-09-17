@@ -13,31 +13,32 @@ import { VerificationService } from 'src/app/services/verification.service';
 })
 export class VerificationComponent implements OnInit {
   searchControl: FormControl = new FormControl();
+
   confirmResut;
 	public verifications: any;
 	filteredVerifications;
 
   constructor(
-    private titleService:Title,
+    //private titleService:Title,
     private modalService: NgbModal,
     private verificationService: VerificationService,
     private router: Router
     ) { }
 
     ngOnInit() {
-      this.getUsers();
+      this.getVerifications();
+
       this.searchControl.valueChanges
       .pipe(debounceTime(200))
       .subscribe(value => {
         this.filerData(value);
       });
     }
-    getUsers() {
+
+    getVerifications() {
       this.verificationService.index()
       .subscribe(response => {
         this.verifications = response;
-        console.log(this.verifications);
-
         this.filteredVerifications = response.data;
       });
     }

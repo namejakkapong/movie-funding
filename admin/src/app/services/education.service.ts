@@ -30,7 +30,7 @@ export class EducationService {
     this.http.post<{data: any}>(BACKEND_URL + '/users/'+ id + '/educations', data)
     .subscribe(response => {
       console.log(response.data);
-      // this.modalService.dismissAll();
+      //this.modalService.dismissAll();
     });
   }
 
@@ -46,7 +46,7 @@ export class EducationService {
     this.http.patch<{data: any}>(BACKEND_URL + '/users/'+ user_id + '/educations/'+ education_id, data)
     .subscribe(response => {
       console.log(response.data);
-      this.modalService.dismissAll();
+
     });
 
   }
@@ -58,8 +58,7 @@ export class EducationService {
 
     this.http.delete<{data: any}>(BACKEND_URL + '/users/'+ user_id +'/educations/' + education_id).subscribe(response=>{
       console.log(response.data);
+      this.modalService.dismissAll();
     });
   }
-
-
 }
