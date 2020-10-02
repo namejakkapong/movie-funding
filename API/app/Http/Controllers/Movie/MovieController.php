@@ -19,10 +19,11 @@ class MovieController extends ApiController
      */
     public function index()
     {
-        $movies = Movie::with('category')->orderBy('created_at', 'DESC')->get();
+        $movies = Movie::with('category')->orderBy('created_at', 'DESC')->with('category')->get();
         return MovieResource::collection($movies);
+        // return $movies;
     }
-        
+
     /**
      * Show the form for creating a new resource.
      *
@@ -30,7 +31,7 @@ class MovieController extends ApiController
      */
     public function create()
     {
-     
+
     }
 
     /**
@@ -51,7 +52,7 @@ class MovieController extends ApiController
 	        $imageName = md5(rand()*time()).'.'.'png';
 	        \File::put(public_path(). '/images/movie/' . $imageName, base64_decode($image));
 
-            
+
         }else{
             $imageName ='';
         }
@@ -62,12 +63,12 @@ class MovieController extends ApiController
             'name_eng' => $request->name_eng,
             'details' => $request->details,
             'description' => $request->description,
-            'total' => $request->total, 
+            'total' => $request->total,
             'status' => $request->status,
             'start' => $request->start,
             'end' => $request->end,
             'movie_image' => $imageName
-            
+
         ]);
         $movie->save();
         return $movie;
@@ -130,7 +131,7 @@ class MovieController extends ApiController
     public function destroy($id)
     {
         //return $id; (   1. รับ id เข้ามา เพื่อเช็คว่าตรงกับ id ที่เราจะลบรึป่าว )
-        
+
         $movie = Movie::where('id', $id)->firstOrFail();
         $movie->delete();
         return $movie;
@@ -153,7 +154,7 @@ class MovieController extends ApiController
             $movie->image_cover = $imageName;
             $movie->save();
         }
-        
+
     }
 
 }

@@ -18,7 +18,7 @@ export class UserService {
     return this.http.get<{data: any}>(BACKEND_URL + '/users/' + id);
     //BACKEND_URL = http://localhost:8000/api/admins/2
   }
-  store(name: string, email: string, password: string, password_confirmation,selectFileCover:any)
+  store(name: string, email: string, password: string, password_confirmation, selectFileCover:any)
   {
     // BACKEND_URL = http://localhost:8000/api/admins , method POST
     const data = {

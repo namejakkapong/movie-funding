@@ -6,7 +6,7 @@
             <li>เพิ่มข้อมูล</li>
         </ul>
     </div>
-    
+
     <div class="separator-breadcrumb border-top"></div>
 
     <div class="row">
@@ -14,67 +14,53 @@
             <div class="card mb-4">
                 <div class="card-body">
                     <div class="card-title mb-3">เพิ่มข้อมูล ภาพยนตร์</div>
-                   
+
                    <form (submit)="onAddMovie(formMovie)" #formMovie="ngForm">
-                   
-                    <!-- <form (submit)="onTest('31')"> -->
-                       
-                            <!-- <div class="col-md-6 form-group mb-3">
-                                <label for="firstName">ชื่อภาษาไทย</label>
-                                <input type="text" class="form-control" name="name" placeholder="ชื่อภาษาไทย">
-                            </div>
 
-                            <div class="col-md-6 form-group mb-3">
-                                <label for="firstName">ชื่อภาษาอังกฤษ</label>
-                                <input type="text" class="form-control" name="name_eng" placeholder="ชื่อภาษาอังกฤษ">
-                            </div>
-
-                        <div class="col-md-6 form-group mb-3">
-                            <label for="lastName">รายละเอียด</label>
-                            <textarea class="form-control" name="detail" rows="10" placeholder="รายละเอียด"></textarea>
-                        </div>
-
-                        <div class="col-md-6 form-group mb-3">
-                            <label for="lastName">ลักษณะ</label>
-                            <input type="text" class="form-control" id="description" placeholder="ลักษณะ">
-                        </div>
-
-                        <div class="col-md-6 form-group mb-3">
-                            <label for="lastName">ทั้งหมด</label>
-                            <input type="text" class="form-control" id="total" placeholder="ยอดระดมทุน">
-                        </div>
-
-                        <div class="col-md-6 form-group mb-3">
-                            <label for="lastName">สถานะ</label>
-                            <input type="text" class="form-control" id="status" placeholder="สถานะ">
-                        </div>
-
-                        <label> อัพโหลด รูปภาพ</label>
-                        <div class="col-md-6 form-group mb-3">
-                            <input type="file" class="custom-file-input" id="customfile" name="image">
-                            <label class="custom-file-label" for="customFile">Choose file</label>
-                        </div> -->
                         <div class="col-md-12 form-group mb-3">
                             <label>ประเภทหนัง</label>
-                            <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
-                              <option selected>ประเภทหนัง</option>
-                              <option value="1">แอคชั่น</option>
-                              <option value="2">โรแมนติก</option>
-                              <option value="3">คอมมาดี้</option>
-                              <option value="4">สยองขวัญ</option>
+                            <select class="custom-select" name="categorie.name" ngModel id="inputGroupSelect04" aria-label="Example select with button addon">
+                              <option *ngFor="let categorie of categories">{{categorie?.name}}</option>
                             </select>
                         </div>
-                   
-
                         <div class="col-md-12 form-group mb-3">
                             <label>ชื่อภาษาไทย</label>
                             <input type="text" class="form-control form-control-rounded" name="name" ngModel placeholder="ชื่อภาษาไทย">
                         </div>
-
                         <div class="col-md-12 form-group mb-3">
                             <label>ชื่อภาษาอังกฤษ</label>
                             <input type="text" class="form-control form-control-rounded" name="name_eng" ngModel placeholder="ชื่อภาษาอังกฤษ">
                         </div>
+
+                        <!-- ---------------------------------------อัพโหลดรูปภาพ-------------------------------- -->
+              <div class="col-md-6">
+                <label class="mb-4">รูปภาพประจำตัว</label>
+                <div class="mb-3" *ngIf="!imageCoverPreview">
+                  <img src="./assets/images/movies/1.png">
+                </div>
+                <div *ngIf="imageCoverPreview !== '' && imageCoverPreview">
+                  <img [src]="imageCoverPreview">
+                </div>
+
+                <section id="intro-wrap" class="intro-three-Wrap text-center">
+                  <div class="intro-three-Description">
+                    <span>
+                      <button type="button" class="btn btn-outline-white" (click)="fileCover.click()"><i
+                          class="fas fa-camera"></i> อัพโหลดรูปภาพ</button>
+                      <input class="d-none" type="file" #fileCover #fileCoverReset
+                        (change)="onImageCover($event)" accept="image/*">
+                    </span>
+                    <span *ngIf="imageCoverPreview !== '' && imageCoverPreview">
+                      <!-- <button type="button" class="btn btn-success mr-2" (click)="onUploadImageCover()"><i class="far fa-check-circle"></i> บันทึก </button>
+                                <button type="button" class="btn btn-outline-white border-0" (click)="onCancelImagCover()">ยกเลิก</button> -->
+                    </span>
+                  </div>
+                  <div class="overlay">
+                  </div>
+                </section>
+              </div>
+              <!-- ------------------------------------------------------------------------------------------ -->
+              <br>
 
                         <div class="col-md-12 form-group mb-3">
                             <label>รายละเอียด</label>
@@ -96,19 +82,10 @@
                             <input type="text" class="form-control form-control-rounded" name="status" ngModel placeholder="สถานะ">
                         </div>
 
-                        <!-- <p>
-                        <label for="date">เริ่มการระดมทุน</label>
-                        <input type="date" id="date">
-                        </p>
-                        <p>
-                            <label for="date">สิ้นสุดการระดมทุน</label>
-                            <input type="date" id="date">
-                            </p> -->
-                    
                             <div class="col-md-6 form-group mb-3">
-                                <label for="picker1">เริ่มการระดมทุน</label>
+                                <label for="picker">เริ่มการระดมทุน</label>
                                 <div class="input-group">
-                                    <input id="picker1" class="form-control form-control-rounded" placeholder="yyyy-mm-dd" name="dp"
+                                    <input id="picker" class="form-control form-control-rounded" placeholder="yyyy-mm-dd" name="start"
                                         ngbDatepicker #dp="ngbDatepicker">
                                     <div class="input-group-append">
                                         <button class="btn btn-secondary btn-rounded" (click)="dp.toggle()" type="button">
@@ -119,9 +96,9 @@
                             </div>
 
                             <div class="col-md-6 form-group mb-3">
-                                <label for="picker1">สิ้นสุดการระดมทุน</label>
+                                <label for="picker">สิ้นสุดการระดมทุน</label>
                                 <div class="input-group">
-                                    <input id="picker1" class="form-control form-control-rounded" placeholder="yyyy-mm-dd" name="dp"
+                                    <input id="picker" class="form-control form-control-rounded" placeholder="yyyy-mm-dd" name="end"
                                         ngbDatepicker #dp="ngbDatepicker">
                                     <div class="input-group-append">
                                         <button class="btn btn-secondary btn-rounded" (click)="dp.toggle()" type="button">
@@ -131,44 +108,6 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6 form-group mb-3">
-                        <label> อัพโหลด รูปภาพ</label>
-                        <div class="col-md-6 form-group mb-3">
-                            <input type="file" class="custom-file-input" id="customfile" name="image" ngModel>
-                            <label class="custom-file-label" for="customFile">Choose file</label>
-                            </div>
-                        </div>
-
-                            
-
-           
-                        <!-- <div class="col-md-6 form-group mb-3">
-                            <label for="picker1">เริ่มโปรเจค</label><i class="i-Film"></i>
-                            <div class="input-group">
-                                <input name="start" class="form-control" placeholder="yyyy-mm-dd"
-                                    ngbDatepicker #dp="ngbDatepicker">
-                                <div class="input-group-append">
-                                    <button class="btn btn-secondary" (click)="dp.toggle()" type="button">
-                                        <i class="icon-regular i-Calendar-4"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6 form-group mb-3">
-                            <label for="picker1">เริ่มโปรเจค</label><i class="i-Film"></i>
-                            <div class="input-group">
-                                <input name="end" class="form-control" placeholder="yyyy-mm-dd"
-                                    ngbDatepicker #dp="ngbDatepicker">
-                                <div class="input-group-append">
-                                    <button class="btn btn-secondary" (click)="dp.toggle()" type="button">
-                                        <i class="icon-regular i-Calendar-4"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div> -->
-                        
-                        
                         <!-- <button type="submit" class="btn btn-primary btn-rounded m-1">submit</button> -->
                         <div class="col-md-6 form-group mb-3">
                         <button type="submit" class="btn btn-primary ">เพิ่มข้อมูล</button>

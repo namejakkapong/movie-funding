@@ -3,6 +3,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MovieService } from 'src/app/services/movie.service';
 import { DataLayerService } from 'src/app/shared/services/data-layer.service';
 import { SharedAnimations } from 'src/app/shared/animations/shared-animations';
+import { CategoriesService } from 'src/app/services/categories.service';
 
 @Component({
   selector: 'app-movie-list',
@@ -17,11 +18,14 @@ export class MovieListComponent implements OnInit {
   page = 1;
   pageSize = 8;
   products: any[] = [];
+  categories: any;
 
   constructor(
     private modalService: NgbModal,
     private movieService: MovieService,
-    private dl: DataLayerService
+    private dl: DataLayerService,
+    private categoriesService: CategoriesService
+
     ) {
 		}
 
@@ -35,6 +39,13 @@ export class MovieListComponent implements OnInit {
 		.subscribe(response => {
       this.movies = response.data;
        console.log(this.movies);
+
+    });
+
+    this.categoriesService.index()
+    .subscribe(response => {
+      this.categories = response.data;
+       console.log(this.categories);
 
 		});
   }

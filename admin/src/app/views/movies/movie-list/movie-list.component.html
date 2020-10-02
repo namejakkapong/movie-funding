@@ -6,7 +6,7 @@
             <li>ทั้งหมด</li>
         </ul>
     </div>
-    
+
     <div class="separator-breadcrumb border-top"></div>
 <!-- <div class="row">
     <div class="col-md-6" *ngFor="let movie of movies">
@@ -68,7 +68,7 @@
   <!-- DATA LIST -->
 <div class="row" [ngClass]="{'list-horizontal': viewMode === 'list', 'list-grid': viewMode === 'grid'}">
   <!-- SINGLE LIST ITEM -->
-  <div *ngFor="let item of movies | paginate: { itemsPerPage: pageSize, currentPage: page }; let i = index" 
+  <div *ngFor="let item of movies | paginate: { itemsPerPage: pageSize, currentPage: page }; let i = index"
     class="list-item"
     [ngClass]="{'col-md-12': viewMode === 'list', 'col-md-3': viewMode === 'grid'}"
     [@animate]="{value:'*',params:{delay: (i*100)+'ms', y:'50px'}}"
@@ -84,7 +84,7 @@
           <!-- OTHER DATA -->
           <a href="" class="w-40 w-sm-100">
             <div class="item-title">{{item.name}}</div>
-            <p class="m-0 text-muted text-small w-15 w-sm-100">ประเภท : {{item.category.name}}</p>
+            <p class="m-0 text-muted text-small w-15 w-sm-100">ประเภท : {{item.categorie?.name}}</p>
           </a>
           <p class="m-0 text-muted text-small w-15 w-sm-100">
             <span class="d-block"><small>ยอดปัจจุบัน</small></span>
@@ -128,5 +128,27 @@
   </div>
 </div>
 
-</div> 
+</div>
+
+<!-- BG IMAGE CARDS
+<div class="col-md-3">
+  <div class="card bg-dark text-white o-hidden mb-4">
+    <img class="card-img" src="./assets/images/movies/mr.bean.jpg" alt="Card image">
+    <div class="card-img-overlay">
+      <div class="text-center pt-4">
+        <h5 class="card-title mb-2 text-white">มิสเตอร์บีน</h5>
+        <h5 class="card-title mb-2 text-white">Mr. Bean</h5>
+        <div class="separator border-top mb-2"></div>
+      </div>
+      <br><br><br><br><br><br><br><br><br>
+      <p>Mr. Bean มิสเตอร์บีน เป็นละครตลกของประเทศอังกฤษ</p>
+      <div class="p-1 text-left card-footer font-weight-light d-flex">
+        <span class="mr-3 d-flex align-items-center"><i class="i-Token- mr-2"></i> 100000.00 </span>
+        <span class="d-flex align-items-center"><i class="i-Calendar-4 mr-2"></i>03.12.2018</span>
+
+      </div>
+    </div>
+  </div>
+</div>
+ -->
 

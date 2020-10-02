@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgForm } from '@angular/forms';
+import { CustomValidators } from 'ng2-validation';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -9,10 +12,26 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./verification-add.component.scss']
 })
 export class VerificationAddComponent implements OnInit {
+  formBasic: FormGroup;
+  loading: boolean;
+  radioGroup: FormGroup;
 
-  constructor(private modalService: NgbModal) { }
+  constructor(
+    private modalService: NgbModal,
+    private fb: FormBuilder,
+    private toastr: ToastrService
+    ) { }
 
-  ngOnInit() {
+  ngOnInit() {this.buildFormBasic();
+    this.radioGroup = this.fb.group({
+      radio: []
+    });
+  }
+
+  buildFormBasic() {
+    this.formBasic = this.fb.group({
+      experience: []
+    });
   }
 
   view(color,size) {

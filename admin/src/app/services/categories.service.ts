@@ -48,13 +48,13 @@ export class CategoriesService {
       console.log(response.data);
       this.modalService.dismissAll();
     });
-   
+
   }
 
   destroy(id:string)
   {
     // console.log(id);
-    
+
     this.http.delete<{data: any}>(BACKEND_URL + '/categories/' + id)
     .subscribe(response=>{
       console.log(response.data);

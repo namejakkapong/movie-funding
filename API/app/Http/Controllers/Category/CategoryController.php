@@ -69,7 +69,7 @@ class CategoryController extends ApiController
      */
     public function destroy(Category $category)
     {
-        
+
         $category->delete();
         return $this->showOneTransform("insert data category complete" , $category , 200);
     }
