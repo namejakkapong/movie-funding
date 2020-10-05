@@ -21,7 +21,7 @@ export class UserAddComponent implements OnInit {
   {
       console.log(form.value);
       console.log(this.selectFileCover);
-      this.userService.store(form.form.value.name, form.form.value.email, form.form.value.password, form.form.value.password_confirmation,this.selectFileCover);
+      this.userService.store(form.form.value.name, form.form.value.email, form.form.value.password, form.form.value.password_confirmation, this.selectFileCover);
   }
 
   onImagePicked(event: Event) {

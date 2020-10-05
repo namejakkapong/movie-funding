@@ -53,12 +53,13 @@ class UserVerificationController extends Controller
         }
 
         $verification = new Verification([
-            'user_id' => $request->id,
+            'user_id' => $request->user_id,
             'type' => $request->type,
             'card_number' => $request->card_number,
+            //'card_pic' => $imageName,
             'status' => $request->status,
             'address' => $request->address,
-            'card_pic' => $request->card_pic,
+            // 'card_pic' => $request->card_pic,
 
         ]);
         $verification->save();

@@ -20,6 +20,7 @@
                         <div class="col-md-12 form-group mb-3">
                             <label>ประเภทหนัง</label>
                             <select class="custom-select" name="categorie.name" ngModel id="inputGroupSelect04" aria-label="Example select with button addon">
+                              <option>ประเภทหนัง</option>
                               <option *ngFor="let categorie of categories">{{categorie?.name}}</option>
                             </select>
                         </div>
@@ -82,8 +83,13 @@
                             <input type="text" class="form-control form-control-rounded" name="status" ngModel placeholder="สถานะ">
                         </div>
 
-                            <div class="col-md-6 form-group mb-3">
-                                <label for="picker">เริ่มการระดมทุน</label>
+                        <div class="col-md-6 form-group mb-3">
+                              <label for="start">เริ่มการระดมทุน</label>
+                              <input class="form-control form-control-rounded" type="date" id="start"  name="start"
+                              ngModel placeholder="yyyy-mm-dd"
+                              min="2020-01-01" max="2040-12-31" ngbDatepicker #dp="ngbDatepicker">
+
+                                <!-- <label for="picker">เริ่มการระดมทุน</label>
                                 <div class="input-group">
                                     <input id="picker" class="form-control form-control-rounded" placeholder="yyyy-mm-dd" name="start"
                                         ngbDatepicker #dp="ngbDatepicker">
@@ -92,10 +98,18 @@
                                             <i class="icon-regular i-Calendar-4"></i>
                                         </button>
                                     </div>
-                                </div>
-                            </div>
+                                </div> -->
+                        </div>
 
-                            <div class="col-md-6 form-group mb-3">
+                        <div class="col-md-6 form-group mb-3">
+                          <label for="start">สิ้นสุดการระดมทุน</label>
+                          <input class="form-control form-control-rounded" type="date" id="end"  name="end"
+                          ngModel placeholder="yyyy-mm-dd"
+                          min="2020-01-01" max="2040-12-31" ngbDatepicker #dp="ngbDatepicker">
+
+                         </div>
+
+                            <!-- <div class="col-md-6 form-group mb-3">
                                 <label for="picker">สิ้นสุดการระดมทุน</label>
                                 <div class="input-group">
                                     <input id="picker" class="form-control form-control-rounded" placeholder="yyyy-mm-dd" name="end"
@@ -106,7 +120,7 @@
                                         </button>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                         <!-- <button type="submit" class="btn btn-primary btn-rounded m-1">submit</button> -->
                         <div class="col-md-6 form-group mb-3">

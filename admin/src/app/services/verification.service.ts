@@ -16,21 +16,23 @@ export class VerificationService {
     return this.http.get<{data: any}>(BACKEND_URL + '/verifications');
 
   }
-  store(id: string, type: string, card_number: string, status: string, address: string, selectFileCover:any)
+  store(user_id: string, type: string, card_number: string, status: string, address: string)
+  //selectFileCover: any,
   {
     // BACKEND_URL = http://localhost:8000/api/verifications , method POST
     const data = {
-      id: id,
+      user_id: user_id,
       type: type,
       card_number: card_number,
+      //card_pic: selectFileCover,
       status: status,
       address: address,
-      card_pic: selectFileCover,
+
     };
-    // this.http.post<{data: any}>(BACKEND_URL + '/verifications', data)
-    // .subscribe(response => {
-    //   console.log(response.data);
-    // });
+    this.http.post<{data: any}>(BACKEND_URL + '/verifications', data)
+    .subscribe(response => {
+      console.log(response.data);
+    });
     console.log(data);
 
   }

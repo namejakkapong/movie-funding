@@ -61,13 +61,14 @@ class MovieController extends ApiController
             'category_id' => $request->category_id,
             'name' => $request->name,
             'name_eng' => $request->name_eng,
+            // 'movie_image' => $imageName,
             'details' => $request->details,
             'description' => $request->description,
             'total' => $request->total,
             'status' => $request->status,
             'start' => $request->start,
-            'end' => $request->end,
-            'movie_image' => $imageName
+            'end' => $request->end
+
 
         ]);
         $movie->save();
