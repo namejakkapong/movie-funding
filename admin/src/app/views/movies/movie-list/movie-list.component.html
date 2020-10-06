@@ -103,8 +103,8 @@
           <!-- end status -->
           <p class="m-0 text-muted text-small w-15 w-sm-100 d-none d-lg-block item-actions">
             <button class="btn btn-icon bg-transparent"
-            [ngClass]="{'d-none': viewMode === 'grid'}">
-              <i class="i-Pen-5 text-16 text-primary"></i>
+            [ngClass]="{'d-none': viewMode === 'grid'}" >
+              <i class="i-Pen-5 text-16 text-primary" (click)="viewMovie(movie?.id)"></i>
             </button>
             <button class="btn btn-icon bg-transparent"
             [ngClass]="{'d-none': viewMode === 'grid'}">

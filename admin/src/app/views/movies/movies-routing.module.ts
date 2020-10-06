@@ -20,7 +20,7 @@ const routes: Routes = [
     component: MovieCategoryComponent
   },
   {
-    path: 'view',
+    path: 'view/:id',
     component: MovieViewComponent
   },
 

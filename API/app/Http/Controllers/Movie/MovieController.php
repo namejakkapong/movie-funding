@@ -19,7 +19,7 @@ class MovieController extends ApiController
      */
     public function index()
     {
-        $movies = Movie::with('category')->orderBy('created_at', 'DESC')->with('category')->get();
+        $movies = Movie::with('category')->orderBy('created_at', 'DESC')->get();
         return MovieResource::collection($movies);
         // return $movies;
     }

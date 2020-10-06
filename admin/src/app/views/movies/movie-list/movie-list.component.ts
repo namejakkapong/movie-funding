@@ -4,6 +4,7 @@ import { MovieService } from 'src/app/services/movie.service';
 import { DataLayerService } from 'src/app/shared/services/data-layer.service';
 import { SharedAnimations } from 'src/app/shared/animations/shared-animations';
 import { CategoriesService } from 'src/app/services/categories.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-list',
@@ -20,11 +21,13 @@ export class MovieListComponent implements OnInit {
   products: any[] = [];
   categories: any;
 
+
   constructor(
     private modalService: NgbModal,
     private movieService: MovieService,
     private dl: DataLayerService,
-    private categoriesService: CategoriesService
+    private categoriesService: CategoriesService,
+    private router: Router
 
     ) {
 		}
@@ -42,13 +45,20 @@ export class MovieListComponent implements OnInit {
 
     });
 
-    this.categoriesService.index()
-    .subscribe(response => {
-      this.categories = response.data;
-       console.log(this.categories);
+    // this.categoriesService.index()
+    // .subscribe(response => {
+    //   this.categories = response.data;
+    //    console.log(this.categories);
 
-		});
+		// });
   }
+
+  viewMovie(id) {
+    console.log(id);
+    //this.router.navigate(['movies/view/' + id]);
+  }
+
+
 
   selectAll(e) {
     this.products = this.products.map(p => {
