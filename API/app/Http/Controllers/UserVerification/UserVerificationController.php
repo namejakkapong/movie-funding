@@ -56,7 +56,7 @@ class UserVerificationController extends Controller
             'user_id' => $request->user_id,
             'type' => $request->type,
             'card_number' => $request->card_number,
-            //'card_pic' => $imageName,
+            'card_pic' => $imageName,
             'status' => $request->status,
             'address' => $request->address,
             // 'card_pic' => $request->card_pic,
@@ -73,7 +73,8 @@ class UserVerificationController extends Controller
      */
     public function show($id)
     {
-        //
+        // $verification = Verification::where('id', $id)->where('status', 'disapproval')->firstOrFail();
+        // return $this->showOneTransform("insert data verification complete" , $verification , 200);
     }
 
     /**
