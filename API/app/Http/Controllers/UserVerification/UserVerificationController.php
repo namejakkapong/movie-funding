@@ -7,6 +7,7 @@ use App\Verification;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+
 class UserVerificationController extends Controller
 {
     /**
@@ -18,6 +19,8 @@ class UserVerificationController extends Controller
     {
         $verifications = Verification::where('status', 'disapproval')->with('user')->get();
         return $verifications;
+
+
     }
 
     /**
@@ -38,25 +41,25 @@ class UserVerificationController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->card_pic) {
-            $image = $request->card_pic;  // your base64 encoded
-            $image = str_replace('data:image/png;base64,', '', $image);
-            $image = str_replace('data:image/jpg;base64,', '', $image);
-            $image = str_replace('data:image/jpeg;base64,', '', $image);
-            $image = str_replace('data:image/gif;base64,', '', $image);
-	        $image = str_replace(' ', '+', $image);
-	        $imageName = md5(rand()*time()).'.'.'png';
-            \File::put(public_path(). '/images/verification/card_pic' . $imageName, base64_decode($image));
+        // if ($request->card_pic) {
+        //     $image = $request->card_pic;  // your base64 encoded
+        //     $image = str_replace('data:image/png;base64,', '', $image);
+        //     $image = str_replace('data:image/jpg;base64,', '', $image);
+        //     $image = str_replace('data:image/jpeg;base64,', '', $image);
+        //     $image = str_replace('data:image/gif;base64,', '', $image);
+	    //     $image = str_replace(' ', '+', $image);
+	    //     $imageName = md5(rand()*time()).'.'.'png';
+        //     \File::put(public_path(). '/images/verification/card_pic' . $imageName, base64_decode($image));
 
-        }else{
-            $imageName ='';
-        }
+        // }else{
+        //     $imageName ='';
+        // }
 
         $verification = new Verification([
             'user_id' => $request->user_id,
             'type' => $request->type,
             'card_number' => $request->card_number,
-            'card_pic' => $imageName,
+            //'card_pic' => $imageName,
             'status' => $request->status,
             'address' => $request->address,
             // 'card_pic' => $request->card_pic,

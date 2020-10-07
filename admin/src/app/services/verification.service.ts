@@ -12,7 +12,7 @@ export class VerificationService {
 
   index()
   {
-    // return this.http.get<{data: any}>(BACKEND_URL + '/users/'+ id +'/verifications');
+    //return this.http.get<{data: any}>(BACKEND_URL + '/users/'+ id +'/verifications');
     return this.http.get<{data: any}>(BACKEND_URL + '/verifications');
 
   }
@@ -29,10 +29,10 @@ export class VerificationService {
       address: address,
 
     };
-    this.http.post<{data: any}>(BACKEND_URL + '/verifications', data)
-    .subscribe(response => {
-      console.log(response.data);
-    });
+    // this.http.post<{data: any}>(BACKEND_URL + '/verifications', data)
+    // .subscribe(response => {
+    //   console.log(response.data);
+    // });
     console.log(data);
 
   }

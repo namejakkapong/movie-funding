@@ -37,18 +37,24 @@ export class CategoriesService {
     });
   }
 
-  update(categorie_id: string, name: string , eng: string)
+  update(category_id: string, name: string , eng: string)
   {
     const data = {
       name: name,
       eng : eng,
     };
-    this.http.patch<{data: any}>(BACKEND_URL + '/categories/'+ categorie_id, data)
-    .subscribe(response => {
-      console.log(response.data);
-      this.modalService.dismissAll();
-    });
+    // this.http.patch<{data: any}>(BACKEND_URL + '/categories/'+ category_id , data)
+    // .subscribe(response => {
+    //   console.log(response.data);
+    //   this.modalService.dismissAll();
+    // });
 
+    // this.http.patch<{data: any}>(BACKEND_URL + '/categories/'+ id, data)
+    // .subscribe(response => {
+    //   console.log(response.data);
+    //   this.modalService.dismissAll();
+    // });
+    console.log(data);
   }
 
   destroy(id:string)

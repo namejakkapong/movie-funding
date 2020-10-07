@@ -57,9 +57,9 @@ export class VerificationAddComponent implements OnInit {
     this.loading = true;
     setTimeout(() => {
       this.loading = false;
-      console.log(form.value);
+      //console.log(form.value);
       //console.log(this.selectFileCover);
-      //this.verificationService.store(this.id, form.value.type, form.value.card_number, form.value.status, form.value.address);
+      this.verificationService.store(this.id, form.value.type, form.value.card_number, form.value.status, form.value.address);
       //this.selectFileCover,
       this.toastr.success('บันทึกข้อมูลเรียบร้อยแล้ว.', 'สำเร็จ!', {progressBar: true});
     }, 500);

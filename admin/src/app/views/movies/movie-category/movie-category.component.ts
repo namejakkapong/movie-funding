@@ -29,8 +29,8 @@ export class MovieCategoryComponent implements OnInit {
   }
 
   onEditCategory(form :NgForm,) {
-    console.log(form.value);
-    //this.categoriesService.update(this.id,form.value.name, form.value.eng);
+    //console.log(form.value);
+    this.categoriesService.update(this.id, form.value.name, form.value.eng);
  }
 
  deleteCat(id){

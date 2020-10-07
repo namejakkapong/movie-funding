@@ -14,8 +14,11 @@
             <!-- <form> -->
             <form (ngSubmit)="submit(formVerification)" #formVerification="ngForm">
             <!-- <form [formGroup]="formBasic" (ngSubmit)="submit()"> -->
-
-              <div class="card-body" [formGroup]="radioGroup">
+              <input type="radio" id="male" name="type" ngModel value="card">
+              <label for="male"> บัตรประชาชน (ID card)</label><br>
+              <input type="radio" id="female" name="type" ngModel value="passport">
+              <label for="female"> หนังสือเดินทาง (Passport)</label>
+              <!-- <div class="card-body" [formGroup]="radioGroup">
                 <div class="card-title">เลือก ประเภทของบัตร</div>
                 <label class="radio radio-primary">
                   <input type="radio" name="radio" [value]="1" formControlName="radio">
@@ -27,7 +30,7 @@
                   <span>หนังสือเดินทาง (Passport)</span>
                   <span class="checkmark"></span>
                 </label>
-              </div>
+              </div> -->
 
               <div class="col-md-6 form-group mb-3">
                 <span>เลขบัตร</span>

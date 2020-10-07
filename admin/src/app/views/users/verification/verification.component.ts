@@ -25,52 +25,7 @@ export class VerificationComponent implements OnInit {
     private router: Router
     ) { }
 
-    ngOnInit() {
-      this.getVerifications();
-
-      this.searchControl.valueChanges
-      .pipe(debounceTime(200))
-      .subscribe(value => {
-        this.filerData(value);
-      });
-    }
-
-    getVerifications() {
-      this.verificationService.index()
-      .subscribe(response => {
-        this.verifications = response;
-        this.filteredVerifications = response.data;
-      });
-    }
-
-	confirm(content) {
-		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', centered: true });
-	  }
-
-
-	filerData(val) {
-		if (val) {
-		  val = val.toLowerCase();
-		} else {
-		  return this.filteredVerifications = [...this.verifications];
-		}
-
-		const columns = Object.keys(this.verifications[0]);
-		if (!columns.length) {
-		  return;
-		}
-
-		const rows = this.verifications.filter(function(d) {
-		  for (let i = 0; i <= columns.length; i++) {
-			const column = columns[i];
-			// console.log(d[column]);
-			if (d[column] && d[column].toString().toLowerCase().indexOf(val) > -1) {
-			  return true;
-			}
-		  }
-		});
-		this.filteredVerifications = rows;
-	  }
+    ngOnInit() { }
 }
 
 
