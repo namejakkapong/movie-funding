@@ -34,10 +34,11 @@ export class MovieService {
       end : end,
 
     };
-    this.http.post<{data: any}>(BACKEND_URL + '/movies', data)
-    .subscribe(response => {
-      console.log(response.data);
-    });
+    // this.http.post<{data: any}>(BACKEND_URL + '/movies', data)
+    // .subscribe(response => {
+    //   console.log(response.data);
+    // });
+    console.log(data);
   }
   destroy(id: string)
   {

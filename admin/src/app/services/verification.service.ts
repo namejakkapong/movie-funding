@@ -16,6 +16,7 @@ export class VerificationService {
     return this.http.get<{data: any}>(BACKEND_URL + '/verifications');
 
   }
+
   store(user_id: string, type: string, card_number: string, status: string, address: string)
   //selectFileCover: any,
   {

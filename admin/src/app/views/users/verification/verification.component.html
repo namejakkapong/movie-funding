@@ -1,1 +1,106 @@
+<div class="">
+  <div class="breadcrumb">
+      <h1>รายชื่อยืนยันตัวตน</h1>
+      <ul>
+          <li><a href="">ผู้ใช้งาน</a></li>
+          <!-- <li>Creator & Fundraiser</li> -->
+          <li>นักลงทุน & นักสร้างภาพยนตร์</li>
+      </ul>
+  </div>
+
+  <div class="separator-breadcrumb border-top"></div>
+  <!-- data table filter -->
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <input id="email" placeholder="ค้นหารายชื่อผู้ใช้" [formControl]="searchControl" class="form-control form-control-rounded" type="text">
+      </div>
+    </div>
+    <!-- <div class="col-md-4 offset-md-4 col-lg-2 offset-lg-6 d-none d-md-block">
+        <button type="button" class="btn btn-primary btn-block btn-rounded" routerLink="/users/create"><i class="i-Add-User mr-1"></i> เพิ่มผู้ใช้งาน</button>
+    </div> -->
+    <div class="col-md-12">
+        <div class="card  o-hidden">
+            <ngx-datatable
+            style="height: 500px; box-shadow: none"
+            class="material fullscreen"
+            [columnMode]="'force'"
+            [headerHeight]="50"
+            [footerHeight]="50"
+            [rowHeight]="60"
+            [scrollbarV]="true"
+            [scrollbarH]="true"
+            [rows]="filteredVerifications">
+            <!-- <ngx-datatable-column name="photo" [maxWidth]="120">
+                <ng-template ngx-datatable-header-template>
+                  รูปภาพ
+                </ng-template>
+                  <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                      <img height="32px" width="32px" style="border-radius: 50%" [src]="value" alt="">
+                  </ng-template>
+              </ngx-datatable-column> -->
+              <ngx-datatable-column name="type" [width]="300">
+                <ng-template ngx-datatable-header-template>
+                  ชื่อ - นามสกุล
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="card_number">
+                <ng-template ngx-datatable-header-template>
+                  อีเมล
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="status">
+                <ng-template ngx-datatable-header-template>
+                  สถานะ
+                </ng-template>
+                <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                  สมาชิก
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="id">
+                <ng-template ngx-datatable-header-template>
+                  จัดการ
+                </ng-template>
+                <ng-template ngx-datatable-cell-template let-value="value">
+                  <a type="button" class="pointer mr-4"
+                  placement="bottom"
+                  ngbPopover="ดูข้อมูล"
+                  triggers="mouseenter:mouseleave"
+                  (click)="viewUser(value)"
+                  >
+                    <i class="i-Eye"></i>
+                  </a>
+                  <a type="button" class="pointer"
+                  (click)="confirm(modalConfirm)"
+                  placement="bottom"
+                  ngbPopover="ลบ"
+                  triggers="mouseenter:mouseleave"
+                  >
+                      <i class="i-Delete-File text-danger"></i>
+                  </a>
+                  <!-- CONFIRM DELETE -->
+                  <ng-template #modalConfirm let-modal>
+                    <div class="modal-body">
+                      <p><strong>คุณต้องการลบข้อมูลโปรไฟล์ของ <span class="text-primary">"ชื่อผู้ใช้งาน"</span> หรือไม่ ?</strong></p>
+                      <p>ข้อมูลทั้งหมดที่เกี่ยวข้องกับโปรไฟล์ผู้ใช้นี้จะถูกลบอย่างถาวร
+
+                        <!-- All information associated to this user profile will be permanently deleted. -->
+                      <span class="text-danger">การดำเนินการนี้ไม่สามารถยกเลิกได้</span>
+                      <!-- This operation can not be undone.  -->
+                      </p>
+                    </div>
+                    <div class="modal-footer border-top-0">
+                      <button type="button" class="btn btn-light btn-rounded" (click)="modal.dismiss('cancel')">ยกเลิก</button>
+                      <button type="button" ngbAutofocus class="btn btn-danger btn-rounded" (click)="delete(value)" >ยืนยัน</button>
+                    </div>
+                  </ng-template>
+              </ng-template>
+              </ngx-datatable-column>
+          </ngx-datatable>
+        </div>
+    </div>
+  </div>
+
+</div>
+
 
