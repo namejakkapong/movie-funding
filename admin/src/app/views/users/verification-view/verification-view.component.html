@@ -9,7 +9,16 @@
                 <div class="card-body">
                     <div class="col-md-10">
                         <form (submit)="onAddVerification(formVerification)" #formVerification="ngForm">
-                            <label class="form-check-label" for="exampleRadios1"> เลขบัตรประชาชน </label>
+                            <label class="form-check-label" for="exampleRadios1"> ชื่อ-นามสกุล </label>
+                            <div class="col-md-7">
+                                <div class="card mb-4 o-hidden">
+                                   <div class="card-body">
+                                        <p>ทศพร ภาชณะจ๊ะ {{verification?.name}}</p>
+                                    </div>
+                                </div>
+                           </div>
+
+                           <label class="form-check-label" for="exampleRadios1"> เลขบัตรประชาชน </label>
                             <div class="col-md-7">
                                  <div class="card mb-4 o-hidden">
                                     <div class="card-body">
