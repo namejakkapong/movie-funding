@@ -4,6 +4,7 @@ import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieAddComponent } from './movie-add/movie-add.component';
 import { MovieCategoryComponent } from './movie-category/movie-category.component';
 import { MovieViewComponent } from './movie-view/movie-view.component';
+import { MovienewComponent } from './movienew/movienew.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,10 @@ const routes: Routes = [
     path: 'view/:id',
     component: MovieViewComponent
   },
+  {
+    path: 'movienew',
+    component: MovienewComponent
+  }
 
 ];
 

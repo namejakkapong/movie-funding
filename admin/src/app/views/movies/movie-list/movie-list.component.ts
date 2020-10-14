@@ -58,6 +58,11 @@ export class MovieListComponent implements OnInit {
     //this.router.navigate(['movies/view/' + id]);
   }
 
+  viewMovieNew(id) {
+    console.log(123);
+    this.router.navigate(['/movies/movienew/']);
+  }
+
 
 
   selectAll(e) {

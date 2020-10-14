@@ -11,11 +11,12 @@ import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieCategoryComponent } from './movie-category/movie-category.component';
 import { MovieAddComponent } from './movie-add/movie-add.component';
 import { MovieViewComponent } from './movie-view/movie-view.component';
+import { MovienewComponent } from './movienew/movienew.component';
 
 
 
 @NgModule({
-  declarations: [MovieListComponent, MovieCategoryComponent, MovieAddComponent,MovieViewComponent],
+  declarations: [MovieListComponent, MovieCategoryComponent, MovieAddComponent,MovieViewComponent , MovienewComponent],
   imports: [
     CommonModule,
     MoviesRoutingModule,
