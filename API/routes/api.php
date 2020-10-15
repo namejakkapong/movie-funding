@@ -29,3 +29,5 @@ Route::resource('images', 'Image\ImageController');
 Route::resource('verifications', 'UserVerification\UserVerificationController');
 Route::resource('conditions', 'Condition\ConditionController');
 Route::resource('progresses', 'Progress\ProgressController');
+Route::resource('movienew', 'Movie\MovieNewController');
+Route::resource('packages', 'Package\PackageController');

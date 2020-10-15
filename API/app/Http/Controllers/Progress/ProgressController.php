@@ -16,8 +16,10 @@ class ProgressController extends Controller
      */
     public function index()
     {
-        $progresses = Progress::all();
+        $progresses = Progress::with('movie')->orderBy('created_at', 'DESC')->get();
         return $progresses;
+        //$movies = Movie::with('category')->orderBy('created_at', 'DESC')->get();
+
     }
 
     /**
@@ -48,7 +50,7 @@ class ProgressController extends Controller
 	        $imageName = md5(rand()*time()).'.'.'png';
 	        \File::put(public_path(). '/images/progress/' . $imageName, base64_decode($image));
 
-            
+
         }else{
             $imageName ='';
         }
@@ -117,7 +119,7 @@ class ProgressController extends Controller
     public function destroy($id)
     {
         //return $id; (   1. รับ id เข้ามา เพื่อเช็คว่าตรงกับ id ที่เราจะลบรึป่าว )
-        
+
         $progress = Progress::where('id', $id)->firstOrFail();
         $progress->delete();
         return $progress;
@@ -140,6 +142,6 @@ class ProgressController extends Controller
             $progress->image_cover = $imageName;
             $progress->save();
         }
-        
+
     }
 }
