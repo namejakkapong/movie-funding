@@ -20,8 +20,8 @@ class MovieController extends ApiController
     public function index()
     {
         $movies = Movie::with('category')->orderBy('created_at', 'DESC')->get();
-        return MovieResource::collection($movies);
-        // return $movies;
+        //return MovieResource::collection($movies);
+        return $movies;
     }
 
     /**
@@ -61,11 +61,12 @@ class MovieController extends ApiController
             'category_id' => $request->category_id,
             'name' => $request->name,
             'name_eng' => $request->name_eng,
-            // 'movie_image' => $imageName,
+            'movie_image' => $imageName,
             'details' => $request->details,
             'description' => $request->description,
             'total' => $request->total,
             'status' => $request->status,
+            'screening' => $request->screening,
             'start' => $request->start,
             'end' => $request->end
 
@@ -84,7 +85,7 @@ class MovieController extends ApiController
     public function show($id)
     {
         //return $id; (1. รับ id เข้ามา เพื่อเช็คว่าตรงกับ id ที่เราจะแสดง)
-        $movie = Movie::where('id', $id)->firstOrFail();
+        $movie = Movie::with('category')->where('id', $id)->firstOrFail();
         return $movie;
     }
 
@@ -113,10 +114,12 @@ class MovieController extends ApiController
         $movie = Movie::where('id', $id)->firstOrFail(); //(2.  เอา id ที่รับเข้ามาเทียบกับ $id ของ Movie)
         $movie->name = $request->name;
         $movie->name_eng = $request->name_eng;
+        //$movie->movie_image = $request->movie_image;
         $movie->details = $request->details;
         $movie->description = $request->description;
         $movie->total = $request->total;
         $movie->status = $request->status;
+        $movie->screening = $request->screening;
         $movie->start = $request->start;
         $movie->end = $request->end;
         $movie->save();

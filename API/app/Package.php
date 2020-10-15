@@ -4,14 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Progress extends Model
+class Package extends Model
 {
     protected $fillable = [
         'movie_id',
+        'type_package',
         'topic',
-        'detail',
-        'picture',
-        'date'
+        'details',
+        'reward',
+        'amount',
+        'percent'
+
     ];
 
     public function movie()
