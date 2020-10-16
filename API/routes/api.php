@@ -31,3 +31,4 @@ Route::resource('conditions', 'Condition\ConditionController');
 Route::resource('progresses', 'Progress\ProgressController');
 Route::resource('movienew', 'Movie\MovieNewController');
 Route::resource('packages', 'Package\PackageController');
+Route::resource('banks', 'Bank\BankController');
