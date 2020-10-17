@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-bank-add',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BankAddComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit() {
+  }
+
+  onAddBank(form: NgForm) {
+    console.log(form.value);
+    
   }
 
 }

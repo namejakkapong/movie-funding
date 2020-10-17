@@ -1,1 +1,35 @@
-<p>bank-add works!</p>
+<div class="separator-breadcrumb border-top"></div>
+    <!-- MANAGE ACCOUNT -->
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-12">
+                <div class="card-body">
+                    <div class="card-title mb-3">เพิ่มข้อมูลบัญชีธนาคาร</div>
+                    
+                    <!-- <form> -->
+                    <form (submit)="onAddBank(formBank)" #formBank="ngForm">
+                        <div>
+                            <div class="col-md-12 form-group mb-3">
+                                <label for="bank_account">ชื่อธนาคาร</label>
+                                <input type="text" class="form-control form-control-rounded" name="bank_account" ngModel placeholder="ชื่อธนาคาร">
+                            </div>
+                            <div class="col-md-12 form-group mb-3">
+                                <label for="account_number">เลขที่บัญชี</label>
+                                <input type="text" class="form-control form-control-rounded" name="account_number" ngModel placeholder="เลขที่บัญชี">
+                            </div>
+                            <div class="col-md-12 form-group mb-3">
+                                <label for="account_name">ชื่อบัญชี</label>
+                                <input type="text" class="form-control form-control-rounded" name="account_name" ngModel placeholder="ชื่อบัญชี">
+                            </div>
+                            
+                            <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary btn-block" >บันทึกข้อมูล</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

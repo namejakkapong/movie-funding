@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedAnimations } from 'src/app/shared/animations/shared-animations';
+import { NgForm } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-transfer-add',
@@ -9,9 +11,16 @@ import { SharedAnimations } from 'src/app/shared/animations/shared-animations';
 })
 export class TransferAddComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private modalService: NgbModal,
+  ) { }
 
   ngOnInit() {
+  }
+
+  onAddPackage(form: NgForm) {
+    console.log(form.value);
+    
   }
 
 }

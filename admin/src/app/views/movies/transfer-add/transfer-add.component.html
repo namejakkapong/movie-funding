@@ -1,1 +1,87 @@
-<p>transfer-add works!</p>
+<div class="separator-breadcrumb border-top"></div>
+    <!-- MANAGE ACCOUNT -->
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-12">
+                <div class="card-body">
+                    <div class="col-12 text-center">
+                        <h2 >แจ้งรายละเอียดการโอนเงิน</h2>
+                    </div>
+                    <!-- <div class="card-title mb-3">เพิ่มข้อมูลแพ็คเกจ</div> -->
+                    <hr> 
+                  <!-- <h4>ทศพร ภาชณะจ๊ะ</h4>
+                  <hr> -->
+                    <!-- <form> -->
+                    <form (submit)="onAddPackage(formPackage)" #formPackage="ngForm">
+                        <div>
+                            <div class="col-md-12 form-group mb-3">
+                                <label>บัญชีธนาคาร</label>
+                                <select class="custom-select" name="bank.bank_account" ngModel id="inputGroupSelect04" aria-label="Example select with button addon">
+                                  <option>กสิกร</option>
+                                  <option>อิสลาม</option>
+                                  <option>หี</option>
+                                </select>
+                            </div>
+                               
+                            <div class="col-md-12 form-group mb-3">
+                                <label for="transfer_amount"> จำนวนเงิน </label>
+                                <input type="text" class="form-control form-control-rounded" name="transfer_amount" ngModel placeholder="จำนวนเงิน">
+                            </div>
+
+                            <div class="col-md-6 form-group mb-3">
+                                <label for="start">วันที่โอนเงิน</label>
+                                <input class="form-control form-control-rounded" type="date" id="transfer_date"  name="transfer_date"
+                                ngModel placeholder="yyyy-mm-dd"
+                                min="2020-01-01" max="2040-12-31" ngbDatepicker #dp="ngbDatepicker">
+                            </div>
+      
+                              <!-- ---------------------------------------อัพโหลดรูปภาพ-------------------------------- -->
+                            <div class="col-md-6">
+                                <label class="mb-4">อัพโหลดรูปภาพสลิป</label>
+                                <div class="mb-3" *ngIf="!imageCoverPreview">
+                                <img src="./assets/images/sleep.png">
+                                </div>
+                                <div *ngIf="imageCoverPreview !== '' && imageCoverPreview">
+                                <img [src]="imageCoverPreview">
+                                </div>
+
+                                <section id="intro-wrap" class="intro-three-Wrap text-center">
+                                <div class="intro-three-Description">
+                                    <span>
+                                    <button type="button" class="btn btn-outline-white" (click)="fileCover.click()"><i
+                                        class="fas fa-camera"></i> อัพโหลดรูปภาพ</button>
+                                    <input class="d-none" type="file" #fileCover #fileCoverReset
+                                        (change)="onImageCover($event)" accept="image/*">
+                                    </span>
+                                    <span *ngIf="imageCoverPreview !== '' && imageCoverPreview">
+                                    <!-- <button type="button" class="btn btn-success mr-2" (click)="onUploadImageCover()"><i class="far fa-check-circle"></i> บันทึก </button>
+                                                <button type="button" class="btn btn-outline-white border-0" (click)="onCancelImagCover()">ยกเลิก</button> -->
+                                    </span>
+                                </div>
+                                <div class="overlay">
+                                </div>
+                                </section>
+                            </div>
+                             <!-- ------------------------------------------------------------------------------------------ -->
+                            <br>
+
+                            <!-- <div class="col-md-12 form-group mb-3">
+                                <label for="note">หมายเหตุ</label>
+                                <input type="text" class="form-control form-control-rounded" name="note" ngModel placeholder="หมายเหตุ">
+                            </div> -->
+                            <div class="col-md-12 form-group mb-3">
+                                <label for="note">หมายเหตุ</label>
+                                <textarea class="form-control" name="note" ngModel placeholder="หมายเหตุ" id="exampleFormControlTextarea1" rows="3"></textarea>
+                              </div>
+                            <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary btn-block" >บันทึกข้อมูล</button>
+                            </div>
+                        </div>
+
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
