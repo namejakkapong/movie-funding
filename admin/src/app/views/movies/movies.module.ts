@@ -12,11 +12,17 @@ import { MovieCategoryComponent } from './movie-category/movie-category.componen
 import { MovieAddComponent } from './movie-add/movie-add.component';
 import { MovieViewComponent } from './movie-view/movie-view.component';
 import { MovienewComponent } from './movienew/movienew.component';
+import { ProgressViewComponent } from './progress-view/progress-view.component';
+import { PackageAddComponent } from './package-add/package-add.component';
+import { PackageViewComponent } from './package-view/package-view.component';
+import { TransferAddComponent } from './transfer-add/transfer-add.component';
+import { TransferViewComponent } from './transfer-view/transfer-view.component';
+import { TransferListComponent } from './transfer-list/transfer-list.component';
 
 
 
 @NgModule({
-  declarations: [MovieListComponent, MovieCategoryComponent, MovieAddComponent,MovieViewComponent , MovienewComponent],
+  declarations: [MovieListComponent, MovieCategoryComponent, MovieAddComponent,MovieViewComponent , MovienewComponent, ProgressViewComponent, PackageAddComponent, PackageViewComponent, TransferAddComponent, TransferViewComponent, TransferListComponent],
   imports: [
     CommonModule,
     MoviesRoutingModule,

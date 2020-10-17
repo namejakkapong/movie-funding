@@ -17,7 +17,7 @@ import { HomeComponent } from './views/home/home.component';
 import { AuthInterceptor } from './auth/auth-interceptor';
 // import { VerificationAddComponent } from './views/verification/verification-add/verification-add.component';
 import { VerificationViewComponent } from './views/verification/verification-view/verification-view.component';
-import { ProgressViewComponent } from './views/progress/progress-view/progress-view.component';
+
 
 
 
@@ -33,7 +33,6 @@ import { ProgressViewComponent } from './views/progress/progress-view/progress-v
     HomeComponent,
     // VerificationAddComponent,
     VerificationViewComponent,
-    ProgressViewComponent,
 
 
 

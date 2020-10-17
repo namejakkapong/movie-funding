@@ -6,7 +6,6 @@
   <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/v64KOxKVLVg" allowfullscreen></iframe>
 </div>
 
-<<<<<<< HEAD
 <div class="">
   <div class="separator-breadcrumb border-top"></div>
 
@@ -16,8 +15,8 @@
         <div class="card-body">
 
           <div class="col-md-12">
-            <!-- <form> -->
-            <form (ngSubmit)="submit(formVerification)" #formVerification="ngForm">
+            <form>
+            <!-- <form (ngSubmit)="submit(formVerification)" #formVerification="ngForm"> -->
             <!-- <form [formGroup]="formBasic" (ngSubmit)="submit()"> -->
               
               <div class="row">
@@ -42,9 +41,13 @@
               
                             </div>
                           </div>
-                          <button type="button" class="btn btn-success btn-lg m-1" routerLink="/">ระดมทุน</button>
-                          <hr>
-                          <button type="button" class="btn btn-primary btn-lg m-1 " routerLink="/progress-view">ดูความคืบหน้า</button>
+                          <button type="button" class="btn btn-danger btn-lg m-1" (click)="packageAdd(id)">เพิ่มแพ็คเกจ</button>
+                          <br>
+                          <button type="button" class="btn btn-success btn-lg m-1" (click)="packageView(id)">ระดมทุน</button>
+                          <br>
+                          <button type="button" class="btn btn-primary btn-lg m-1" (click)="progressView(id)">ดูความคืบหน้า</button>
+                          <br>
+                          <button type="button" class="btn btn-primary btn-lg m-1" (click)="transferList(id)">ข้อมูลการระดมทุน</button>
                         <!-- </div> -->
                       </div> 
                       
@@ -91,10 +94,3 @@
   </div>
 
 </div>
-=======
-
-<div class="col-md-6 wow fadeInRight d-flex justify-content-center" data-wow-delay="0.3s">
-  <img src="https://mdbootstrap.com/img/Mockups/Transparent/Small/iphone-admin.png" alt="" class="img-responsive">
-</div>
-
->>>>>>> f4837c1328973127f3fb60d2f8571f7e09f88254

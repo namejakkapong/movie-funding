@@ -3,6 +3,7 @@ import { AuthService } from '../../../auth/auth.service';
 import { Subscription } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AdminService } from '../../../services/admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-list',
@@ -13,7 +14,7 @@ export class AdminListComponent implements OnInit {
   confirmResut;
   public admins: any;
 
-  constructor(private modalService: NgbModal, private adminService: AdminService) {
+  constructor(private modalService: NgbModal, private adminService: AdminService,private router: Router) {
   }
 
   ngOnInit() {
@@ -50,7 +51,8 @@ export class AdminListComponent implements OnInit {
 
 
   viewAdmin(id) {
-    console.log(id);
+    // console.log(id);
+    this.router.navigate(['/admin/admin-view']);
   }
 
   view(color,size) {

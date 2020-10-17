@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SharedAnimations } from 'src/app/shared/animations/shared-animations';
 
 @Component({
@@ -9,9 +10,28 @@ import { SharedAnimations } from 'src/app/shared/animations/shared-animations';
 })
 export class MovienewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  progressView(id) {
+    // console.log(123);
+    this.router.navigate(['/movies/progress-view']);
+  }
+
+  packageView(id) {
+    // console.log(456);
+    this.router.navigate(['/movies/package-view']);
+  }
+
+  packageAdd(id) {
+    // console.log(123);
+    this.router.navigate(['/movies/package-add']);
+  }
+
+  transferList(id) {
+    // console.log(123);
+    this.router.navigate(['/movies/transfer-list']);
+  }
 }

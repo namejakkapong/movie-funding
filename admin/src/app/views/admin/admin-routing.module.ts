@@ -4,6 +4,8 @@ import { AccountComponent } from './account/account.component';
 import { AdminListComponent } from './admin-list/admin-list.component';
 import { AdminEditComponent } from './admin-edit/admin-edit.component';
 import { AdminAddComponent } from './admin-add/admin-add.component';
+import { AdminViewComponent } from './admin-view/admin-view.component';
+import { BankAddComponent } from './bank-add/bank-add.component';
 
 const routes: Routes = [
   {
@@ -24,6 +26,16 @@ const routes: Routes = [
   {
     path: 'admin-list/edit',
     component: AdminEditComponent,
+    
+  },
+  {
+    path: 'admin-view',
+    component: AdminViewComponent,
+    
+  },
+  {
+    path: 'bank-add',
+    component: BankAddComponent,
     
   },
 ];

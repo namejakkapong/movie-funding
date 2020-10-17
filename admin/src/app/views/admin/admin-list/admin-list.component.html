@@ -36,11 +36,11 @@
             <div class="card card-profile-1 mb-4">
                 <div class="card-body text-center">
                     <div class="avatar box-shadow-2 mb-3">
-                        <img src="{{ admin.profile_picture }}" alt="">
+                        <img src="{{ admin.profile_picture }}" alt=""(click)="viewAdmin(id)">
                     </div>
-                    <button (click)="view('red','xxl')">red</button><button (click)="view('yellow','l')">yellow</button>
-                    <h5 class="m-0"><a href="javascript:void(0)" (click)="viewAdmin(admin.id)"> {{ admin.name }} </a></h5>
-                    <h5 class="m-0"><a href=""> {{ admin.email }} </a></h5>
+                    <!-- <button (click)="view('red','xxl')">red</button><button (click)="view('yellow','l')">yellow</button> -->
+                    <h5 class="m-0"><a href="javascript:void(0)" (click)="viewAdmin(id)"> {{ admin.name }} </a></h5>
+                    <!-- <h5 class="m-0"><a href=""> {{ admin.email }} </a></h5> -->
                     <p class="mt-0">Administrator</p>
                     <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae cumque.</p> -->
                     <!-- <button class="btn btn-primary btn-rounded">ดูข้อมูลผู้ดูแลระบบ</button> -->
