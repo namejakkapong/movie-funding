@@ -34,9 +34,21 @@ export class MovieAddComponent implements OnInit {
 
 
   onAddMovie(form: NgForm){
-    console.log(form.value);
-    console.log(this.selectFileCover);
-    this.movieService.store(form.value.name, form.value.name_eng, this.selectFileCover, form.value.detail, form.value.description, form.value.total, form.value.status, form.value.start, form.value.end);
+    // console.log(form.value);
+    //console.log(this.selectFileCover);
+    this.movieService.store(
+      form.value.category_id,
+      form.value.name_en,
+      //this.selectFileCover,
+      form.value.name_th,
+      form.value.description,
+      form.value.resume,
+      form.value.director,
+      form.value.total,
+      form.value.status,
+      form.value.screening_date,
+      form.value.start_date,
+      form.value.end_date);
 
   }
 

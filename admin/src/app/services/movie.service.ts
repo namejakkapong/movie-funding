@@ -18,20 +18,35 @@ export class MovieService {
     return this.http.get<{data: any}>(BACKEND_URL + '/movies');
     // BACKEND_URL = http://localhost:8000/api/movie
   }
-  store(name: string , name_eng: string, selectFileCover: any, detail : string, description : string, total : string, status : string, start : string, end : string)
+  store(
+    category_id: string ,
+    name_en: string,
+    name_th : string,
+    //selectFileCover: any,
+    description : string,
+    resume : string, 
+    director : string, 
+    total : string, 
+    status : string,
+    screening_date : string,
+    start_date : string,
+    end_date : string)
   {
     // BACKEND_URL = http://localhost:8000/api/admins , method POST
     const data = {
 
-      name: name,
-      name_end: name_eng,
-      movie_image : selectFileCover,
-      detail: detail,
+      category_id: category_id,
+      name_en: name_en,
+      name_th: name_th,
+      //movie_pic : selectFileCover,
       description : description,
+      resume : resume,
+      director : director,
       total : total,
       status : status,
-      start : start,
-      end : end,
+      screening_date : screening_date,
+      start_date : start_date,
+      end_date : end_date,
 
     };
     // this.http.post<{data: any}>(BACKEND_URL + '/movies', data)

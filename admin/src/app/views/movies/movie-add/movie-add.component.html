@@ -17,20 +17,25 @@
 
                    <form (submit)="onAddMovie(formMovie)" #formMovie="ngForm">
 
+                    
                         <div class="col-md-12 form-group mb-3">
-                            <label>ประเภทหนัง</label>
+                            <label>รหัสประเภทภาพยนตร์</label>
+                            <input type="text" class="form-control form-control-rounded" name="category_id" ngModel placeholder="รหัสประเภทภาพยนตร์">
+                        </div>
+                        <div class="col-md-12 form-group mb-3">
+                            <label>ประเภทภาพยนตร์</label>
                             <select class="custom-select" name="categorie.name" ngModel id="inputGroupSelect04" aria-label="Example select with button addon">
-                              <option>ประเภทหนัง</option>
+                              <option>ประเภทภาพยนตร์</option>
                               <option *ngFor="let categorie of categories">{{categorie?.name}}</option>
                             </select>
                         </div>
                         <div class="col-md-12 form-group mb-3">
                             <label>ชื่อภาษาไทย</label>
-                            <input type="text" class="form-control form-control-rounded" name="name" ngModel placeholder="ชื่อภาษาไทย">
+                            <input type="text" class="form-control form-control-rounded" name="name_th" ngModel placeholder="ชื่อภาษาไทย">
                         </div>
                         <div class="col-md-12 form-group mb-3">
                             <label>ชื่อภาษาอังกฤษ</label>
-                            <input type="text" class="form-control form-control-rounded" name="name_eng" ngModel placeholder="ชื่อภาษาอังกฤษ">
+                            <input type="text" class="form-control form-control-rounded" name="name_en" ngModel placeholder="ชื่อภาษาอังกฤษ">
                         </div>
 
                         <!-- ---------------------------------------อัพโหลดรูปภาพ-------------------------------- -->
@@ -62,15 +67,21 @@
               </div>
               <!-- ------------------------------------------------------------------------------------------ -->
               <br>
+                        
 
                         <div class="col-md-12 form-group mb-3">
-                            <label>รายละเอียด</label>
-                            <textarea class="form-control" name="detail" rows="10" ngModel placeholder="รายละเอียด"></textarea>
+                            <label>คำอธิบาย</label>
+                            <textarea class="form-control form-control-rounded" name="description" rows="10" ngModel placeholder="คำอธิบาย"></textarea>
                         </div>
 
                         <div class="col-md-12 form-group mb-3">
-                            <label>ลักษณะ</label>
-                            <input type="text" class="form-control form-control-rounded" name="description" ngModel placeholder="ลักษณะ">
+                            <label>เรื่องย่อ</label>
+                            <textarea class="form-control form-control-rounded" name="resume" rows="10" ngModel placeholder="เรื่องย่อ"></textarea>
+                        </div>
+
+                        <div class="col-md-12 form-group mb-3">
+                            <label>ชื่อผู้กำกับ</label>
+                            <input type="text" class="form-control form-control-rounded" name="director" ngModel placeholder="ชื่อผู้กำกับ">
                         </div>
 
                         <div class="col-md-12 form-group mb-3">
@@ -78,14 +89,23 @@
                             <input type="text" class="form-control form-control-rounded" name="total" ngModel placeholder="ยอดระดมทุน">
                         </div>
 
-                        <div class="col-md-12 form-group mb-3">
-                            <label>สถานะ</label>
-                            <input type="text" class="form-control form-control-rounded" name="status" ngModel placeholder="สถานะ">
-                        </div>
+                        <h5>ประเภทแพ็คเกจ</h5>
+                        <input type="radio" id="funds" name="status" ngModel value="on">
+                        <label for="funds"> เปิดระดมทุน </label><br>
+                        <input type="radio" id="invest" name="status" ngModel value="off">
+                        <label for="invest"> ปิดระดมทุน </label>
 
                         <div class="col-md-6 form-group mb-3">
-                              <label for="start">เริ่มการระดมทุน</label>
-                              <input class="form-control form-control-rounded" type="date" id="start"  name="start"
+                            <label for="start">วันออกฉาย</label>
+                            <input class="form-control form-control-rounded" type="date" id="end"  name="screening_date"
+                            ngModel placeholder="yyyy-mm-dd"
+                            min="2020-01-01" max="2040-12-31" ngbDatepicker #dp="ngbDatepicker">
+  
+                           </div>
+
+                        <div class="col-md-6 form-group mb-3">
+                              <label for="start">วันเริ่มการระดมทุน</label>
+                              <input class="form-control form-control-rounded" type="date" id="start"  name="start_date"
                               ngModel placeholder="yyyy-mm-dd"
                               min="2020-01-01" max="2040-12-31" ngbDatepicker #dp="ngbDatepicker">
 
@@ -102,8 +122,8 @@
                         </div>
 
                         <div class="col-md-6 form-group mb-3">
-                          <label for="start">สิ้นสุดการระดมทุน</label>
-                          <input class="form-control form-control-rounded" type="date" id="end"  name="end"
+                          <label for="start">วันสิ้นสุดการระดมทุน</label>
+                          <input class="form-control form-control-rounded" type="date" id="end"  name="end_date"
                           ngModel placeholder="yyyy-mm-dd"
                           min="2020-01-01" max="2040-12-31" ngbDatepicker #dp="ngbDatepicker">
 

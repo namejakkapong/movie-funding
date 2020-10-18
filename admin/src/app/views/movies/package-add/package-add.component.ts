@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { SharedAnimations } from 'src/app/shared/animations/shared-animations';
 import { NgForm } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { VerificationService } from 'src/app/services/verification.service';
 
 @Component({
   selector: 'app-package-add',
@@ -12,17 +12,19 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class PackageAddComponent implements OnInit {
 
+
   constructor(
-    private router: Router, 
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private verificationService : VerificationService,
+
     ) { }
 
   ngOnInit() {
   }
 
   onAddpackage(form: NgForm) {
-    console.log(form.value);
-    
+    // console.log(form.value);
+    this.verificationService.storepackage(form.value.movie_id,form.value.type_package, form.value.topic,form.value.details, form.value.reward, form.value.amount, form.value.percent );
   }
 
   
