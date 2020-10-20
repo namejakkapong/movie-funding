@@ -17,8 +17,8 @@ class UserVerificationController extends Controller
      */
     public function index()
     {
-        $verifications = Verification::where('status', 'disapproval')->with('user')->get();
-        return $verifications;
+        // $verifications = Verification::where('status', 'disapproval')->with('user')->get();
+        // return $verifications;
 
 
     }
@@ -55,18 +55,17 @@ class UserVerificationController extends Controller
         //     $imageName ='';
         // }
 
-        $verification = new Verification([
-            'user_id' => $request->user_id,
-            'type' => $request->type,
-            'card_number' => $request->card_number,
-            //'card_pic' => $imageName,
-            'status' => $request->status,
-            'address' => $request->address,
-            // 'card_pic' => $request->card_pic,
+        // $verification = new Verification([
+        //     'user_id' => $request->user_id,
+        //     'type' => $request->type,
+        //     'card_number' => $request->card_number,
+        //     'card_pic' => $imageName,
+        //     'status' => $request->status,
+        //     'address' => $request->address,
 
-        ]);
-        $verification->save();
-        return $verification;
+        // ]);
+        // $verification->save();
+        // return $verification;
     }
     /**
      * Display the specified resource.
@@ -100,14 +99,14 @@ class UserVerificationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $verification = Verification::where('id', $id)->firstOrFail();
-        $verification->type = $request->type;
-        $verification->card_number = $request->card_number;
-        $verification->status = $request->status;
-        $verification->address = $request->address;
-        // $verification->card_pic = $request->card_pic;
-        $verification->save();
-        return $verification;
+        // $verification = Verification::where('id', $id)->firstOrFail();
+        // $verification->type = $request->type;
+        // $verification->card_number = $request->card_number;
+        // $verification->status = $request->status;
+        // $verification->address = $request->address;
+        // // $verification->card_pic = $request->card_pic;
+        // $verification->save();
+        // return $verification;
     }
 
     /**
@@ -118,8 +117,8 @@ class UserVerificationController extends Controller
      */
     public function destroy($id)
     {
-        $verification = Verification::where('id', $id)->firstOrFail();
-        $verification->delete();
-        return $verification;
+        // $verification = Verification::where('id', $id)->firstOrFail();
+        // $verification->delete();
+        // return $verification;
     }
 }

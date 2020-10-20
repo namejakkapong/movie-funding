@@ -42,26 +42,26 @@ class MovieController extends ApiController
      */
     public function store(Request $request)
     {
-        // if ($request->movie_pic) {
-        //     $image = $request->movie_pic;  // your base64 encoded
-        //     $image = str_replace('data:image/png;base64,', '', $image);
-        //     $image = str_replace('data:image/jpg;base64,', '', $image);
-        //     $image = str_replace('data:image/jpeg;base64,', '', $image);
-        //     $image = str_replace('data:image/gif;base64,', '', $image);
-	    //     $image = str_replace(' ', '+', $image);
-	    //     $imageName = md5(rand()*time()).'.'.'png';
-	    //     \File::put(public_path(). '/images/movie/' . $imageName, base64_decode($image));
+        if ($request->movie_pic) {
+            $image = $request->movie_pic;  // your base64 encoded
+            $image = str_replace('data:image/png;base64,', '', $image);
+            $image = str_replace('data:image/jpg;base64,', '', $image);
+            $image = str_replace('data:image/jpeg;base64,', '', $image);
+            $image = str_replace('data:image/gif;base64,', '', $image);
+	        $image = str_replace(' ', '+', $image);
+	        $imageName = md5(rand()*time()).'.'.'png';
+	        \File::put(public_path(). '/images/movie/' . $imageName, base64_decode($image));
 
 
-        // }else{
-        //     $imageName ='';
-        // }
+        }else{
+            $imageName ='';
+        }
 
         $movie = new Movie([
             'category_id' => $request->category_id,
             'name_en' => $request->name_en,
             'name_th' => $request->name_th,
-            // 'movie_pic' => $imageName,
+            'movie_pic' => $imageName,
             'description' => $request->description,
             'resume' => $request->resume,
             'director' => $request->director,
@@ -108,24 +108,26 @@ class MovieController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function update(Request $request, $id)
-    // {
-    //     //return $id; (1. รับ id เข้ามา เพื่อเช็คว่าตรงกับ id ที่เราจะแก้ไขรึป่าว)
-    //     //return $request; (3.  รับข้อมูลที่กรอกเข้ามา เพื่อเช็คว่าตรงกับ ข้อมูล ตาม database)
-    //     $movie = Movie::where('id', $id)->firstOrFail(); //(2.  เอา id ที่รับเข้ามาเทียบกับ $id ของ Movie)
-    //     $movie->name = $request->name;
-    //     $movie->name_eng = $request->name_eng;
-    //     //$movie->movie_pic = $request->movie_pic;
-    //     $movie->details = $request->details;
-    //     $movie->description = $request->description;
-    //     $movie->total = $request->total;
-    //     $movie->status = $request->status;
-    //     $movie->screening = $request->screening;
-    //     $movie->start = $request->start;
-    //     $movie->end = $request->end;
-    //     $movie->save();
-    //     return $movie;
-    // }
+    public function update(Request $request, $id)
+    {
+        //return $id; (1. รับ id เข้ามา เพื่อเช็คว่าตรงกับ id ที่เราจะแก้ไขรึป่าว)
+        //return $request; (3.  รับข้อมูลที่กรอกเข้ามา เพื่อเช็คว่าตรงกับ ข้อมูล ตาม database)
+        $movie = Movie::where('id', $id)->firstOrFail(); //(2.  เอา id ที่รับเข้ามาเทียบกับ $id ของ Movie)
+        $movie->category_id = $request->category_id;
+        $movie->name_en = $request->name_en;
+        $movie->name_th = $request->name_th;
+        $movie->movie_pic = $request->movie_pic;
+        $movie->description = $request->description;
+        $movie->resume = $request->resume;
+        $movie->director = $request->director;
+        $movie->total = $request->total;
+        $movie->status = $request->status;
+        $movie->screening_date = $request->screening_date;
+        $movie->start_date = $request->start_date;
+        $movie->end_date = $request->end_date;
+        $movie->save();
+        return $movie;
+    }
 
     /**
      * Remove the specified resource from storage.

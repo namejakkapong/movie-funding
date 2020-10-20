@@ -26,7 +26,7 @@ Route::resource('users.experience', 'Work\WorkExperienceController');
 Route::resource('categories', 'Category\CategoryController');
 Route::resource('movies', 'Movie\MovieController');
 Route::resource('images', 'Image\ImageController');
-Route::resource('verifications', 'UserVerification\UserVerificationController');
+// Route::resource('verifications', 'UserVerification\UserVerificationController');
 Route::resource('conditions', 'Condition\ConditionController');
 Route::resource('progresses', 'Progress\ProgressController');
 Route::resource('movienew', 'Movie\MovieNewController');

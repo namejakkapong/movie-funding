@@ -75,8 +75,9 @@ class ProgressController extends Controller
     public function show($id)
     {
         //return $id; (1. รับ id เข้ามา เพื่อเช็คว่าตรงกับ id ที่เราจะแสดง)
-        $progresses = Progress::where('id', $id)->firstOrFail();
+        $progresses = Progress::with('movie')->where('id', $id)->firstOrFail();
         return $progresses;
+
     }
 
     /**

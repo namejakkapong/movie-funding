@@ -58,7 +58,7 @@ class PackageController extends Controller
      */
     public function show($id)
     {
-        $packages = Package::where('id', $id)->firstOrFail();
+        $packages = Package::with('movie')->where('id', $id)->firstOrFail();
         return $packages;
     }
 
@@ -102,6 +102,8 @@ class PackageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $packages = Package::where('id', $id)->firstOrFail();
+        $packages->delete();
+        return $packages;
     }
 }

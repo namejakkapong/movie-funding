@@ -120,6 +120,8 @@ class TransferController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $transfer = Transfer::where('id', $id)->firstOrFail();
+        $transfer->delete();
+        return $transfer;
     }
 }

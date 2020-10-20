@@ -17,7 +17,12 @@ export class EducationService {
     return this.http.get<{data: any}>(BACKEND_URL + '/users/'+ id +'/educations');
   }
 
-  store(id: string ,graduation_year: string, level: string, subject: string, faculty: string, school: string)
+  store(id: string ,
+    graduation_year: string,
+    level: string,
+    subject: string,
+    faculty: string,
+    school: string)
   {
     // BACKEND_URL = http://localhost:8000/api/admins , method POST
     const data = {

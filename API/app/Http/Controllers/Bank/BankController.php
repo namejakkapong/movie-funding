@@ -94,6 +94,8 @@ class BankController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $bank = Bank::where('id', $id)->firstOrFail();
+        $bank->delete();
+        return $bank;
     }
 }
