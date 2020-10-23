@@ -2,6 +2,7 @@ import {Title} from "@angular/platform-browser";
 import { Component, OnInit } from '@angular/core';
 import { EChartOption } from 'echarts';
 import { echartStyles } from '../../../shared/echart-styles';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-dashboad-default',
@@ -15,7 +16,7 @@ export class DashboadDefaultComponent implements OnInit {
     salesChartBar: EChartOption;
     salesChartPie: EChartOption;
 
-	constructor(private titleService:Title) {
+	constructor(private titleService:Title ,private router: Router) {
         this.titleService.setTitle("Dashboard");
      }
 
@@ -207,6 +208,10 @@ export class DashboadDefaultComponent implements OnInit {
                 }
             ]
         };
-	}
+    }
+    viewMovieNew(id) {
+        console.log(123);
+        this.router.navigate(['/movies/movienew/']);
+      }
 
 }
