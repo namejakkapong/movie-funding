@@ -49,12 +49,12 @@ export class NavigationService {
 
     defaultMenu: IMenuItem[] = [
         {   
-            name: 'แผงควบคุม',
+            name: 'หน้าหลัก',
             description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
             type: 'dropDown',
-            icon: 'i-Bar-Chart',
+            icon: 'i-Home1',
             sub: [
-                { icon: 'i-Statistic', name: 'ข้อมูลทั่วไป', state: '/dashboard/default', type: 'link' }
+                { icon: 'i-Play-Music', name: 'HOME', state: '/dashboard/default', type: 'link' }
             ]
         },
         {
@@ -65,7 +65,7 @@ export class NavigationService {
             sub: [
                 { icon: 'i-Business-ManWoman', name: 'ผู้ใช้', state: '/users/creator&fundraiser', type: 'link' },
                 { icon: 'i-Add-User', name: 'เพิ่มผู้ใช้', state: '/users/create', type: 'link' },
-                { icon: 'i-Checked-User', name: 'ยืนยันตัวตน', state: '/users/verification', type: 'link' },
+                // { icon: 'i-Checked-User', name: 'ยืนยันตัวตน', state: '/users/verification', type: 'link' },
             ]
         },
         {
