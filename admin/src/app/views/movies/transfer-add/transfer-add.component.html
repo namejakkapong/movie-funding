@@ -1,88 +1,92 @@
 <div class="separator-breadcrumb border-top"></div>
     <!-- MANAGE ACCOUNT -->
-    
+
     <div class="row">
-        <div class="col-md-6">
-            <div class="card mb-12">
-                <div class="card-body">
-                    <div class="col-12 text-center">
-                        <h2 >แจ้งรายละเอียดการโอนเงิน</h2>
-                    </div>
-                    <!-- <div class="card-title mb-3">เพิ่มข้อมูลแพ็คเกจ</div> -->
-                    <hr> 
-                  <!-- <h4>ทศพร ภาชณะจ๊ะ</h4>
-                  <hr> -->
-                    <!-- <form> -->
-                    <form (submit)="onAddPackage(formPackage)" #formPackage="ngForm">
-                        <div>
-                            <div class="col-md-12 form-group mb-3">
-                                <label>บัญชีธนาคาร</label>
-                                <select class="custom-select" name="bank.bank_account" ngModel id="inputGroupSelect04" aria-label="Example select with button addon">
-                                  <option>กสิกร</option>
-                                  <option>อิสลาม</option>
-                                  <option>หี</option>
-                                </select>
-                            </div>
-                               
-                            <div class="col-md-12 form-group mb-3">
-                                <label for="transfer_amount"> จำนวนเงิน </label>
-                                <input type="text" class="form-control form-control-rounded" name="transfer_amount" ngModel placeholder="จำนวนเงิน">
-                            </div>
+        <div class="col-md-2"></div>
 
-                            <div class="col-md-6 form-group mb-3">
-                                <label for="start">วันที่โอนเงิน</label>
-                                <input class="form-control form-control-rounded" type="date" id="transfer_date"  name="transfer_date"
-                                ngModel placeholder="yyyy-mm-dd"
-                                min="2020-01-01" max="2040-12-31" ngbDatepicker #dp="ngbDatepicker">
-                            </div>
-      
-                              <!-- ---------------------------------------อัพโหลดรูปภาพ-------------------------------- -->
-                            <div class="col-md-6">
-                                <label class="mb-4">อัพโหลดรูปภาพสลิป</label>
-                                <div class="mb-3" *ngIf="!imageCoverPreview">
-                                <img src="./assets/images/sleep.png">
-                                </div>
-                                <div *ngIf="imageCoverPreview !== '' && imageCoverPreview">
-                                <img [src]="imageCoverPreview">
-                                </div>
-
-                                <section id="intro-wrap" class="intro-three-Wrap text-center">
-                                <div class="intro-three-Description">
-                                    <span>
-                                    <button type="button" class="btn btn-outline-white" (click)="fileCover.click()"><i
-                                        class="fas fa-camera"></i> อัพโหลดรูปภาพ</button>
-                                    <input class="d-none" type="file" #fileCover #fileCoverReset
-                                        (change)="onImageCover($event)" accept="image/*">
-                                    </span>
-                                    <span *ngIf="imageCoverPreview !== '' && imageCoverPreview">
-                                    <!-- <button type="button" class="btn btn-success mr-2" (click)="onUploadImageCover()"><i class="far fa-check-circle"></i> บันทึก </button>
-                                                <button type="button" class="btn btn-outline-white border-0" (click)="onCancelImagCover()">ยกเลิก</button> -->
-                                    </span>
-                                </div>
-                                <div class="overlay">
-                                </div>
-                                </section>
-                            </div>
-                             <!-- ------------------------------------------------------------------------------------------ -->
-                            <br>
-
-                            <!-- <div class="col-md-12 form-group mb-3">
-                                <label for="note">หมายเหตุ</label>
-                                <input type="text" class="form-control form-control-rounded" name="note" ngModel placeholder="หมายเหตุ">
-                            </div> -->
-                            
-                            <!-- <div class="col-md-12 form-group mb-3">
-                                <label for="note">หมายเหตุ</label>
-                                <textarea class="form-control" name="note" ngModel placeholder="หมายเหตุ" id="exampleFormControlTextarea1" rows="3"></textarea>
-                              </div> -->
-                            <div class="col-md-12">
-                            <button type="submit" class="btn btn-primary btn-block" >บันทึกข้อมูล</button>
-                            </div>
-                        </div>
-
-                    </form>
-                    
+        <div class="col-md-8">
+          <div class="card mb-12">
+            <div class="card-body">
+                <div class="col-12 text-center">
+                    <h2>รายละเอียดการชำระเงิน</h2>
                 </div>
+                <hr>
+                <div class="col-md-12">
+                  <div class="card mb-4 o-hidden " >
+                    <div class="card-body">
+                      <h5 class="card-title">ภาพยนตร์เรื่อง : Avengers Endgame (อเวนเจอร์ส เผด็จศึก)</h5>
+                      <p class="card-text">ประเภทแพ็คเกจ : ระดมทุน</p>
+                      <p class="card-text">แพ็คเกจที่เลือก : ระดมทุนแบบ งบน้อย</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">ราคาระดมทุน 300 บาท</li>
+                    </ul>
+                    <!-- <div class="card-body">
+                      <a href="#" class="card-link">Card link</a>
+                      <a href="#" class="card-link">Another link</a>
+                    </div> -->
+                  </div>
+                </div>
+                <hr>
+                <!-- <form> -->
+                <form (submit)="onAddPackage(formPackage)" #formPackage="ngForm">
+                    <div>
+
+                        <div class="col-md-12">
+                          <div class="card mb-4 o-hidden">
+
+                            <div class="col-md-12 form-group mb-3">
+                              <div class="card-body">
+                                <p class="card-title">เลือกบัญชีธนาคารของเว็บ</p>
+                              <select class="custom-select" name="bank.bank_account" ngModel id="inputGroupSelect04" aria-label="Example select with button addon">
+                                <option>กสิกร</option>
+                                <option>อิสลาม</option>
+                                <option>หี</option>
+                              </select>
+                              </div>
+
+                              <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8">
+                                  <div class="card mb-4 o-hidden " >
+                                  <div class="card-body">
+                                    <p class="button-center">ชื่อธนาคาร : กรุงไทย</p>
+                                    <p class="button-center">เลขบัญชี : 01478563</p>
+                                    <p class="button-center">ชื่อบัญชี : นาย XXXXX XXXXXXXX</p>
+                                  </div>
+                                  </div>
+                                </div>
+                                  <div class="col-md-2"></div>
+                              </div>
+
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="card mb-4">
+                        <div class="card-header">
+
+                        </div>
+                        <div class="card-body">
+                          <h5 class="card-title" class="button-center2" >เมื่อท่านทำการโอนเงินไปยังบัญชีข้างต้นเรียบร้อยแล้ว (เก็บสลิปการโอนไว้ทุกครั้ง)
+                            "คลิกปุ่มด้านล่าง" เพื่อแจ้งการโอนเงิน</h5>
+                        </div>
+                      </div>
+
+
+
+                        <br>
+                        <div class="col-md-12" class="submit" >
+                        <button type="submit" class="btn btn-primary btn-block">เมื่อโอนแล้ว คลิกที่นี่</button>
+                        </div>
+                    </div>
+
+                </form>
+
             </div>
         </div>
+
+        </div>
+
+        <div class="col-md-2"></div>
     </div>
