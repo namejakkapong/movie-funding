@@ -13,7 +13,8 @@ class Transfer extends Model
         'transfer_amount',
         'transfer_date',
         'transfer_pic',
-        'node'
+        'status'
+
 
     ];
 

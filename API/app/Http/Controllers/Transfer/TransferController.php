@@ -66,7 +66,8 @@ class TransferController extends Controller
             'bank_id' => $request->bank_id,
             'transfer_amount' => $request->transfer_amount,
             'transfer_date' => $request->transfer_date,
-            'transfer_pic' => $imageName
+            'transfer_pic' => $imageName,
+            'status' => $request->status,
             // 'transfer_note' => $request->transfer_note
         ]);
         $transfer->save();
