@@ -33,17 +33,25 @@ export class MovieListComponent implements OnInit {
 		}
 
    ngOnInit() {
-    this.dl.getProducts()
-    .subscribe((products: any[]) => {
-      this.products = products;
-    });
+    this.getMovies();
 
-    this.movieService.index()
-		.subscribe(response => {
-      this.movies = response.data;
-       console.log(this.movies);
+    // this.movieService.index()
+		// .subscribe(response => {
+		//   this.movies = [...response.data];
 
-    });
+    // });
+
+    // this.dl.getProducts()
+    // .subscribe((products: any[]) => {
+    //   this.products = products;
+    // });
+
+    // this.movieService.index()
+		// .subscribe(response => {
+    //   this.movies = response.data;
+    //    console.log(this.movies);
+
+    // });
 
     // this.categoriesService.index()
     // .subscribe(response => {
@@ -53,14 +61,25 @@ export class MovieListComponent implements OnInit {
 		// });
   }
 
-  viewMovie(id) {
-    console.log(id);
-    this.router.navigate(['movies/view/' + id]);
+  getMovies() {
+    this.movieService.index()
+    .subscribe(response => {
+      this.movies = response.data;
+      console.log(this.movies);
+    });
+
   }
 
+  // viewMovie(id) {
+  //   console.log(id);
+  //   this.router.navigate(['movies/view/' + id]);
+  // }
+
   viewMovieNew(id) {
-    console.log(123);
-    this.router.navigate(['/movies/movienew/']);
+    console.log(id);
+    // this.router.navigate(['/movies/movienew/' + id]);
+    //this.router.navigate(['/movies/movienew/']);
+
   }
   viewMovieAdd(id) {
     console.log(123);
@@ -68,15 +87,15 @@ export class MovieListComponent implements OnInit {
   }
 
 
-  selectAll(e) {
-    this.products = this.products.map(p => {
-      p.isSelected = this.allSelected;
-      return p;
-    });
+  // selectAll(e) {
+  //   this.products = this.products.map(p => {
+  //     p.isSelected = this.allSelected;
+  //     return p;
+  //   });
 
-    if (this.allSelected) {
+  //   if (this.allSelected) {
 
-    }
-    console.log(this.allSelected);
-  }
+  //   }
+  //   console.log(this.allSelected);
+  // }
 }

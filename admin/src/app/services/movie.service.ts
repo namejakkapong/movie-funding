@@ -18,15 +18,16 @@ export class MovieService {
     return this.http.get<{data: any}>(BACKEND_URL + '/movies');
     // BACKEND_URL = http://localhost:8000/api/movie
   }
+
   store(
     category_id: string ,
     name_en: string,
     name_th : string,
     //selectFileCover: any,
     description : string,
-    resume : string, 
-    director : string, 
-    total : string, 
+    resume : string,
+    director : string,
+    total : string,
     status : string,
     screening_date : string,
     start_date : string,

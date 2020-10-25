@@ -16,16 +16,20 @@ class Movie extends JsonResource
     {
         return [
             'category_id' => $this->category_id,
-            'name' => $this->name,
-            'name_eng' => $this->name_eng,
-            'details' => $this->details,
+            'name_en' => $this->name_en,
+            'name_th' => $this->name_th,
+            'movie_pic' =>url('images/movie',$this->movie_image),
             'description' => $this->description,
+            'resume' => $this->resume,
+            'director' => $this->director,
             'total' => $this->total,
             'status' => $this->status,
-            'start' => $this->start,
-            'end' => $this->end,
-            'movie_image' =>url('images/movie',$this->movie_image),
-            
+            'screening_date' => $this->screening_date,
+            'start_date' => $this->start_date,
+            'end_date' => $this->end_date,
+
+
+
         ];
     }
 }

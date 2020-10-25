@@ -5,7 +5,7 @@
             <li><a href="">ภาพยนตร์</a></li>
             <li>ทั้งหมด</li>
         </ul>
-       
+
     </div>
 
     <div class="separator-breadcrumb border-top"></div>
@@ -13,21 +13,21 @@
     <div class="col-lg-12 col-md-12">
 			<div class="row">
 				<!-- BG IMAGE CARDS -->
-				<div class="col-lg-3 col-md-3">
-					<div class="card bg-dark text-white o-hidden md-3" (click)="viewMovieNew(id)"  >
-						<img class="card-img" src="./assets/images/avg.jpg" alt="Card image" (click)="viewMovieNew(id)">
+				<div class="col-lg-3 col-md-3" *ngFor="let movie of movies">
+					<div class="card bg-dark text-white o-hidden md-3" (click)="viewMovieNew(value)">
+						<img class="card-img" src="./assets/images/avg.jpg" alt="Card image" (click)="viewMovieNew(value)">
 						<div class="card-img-overlay">
                     <div class="text-center pt-4">
-                        <h5 class="card-title mb-2 text-white">Avengers Endgame</h5>
+                        <h5 class="card-title mb-2 text-white">{{movie.name_en}}</h5>
                         <div class="separator border-top mb-2"></div>
-                        <p class="text-small font-italic">อเวนเจอร์ส เผด็จศึก</p>
+                        <p class="text-small font-italic">{{movie.name_th}}</p>
                     </div>
                   <div class="p-1 text-left card-footer font-weight-light d-flex">
-                    <span class="mr-1 d-flex align-items-center"><i class="i-Conference"></i>	ผู้กำกับ : Anthony Russo & Joe Russo  </span>
-                    
+                    <span class="mr-1 d-flex align-items-center"><i class="i-Conference"></i>	ผู้กำกับ : {{movie.director}}</span>
+
                     <!-- <span class="d-flex align-items-center"><i class="i-Calendar-4 mr-2"></i>03.12.2018</span> -->
                   </div>
-              
+
             </div>
 				  </div>
         </div>
@@ -42,10 +42,10 @@
                     </div>
                   <div class="p-1 text-left card-footer font-weight-light d-flex">
                     <span class="mr-1 d-flex align-items-center"><i class="i-Conference"></i>	ผู้กำกับ : </span>
-                    
+
                     <!-- <span class="d-flex align-items-center"><i class="i-Calendar-4 mr-2"></i>03.12.2018</span> -->
                   </div>
-              
+
             </div>
 				  </div>
 			  </div>
@@ -56,27 +56,27 @@
 
     <div class="card mb-4">
         <div class="card-body">
-              
+
             <div class="row">
               <div class="col-sm-2 col-mb-2">
                 <img class="card-img-" src="./assets/images/avg.jpg" (click)="viewMovieNew(id)" >
 
                 <div class="button-center">
                   <button type="submit" class="btn btn-primary " (click)="viewMovieNew(id)">ดูข้อมูลหนัง</button>
-                </div> 
+                </div>
 
               </div>
             </div>
         </div>
 
-            
-      </div> 
+
+      </div>
   </div> -->
 
 
 
 
-   
+
 
 
 
