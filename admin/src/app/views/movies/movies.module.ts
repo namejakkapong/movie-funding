@@ -18,11 +18,12 @@ import { PackageViewComponent } from './package-view/package-view.component';
 import { TransferAddComponent } from './transfer-add/transfer-add.component';
 import { TransferViewComponent } from './transfer-view/transfer-view.component';
 import { TransferListComponent } from './transfer-list/transfer-list.component';
+import { BankAddComponent } from '../admin/bank-add/bank-add.component';
 
 
 
 @NgModule({
-  declarations: [MovieListComponent, MovieCategoryComponent, MovieAddComponent,MovieViewComponent , MovienewComponent, ProgressViewComponent, PackageAddComponent, PackageViewComponent, TransferAddComponent, TransferViewComponent, TransferListComponent],
+  declarations: [MovieListComponent, MovieCategoryComponent, MovieAddComponent,MovieViewComponent , MovienewComponent, ProgressViewComponent, PackageAddComponent, PackageViewComponent, TransferAddComponent, TransferViewComponent, TransferListComponent, BankAddComponent,BankAddComponent,],
   imports: [
     CommonModule,
     MoviesRoutingModule,

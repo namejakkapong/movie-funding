@@ -41,7 +41,7 @@
                               <select class="custom-select" name="bank.bank_account" ngModel id="inputGroupSelect04" aria-label="Example select with button addon">
                                 <option>กสิกร</option>
                                 <option>อิสลาม</option>
-                                <option>หี</option>
+                                <option>หทารไทย</option>
                               </select>
                               </div>
 
@@ -68,12 +68,95 @@
 
                         </div>
                         <div class="card-body">
-                          <h5 class="card-title" class="button-center2" >เมื่อท่านทำการโอนเงินไปยังบัญชีข้างต้นเรียบร้อยแล้ว (เก็บสลิปการโอนไว้ทุกครั้ง)
-                            "คลิกปุ่มด้านล่าง" เพื่อแจ้งการโอนเงิน</h5>
+                          <h5 class="card-title" class="button-center2" >**เมื่อท่านทำการโอนเงินไปยังบัญชีข้างต้นเรียบร้อยแล้ว (เก็บสลิปการโอนไว้ทุกครั้ง)
+                            ให้กรอกข้อมูลด้านล่างให้ครบ เพื่อแจ้งการโอนเงิน</h5>
                         </div>
                       </div>
 
+                      
+      <div class="col-md-12" class="add-center" >
+        <div class="card mb-4 o-hidden">
+          <div class="col-md-12 form-group mb-3" >
+                  <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                      <div class="col-md-4">
+                        <div class="input-group md-3" class="add-center">
+                              <!-- <div class="input-group-prepend">
+                                  <span class="input-group-text">$</span>
+                              </div> -->
+                              <label for="basic-url"> จำนวนเงินที่โอน </label>
+                <div class="input-group md-4">
+                    <div class="input-group-prepend">
+                      <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                    <div class="input-group-append">
+                        <span class="input-group-text">฿</span>
+                    </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                          <div class="col-md-4"></div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                            <label for="picker1"> วันที่โอน </label>
+                        <div class="input-group">
+                              <input id="picker1" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+                          <div class="input-group-append">
+                                <button class="btn btn-secondary" (click)="dp.toggle()" type="button">
+                                  <i class="icon-regular i-Calendar-4"></i>
+                                </button>
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                   </div>
 
+
+                      <!-- ---------------------------------------อัพโหลดรูปภาพ-------------------------------- -->
+                <div class="row">
+                    
+                  <div class="col-md-4"></div>
+                <div class="col-md-4">
+                      
+                <label class="mb-12">รูปภาพประจำตัว</label>
+                <div class="mb-3" *ngIf="!imageCoverPreview">
+                  <img src="./assets/images/sleep.png">
+                </div>
+                <div *ngIf="imageCoverPreview !== '' && imageCoverPreview">
+                  <img [src]="imageCoverPreview">
+                </div>
+
+                <section id="intro-wrap" class="intro-three-Wrap text-center">
+                  <div class="intro-three-Description">
+                    <span>
+                      <button type="button" class="btn btn-outline-white" (click)="fileCover.click()"><i
+                          class="fas fa-camera"></i> อัพโหลดรูปภาพ</button>
+                      <input class="d-none" type="file" #fileCover #fileCoverReset
+                        (change)="onImageCover($event)" accept="image/*">
+                    </span>
+                    <span *ngIf="imageCoverPreview !== '' && imageCoverPreview">
+                      <!-- <button type="button" class="btn btn-success mr-2" (click)="onUploadImageCover()"><i class="far fa-check-circle"></i> บันทึก </button>
+                                <button type="button" class="btn btn-outline-white border-0" (click)="onCancelImagCover()">ยกเลิก</button> -->
+                    </span>
+                  </div>
+                  <div class="overlay">
+                  </div>
+                </section>
+
+              </div>
+                  <div class="col-md-4"></div>
+          </div>
+              <!-- ------------------------------------------------------------------------------------------ -->
+               
+          </div>
+        </div>
+      </div>
+    
 
                         <br>
                         <div class="col-md-12" class="submit" >

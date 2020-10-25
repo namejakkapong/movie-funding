@@ -81,7 +81,8 @@ export class NavigationService {
                     type: 'dropDown',
                     sub: [
                         { name: 'เพิ่มภาพยนตร์', state: '/movies/movie-add', type: 'link' },
-                        { name: 'เพิ่มประเภทภาพยนตร์', state: '/movies/movie-category', type: 'link' }
+                        { name: 'เพิ่มประเภทภาพยนตร์', state: '/movies/movie-category', type: 'link' },
+                        { name: 'เพิ่มประข้อมูลธนาคาร', state: '/movies/bank-add', type: 'link' }
                     ]
                 },
             ]
@@ -96,13 +97,13 @@ export class NavigationService {
                 { icon: 'i-Administrator', name: 'ข้อมูลผู้ดูแลระบบ', state: '/admin/admin-list', type: 'link' }
             ]
         },
-        {
-            name: 'Doc',
-            type: 'extLink',
-            tooltip: 'Documentation',
-            icon: 'i-Safe-Box1',
-            state: 'http://demos.ui-lib.com/gull-doc'
-        }
+        // {
+        //     name: 'Doc',
+        //     type: 'extLink',
+        //     tooltip: 'Documentation',
+        //     icon: 'i-Safe-Box1',
+        //     state: 'http://demos.ui-lib.com/gull-doc'
+        // }
     ];
 
 

@@ -10,7 +10,6 @@ import { SharedComponentsModule } from 'src/app/shared/components/shared-compone
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { AdminViewComponent } from './admin-view/admin-view.component';
-import { BankAddComponent } from './bank-add/bank-add.component';
 
 @NgModule({
   imports: [
@@ -20,6 +19,6 @@ import { BankAddComponent } from './bank-add/bank-add.component';
     AdminRoutingModule,
     FormsModule
   ],
-  declarations: [AccountComponent, AdminListComponent, AdminAddComponent, AdminEditComponent, AdminViewComponent, BankAddComponent, ]
+  declarations: [AccountComponent, AdminListComponent, AdminAddComponent, AdminEditComponent, AdminViewComponent, ]
 })
 export class AdminModule { }

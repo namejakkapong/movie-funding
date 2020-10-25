@@ -11,6 +11,7 @@ import { PackageViewComponent } from './package-view/package-view.component';
 import { TransferAddComponent } from './transfer-add/transfer-add.component';
 import { TransferListComponent } from './transfer-list/transfer-list.component';
 import { TransferViewComponent } from './transfer-view/transfer-view.component';
+import { BankAddComponent } from '../admin/bank-add/bank-add.component';
 
 
 const routes: Routes = [
@@ -58,7 +59,15 @@ const routes: Routes = [
     path: 'transfer-view',
     component: TransferViewComponent
   },
-
+  {
+    path: 'bank-add',
+    component: BankAddComponent
+  },
+  {
+    path: 'bank-add',
+    component: BankAddComponent,
+    
+  },
 ];
 
 @NgModule({

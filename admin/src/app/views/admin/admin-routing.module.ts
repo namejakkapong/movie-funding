@@ -33,11 +33,7 @@ const routes: Routes = [
     component: AdminViewComponent,
     
   },
-  {
-    path: 'bank-add',
-    component: BankAddComponent,
-    
-  },
+ 
 ];
 
 @NgModule({
