@@ -33,3 +33,4 @@ Route::resource('movienew', 'Movie\MovieNewController');
 Route::resource('packages', 'Package\PackageController');
 Route::resource('banks', 'Bank\BankController');
 Route::resource('transfers', 'Transfer\TransferController');
+Route::resource('sendmoneys', 'SendMoney\SendMoneyController');
