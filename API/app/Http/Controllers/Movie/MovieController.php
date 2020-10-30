@@ -66,6 +66,7 @@ class MovieController extends ApiController
             'resume' => $request->resume,
             'director' => $request->director,
             'total' => $request->total,
+            'current_total' => $request->current_total,
             'status' => $request->status,
             'screening_date' => $request->screening_date,
             'start_date' => $request->start_date,
@@ -121,6 +122,7 @@ class MovieController extends ApiController
         $movie->resume = $request->resume;
         $movie->director = $request->director;
         $movie->total = $request->total;
+        $movie->current_total = $request->current_total;
         $movie->status = $request->status;
         $movie->screening_date = $request->screening_date;
         $movie->start_date = $request->start_date;

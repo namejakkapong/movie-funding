@@ -21,6 +21,7 @@ class CreateMoviesTable extends Migration
             $table->longText('details')->nullable();
             $table->string('description', 200);
             $table->decimal('total', 9,2);
+            $table->decimal('current_total', 9,2);
             $table->enum('status',['on','off'])->default('off');
             $table->date('start');
             $table->date('end');
@@ -30,7 +31,7 @@ class CreateMoviesTable extends Migration
             ->references('id')->on('categories')
             ->onDelete('cascade');
             $table->softDeletes();
-            
+
         });
     }
 

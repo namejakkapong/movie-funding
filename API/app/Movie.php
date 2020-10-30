@@ -18,13 +18,14 @@ class Movie extends Model
         'resume',
         'director',
         'total',
+        'current_total',
         'status',
         'screening_date',
         'start_date',
         'end_date'
     ];
 
-   
+
 
     public function category()
     {
