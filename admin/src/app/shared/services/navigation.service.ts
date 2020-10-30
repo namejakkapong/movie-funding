@@ -94,7 +94,10 @@ export class NavigationService {
             icon: 'i-Gear',
             sub: [
                 { icon: 'i-Lock-User', name: 'จัดการบัญชีผู้ใช้', state: '/admin/account', type: 'link' },
-                { icon: 'i-Administrator', name: 'ข้อมูลผู้ดูแลระบบ', state: '/admin/admin-list', type: 'link' }
+                { icon: 'i-Administrator', name: 'ข้อมูลผู้ดูแลระบบ', state: '/admin/admin-list', type: 'link' },
+                { icon: 'i-Money-2', name: 'การส่งเงิน', state: '/admin/sendmoney-add', type: 'link' },
+                { icon: 'i-Letter-Open', name: 'ดูข้อมูลการส่งเงิน', state: '/admin/sendmoney-view', type: 'link' },
+                { icon: 'i-Letter-Open', name: 'ข้อมูลการโอนเงิน', state: '/movies/transfer-view', type: 'link' },
             ]
         },
         // {

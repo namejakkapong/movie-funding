@@ -5,7 +5,8 @@ import { AdminListComponent } from './admin-list/admin-list.component';
 import { AdminEditComponent } from './admin-edit/admin-edit.component';
 import { AdminAddComponent } from './admin-add/admin-add.component';
 import { AdminViewComponent } from './admin-view/admin-view.component';
-import { BankAddComponent } from './bank-add/bank-add.component';
+import { SendmoneyAddComponent } from './sendmoney-add/sendmoney-add.component';
+import { SendmoneyViewComponent } from './sendmoney-view/sendmoney-view.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,16 @@ const routes: Routes = [
   {
     path: 'admin-view',
     component: AdminViewComponent,
+    
+  },
+  {
+    path: 'sendmoney-add',
+    component: SendmoneyAddComponent,
+    
+  },
+  {
+    path: 'sendmoney-view',
+    component: SendmoneyViewComponent,
     
   },
  
