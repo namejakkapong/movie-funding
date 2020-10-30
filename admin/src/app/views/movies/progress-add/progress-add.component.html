@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card mb-12">
+                <div class="card-body" >
+                    <div class="card-title mb-3">เพิ่มความคืบหน้า</div>
+                    <hr>
+
+                   <!-- <form (submit)="onAddMovie(formMovie)" #formMovie="ngForm"> -->
+
+                    <div class="col-md-12 form-group mb-3">
+                        <label>หัวข้อ</label>
+                        <input type="text" class="form-control form-control-rounded" name="topic" ngModel placeholder="หัวข้อ">
+                    </div>
+                       <!-- ---------------------------------------อัพโหลดรูปภาพ-------------------------------- -->
+              <div class="col-md-6">
+                <label class="mb-4">รูปภาพประจำตัว</label>
+                <div class="mb-3" *ngIf="!imageCoverPreview">
+                  <img src="./assets/images/movies/1.png">
+                </div>
+                <div *ngIf="imageCoverPreview !== '' && imageCoverPreview">
+                  <img [src]="imageCoverPreview">
+                </div>
+
+                <section id="intro-wrap" class="intro-three-Wrap text-center">
+                  <div class="intro-three-Description">
+                    <span>
+                      <button type="button" class="btn btn-outline-white" (click)="fileCover.click()"><i
+                          class="fas fa-camera"></i> อัพโหลดรูปภาพ</button>
+                      <input class="d-none" type="file" #fileCover #fileCoverReset
+                        (change)="onImageCover($event)" accept="image/*">
+                    </span>
+                    <span *ngIf="imageCoverPreview !== '' && imageCoverPreview">
+                      <!-- <button type="button" class="btn btn-success mr-2" (click)="onUploadImageCover()"><i class="far fa-check-circle"></i> บันทึก </button>
+                                <button type="button" class="btn btn-outline-white border-0" (click)="onCancelImagCover()">ยกเลิก</button> -->
+                    </span>
+                  </div>
+                  <div class="overlay">
+                  </div>
+                </section>
+              </div>
+              <!-- ------------------------------------------------------------------------------------------ -->
+              <br>
+
+                    <div class="col-md-12 form-group mb-3">
+                        <label>รายละเอียด</label>
+                        <textarea class="form-control form-control-rounded" name="detail" rows="10" ngModel placeholder="รายละเอียด"></textarea>
+                    </div>
+
+                    <div class="col-md-6 form-group mb-3">
+                        <label for="start">วันที่</label>
+                        <input class="form-control form-control-rounded" type="date" id="end"  name="screening_date"
+                        ngModel placeholder="yyyy-mm-dd"
+                        min="2020-01-01" max="2040-12-31" ngbDatepicker #dp="ngbDatepicker">
+
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">บันทึก</button>
+                    <div class="col-md-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>

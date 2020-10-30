@@ -34,4 +34,10 @@ export class MovienewComponent implements OnInit {
     // console.log(123);
     this.router.navigate(['/movies/transfer-list']);
   }
+
+  progressAdd(id) {
+    // console.log(123);
+    this.router.navigate(['/movies/progress-add']);
+  }
+
 }

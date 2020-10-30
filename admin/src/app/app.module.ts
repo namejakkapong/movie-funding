@@ -25,7 +25,6 @@ import { VerificationViewComponent } from './views/verification/verification-vie
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,

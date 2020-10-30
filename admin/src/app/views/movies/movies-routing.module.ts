@@ -12,6 +12,7 @@ import { TransferAddComponent } from './transfer-add/transfer-add.component';
 import { TransferListComponent } from './transfer-list/transfer-list.component';
 import { TransferViewComponent } from './transfer-view/transfer-view.component';
 import { BankAddComponent } from '../admin/bank-add/bank-add.component';
+import { ProgressAddComponent } from './progress-add/progress-add.component';
 
 
 const routes: Routes = [
@@ -66,6 +67,11 @@ const routes: Routes = [
   {
     path: 'bank-add',
     component: BankAddComponent,
+    
+  },
+  {
+    path: 'progress-add',
+    component: ProgressAddComponent,
     
   },
 ];
