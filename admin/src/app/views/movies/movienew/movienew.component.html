@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-sm-12 col-mb-12">
-      <div class="card bg-dark text-white o-hidden mb-4">
-          <img class="card-img" src="./assets/images/avgen2.jpg" alt="Card image">
-        </div>
+    <div class="card bg-dark text-white o-hidden mb-4">
+      <img class="card-img" src="./assets/images/avgen2.jpg" alt="Card image">
+    </div>
   </div>
 </div>
 
@@ -10,120 +10,321 @@
 <div class="row">
   <div class="col-md-12">
 
-          <div class="card mb-4">
-              <div class="card-body">
-                  
-                <div class="row">
-                  <div class="col-sm-4 col-mb-4">
-                    <img class="card-img-" src="./assets/images/avg.jpg" >
-                  </div>
+    <div class="card mb-4">
+      <div class="card-body">
 
-                  <div class="col-sm-8 col-mb-8">
-                    <div class="row">
-                      <div class="col-sm-6 col-mb-6">
-                    <p  class="font">Avengers Endgame</p> 
-                    <p class="font1"> อเวนเจอร์ส เผด็จศึก</p>
-                  </div>
-                  <div class="col-sm-6 col-mb-6" class="button-center">
-                    <button type="button" class="btn btn-outline-primary btn-rounded m-1" (click)="packageView(id)">ระดมทุน</button>
+        <div class="row">
+          <div class="col-sm-4 col-mb-4">
+            <img class="card-img-" src="./assets/images/avg.jpg">
+          </div>
+
+          <div class="col-sm-8 col-mb-8">
+            <div class="row">
+              <div class="col-sm-6 col-mb-6">
+                <p class="font">Avengers Endgame</p>
+                <p class="font1"> อเวนเจอร์ส เผด็จศึก</p>
+              </div>
+              <div class="col-sm-6 col-mb-6" class="button-center">
+                <button type="button" class="btn btn-outline-primary btn-rounded m-1"
+                  (click)="packageView(id)">ระดมทุน</button>
+              </div>
+            </div>
+
+            <p class="font2">ประเภท :</p>
+            <p>เรื่องย่อ :
+              เหล่าอเวนเจอร์ยังคงต้องปกป้องโลกจากภัยอันตรายครั้งใหญ่ที่เกินกว่าที่ซูเปอร์ฮีโร่คนเดียวจะรับมือได้
+              อันตรายครั้งใหม่นั้นมาจากเงามืดของจักรวาล "ธานอส" จอมเผด็จการแห่งจักรวาล เป้าหมายของเขาคือการรวบรวมอัญมณี
+              อินฟินิตี้สโตนส์ทั้งหก เพื่อครอบครองพลังที่เกินจะจินตนาการถึง
+              และใช้พวกมันในการเปลี่ยนแปลงความจริงทั้งมวลของจักรวาล
+              ทุกสิ่งทุกอย่างที่อเวนเจอร์ต่อสู้มาก็เพื่อสิ่งนี้ ชะตากรรมของโลกและจักรวาลไม่เคยสั่นคลอนเท่านี้มาก่อน</p>
+
+
+            <div class="row">
+              <div class="col-sm-6 col-mb-6">
+                <p class="font2">ยอดปัจจุบัน</p>
+                <p class="font3">25,000 ฿</p>
+              </div>
+
+              <div class="col-sm-6 col-mb-6">
+                <p class="font2">ต้องการอีก</p>
+                <p class="font4">75,000 ฿</p>
+              </div>
+            </div>
+
+            <!-- <span class="mr-3 d-flex align-items-center"><i class="i-Speach-Bubble-6 mr-1"></i> 12 </span>
+                    <span class="d-flex align-items-center"><i class="i-Calendar-4 mr-2"></i>03.12.2018</span> -->
+
+          </div>
+        </div>
+
+        <div class="card-body">
+          <ngb-tabset class="">
+
+            <ngb-tab title="รายละเอียด">
+              <ng-template ngbTabContent>
+
+                <p>เรื่องย่อ :
+                  เหล่าอเวนเจอร์ยังคงต้องปกป้องโลกจากภัยอันตรายครั้งใหญ่ที่เกินกว่าที่ซูเปอร์ฮีโร่คนเดียวจะรับมือได้
+                  อันตรายครั้งใหม่นั้นมาจากเงามืดของจักรวาล "ธานอส" จอมเผด็จการแห่งจักรวาล
+                  เป้าหมายของเขาคือการรวบรวมอัญมณี
+                  อินฟินิตี้สโตนส์ทั้งหก เพื่อครอบครองพลังที่เกินจะจินตนาการถึง
+                  และใช้พวกมันในการเปลี่ยนแปลงความจริงทั้งมวลของจักรวาล
+                  ทุกสิ่งทุกอย่างที่อเวนเจอร์ต่อสู้มาก็เพื่อสิ่งนี้ ชะตากรรมของโลกและจักรวาลไม่เคยสั่นคลอนเท่านี้มาก่อน
+                </p>
+
+              </ng-template>
+            </ngb-tab>
+
+            <ngb-tab title="ความคืบหน้า">
+              <ng-template ngbTabContent>
+
+                <div class="col-md-12">
+                  <div class="card mb-12">
+                    <div class="card-body p-0">
+                      <div class="card-title border-bottom d-flex align-items-center m-3 p-3">
+                        <span>รายละเอียดความคืบหน้า</span>
+                        <span class="flex-grow-1"></span>
+                      </div>
+                      <br>
+                      <div class="col-md-6 form-group mb-0">
+                        <div class="shadow p-3 mb-5 bg-white rounded">หัวข้อ : xxxxxxxxxxxxx</div>
+                      </div>
+                      <div class="col-md-5">
+                        <div class="text-center">
+                          <br><img class="card-img-top" src="./assets/images/photo-wide-2.jpg" alt="">
+                        </div>
+                      </div>
+
+                      <br>
+
+                      <div class="col-md-6 form-group mb-3">
+                        <div class="shadow p-3 mb-5 bg-white rounded">รายละเอียด : xxxxxxxxxxxxxxxxxxx</div>
+                        <div class="shadow p-3 mb-5 bg-white rounded">วัน/เดือน/ปี : 15/08/2020</div>
+                      </div>
+                      <div class="col-md-6 form-group mb-3">
+                        <button type="button" class="btn btn-primary btn-rounded m-1"
+                          (click)="progressAdd(id)">เพิ่มความคืบหน้า</button>
+                      </div><br>
+                    </div>
                   </div>
                 </div>
 
-                    <p class="font2">ประเภท :</p>
-                    <p>เรื่องย่อ :
-                        เหล่าอเวนเจอร์ยังคงต้องปกป้องโลกจากภัยอันตรายครั้งใหญ่ที่เกินกว่าที่ซูเปอร์ฮีโร่คนเดียวจะรับมือได้
-                         อันตรายครั้งใหม่นั้นมาจากเงามืดของจักรวาล "ธานอส" จอมเผด็จการแห่งจักรวาล เป้าหมายของเขาคือการรวบรวมอัญมณี
-                          อินฟินิตี้สโตนส์ทั้งหก เพื่อครอบครองพลังที่เกินจะจินตนาการถึง และใช้พวกมันในการเปลี่ยนแปลงความจริงทั้งมวลของจักรวาล
-                           ทุกสิ่งทุกอย่างที่อเวนเจอร์ต่อสู้มาก็เพื่อสิ่งนี้ ชะตากรรมของโลกและจักรวาลไม่เคยสั่นคลอนเท่านี้มาก่อน</p>
-                           
+              </ng-template>
+            </ngb-tab>
 
-                    <div class="row">
-                      <div class="col-sm-6 col-mb-6">
-                        <p class="font2">ยอดปัจจุบัน</p>
-                        <p class="font3">25,000 ฿</p>
-                    </div>
+            <ngb-tab title="ข้อมูลการโอนเงิน">
+              <ng-template ngbTabContent>
 
-                    <div class="col-sm-6 col-mb-6">
-                      <p class="font2">ต้องการอีก</p>
-                      <p class="font4">75,000 ฿</p>
+                <div class="col-sm-12 col-mb-12">
+                  <P class="font1">สถานะการโอน</P>
+
+                  <div class="card-body">
+                    <ngb-tabset class="">
+
+                      <ngb-tab title="ตรวจสอบสำเร็จ">
+                        <ng-template ngbTabContent>
+
+                          <!-- --------------------------------------------ข้อมูล 1 -------------------------------------------- -->
+                          <div class="row">
+                            <div class="col-sm-8 col-mb-8">
+                              <div class="card mb-12">
+                                <div class="card-header">
+
+                                </div>
+                                <div class="card-body">
+                                  <h4 class="card-title" class="font2">ชื่อแพ็คเกจที่เลือก : </h4><br>
+                                  <p class="card-text">ชื่อผู้ใช้ : </p>
+                                  <!-- <h5 class="card-text">Reward</h5> -->
+                                  <p class="card-text">วันที่โอน : 10/09/2020</p>
+                                  <ul class="list-group list-group-flush">
+                                    <div class="row">
+                                      <div class="col-sm-12 col-mb-12">
+                                        <h5 class="list-group-item">จำนวนเงิน : 20000 บาท</h5>
+                                      </div>
+
+                                    </div>
+                                  </ul>
+
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-2 col-mb-2"></div>
+                          </div>
+                          <br>
+
+                          <!-- --------------------------------------------ข้อมูล 2 -------------------------------------------- -->
+                          <div class="row">
+                            <div class="col-sm-8 col-mb-8">
+                              <div class="card mb-12">
+                                <div class="card-header">
+
+                                </div>
+                                <div class="card-body">
+                                  <h4 class="card-title" class="font2">ชื่อแพ็คเกจที่เลือก : </h4><br>
+                                  <p class="card-text">ชื่อผู้ใช้ : </p>
+                                  <!-- <h5 class="card-text">Reward</h5> -->
+                                  <p class="card-text">วันที่โอน : 10/08/2020</p>
+                                  <ul class="list-group list-group-flush">
+                                    <div class="row">
+                                      <div class="col-sm-12 col-mb-12">
+                                        <h5 class="list-group-item">จำนวนเงิน : 10000 บาท</h5>
+                                      </div>
+
+                                    </div>
+                                  </ul>
+
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-2 col-mb-2"></div>
+                          </div>
+                          <br>
+                          <!-- ------------------------------------------------------------------------------------------------------------ -->
+                        </ng-template>
+                      </ngb-tab>
+
+                      <ngb-tab title="ยังไม่ตรวจสอบ">
+                        <ng-template ngbTabContent>
+                          <!-- --------------------------------------------ข้อมูล 1 -------------------------------------------- -->
+                          <div class="row">
+                            <div class="col-sm-8 col-mb-8">
+                              <div class="card mb-12">
+                                <div class="card-header">
+
+                                </div>
+                                <div class="card-body">
+                                  <h4 class="card-title" class="font2">ชื่อแพ็คเกจที่เลือก : </h4><br>
+                                  <p class="card-text">ชื่อผู้ใช้ : </p>
+                                  <!-- <h5 class="card-text">Reward</h5> -->
+                                  <p class="card-text">วันที่โอน : 10/09/2020</p>
+                                  <ul class="list-group list-group-flush">
+                                    <div class="row">
+                                      <div class="col-sm-8 col-mb-8">
+                                        <h5 class="list-group-item">จำนวนเงิน : 20000 บาท</h5>
+                                      </div>
+                                      <div class="col-sm-4 col-mb-4">
+                                        <button type="button"
+                                          class="btn btn-primary btn-rounded m-1">ผ่านการตรวจสอบ</button>
+                                        <button type="button"
+                                          class="btn btn-primary btn-rounded m-1">ไม่ผ่านการตรวจสอบ</button>
+                                      </div>
+
+                                    </div>
+                                  </ul>
+
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+                          <br>
+
+                        </ng-template>
+                      </ngb-tab>
+
+                      <ngb-tab title="ตรวจสอบไม่สำเร็จ">
+                        <ng-template ngbTabContent>
+                          <!-- --------------------------------------------ข้อมูล 1 -------------------------------------------- -->
+                          <div class="row">
+                            <div class="col-sm-8 col-mb-8">
+                              <div class="card mb-12">
+                                <div class="card-header">
+
+                                </div>
+                                <div class="card-body">
+                                  <h4 class="card-title" class="font2">ชื่อแพ็คเกจที่เลือก : </h4><br>
+                                  <p class="card-text">ชื่อผู้ใช้ : </p>
+                                  <!-- <h5 class="card-text">Reward</h5> -->
+                                  <p class="card-text">วันที่โอน : 10/09/2020</p>
+                                  <ul class="list-group list-group-flush">
+                                    <div class="row">
+                                      <div class="col-sm-12 col-mb-12">
+                                        <h5 class="list-group-item">จำนวนเงิน : 20000 บาท</h5>
+                                      </div>
+
+                                    </div>
+                                  </ul>
+
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-2 col-mb-2"></div>
+                          </div>
+                          <br>
+
+                        </ng-template>
+                      </ngb-tab>
+
+                    </ngb-tabset>
+                  </div>
+                </div>
+
+              </ng-template>
+            </ngb-tab>
+
+            <ngb-tab title="ข้อมูลการส่งเงิน">
+              <ng-template ngbTabContent>
+                <!-- --------------------------------------------ข้อมูล 1 -------------------------------------------- -->
+                <div class="row">
+                  <div class="col-sm-8 col-mb-8">
+                    <div class="card mb-12">
+                      <div class="card-header">
+
+                      </div>
+                      <div class="card-body">
+                        <h4 class="card-title" class="font2">รอบแรก</h4><br>
+                        <p class="card-text">รายละเอียด : โอนเงินรอบแรก</p>
+                        <!-- <h5 class="card-text">Reward</h5> -->
+                        <p class="card-text">วันที่โอน : 10/09/2020</p>
+                        <ul class="list-group list-group-flush">
+                          <div class="row">
+                            <div class="col-sm-12 col-mb-12">
+                              <h5 class="list-group-item">จำนวนเงิน : 20000 บาท</h5>
+                            </div>
+
+                          </div>
+                        </ul>
+
+                      </div>
                     </div>
                   </div>
+                  <div class="col-sm-2 col-mb-2"></div>
+                </div>
+                <br>
 
-                    <!-- <span class="mr-3 d-flex align-items-center"><i class="i-Speach-Bubble-6 mr-1"></i> 12 </span>
-                    <span class="d-flex align-items-center"><i class="i-Calendar-4 mr-2"></i>03.12.2018</span> -->
-
-              </div>
-          </div>
-
-          <div class="card-body">
-            <ngb-tabset class="">
-              
-              <ngb-tab title="รายละเอียด">
-                <ng-template ngbTabContent>
-
-                  <p>เรื่องย่อ :
-                    เหล่าอเวนเจอร์ยังคงต้องปกป้องโลกจากภัยอันตรายครั้งใหญ่ที่เกินกว่าที่ซูเปอร์ฮีโร่คนเดียวจะรับมือได้
-                    อันตรายครั้งใหม่นั้นมาจากเงามืดของจักรวาล "ธานอส" จอมเผด็จการแห่งจักรวาล เป้าหมายของเขาคือการรวบรวมอัญมณี
-                    อินฟินิตี้สโตนส์ทั้งหก เพื่อครอบครองพลังที่เกินจะจินตนาการถึง และใช้พวกมันในการเปลี่ยนแปลงความจริงทั้งมวลของจักรวาล
-                    ทุกสิ่งทุกอย่างที่อเวนเจอร์ต่อสู้มาก็เพื่อสิ่งนี้ ชะตากรรมของโลกและจักรวาลไม่เคยสั่นคลอนเท่านี้มาก่อน</p>
-
-                </ng-template>
-              </ngb-tab>
-
-              <ngb-tab title="ความคืบหน้า">
-                <ng-template ngbTabContent>
-                  
-                  <div class="col-md-12">
+                <!-- --------------------------------------------ข้อมูล 2 -------------------------------------------- -->
+                <div class="row">
+                  <div class="col-sm-8 col-mb-8">
                     <div class="card mb-12">
-                        <div class="card-body p-0">
-                            <div class="card-title border-bottom d-flex align-items-center m-3 p-3">
-                                <span>รายละเอียดความคืบหน้า</span>
-                                <span class="flex-grow-1"></span>    
-                            </div>
-                                <br>
-                                <div class="col-md-6 form-group mb-0">
-                                    <div class="shadow p-3 mb-5 bg-white rounded">หัวข้อ : xxxxxxxxxxxxx</div>
-                                </div>
-                                    <div class="col-md-5">
-                                        <div class="text-center">
-                                            <br><img class="card-img-top" src="./assets/images/photo-wide-2.jpg" alt="">
-                                        </div>
-                                    </div>  
+                      <div class="card-header">
 
-                                <br>
-
-                                <div class="col-md-6 form-group mb-3">
-                                    <div class="shadow p-3 mb-5 bg-white rounded">รายละเอียด : xxxxxxxxxxxxxxxxxxx</div>
-                                    <div class="shadow p-3 mb-5 bg-white rounded">วัน/เดือน/ปี : 15/08/2020</div>
-                                </div>
-                                <div class="col-md-6 form-group mb-3">
-                                       <button type="button" class="btn btn-primary btn-rounded m-1" (click)="progressAdd(id)">เพิ่มความคืบหน้า</button>
-                                   </div><br>
+                      </div>
+                      <div class="card-body">
+                        <h4 class="card-title" class="font2">รอบ2</h4><br>
+                        <p class="card-text">รายละเอียด : โอนเงินรอบที่2</p>
+                        <!-- <h5 class="card-text">Reward</h5> -->
+                        <p class="card-text">วันที่โอน : 10/08/2020</p>
+                        <ul class="list-group list-group-flush">
+                          <div class="row">
+                            <div class="col-sm-12 col-mb-12">
+                              <h5 class="list-group-item">จำนวนเงิน : 10000 บาท</h5>
                             </div>
-                        </div>
+
+                          </div>
+                        </ul>
+
+                      </div>
                     </div>
+                  </div>
+                  <div class="col-sm-2 col-mb-2"></div>
+                </div>
+                <br>
+                <!-- ------------------------------------------------------------------------------------------------------------ -->
+              </ng-template>
+            </ngb-tab>
 
-                </ng-template>
-              </ngb-tab>
-              
-              <ngb-tab title="ข้อมูลการศึกษา">
-                <ng-template ngbTabContent>
+          </ngb-tabset>
+        </div>
 
-                  <p>1 2 3 4 5 6 7 8 9 </p>
-
-                </ng-template>
-              </ngb-tab>
-
-              <ngb-tab title="ข้อมูลการศึกษา">
-                <ng-template ngbTabContent>
-
-                  <p>XXX </p>
-
-                </ng-template>
-              </ngb-tab>
-
-            </ngb-tabset>
-          </div>
-
-  </div>
-</div>
+      </div>
+    </div>
