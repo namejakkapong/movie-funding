@@ -14,13 +14,13 @@
 			<div class="row">
 				<!-- BG IMAGE CARDS -->
 				<div class="col-lg-3 col-md-3" *ngFor="let movie of movies">
-					<div class="card bg-dark text-white o-hidden md-3" (click)="viewMovieNew(value)">
-						<img class="card-img" src="./assets/images/avg.jpg" alt="Card image" (click)="viewMovieNew(value)">
+					<div class="card bg-dark text-white o-hidden md-3" (click)="viewMovieNew(movie.id)">
+						<img class="card-img" src="./assets/images/avg.jpg" alt="Card image" (click)="viewMovieNew(movie.id)">
 						<div class="card-img-overlay">
                     <div class="text-center pt-4">
                         <h5 class="card-title mb-2 text-white" >{{movie.name_en}}</h5>
                         <div class="separator border-top mb-2"></div>
-                        <p class="text-small font-italic">{{movie.name_th}}</p>
+                        <p class="text-small font-italic" >{{movie.name_th}}</p>
                     </div>
                   <div class="p-1 text-left card-footer font-weight-light d-flex">
                     <span class="mr-1 d-flex align-items-center"><i class="i-Conference"></i>	ผู้กำกับ : {{movie.director}}</span>
@@ -226,4 +226,67 @@
   </div>
 </div>
  -->
+ <div class="separator-breadcrumb border-top"></div>
 
+ <div class="">
+  <div class="breadcrumb">
+      <h1>General</h1>
+      <ul>
+          <li><a href="">Admin</a></li>
+          <li>administrator</li>
+      </ul>
+  </div>
+
+  <div class="separator-breadcrumb border-top"></div>
+
+  <div class="row">
+      <div class="col-md-3">
+          <div class="card card-icon bg-primary mb-4">
+              <div class="card-body text-center">
+                <i class="i-Add-User text-white"></i>
+                <p class="text-white mt-2 mb-2">เพิ่มข้อมูลภาพยนตร์</p>
+                <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0" (click)="viewMovieAdd(id)">เพิ่มข้อมูล</button>
+                <!-- <p class="text-primary text-24 line-height-1 m-0">21</p> -->
+              </div>
+            </div>
+      </div>
+      <div class="col-md-3" *ngFor="let movie of movies">
+          <div class="card card-profile-1 mb-4">
+              <div class="card-body text-center">
+                  <div class="avatar box-shadow-2 mb-3">
+                      <img src="{{ movie.movie_pic }}" alt=""(click)="viewMovieNew(movie.id)">
+                  </div>
+                  <!-- <button (click)="view('red','xxl')">red</button><button (click)="view('yellow','l')">yellow</button> -->
+                  <h5 class="m-0"><a href="javascript:void(0)" (click)="viewMovieNew(movie.id)"> {{ movie.name_en }} </a></h5>
+                  <!-- <h5 class="m-0"><a href=""> {{ admin.email }} </a></h5> -->
+                  <p class="mt-0">ผู้กำกับ : {{movie.director}}</p>
+                  <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae cumque.</p> -->
+                  <!-- <button class="btn btn-primary btn-rounded">ดูข้อมูลผู้ดูแลระบบ</button> -->
+                  <div class="card-socials-simple mt-4">
+                      <a href="javascript:void(0)" routerLink="/admin/admin-list/edit" type="button" class=" mr-4" ngbPopover="แก้ไขข้อมูล"
+                      triggers="mouseenter:mouseleave">
+                          <i class="i-Pen-4"></i>
+                      </a>
+                      <a href="javascript:void(0)" type="button" ngbPopover="ลบข้อมูล"
+                      triggers="mouseenter:mouseleave" (click)="confirm(modalConfirm)">
+                          <i class="i-Remove-User text-danger"></i>
+                      </a>
+                      <!-- CONFIRM DELETE -->
+                      <ng-template #modalConfirm let-modal>
+                          <div class="modal-body">
+                            <p><strong>คุณต้องการลบข้อมูลโปรไฟล์ของ <span class="text-primary">"ชื่อแอดมิน"</span> หรือไม่ ?</strong></p>
+                            <p>All information associated to this user profile will be permanently deleted.
+                            <span class="text-danger">This operation can not be undone.</span>
+                            </p>
+                          </div>
+                          <div class="modal-footer border-top-0">
+                            <button type="button" class="btn btn-light btn-rounded" (click)="modal.dismiss('cancel')">Cancel</button>
+                            <button type="button" ngbAutofocus class="btn btn-danger btn-rounded" (click)="modal.close('Ok')" (click)="delete(admin.id)">Ok</button>
+                          </div>
+                      </ng-template>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>

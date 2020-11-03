@@ -20,6 +20,7 @@ export class MovieListComponent implements OnInit {
   pageSize = 8;
   products: any[] = [];
   categories: any;
+  confirmResut;
 
 
   constructor(
@@ -32,43 +33,37 @@ export class MovieListComponent implements OnInit {
     ) {
 		}
 
-   ngOnInit() {
-    this.getMovies();
+    ngOnInit() {
+      this.movieService.index()
+        .subscribe(response => {
+          this.movies = response.data;
+          console.log(this.movies);
+        });
+    }
 
-    // this.movieService.index()
-		// .subscribe(response => {
-		//   this.movies = [...response.data];
+    open(content) {
+      this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' })
+      .result.then((result) => {
+        console.log(result);
+      }, (reason) => {
+        console.log('Err!', reason);
+      });
+    }
+    confirm(content) {
+      this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', centered: true })
+      .result.then((result) => {
+        this.confirmResut = `Closed with: ${result}`;
+      }, (reason) => {
+        this.confirmResut = `Dismissed with: ${reason}`;
+      });
 
-    // });
-
-    // this.dl.getProducts()
-    // .subscribe((products: any[]) => {
-    //   this.products = products;
-    // });
-
-    // this.movieService.index()
-		// .subscribe(response => {
-    //   this.movies = response.data;
-    //    console.log(this.movies);
-
-    // });
-
-    // this.categoriesService.index()
-    // .subscribe(response => {
-    //   this.categories = response.data;
-    //    console.log(this.categories);
-
-		// });
-  }
-
-  getMovies() {
-    this.movieService.index()
-    .subscribe(response => {
-      this.movies = response.data;
-      console.log(this.movies);
-    });
-
-  }
+    }
+    getAdmins() {
+      this.movieService.index()
+      .subscribe(response => {
+        this.movies = [...response.data];
+      });
+    }
 
   // viewMovie(id) {
   //   console.log(id);
