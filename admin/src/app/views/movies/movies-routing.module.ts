@@ -33,7 +33,7 @@ const routes: Routes = [
     component: MovieViewComponent
   },
   {
-    path: 'movienew',
+    path: 'movienew/:id',
     component: MovienewComponent
   },
   {
@@ -67,12 +67,12 @@ const routes: Routes = [
   {
     path: 'bank-add',
     component: BankAddComponent,
-    
+
   },
   {
     path: 'progress-add',
     component: ProgressAddComponent,
-    
+
   },
 ];
 

@@ -18,8 +18,14 @@ export class UserViewComponent implements OnInit {
   public educations: any;
   public experiences: any;
 
-  constructor(private userService: UserService,private experienceService: ExperienceService, private educationService: EducationService, private route: ActivatedRoute, private router: Router, private modalService: NgbModal) {
-   }
+  constructor(
+    private userService: UserService,
+    private experienceService: ExperienceService,
+    private educationService: EducationService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private modalService: NgbModal
+    ) { }
 
   ngOnInit() {
 
@@ -60,7 +66,7 @@ export class UserViewComponent implements OnInit {
 
 
   onVerification(id) {
-    // console.log(id);
+    //console.log(id);
     this.router.navigate(['/users/verification/add/' + id]);
   }
 

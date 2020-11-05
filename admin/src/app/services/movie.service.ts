@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment.prod';
-import { id } from '@swimlane/ngx-datatable/release/utils';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 // import { start } from 'repl';
 
 const BACKEND_URL = environment.apiUrl;
@@ -11,12 +11,21 @@ const BACKEND_URL = environment.apiUrl;
 })
 export class MovieService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private modalService: NgbModal
+    ) { }
 
   index()
   {
     return this.http.get<{data: any}>(BACKEND_URL + '/movies');
-    // BACKEND_URL = http://localhost:8000/api/movie
+    // BACKEND_URL = http://localhost:8000/api/movies
+  }
+
+  show(id: string)
+  {
+    return this.http.get<{data: any}>(BACKEND_URL + '/movies/' + id);
+    //BACKEND_URL = http://localhost:8000/api/movies/id
   }
 
   store(

@@ -87,8 +87,11 @@ class MovieController extends ApiController
     public function show($id)
     {
         //return $id; (1. รับ id เข้ามา เพื่อเช็คว่าตรงกับ id ที่เราจะแสดง)
+
         $movie = Movie::with('category')->where('id', $id)->firstOrFail();
+        // return $this->showOneTransform("insert data user complete" , $movie , 200);
         return $movie;
+
     }
 
     /**

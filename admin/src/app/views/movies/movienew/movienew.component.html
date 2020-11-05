@@ -21,12 +21,12 @@
           <div class="col-sm-8 col-mb-8">
             <div class="row">
               <div class="col-sm-6 col-mb-6">
-                <p class="font">Avengers Endgame</p>
+                <p class="font">ชื่อภาษาอังกฤษ : {{ movie?.name_en }}</p>
                 <p class="font1"> อเวนเจอร์ส เผด็จศึก</p>
               </div>
               <div class="col-sm-6 col-mb-6" class="button-center">
                 <button type="button" class="btn btn-outline-primary btn-rounded m-1"
-                  (click)="packageView(id)">ระดมทุน</button>
+                  (click)="packageView(movie?.id)">ระดมทุน</button>
               </div>
             </div>
 

@@ -72,7 +72,7 @@ export class MovieListComponent implements OnInit {
 
   viewMovieNew(id) {
     console.log(id);
-    // this.router.navigate(['/movies/movienew/' + id]);
+    this.router.navigate(['/movies/movienew/' + id]);
     //this.router.navigate(['/movies/movienew/']);
 
   }
