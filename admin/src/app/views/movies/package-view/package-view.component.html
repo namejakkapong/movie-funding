@@ -11,15 +11,14 @@
             <div class="card-img-overlay">
 
               <div class="text-center pt-4">
-                <h5 class="card-title mb-2 text-white">Avengers Endgame</h5>
-                <h5 class="card-title mb-2 text-white">อเวนเจอร์ส เผด็จศึก</h5>
+                <h5 class="card-title mb-2 text-white">{{ movie?.name_en }}</h5>
+                <h5 class="card-title mb-2 text-white">{{ movie?.name_th }}</h5>
                 <div class="separator border-top mb-2"></div>
-                <p class="text-small font-italic">Last updated 3 mins ago</p>
+                <p class="text-small font-italic">สิ้นสุดวันที่ : {{ movie?.end_date }}</p>
               </div>
               <div class="p-1 text-left card-footer font-weight-light d-flex">
-                <span class="mr-3 d-flex align-items-center"><i class="i-Speach-Bubble-6 mr-1"></i>Anthony & Joe
-                  Russo</span>
-                <span class="d-flex align-items-center"><i class="i-Calendar-4 mr-2"></i>03.12.2018</span>
+                <span class="mr-3 d-flex align-items-center"><i class="i-Speach-Bubble-6 mr-1"></i>{{ movie?.director }}</span>
+                <span class="d-flex align-items-center"><i class="i-Calendar-4 mr-2"></i>ประเภท : {{ movie?.category?.name }}</span>
               </div>
 
             </div>
@@ -35,20 +34,21 @@
 
             <ngb-tab title="ระดมทุน">
               <ng-template ngbTabContent>
+
                 <!-- ----------------------------------------ข้อมูลที่ 1---------------------------------------- -->
-                <div class="card mb-12">
+                <div class="card mb-12" *ngFor="let package of packages">
                   <div class="card-header">
 
                   </div>
                   <div class="card-body">
-                    <h4 class="card-title" class="font2" >ระดมทุนแบบ งบน้อย</h4><br>
-                    <p class="card-text">รายละเอียด : With supporting text below as a natural lead-in to additional content.</p>
+                    <h4 class="card-title" class="font2" >{{ package.topic }}</h4><br>
+                    <p class="card-text">รายละเอียด : {{ package.details }}</p>
                     <h5 class="card-text">Reward</h5>
-                    <p class="card-text">- ตั๋วหนังฟรี</p>
+                    <p class="card-text">{{ package.reward }}</p>
                     <ul class="list-group list-group-flush">
                       <div class="row">
                       <div class="col-sm-8 col-mb-8">
-                      <h5 class="list-group-item">ราคาระดมทุน 300 บาท</h5>
+                      <h5 class="list-group-item">ราคาระดมทุน {{ package.amount }} บาท</h5>
                       </div>
                       <div class="col-sm-4 col-mb-4">
                         <button type="button" class="btn btn-primary btn-rounded m-1"(click)="transferAdd(id)">เลือกแพ็คเกจนี้</button>
@@ -58,129 +58,36 @@
 
                   </div>
                 </div><br>
-                <!-- ----------------------------------------ข้อมูลที่ 2---------------------------------------- -->
-                <div class="card mb-12">
-                  <div class="card-header">
-
-                  </div>
-                  <div class="card-body">
-                    <h4 class="card-title"  class="font2" >ระดมทุนแบบ งบปานกลาง</h4><br>
-                    <p class="card-text">รายละเอียด : With supporting text below as a natural lead-in to additional content.</p>
-                    <h5 class="card-text">Reward</h5>
-                    <p class="card-text">- เสื้อ logo</p>
-                    <ul class="list-group list-group-flush">
-                      <div class="row">
-                      <div class="col-sm-8 col-mb-8">
-                      <h5 class="list-group-item">ราคาระดมทุน 1000 บาท</h5>
-                      </div>
-                      <div class="col-sm-4 col-mb-4">
-                        <button type="button" class="btn btn-primary btn-rounded m-1"(click)="transferAdd(id)">เลือกแพ็คเกจนี้</button>
-                      </div>
-                    </div>
-                    </ul>
-
-                  </div>
-                </div><br>
-                <!-- ----------------------------------------ข้อมูลที่ 3---------------------------------------- -->
-                <div class="card mb-12">
-                  <div class="card-header">
-
-                  </div>
-                  <div class="card-body">
-                    <h4 class="card-title" class="font2" >ระดมทุนแบบ VIP</h4><br>
-                    <p class="card-text">รายละเอียด : With supporting text below as a natural lead-in to additional content.</p>
-                    <h5 class="card-text">Reward</h5>
-                    <p class="card-text">- เข้าชมการถ่ายทำ</p>
-                    <ul class="list-group list-group-flush">
-                      <div class="row">
-                      <div class="col-sm-8 col-mb-8">
-                      <h5 class="list-group-item">ราคาระดมทุน 3000 บาท</h5>
-                      </div>
-                      <div class="col-sm-4 col-mb-4">
-                        <button type="button" class="btn btn-primary btn-rounded m-1"(click)="transferAdd(id)">เลือกแพ็คเกจนี้</button>
-                      </div>
-                    </div>
-                    </ul>
-
-                  </div>
-                </div><br>
-                <!-- ------------------------------------------------------------------------------------------ -->
+                <!-- ----------------------------------------ข้อมูลที่----------------------------------------------- -->
 
               </ng-template>
             </ngb-tab>
             <ngb-tab title="ลงทุน">
               <ng-template ngbTabContent>
 
-                <div class="card mb-12" >
+                <div class="card mb-12" *ngFor="let package of packages">
                   <div class="card-header">
                     <div class="card  o-hidden"></div>
 
                   </div>
                   <div class="card-body" >
-                    <h4 class="card-title" class="font2" >ลงทุนแบบ small</h4><br>
-                    <p class="card-text">รายละเอียด : With supporting text below as a natural lead-in to additional content.</p>
+                    <h4 class="card-title" class="font2" >{{ package.topic }}</h4><br>
+                    <p class="card-text">รายละเอียด : {{ package.details }}</p>
                     <h5 class="card-text">Reward</h5>
-                    <p class="card-text">- เงินตอบแทน 2% ของรายได้</p>
+                    <p class="card-text">- เงินตอบแทน {{ package.percent }}% ของรายได้</p>
                     <ul class="list-group list-group-flush">
                       <div class="row">
                       <div class="col-sm-8 col-mb-8">
-                      <h5 class="list-group-item">ราคาลงทุน 200000 บาท</h5>
+                      <h5 class="list-group-item">ราคาลงทุน {{ package.amount }} บาท</h5>
                       </div>
                       <div class="col-sm-4 col-mb-4">
-                        <button type="button" class="btn btn-primary btn-rounded m-1"(click)="transferAdd(id)">เลือกแพ็คเกจนี้</button>
+                        <button type="button" class="btn btn-primary btn-rounded m-1"(click)="transferAdd(movie?.id, package.id)">เลือกแพ็คเกจนี้</button>
                       </div>
                     </div>
                     </ul>
 
                   </div>
                 </div><br>
-                <!-- ----------------------------------------ข้อมูลที่ 2---------------------------------------- -->
-                <div class="card mb-12">
-                  <div class="card-header">
-
-                  </div>
-                  <div class="card-body">
-                    <h4 class="card-title" class="font2" >ลงทุนแบบ normal</h4><br>
-                    <p class="card-text">รายละเอียด : With supporting text below as a natural lead-in to additional content.</p>
-                    <h5 class="card-text">Reward</h5>
-                    <p class="card-text">- เงินตอบแทน 5% ของรายได้</p>
-                    <ul class="list-group list-group-flush">
-                      <div class="row">
-                      <div class="col-sm-8 col-mb-8">
-                      <h5 class="list-group-item">ราคาลงทุน 500000 บาท</h5>
-                      </div>
-                      <div class="col-sm-4 col-mb-4">
-                        <button type="button" class="btn btn-primary btn-rounded m-1"(click)="transferAdd(id)">เลือกแพ็คเกจนี้</button>
-                      </div>
-                    </div>
-                    </ul>
-
-                  </div>
-                </div><br>
-                <!-- ----------------------------------------ข้อมูลที่ 3---------------------------------------- -->
-                <div class="card mb-12">
-                  <div class="card-header">
-
-                  </div>
-                  <div class="card-body">
-                    <h4 class="card-title" class="font2" >ลงทุนแบบ Jumbo</h4><br>
-                    <p class="card-text">รายละเอียด : With supporting text below as a natural lead-in to additional content.</p>
-                    <h5 class="card-text">Reward</h5>
-                    <p class="card-text">- เงินตอบแทน 10% ของรายได้</p>
-                    <ul class="list-group list-group-flush">
-                      <div class="row">
-                      <div class="col-sm-8 col-mb-8">
-                      <h5 class="list-group-item">ราคาลงทุน 1000000 บาท</h5>
-                      </div>
-                      <div class="col-sm-4 col-mb-4">
-                        <button type="button" class="btn btn-primary btn-rounded m-1"(click)="transferAdd(id)">เลือกแพ็คเกจนี้</button>
-                      </div>
-                    </div>
-                    </ul>
-
-                  </div>
-                </div><br>
-                <!-- ------------------------------------------------------------------------------------------ -->
 
               </ng-template>
             </ngb-tab>

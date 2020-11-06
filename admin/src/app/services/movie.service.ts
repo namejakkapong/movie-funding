@@ -74,4 +74,19 @@ export class MovieService {
     // BACKEND_URL = http://localhost:8000/api/admins , method DELETE
   }
 
+  indexprogress(id: string)
+  {
+    return this.http.get<{data: any}>(BACKEND_URL + '/movies/'+ id +'/progresses');
+  }
+
+  indexpackage(id: string)
+  {
+    return this.http.get<{data: any}>(BACKEND_URL + '/movies/'+ id +'/packages');
+  }
+
+  indexpackage2(id: string)
+  {
+    return this.http.get<{data: any}>(BACKEND_URL + '/movies/'+ id +'/packages2');
+  }
+
 }

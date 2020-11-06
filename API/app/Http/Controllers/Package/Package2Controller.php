@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Package;
 use App\Movie;
 
-class PackageController extends Controller
+class Package2Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class PackageController extends Controller
      */
     public function index(Movie $movie)
     {
-        $packages = Package::where('movie_id', $movie->id)->where('type_package', 'funds')->get();
+        $packages = Package::where('movie_id', $movie->id)->where('type_package', 'invest')->get();
         // $packages = Package::with('movie')->orderBy('created_at', 'DESC')->get();
         return $packages;
     }
@@ -39,17 +39,7 @@ class PackageController extends Controller
      */
     public function store(Request $request)
     {
-        $package = new Package([
-            'movie_id' => $request->movie_id,
-            'type_package' => $request->type_package,
-            'topic' => $request->topic,
-            'details' => $request->details,
-            'reward' => $request->reward,
-            'amount' => $request->amount,
-            'percent' => $request->percent,
-        ]);
-        $package->save();
-        return $package;
+
     }
 
     /**
@@ -58,10 +48,9 @@ class PackageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Movie $movie , $id)
+    public function show($id)
     {
-        $package = Package::where('movie_id', $movie->id)->with('movie')->where('id', $id)->get();
-        return $package;
+
     }
 
     /**
@@ -84,15 +73,6 @@ class PackageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $packages = Package::where('id', $id)->firstOrFail(); //(2.  เอา id ที่รับเข้ามาเทียบกับ $id ของ Movie)
-        $packages->type_package = $request->type_package;
-        $packages->topic = $request->topic;
-        $packages->details = $request->details;
-        $packages->reward = $request->reward;
-        $packages->amount = $request->amount;
-        $packages->percent = $request->percent;
-        $packages->save();
-        return $packages;
 
     }
 
@@ -104,8 +84,6 @@ class PackageController extends Controller
      */
     public function destroy($id)
     {
-        $packages = Package::where('id', $id)->firstOrFail();
-        $packages->delete();
-        return $packages;
+
     }
 }

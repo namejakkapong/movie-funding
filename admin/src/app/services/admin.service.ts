@@ -49,4 +49,10 @@ export class AdminService {
     });
     // BACKEND_URL = http://localhost:8000/api/admins , method DELETE
   }
+
+  bank()
+  {
+    return this.http.get<{data: any}>(BACKEND_URL + '/banks');
+    // BACKEND_URL = http://localhost:8000/api/admins
+  }
 }

@@ -45,11 +45,11 @@ const routes: Routes = [
     component: PackageAddComponent
   },
   {
-    path: 'package-view',
+    path: 'package-view/:id',
     component: PackageViewComponent
   },
   {
-    path: 'transfer-add',
+    path: 'transfer-add/:id',
     component: TransferAddComponent
   },
   {

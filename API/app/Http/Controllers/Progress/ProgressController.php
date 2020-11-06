@@ -14,9 +14,9 @@ class ProgressController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Movie $movie)
     {
-        $progresses = Progress::with('movie')->orderBy('created_at', 'DESC')->get();
+        $progresses = Progress::where('movie_id', $movie->id)->get();
         return $progresses;
         //$movies = Movie::with('category')->orderBy('created_at', 'DESC')->get();
 

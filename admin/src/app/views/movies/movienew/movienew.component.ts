@@ -13,6 +13,7 @@ import { SharedAnimations } from 'src/app/shared/animations/shared-animations';
 })
 export class MovienewComponent implements OnInit {
   public movie: any;
+  public progresses: any;
   private id: string;
   // public categories: any;
   // public movies: any;
@@ -35,23 +36,23 @@ export class MovienewComponent implements OnInit {
 
         this.movieService.show(this.id)
         .subscribe(response => {
-          this.movie = response.data;
+          this.movie = response;
           console.log(this.movie);
         });
-        // this.getCategory(this.id);
+        this.getProgress(this.id);
         // this.getMovieAll(this.id);
 
       }
     });
   }
 
-  // getMovieAll(id) {
-  //   this.movieService.index()
-  //   .subscribe(response => {
-  //     this.movies = response.data;
-  //     console.log(this.movies);
-  //   });
-  // }
+  getProgress(id){
+    this.movieService.indexprogress(id)
+        .subscribe(response => {
+          this.progresses = response;
+          console.log(this.progresses);
+        });
+  }
 
   // getCategory(id) {
   //   this.categoriesService.index()
@@ -69,7 +70,8 @@ export class MovienewComponent implements OnInit {
 
   packageView(id) {
     console.log(id);
-    // this.router.navigate(['/movies/package-view']);
+    this.router.navigate(['/movies/package-view/' + id]);
+    // this.router.navigate(['/users/verification/add/' + id]);
   }
 
   packageAdd(id) {
@@ -81,6 +83,7 @@ export class MovienewComponent implements OnInit {
     // console.log(123);
     this.router.navigate(['/movies/transfer-list']);
   }
+
 
   progressAdd(id) {
     // console.log(123);

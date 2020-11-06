@@ -20,7 +20,7 @@ export class TransferAddComponent implements OnInit {
 
   onAddPackage(form: NgForm) {
     console.log(form.value);
-    
+
   }
 
 }

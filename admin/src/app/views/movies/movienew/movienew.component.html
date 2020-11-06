@@ -21,8 +21,9 @@
           <div class="col-sm-8 col-mb-8">
             <div class="row">
               <div class="col-sm-6 col-mb-6">
-                <p class="font">ชื่อภาษาอังกฤษ : {{ movie?.name_en }}</p>
-                <p class="font1"> อเวนเจอร์ส เผด็จศึก</p>
+                <p class="font">{{ movie?.name_en }}</p>
+                <p class="font1">{{ movie?.name_th }}</p>
+                <p class="font2">ผู้กำกับ : {{ movie?.director }}</p>
               </div>
               <div class="col-sm-6 col-mb-6" class="button-center">
                 <button type="button" class="btn btn-outline-primary btn-rounded m-1"
@@ -30,24 +31,20 @@
               </div>
             </div>
 
-            <p class="font2">ประเภท :</p>
+            <p class="font2">ประเภท : {{ movie?.category?.name }}</p>
             <p>เรื่องย่อ :
-              เหล่าอเวนเจอร์ยังคงต้องปกป้องโลกจากภัยอันตรายครั้งใหญ่ที่เกินกว่าที่ซูเปอร์ฮีโร่คนเดียวจะรับมือได้
-              อันตรายครั้งใหม่นั้นมาจากเงามืดของจักรวาล "ธานอส" จอมเผด็จการแห่งจักรวาล เป้าหมายของเขาคือการรวบรวมอัญมณี
-              อินฟินิตี้สโตนส์ทั้งหก เพื่อครอบครองพลังที่เกินจะจินตนาการถึง
-              และใช้พวกมันในการเปลี่ยนแปลงความจริงทั้งมวลของจักรวาล
-              ทุกสิ่งทุกอย่างที่อเวนเจอร์ต่อสู้มาก็เพื่อสิ่งนี้ ชะตากรรมของโลกและจักรวาลไม่เคยสั่นคลอนเท่านี้มาก่อน</p>
+              {{ movie?.description }}</p>
 
 
             <div class="row">
               <div class="col-sm-6 col-mb-6">
                 <p class="font2">ยอดปัจจุบัน</p>
-                <p class="font3">25,000 ฿</p>
+                <p class="font3">{{ movie?.current_total }} ฿</p>
               </div>
 
               <div class="col-sm-6 col-mb-6">
-                <p class="font2">ต้องการอีก</p>
-                <p class="font4">75,000 ฿</p>
+                <p class="font2">ยอดระดมทุนที่ต้องการ</p>
+                <p class="font4">{{ movie?.total }} ฿</p>
               </div>
             </div>
 
@@ -63,22 +60,16 @@
             <ngb-tab title="รายละเอียด">
               <ng-template ngbTabContent>
 
-                <p>เรื่องย่อ :
-                  เหล่าอเวนเจอร์ยังคงต้องปกป้องโลกจากภัยอันตรายครั้งใหญ่ที่เกินกว่าที่ซูเปอร์ฮีโร่คนเดียวจะรับมือได้
-                  อันตรายครั้งใหม่นั้นมาจากเงามืดของจักรวาล "ธานอส" จอมเผด็จการแห่งจักรวาล
-                  เป้าหมายของเขาคือการรวบรวมอัญมณี
-                  อินฟินิตี้สโตนส์ทั้งหก เพื่อครอบครองพลังที่เกินจะจินตนาการถึง
-                  และใช้พวกมันในการเปลี่ยนแปลงความจริงทั้งมวลของจักรวาล
-                  ทุกสิ่งทุกอย่างที่อเวนเจอร์ต่อสู้มาก็เพื่อสิ่งนี้ ชะตากรรมของโลกและจักรวาลไม่เคยสั่นคลอนเท่านี้มาก่อน
-                </p>
+                <p>เรื่องย่อ : {{ movie?.resume }}</p>
 
               </ng-template>
             </ngb-tab>
 
             <ngb-tab title="ความคืบหน้า">
               <ng-template ngbTabContent>
+                <button type="button" class="btn btn-primary btn-rounded m-1" (click)="progressAdd(id)">เพิ่มความคืบหน้า</button>
 
-                <div class="col-md-12">
+                <div class="col-md-12" *ngFor="let progress of progresses">
                   <div class="card mb-12">
                     <div class="card-body p-0">
                       <div class="card-title border-bottom d-flex align-items-center m-3 p-3">
@@ -87,23 +78,22 @@
                       </div>
                       <br>
                       <div class="col-md-6 form-group mb-0">
-                        <div class="shadow p-3 mb-5 bg-white rounded">หัวข้อ : xxxxxxxxxxxxx</div>
+                        <div class="shadow p-3 mb-5 bg-white rounded">หัวข้อ : {{ progress.topic }}</div>
                       </div>
                       <div class="col-md-5">
                         <div class="text-center">
                           <br><img class="card-img-top" src="./assets/images/photo-wide-2.jpg" alt="">
+                          <!-- {{ progress.picture }} -->
                         </div>
                       </div>
 
                       <br>
 
                       <div class="col-md-6 form-group mb-3">
-                        <div class="shadow p-3 mb-5 bg-white rounded">รายละเอียด : xxxxxxxxxxxxxxxxxxx</div>
-                        <div class="shadow p-3 mb-5 bg-white rounded">วัน/เดือน/ปี : 15/08/2020</div>
+                        <div class="shadow p-3 mb-5 bg-white rounded">รายละเอียด : {{ progress.detail }}</div>
+                        <div class="shadow p-3 mb-5 bg-white rounded">วัน/เดือน/ปี : {{ progress.date }}</div>
                       </div>
                       <div class="col-md-6 form-group mb-3">
-                        <button type="button" class="btn btn-primary btn-rounded m-1"
-                          (click)="progressAdd(id)">เพิ่มความคืบหน้า</button>
                       </div><br>
                     </div>
                   </div>

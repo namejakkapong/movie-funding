@@ -30,8 +30,7 @@ export class MovieListComponent implements OnInit {
     private categoriesService: CategoriesService,
     private router: Router
 
-    ) {
-		}
+    ) { }
 
     ngOnInit() {
       this.movieService.index()
