@@ -35,7 +35,6 @@ export class MovienewComponent implements OnInit {
 
         this.movieService.show(this.id)
         .subscribe(response => {
-
           this.movie = response.data;
           console.log(this.movie);
         });

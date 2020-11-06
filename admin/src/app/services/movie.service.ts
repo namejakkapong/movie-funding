@@ -65,6 +65,7 @@ export class MovieService {
     // });
     console.log(data);
   }
+
   destroy(id: string)
   {
     this.http.delete<{data: any}>(BACKEND_URL + '/movies/' + id).subscribe(response=>{

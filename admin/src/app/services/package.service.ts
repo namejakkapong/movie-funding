@@ -12,9 +12,9 @@ export class PackageService {
 
   constructor(private http: HttpClient, private modalService: NgModel) { }
 
-  index()
+  index(id: string)
   {
-    //return this.http.get<{data: any}>(BACKEND_URL + '/admins');
+    return this.http.get<{data: any}>(BACKEND_URL + '/movies/'+ id +'/packages');
     // BACKEND_URL = http://localhost:8000/api/admins
   }
 
@@ -40,7 +40,7 @@ export class PackageService {
     //   this.modalService.dismissAll();
     // });
     console.log(data);
-    
+
   }
 
 }
