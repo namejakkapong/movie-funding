@@ -59,7 +59,7 @@ export class PackageViewComponent implements OnInit {
 
     transferAdd(movie_id , package_id) {
       console.log(movie_id + package_id);
-      //this.router.navigate(['/movies/package-view/' + id + '/transfer-add/' + id]);
+      this.router.navigate(['/movies/package-view/' + movie_id + '/transfer-add/'+ package_id ]);
 
     }
 
