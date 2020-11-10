@@ -49,7 +49,7 @@ const routes: Routes = [
     component: PackageViewComponent
   },
   {
-    path: 'package-view/:id/transfer-add/:id',
+    path: 'package-view/:id/transfer-add/:package_id',
     component: TransferAddComponent
   },
   {

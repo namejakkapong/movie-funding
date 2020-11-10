@@ -89,4 +89,9 @@ export class MovieService {
     return this.http.get<{data: any}>(BACKEND_URL + '/movies/'+ id +'/packages2');
   }
 
+  indexpackageall(id: string , package_id: string)
+  {
+    return this.http.get<{data: any}>(BACKEND_URL + '/movies/'+ id +'/packagesall/'+ package_id);
+  }
+
 }

@@ -32,6 +32,7 @@ Route::resource('movies.progresses', 'Progress\ProgressController');
 Route::resource('movienew', 'Movie\MovieNewController');
 Route::resource('movies.packages', 'Package\PackageController');
 Route::resource('movies.packages2', 'Package\Package2Controller');
+Route::resource('movies.packagesall', 'Package\PackageAllController');
 Route::resource('banks', 'Bank\BankController');
 Route::resource('transfers', 'Transfer\TransferController');
 Route::resource('sendmoneys', 'SendMoney\SendMoneyController');
