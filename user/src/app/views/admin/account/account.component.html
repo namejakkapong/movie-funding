@@ -1,0 +1,148 @@
+<!-- <p>home works!</p>
+<div *ngIf="!userIsAuthenticated">
+    ยังไม่ได้เข้าสู่ระบบ
+</div>
+<div *ngIf="userIsAuthenticated">
+    เข้าสู่ระบบแล้ว
+    <h1></h1>
+    <h1>{{getAuthUser.email}}</h1>
+    <img src="{{getAuthUser.profile_picture}}" alt="{{getAuthUser.name}}">
+    <a (click)="onLogout()" class="text-danger dropdown-item" style="cursor: pointer;"><i class="ni ni-button-power"></i>ออกจากระบบ</a>
+</div> -->
+
+<div class="">
+    <div class="breadcrumb">
+        <h1>General</h1>
+        <ul>
+            <li><a href="">Admin</a></li>
+            <li>manage account</li>
+        </ul>
+    </div>
+
+    <div class="separator-breadcrumb border-top"></div>
+
+    <!-- MANAGE ACCOUNT -->
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card card-profile-1 mb-4">
+                <div class="card-body text-center">
+                    <div class="avatar box-shadow-2 mb-3">
+                        <img src="{{getAuthUser.profile_picture}}" alt="{{getAuthUser.name}}">
+                    </div>
+                    <h5 class="m-0">{{getAuthUser.name}}</h5>
+                    <p class="mt-0 text-muted">Administrator</p>
+                    <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae cumque.</p> -->
+                    <button class="btn btn-primary btn-rounded" (click)="open(modalCropper)">อัพโหลดรูปภาพ</button>
+                    <br><br>
+                   
+                    <!-- <div class="card-socials-simple mt-4">
+                        <a href="">
+                            <i class="i-Linkedin-2"></i>
+                        </a>
+                        <a href="">
+                            <i class="i-Facebook-2"></i>
+                        </a>
+                        <a href="">
+                            <i class="i-Twitter"></i>
+                        </a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="card-title mb-3">ข้อมูลส่วนตัว</div>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6 form-group mb-3">
+                                <label for="firstName">First name</label>
+                                <input type="text" class="form-control form-control-rounded" placeholder="Enter your first name" value="{{getAuthUser.name}}">
+                            </div>
+    
+                            <div class="col-md-6 form-group mb-3">
+                                <label for="lastName">Last name</label>
+                                <input type="text" class="form-control form-control-rounded" placeholder="Enter your last name" value="">
+                            </div>
+    
+                            <div class="col-md-6 form-group mb-3">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control form-control-rounded"
+                                    aria-describedby="emailHelp" placeholder="Enter email" value="{{getAuthUser.email}}">
+                            </div>
+    
+                            <div class="col-md-6 form-group mb-3">
+                                <label for="phone">Phone</label>
+                                <input class="form-control form-control-rounded" placeholder="Enter phone">
+                            </div>
+    
+                            <div class="col-md-6 form-group mb-3">
+                                <label for="picker1">Birth date</label>
+                                <div class="input-group">
+                                    <input id="picker1" class="form-control form-control-rounded" placeholder="yyyy-mm-dd" name="dp"
+                                        ngbDatepicker #dp="ngbDatepicker">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-secondary btn-rounded" (click)="dp.toggle()" type="button">
+                                            <i class="icon-regular i-Calendar-4"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <!-- <div class="col-md-6 form-group mb-3">
+                                <label for="credit">Website</label>
+                                <input class="form-control form-control-rounded" id="credit" placeholder="Web address">
+                            </div> -->
+
+    
+                            <div class="col-md-12">
+                                <btn-loading btnClass="btn-primary btn-rounded" [loading]="loading">บันทึกข้อมูล</btn-loading>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title mb-3">เปลี่ยนรหัสผ่าน</div>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6 form-group mb-3">
+                                <label>รหัสผ่านเดิม</label>
+                                <input type="password" class="form-control form-control-rounded" placeholder="Enter your password">
+                            </div>
+    
+                            <div class="col-md-6 form-group mb-3">
+                                <label>รหัสผ่านใหม่</label>
+                                <input type="password" class="form-control form-control-rounded" placeholder="Enter your new password" value="">
+                            </div>
+   
+                            <div class="col-md-12">
+                                <btn-loading btnClass="btn-primary btn-rounded" [loading]="loading">บันทึกข้อมูล</btn-loading>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- MODEL CROPPER -->
+<ng-template #modalCropper let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Upload & Crop</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-rounded btn-light" (click)="filePicker.click()">เลือกรูปภาพ</button>
+    <input class="d-none" type="file" #filePicker>
+    <button type="button" class="btn btn-rounded btn-primary" (click)="modal.close('Save click')">บันทึก</button>
+  </div>
+</ng-template>
