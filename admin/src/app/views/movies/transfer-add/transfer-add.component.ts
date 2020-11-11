@@ -15,6 +15,7 @@ import { MovieService } from 'src/app/services/movie.service';
 export class TransferAddComponent implements OnInit {
   public movie: any;
   private id: string;
+  private package_id: string;
   public package: any;
 
   constructor(
@@ -29,7 +30,9 @@ export class TransferAddComponent implements OnInit {
     this.route.paramMap.subscribe((paraMap: ParamMap)=>{
       if(paraMap.has('id')){
         this.id = paraMap.get('id');
+        this.package_id = paraMap.get('package_id');
         console.log(this.id);
+        console.log(this.package_id);
 
 
         this.movieService.show(this.id)
@@ -37,6 +40,12 @@ export class TransferAddComponent implements OnInit {
           this.movie = response;
           console.log(this.movie);
         });
+        this.movieService.indexpackageall(this.id,this.package_id)
+        .subscribe(response => {
+          this.package = response;
+          console.log(this.package);
+        });
+
 
       }
 

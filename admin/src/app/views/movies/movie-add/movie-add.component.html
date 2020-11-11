@@ -17,7 +17,7 @@
 
                    <form (submit)="onAddMovie(formMovie)" #formMovie="ngForm">
 
-                    
+
                         <div class="col-md-12 form-group mb-3">
                             <label>รหัสประเภทภาพยนตร์</label>
                             <input type="text" class="form-control form-control-rounded" name="category_id" ngModel placeholder="รหัสประเภทภาพยนตร์">
@@ -67,7 +67,7 @@
               </div>
               <!-- ------------------------------------------------------------------------------------------ -->
               <br>
-                        
+
 
                         <div class="col-md-12 form-group mb-3">
                             <label>คำอธิบาย</label>
@@ -100,7 +100,7 @@
                             <input class="form-control form-control-rounded" type="date" id="end"  name="screening_date"
                             ngModel placeholder="yyyy-mm-dd"
                             min="2020-01-01" max="2040-12-31" ngbDatepicker #dp="ngbDatepicker">
-  
+
                            </div>
 
                         <div class="col-md-6 form-group mb-3">
@@ -123,8 +123,8 @@
 
                         <div class="col-md-6 form-group mb-3">
                           <label for="start">วันสิ้นสุดการระดมทุน</label>
-                          <input class="form-control form-control-rounded" type="date" id="end"  name="end_date"
-                          ngModel placeholder="yyyy-mm-dd"
+                          <input value="2020-11-15" class="form-control form-control-rounded" type="date" id="end"  name="end_date"
+                          ngModel
                           min="2020-01-01" max="2040-12-31" ngbDatepicker #dp="ngbDatepicker">
 
                          </div>
