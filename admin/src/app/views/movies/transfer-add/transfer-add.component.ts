@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { MovieService } from 'src/app/services/movie.service';
+import { AdminService } from 'src/app/services/admin.service';
 
 
 @Component({
@@ -16,13 +17,16 @@ export class TransferAddComponent implements OnInit {
   public movie: any;
   private id: string;
   private package_id: string;
-  public package: any;
+  public packages: any;
+  public banks: any;
+
 
   constructor(
     private modalService: NgbModal,
     private router: Router,
     private movieService: MovieService,
     private route: ActivatedRoute,
+    private adminService: AdminService
   ) { }
 
   ngOnInit() {
@@ -42,16 +46,22 @@ export class TransferAddComponent implements OnInit {
         });
         this.movieService.indexpackageall(this.id,this.package_id)
         .subscribe(response => {
-          this.package = response;
-          console.log(this.package);
+          this.packages = response;
+          console.log(this.packages);
         });
-
-
+        this.getBank();
       }
-
 
     });
 
+  }
+
+  getBank(){
+    this.adminService.bank()
+        .subscribe(response => {
+          this.banks = response;
+          console.log(this.banks);
+        });
   }
 
   onAddPackage(form: NgForm) {

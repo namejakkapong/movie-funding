@@ -107,7 +107,7 @@ export class UserViewComponent implements OnInit {
     //  console.log(experience_id);
     this.experienceService.update(experience_id,this.id,form.value.start_year, form.value.end_year, form.value.position, form.value.workplace);
     this.getExperience(this.id);
-    //this.modalService.dismissAll();
+    this.modalService.dismissAll();
   }
 
 

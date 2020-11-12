@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from './../../environments/environment.prod';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 const BACKEND_URL = environment.apiUrl;
 
@@ -9,7 +11,11 @@ const BACKEND_URL = environment.apiUrl;
 })
 export class AdminService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private modalService: NgbModal,
+    private router: Router
+    ) { }
 
   index()
   {
@@ -54,5 +60,48 @@ export class AdminService {
   {
     return this.http.get<{data: any}>(BACKEND_URL + '/banks');
     // BACKEND_URL = http://localhost:8000/api/admins
+  }
+
+  bankstore(account_name: string, account_number: string, bank_account: string)
+  {
+    // BACKEND_URL = http://localhost:8000/api/banks , method POST
+    const data = {
+      account_name: account_name,
+      account_number: account_number,
+      bank_account: bank_account,
+    };
+    this.http.post<{data: any}>(BACKEND_URL + '/banks', data)
+    .subscribe(response => {
+      console.log(data);
+    });
+  }
+
+  bankupdate(bank_id: string , account_name: string, account_number: string, bank_account: string)
+  {
+    const data = {
+      account_name: account_name,
+      account_number: account_number,
+      bank_account: bank_account,
+
+    };
+    this.http.patch<{data: any}>(BACKEND_URL + '/banks/'+ bank_id , data)
+    .subscribe(response => {
+      console.log("แก้ไขเสร็จเรียบร้อย");
+
+
+    });
+
+  }
+
+  bankdestroy(id:string)
+  {
+    console.log("ไอดีที่ต้องก่ารลบ ไอดีที่ : " +id);
+    this.http.delete<{data: any}>(BACKEND_URL + '/banks/' + id)
+    .subscribe(response=>{
+      // this.router.navigate(['/movies/bank-add']);
+      console.log("ลบข้อมูลเรียบร้อย");
+    });
+
+
   }
 }

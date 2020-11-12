@@ -10,8 +10,8 @@ import { CategoriesService } from 'src/app/services/categories.service';
   styleUrls: ['./movie-category.component.scss']
 })
 export class MovieCategoryComponent implements OnInit {
-  categories: any;
-  id: string;
+  public categories: any;
+  private id: string;
 
   constructor(private categoriesService: CategoriesService, private modalService: NgbModal) { }
 
@@ -28,9 +28,9 @@ export class MovieCategoryComponent implements OnInit {
      this.categoriesService.store(form.value.name, form.value.eng);
   }
 
-  onEditCategory(form :NgForm,) {
+  onEditCategory(form :NgForm, category_id: string) {
     //console.log(form.value);
-    this.categoriesService.update(this.id, form.value.name, form.value.eng);
+    this.categoriesService.update(category_id, form.value.name, form.value.eng);
  }
 
  deleteCat(id){

@@ -65,11 +65,6 @@ const routes: Routes = [
     component: BankAddComponent
   },
   {
-    path: 'bank-add',
-    component: BankAddComponent,
-
-  },
-  {
     path: 'progress-add',
     component: ProgressAddComponent,
 

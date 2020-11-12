@@ -48,7 +48,7 @@ export class NavigationService {
     }
 
     defaultMenu: IMenuItem[] = [
-        {   
+        {
             name: 'หน้าหลัก',
             description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
             type: 'dropDown',
@@ -82,7 +82,7 @@ export class NavigationService {
                     sub: [
                         { name: 'เพิ่มภาพยนตร์', state: '/movies/movie-add', type: 'link' },
                         { name: 'เพิ่มประเภทภาพยนตร์', state: '/movies/movie-category', type: 'link' },
-                        { name: 'เพิ่มประข้อมูลธนาคาร', state: '/movies/bank-add', type: 'link' }
+                        { name: 'เพิ่มข้อมูลธนาคาร', state: '/movies/bank-add', type: 'link' }
                     ]
                 },
             ]

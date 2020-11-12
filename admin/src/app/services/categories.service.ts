@@ -43,6 +43,12 @@ export class CategoriesService {
       name: name,
       eng : eng,
     };
+    this.http.patch<{data: any}>(BACKEND_URL + '/categories/'+ category_id , data)
+    .subscribe(response => {
+      console.log("แก้ไขเสร็จเรียบร้อย");
+
+
+    });
     // this.http.patch<{data: any}>(BACKEND_URL + '/categories/'+ category_id , data)
     // .subscribe(response => {
     //   console.log(response.data);
@@ -59,11 +65,11 @@ export class CategoriesService {
 
   destroy(id:string)
   {
-    // console.log(id);
-
+    console.log("ไอดีที่ต้องก่ารลบ ไอดีที่ : " +id);
     this.http.delete<{data: any}>(BACKEND_URL + '/categories/' + id)
     .subscribe(response=>{
-      console.log(response.data);
+      // this.router.navigate(['/movies/bank-add']);
+      console.log("ลบข้อมูลเรียบร้อย");
     });
   }
 
