@@ -2,7 +2,6 @@
     <!-- MANAGE ACCOUNT -->
 
     <div class="row">
-        <div class="col-md-2"></div>
 
         <div class="col-md-8">
           <div class="card mb-12">
@@ -11,15 +10,15 @@
                     <h2>รายละเอียดการชำระเงิน</h2>
                 </div>
                 <hr>
-                <div class="col-md-12">
-                  <div class="card mb-4 o-hidden " >
-                    <div class="card-body">
+                <div class="col-md-12" *ngFor="let package of packages">
+                  <div class="card mb-4 o-hidden ">
+                    <div class="card-body" >
                       <h5 class="card-title">ภาพยนตร์เรื่อง : {{ movie?.name_en }} ({{ movie?.name_th }})</h5>
-                      <p class="card-text">ประเภทแพ็คเกจ : ระดมทุน</p>
-                      <p class="card-text">แพ็คเกจที่เลือก : ระดมทุนแบบ งบน้อย</p>
+                      <p class="card-text">ประเภทแพ็คเกจ : {{ package.type_package }} </p>
+                      <p class="card-text">แพ็คเกจที่เลือก : {{ package.topic }}</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item">ราคาระดมทุน 300 บาท</li>
+                      <li class="list-group-item">จำนวนเงิน {{ package.amount }} บาท</li>
                     </ul>
                     <!-- <div class="card-body">
                       <a href="#" class="card-link">Card link</a>
@@ -32,36 +31,7 @@
                 <form (submit)="onAddPackage(formPackage)" #formPackage="ngForm">
                     <div>
 
-                        <div class="col-md-12">
-                          <div class="card mb-4 o-hidden">
 
-                            <div class="col-md-12 form-group mb-3">
-                              <div class="card-body">
-                                <p class="card-title">เลือกบัญชีธนาคารของเว็บ</p>
-                              <select class="custom-select" name="bank.bank_account" ngModel id="inputGroupSelect04" aria-label="Example select with button addon">
-                                <option>กสิกร</option>
-                                <option>อิสลาม</option>
-                                <option>หทารไทย</option>
-                              </select>
-                              </div>
-
-                              <div class="row">
-                                <div class="col-md-2"></div>
-                                <div class="col-md-8">
-                                  <div class="card mb-4 o-hidden " >
-                                  <div class="card-body">
-                                    <p class="button-center">ชื่อธนาคาร : กรุงไทย</p>
-                                    <p class="button-center">เลขบัญชี : 01478563</p>
-                                    <p class="button-center">ชื่อบัญชี : นาย XXXXX XXXXXXXX</p>
-                                  </div>
-                                  </div>
-                                </div>
-                                  <div class="col-md-2"></div>
-                              </div>
-
-                          </div>
-                        </div>
-                      </div>
 
                       <div class="card mb-4">
                         <div class="card-header">
@@ -80,11 +50,19 @@
                   <div class="card-body">
                     <div class="row">
                         <div class="col-md-4"></div>
+
                       <div class="col-md-4">
                         <div class="input-group md-3" class="add-center">
                               <!-- <div class="input-group-prepend">
                                   <span class="input-group-text">$</span>
                               </div> -->
+                              <div class="col-md-12 form-group mb-3">
+                                <label>ธนาคารที่เลือกโอน</label>
+                                <select class="custom-select" name="bank.account_name" ngModel id="inputGroupSelect04" aria-label="Example select with button addon">
+                                  <option>ชื่อธนาคาร</option>
+                                  <option *ngFor="let bank of banks">{{bank?.account_name}}</option>
+                                </select>
+                            </div>
                               <label for="basic-url"> จำนวนเงินที่โอน </label>
                 <div class="input-group md-4">
                     <div class="input-group-prepend">
@@ -171,5 +149,32 @@
 
         </div>
 
-        <div class="col-md-2"></div>
+        <div class="col-md-4">
+
+          <div class="col-md-12">
+            <div class="card mb-4 o-hidden">
+
+              <div class="col-md-12 form-group mb-3">
+                <div class="card-body text-center" >
+                  <h3 >ธนาคารของเว็บ</h3>
+                </div>
+                <div class="row">
+                  <div class="col-md-2"></div>
+                  <div class="col-md-12" *ngFor="let bank of banks">
+                    <div class="card mb-4 o-hidden " >
+                    <div class="card-body">
+                      <p class="button-center">ชื่อธนาคาร : {{bank.account_name}}</p>
+                      <p class="button-center">เลขบัญชี : {{bank.account_number}}</p>
+                      <p class="button-center">ชื่อบัญชี : {{bank.bank_account}}</p>
+                    </div>
+                    </div>
+                  </div>
+                    <div class="col-md-2"></div>
+                </div>
+
+            </div>
+          </div>
+        </div>
+
+        </div>
     </div>

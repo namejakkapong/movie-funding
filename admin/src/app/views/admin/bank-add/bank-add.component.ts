@@ -10,6 +10,7 @@ import { AdminService } from 'src/app/services/admin.service';
 })
 export class BankAddComponent implements OnInit {
   public banks: any;
+  private id: string;
 
   constructor(
     private modalService: NgbModal,
@@ -26,8 +27,30 @@ export class BankAddComponent implements OnInit {
 	}
 
   onAddBank(form: NgForm) {
-    console.log(form.value);
+    this.adminService.bankstore(form.form.value.account_name, form.form.value.account_number, form.form.value.bank_account);
 
   }
+
+  onEditBank(form: NgForm, bank_id: string) {
+    // console.log(bank_id);
+    this.adminService.bankupdate(bank_id, form.value.account_name, form.value.account_number, form.value.bank_account);
+    this.modalService.dismissAll();
+ }
+
+ deleteBank(id) {
+  // console.log(id);
+  this.adminService.bankdestroy(id);
+
+
+}
+
+ open(modal) {
+  this.modalService.open(modal, { ariaLabelledBy: 'modal-basic-title' })
+  .result.then((result) => {
+    console.log(result);
+  }, (reason) => {
+    console.log('Err!', reason);
+  });
+}
 
 }

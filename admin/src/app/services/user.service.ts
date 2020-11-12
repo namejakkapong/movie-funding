@@ -76,6 +76,7 @@ export class UserService {
     .subscribe(response => {
       console.log(response.data);
       this.modalService.dismissAll();
+
     });
   }
 }
