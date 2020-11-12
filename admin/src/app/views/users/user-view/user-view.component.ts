@@ -99,7 +99,7 @@ export class UserViewComponent implements OnInit {
     // console.log(education_id);
     this.educationService.update(education_id,this.id,form.value.graduation_year, form.value.level, form.value.subject, form.value.faculty, form.value.school);
     this.getEducation(this.id);
-    // this.modalService.dismissAll();
+    this.modalService.dismissAll();
   }
 
   editExperience(form: NgForm,experience_id: string) {
