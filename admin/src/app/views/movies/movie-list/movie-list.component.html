@@ -1,57 +1,41 @@
-<div  class="">
-    <div class="breadcrumb">
-        <h1>ภาพยนตร์</h1>
-        <ul>
-            <li><a href="">ภาพยนตร์</a></li>
-            <li>ทั้งหมด</li>
-        </ul>
+<div class="">
+  <div class="breadcrumb">
+    <h1>ภาพยนตร์</h1>
+    <ul>
+      <li><a href="">ภาพยนตร์</a></li>
+      <li>ทั้งหมด</li>
+    </ul>
+
+  </div>
+
+  <div class="separator-breadcrumb border-top"></div>
+
+  <div class="col-lg-12 col-md-12">
+    <div class="row">
+      <!-- BG IMAGE CARDS -->
+      <div class="col-lg-3 col-md-3" *ngFor="let movie of movies">
+        <div class="card bg-dark text-white o-hidden md-3" (click)="viewMovieNew(movie.id)">
+          <img class="card-img" src="./assets/images/avg.jpg" alt="Card image" (click)="viewMovieNew(movie.id)">
+          <div class="card-img-overlay">
+            <div class="text-center pt-4">
+              <h5 class="card-title mb-2 text-white">{{movie.name_en}}</h5>
+              <div class="separator border-top mb-2"></div>
+              <p class="text-small font-italic">{{movie.name_th}}</p>
+            </div>
+            <div class="p-1 text-left card-footer font-weight-light d-flex">
+              <span class="mr-1 d-flex align-items-center"><i class="i-Conference"></i> ผู้กำกับ :
+                {{movie.director}}</span>
+
+              <!-- <span class="d-flex align-items-center"><i class="i-Calendar-4 mr-2"></i>03.12.2018</span> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
 
     </div>
-
-    <div class="separator-breadcrumb border-top"></div>
-
-    <div class="col-lg-12 col-md-12">
-			<div class="row">
-				<!-- BG IMAGE CARDS -->
-				<div class="col-lg-3 col-md-3" *ngFor="let movie of movies">
-					<div class="card bg-dark text-white o-hidden md-3" (click)="viewMovieNew(movie.id)">
-						<img class="card-img" src="./assets/images/avg.jpg" alt="Card image" (click)="viewMovieNew(movie.id)">
-						<div class="card-img-overlay">
-                    <div class="text-center pt-4">
-                        <h5 class="card-title mb-2 text-white" >{{movie.name_en}}</h5>
-                        <div class="separator border-top mb-2"></div>
-                        <p class="text-small font-italic" >{{movie.name_th}}</p>
-                    </div>
-                  <div class="p-1 text-left card-footer font-weight-light d-flex">
-                    <span class="mr-1 d-flex align-items-center"><i class="i-Conference"></i>	ผู้กำกับ : {{movie.director}}</span>
-
-                    <!-- <span class="d-flex align-items-center"><i class="i-Calendar-4 mr-2"></i>03.12.2018</span> -->
-                  </div>
-
-            </div>
-				  </div>
-        </div>
-        <div class="col-lg-3 col-md-3">
-					<div class="card bg-dark text-white o-hidden md-3" (click)="viewMovieAdd(id)"  >
-						<img class="card-img" src="./assets/images/nodata.png" alt="Card image" (click)="viewMovieAdd(id)">
-						<div class="card-img-overlay">
-                    <div class="text-center pt-4">
-                        <h5 class="card-title mb-2 text-white">No data</h5>
-                        <div class="separator border-top mb-2"></div>
-                        <p class="text-small font-italic">ไม่มีข้อมูล</p>
-                    </div>
-                  <div class="p-1 text-left card-footer font-weight-light d-flex">
-                    <span class="mr-1 d-flex align-items-center"><i class="i-Conference"></i>	ผู้กำกับ : </span>
-
-                    <!-- <span class="d-flex align-items-center"><i class="i-Calendar-4 mr-2"></i>03.12.2018</span> -->
-                  </div>
-
-            </div>
-				  </div>
-			  </div>
-		</div>
-</div>
-<!-- <div class="row">
+  </div>
+  <!-- <div class="row">
   <div class="col-md-12">
 
     <div class="card mb-4">
@@ -81,7 +65,7 @@
 
 
 
-<!-- <div class="row">
+  <!-- <div class="row">
     <div class="col-md-6" *ngFor="let movie of movies">
       <div class="card mb-4 o-hidden">
         <img class="card-img-top" [src]="movie.movie_image" alt="">
@@ -99,8 +83,8 @@
 
   <!-- <div class="row mb-4">
     <div class="col-6"></div> -->
-    <!-- GRID AND LIST BUTTONS -->
-    <!-- <div class="col-6 text-right">
+  <!-- GRID AND LIST BUTTONS -->
+  <!-- <div class="col-6 text-right">
       <button class="btn btn-sm btn-rounded btn-outline-light btn-svg mr-2" [ngClass]="{active: viewMode === 'grid'}" (click)="viewMode = 'grid'">
         <svg version="1.1" width="16px" id="grid" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
           x="0px" y="0px" viewBox="0 0 369.946 369.946" style="enable-background:new 0 0 369.946 369.946;" xml:space="preserve">
@@ -119,8 +103,8 @@
         </svg>
       </button>
     </div> -->
-    <!-- SELECT CEHECKBOX -->
-    <!-- <div class="col-6">
+  <!-- SELECT CEHECKBOX -->
+  <!-- <div class="col-6">
       <div class="btn-group float-right">
         <button type="button" class="btn btn-outline-light btn-rounded btn-checkbox">
           <label class="checkbox checkbox-outline-light">
@@ -141,7 +125,7 @@
   <!-- </div> -->
   <!-- DATA LIST -->
 
-<!-- <div class="row" [ngClass]="{'list-horizontal': viewMode === 'list', 'list-grid': viewMode === 'grid'}"> -->
+  <!-- <div class="row" [ngClass]="{'list-horizontal': viewMode === 'list', 'list-grid': viewMode === 'grid'}"> -->
   <!-- SINGLE LIST ITEM -->
   <!-- <div *ngFor="let item of movies | paginate: { itemsPerPage: pageSize, currentPage: page }; let i = index"
     class="list-item"
@@ -150,14 +134,14 @@
   >
     <div class="card o-hidden mb-4 d-flex" [ngClass]="{'flex-row': viewMode === 'list', 'flex-column': viewMode === 'grid'}">
       <div class="list-thumb d-flex"> -->
-        <!-- TUMBNAIL -->
-        <!-- <img [src]="" alt="name">
+  <!-- TUMBNAIL -->
+  <!-- <img [src]="" alt="name">
       </div>
       <div class="flex-grow-1" [ngClass]="{'pl-2 d-flex': viewMode === 'list', 'd-bock': viewMode === 'grid'}">
         <div class="card-body align-self-center d-flex flex-column justify-content-between align-items-lg-center"
           [ngClass]="{'flex-lg-row': viewMode === 'list'}"> -->
-          <!-- OTHER DATA -->
-          <!-- <a href="" class="w-40 w-sm-100">
+  <!-- OTHER DATA -->
+  <!-- <a href="" class="w-40 w-sm-100">
             <div class="item-title">{{item.name}}</div>
             <p class="m-0 text-muted text-small w-15 w-sm-100">ประเภท : {{item.categorie?.name}}</p>
           </a>
@@ -166,8 +150,8 @@
             <span class="h5 text-primary d-block">120 ฿</span>
             <span class="text-secondary"><small>จาก {{item.total}} ฿</small></span>
           </p> -->
-          <!-- status -->
-          <!-- <p *ngIf="item.status === 'on'" class="m-0 text-muted text-small w-15 w-sm-100 d-none d-lg-block item-badges">
+  <!-- status -->
+  <!-- <p *ngIf="item.status === 'on'" class="m-0 text-muted text-small w-15 w-sm-100 d-none d-lg-block item-badges">
             <span class="d-block"><small>สถานะ</small></span>
             <span class="badge badge-success">เปิดใช้งาน</span>
           </p>
@@ -175,8 +159,8 @@
             <span class="d-block"><small>สถานะ</small></span>
             <span class="badge badge-danger">ปิดใช้งาน</span>
           </p> -->
-          <!-- end status -->
-          <!-- <p class="m-0 text-muted text-small w-15 w-sm-100 d-none d-lg-block item-actions">
+  <!-- end status -->
+  <!-- <p class="m-0 text-muted text-small w-15 w-sm-100 d-none d-lg-block item-actions">
             <button class="btn btn-icon bg-transparent"
             [ngClass]="{'d-none': viewMode === 'grid'}" >
               <i class="i-Pen-5 text-16 text-primary" (click)="viewMovie(value)"></i>
@@ -205,7 +189,7 @@
 
 </div> -->
 
-<!-- BG IMAGE CARDS
+  <!-- BG IMAGE CARDS
 <div class="col-md-3">
   <div class="card bg-dark text-white o-hidden mb-4">
     <img class="card-img" src="./assets/images/movies/mr.bean.jpg" alt="Card image">
@@ -228,7 +212,7 @@
  -->
 
 
- <!-- <div class="separator-breadcrumb border-top"></div>
+  <!-- <div class="separator-breadcrumb border-top"></div>
 
  <div class="">
   <div class="breadcrumb">

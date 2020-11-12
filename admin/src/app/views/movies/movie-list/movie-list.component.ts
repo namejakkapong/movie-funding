@@ -30,39 +30,39 @@ export class MovieListComponent implements OnInit {
     private categoriesService: CategoriesService,
     private router: Router
 
-    ) { }
+  ) { }
 
-    ngOnInit() {
-      this.movieService.index()
-        .subscribe(response => {
-          this.movies = response.data;
-          console.log(this.movies);
-        });
-    }
+  ngOnInit() {
+    this.movieService.index()
+      .subscribe(response => {
+        this.movies = response.data;
+        console.log(this.movies);
+      });
+  }
 
-    open(content) {
-      this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' })
+  open(content) {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' })
       .result.then((result) => {
         console.log(result);
       }, (reason) => {
         console.log('Err!', reason);
       });
-    }
-    confirm(content) {
-      this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', centered: true })
+  }
+  confirm(content) {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', centered: true })
       .result.then((result) => {
         this.confirmResut = `Closed with: ${result}`;
       }, (reason) => {
         this.confirmResut = `Dismissed with: ${reason}`;
       });
 
-    }
-    getAdmins() {
-      this.movieService.index()
+  }
+  getAdmins() {
+    this.movieService.index()
       .subscribe(response => {
         this.movies = [...response.data];
       });
-    }
+  }
 
   // viewMovie(id) {
   //   console.log(id);
