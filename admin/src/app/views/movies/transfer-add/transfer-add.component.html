@@ -58,9 +58,9 @@
                               </div> -->
                               <div class="col-md-12 form-group mb-3">
                                 <label>ธนาคารที่เลือกโอน</label>
-                                <select class="custom-select" name="bank.bank_account" ngModel id="inputGroupSelect04" aria-label="Example select with button addon">
+                                <select class="custom-select" name="bank_id" ngModel id="inputGroupSelect04" aria-label="Example select with button addon">
                                   <option>ชื่อธนาคาร</option>
-                                  <option *ngFor="let bank of banks">{{bank.bank_account}}</option>
+                                  <option *ngFor="let bank of banks" value="{{bank?.id}}">{{bank?.bank_account}}</option>
                                 </select>
                             </div>
                               <label for="basic-url"> จำนวนเงินที่โอน </label>

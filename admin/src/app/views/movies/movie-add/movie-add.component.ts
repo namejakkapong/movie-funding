@@ -39,16 +39,17 @@ export class MovieAddComponent implements OnInit {
     this.movieService.store(
       form.value.category_id,
       form.value.name_en,
-      //this.selectFileCover,
       form.value.name_th,
+      this.selectFileCover,
       form.value.description,
       form.value.resume,
       form.value.director,
       form.value.total,
+      form.value.current_total,
       form.value.status,
-      form.value.screening_date,
-      form.value.start_date,
-      form.value.end_date);
+      form.value.screening_date);
+      // form.value.start_date,
+      // form.value.end_date);
 
   }
 
@@ -80,7 +81,7 @@ export class MovieAddComponent implements OnInit {
     reader.readAsDataURL(file);
   }
   onUploadImageCover() {
-    // this.profileService.uploadImageCover(this.selectFileCover);
+    // this.movieService.store(this.selectFileCover);
     console.log(this.selectFileCover);
   }
 

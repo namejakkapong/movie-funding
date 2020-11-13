@@ -17,18 +17,17 @@
 
           <form (submit)="onAddMovie(formMovie)" #formMovie="ngForm">
 
-
-            <div class="col-md-12 form-group mb-3">
+            <!-- <div class="col-md-12 form-group mb-3">
               <label>รหัสประเภทภาพยนตร์</label>
               <input type="text" class="form-control form-control-rounded" name="category_id" ngModel
                 placeholder="รหัสประเภทภาพยนตร์">
-            </div>
+            </div> -->
             <div class="col-md-12 form-group mb-3">
               <label>ประเภทภาพยนตร์</label>
-              <select class="custom-select" name="categorie.name" ngModel id="inputGroupSelect04"
+              <select class="custom-select" name="category_id" ngModel id="inputGroupSelect04"
                 aria-label="Example select with button addon">
                 <option>ประเภทภาพยนตร์</option>
-                <option *ngFor="let categorie of categories">{{categorie?.name}}</option>
+                <option *ngFor="let categorie of categories" value="{{categorie?.id}}">{{categorie?.name}}</option>
               </select>
             </div>
             <div class="col-md-12 form-group mb-3">
@@ -58,7 +57,7 @@
                     <button type="button" class="btn btn-outline-white" (click)="fileCover.click()"><i
                         class="fas fa-camera"></i> อัพโหลดรูปภาพ</button>
                     <input class="d-none" type="file" #fileCover #fileCoverReset (change)="onImageCover($event)"
-                      accept="image/*">
+                      accept="images/*">
                   </span>
                   <span *ngIf="imageCoverPreview !== '' && imageCoverPreview">
                     <!-- <button type="button" class="btn btn-success mr-2" (click)="onUploadImageCover()"><i class="far fa-check-circle"></i> บันทึก </button>
@@ -97,6 +96,12 @@
                 placeholder="ยอดระดมทุน">
             </div>
 
+            <div class="col-md-12 form-group mb-3">
+              <label>ยอดปัจจุบัน</label>
+              <input type="text" class="form-control form-control-rounded" name="current_total" ngModel
+                placeholder="ยอดระดมทุน">
+            </div>
+
             <h5>ประเภทแพ็คเกจ</h5>
             <input type="radio" id="funds" name="status" ngModel value="on">
             <label for="funds"> เปิดระดมทุน </label><br>
@@ -104,6 +109,43 @@
             <label for="invest"> ปิดระดมทุน </label>
 
             <div class="col-md-6 form-group mb-3">
+
+              <label for="screening_date">วันออกฉาย</label>
+              <div class="input-group">
+                <input id="screening_date" class="form-control" placeholder="yyyy-mm-dd" name="screening_date"
+                  ngbDatepicker #screening_date="ngbDatepicker" ngModel>
+                <div class="input-group-append">
+                  <button class="btn btn-secondary" (click)="screening_date.toggle()" type="button">
+                    <i class="icon-regular i-Calendar-4"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- <label for="start_date">วันเริ่มการระดมทุน</label>
+              <div class="input-group">
+                  <input id="start_date" class="form-control" placeholder="yyyy-mm-dd" name="start_date"
+                      ngbDatepicker #start_date="ngbDatepicker" ngModel>
+                  <div class="input-group-append">
+                      <button class="btn btn-secondary" (click)="start_date.toggle()" type="button">
+                          <i class="icon-regular i-Calendar-4"></i>
+                      </button>
+                  </div>
+              </div>
+
+              <label for="end_date">วันสิ้นสุดการระดมทุน</label>
+              <div class="input-group">
+                  <input id="end_date" class="form-control" placeholder="yyyy-mm-dd" name="end_date"
+                      ngbDatepicker #end_date="ngbDatepicker" ngModel>
+                  <div class="input-group-append">
+                      <button class="btn btn-secondary" (click)="end_date.toggle()" type="button">
+                          <i class="icon-regular i-Calendar-4"></i>
+                      </button>
+                  </div>
+              </div> -->
+
+            </div>
+
+            <!-- <div class="col-md-6 form-group mb-3">
               <label for="start">วันออกฉาย</label>
               <input class="form-control form-control-rounded" type="date" id="end" name="screening_date" ngModel
                 placeholder="yyyy-mm-dd" min="2020-01-01" max="2040-12-31" ngbDatepicker #dp="ngbDatepicker">
@@ -115,16 +157,6 @@
               <input class="form-control form-control-rounded" type="date" id="start" name="start_date" ngModel
                 placeholder="yyyy-mm-dd" min="2020-01-01" max="2040-12-31" ngbDatepicker #dp="ngbDatepicker">
 
-              <!-- <label for="picker">เริ่มการระดมทุน</label>
-                                <div class="input-group">
-                                    <input id="picker" class="form-control form-control-rounded" placeholder="yyyy-mm-dd" name="start"
-                                        ngbDatepicker #dp="ngbDatepicker">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-secondary btn-rounded" (click)="dp.toggle()" type="button">
-                                            <i class="icon-regular i-Calendar-4"></i>
-                                        </button>
-                                    </div>
-                                </div> -->
             </div>
 
             <div class="col-md-6 form-group mb-3">
@@ -132,22 +164,9 @@
               <input value="2020-11-15" class="form-control form-control-rounded" type="date" id="end" name="end_date"
                 ngModel min="2020-01-01" max="2040-12-31" ngbDatepicker #dp="ngbDatepicker">
 
-            </div>
+            </div> -->
 
-            <!-- <div class="col-md-6 form-group mb-3">
-                                <label for="picker">สิ้นสุดการระดมทุน</label>
-                                <div class="input-group">
-                                    <input id="picker" class="form-control form-control-rounded" placeholder="yyyy-mm-dd" name="end"
-                                        ngbDatepicker #dp="ngbDatepicker">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-secondary btn-rounded" (click)="dp.toggle()" type="button">
-                                            <i class="icon-regular i-Calendar-4"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div> -->
 
-            <!-- <button type="submit" class="btn btn-primary btn-rounded m-1">submit</button> -->
             <div class="col-md-6 form-group mb-3">
               <button type="submit" class="btn btn-primary ">เพิ่มข้อมูล</button>
             </div>

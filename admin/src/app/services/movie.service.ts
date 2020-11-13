@@ -32,15 +32,16 @@ export class MovieService {
     category_id: string ,
     name_en: string,
     name_th : string,
-    //selectFileCover: any,
+    selectFileCover: any,
     description : string,
     resume : string,
     director : string,
     total : string,
+    current_total : string,
     status : string,
-    screening_date : string,
-    start_date : string,
-    end_date : string)
+    screening_date : string)
+    // start_date : string,
+    // end_date : string)
   {
     // BACKEND_URL = http://localhost:8000/api/admins , method POST
     const data = {
@@ -48,20 +49,22 @@ export class MovieService {
       category_id: category_id,
       name_en: name_en,
       name_th: name_th,
-      //movie_pic : selectFileCover,
+      movie_pic : selectFileCover,
       description : description,
       resume : resume,
       director : director,
       total : total,
+      current_total : current_total,
       status : status,
       screening_date : screening_date,
-      start_date : start_date,
-      end_date : end_date,
+      // start_date : start_date,
+      // end_date : end_date,
 
     };
     // this.http.post<{data: any}>(BACKEND_URL + '/movies', data)
     // .subscribe(response => {
-    //   console.log(response.data);
+    // console.log(data);
+    // console.log("เพิ่มข้อมูลเรียบร้อย!");
     // });
     console.log(data);
   }
