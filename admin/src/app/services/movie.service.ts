@@ -101,8 +101,8 @@ export class MovieService {
   {
     return this.http.get<{data: any}>(BACKEND_URL + '/movies/'+ id +'/sendmoneys');
   }
-  //-------------------------------------------------------------------------
 
+  //============================= ส่วนของ ADMIN =============================================
   //----ข้อมูลที่ ผ่านการตรวจสอบ [ confirm ]------//
   indexadconfirm(id: string)
   {
@@ -118,14 +118,28 @@ export class MovieService {
   {
     return this.http.get<{data: any}>(BACKEND_URL + '/movies/'+ id +'/transfersadunsuccessful');
   }
+  //==========================================================================================
+
+  //============================= ส่วนของ USER =============================================
+  //----ข้อมูลที่ ผ่านการตรวจสอบ [ confirm ]------//
+  // indexusconfirm(id: string)
+  // {
+  //   return this.http.get<{data: any}>(BACKEND_URL + '/users/' + user_id +'/movies/'+ id +'/transfersconfirm');
+  // }
+  //----ข้อมูลที่ ยังไม่ตรวจสอบตรวจสอบ [ not ]------//
+  // indexusnot(id: string)
+  // {
+  //   return this.http.get<{data: any}>(BACKEND_URL + '/users/' + user_id +'/movies/'+ id +'/transfersnot');
+  // }
+  //----ข้อมูลที่ ไม่ผ่านการตรวจสอบ [ unsuccessful ]------//
+  // indexusun(id: string)
+  // {
+  //   return this.http.get<{data: any}>(BACKEND_URL + '/users/' + user_id +'/movies/'+ id +'/transfersunsuccessful');
+  // }
+  //==========================================================================================
 
 
 
-
-
-
-
-  //-------------------------------------------------------------------------
   storepackage(
     movie_id: string,
     type_package: string,
@@ -135,7 +149,7 @@ export class MovieService {
     amount: string,
     percent: string
     )
- 
+
   {
     // BACKEND_URL = http://localhost:8000/api/admins , method POST
     const data = {

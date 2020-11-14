@@ -20,9 +20,14 @@ export class MovienewComponent implements OnInit {
   // public categories: any;
   // public movies: any;
   confirmResut;
+  //admin
   public adconfirm: any;
   public adnot: any;
   public adun: any;
+  //user
+  // public usconfirm: any;
+  // public usnot: any;
+  // public usun: any;
 
   constructor(
     private movieService: MovieService,
@@ -48,9 +53,14 @@ export class MovienewComponent implements OnInit {
         this.getProgress(this.id);
         this.getSend(this.id);
         // this.getMovieAll(this.id);
+        //admin
         this.getAdtransfer(this.id);
         this.getAdtransferNot(this.id);
         this.getAdtransferUn(this.id);
+        //user
+        // this.getUsertransfer(this.id);
+        // this.getUsertransferNot(this.id);
+        // this.getUsertransferUn(this.id);
 
       }
     });
@@ -71,7 +81,7 @@ export class MovienewComponent implements OnInit {
           console.log(this.sendmoneys);
         });
   }
-  //-----------------------------------------ข้อมูลการโอนเงิน ADMIN--------------------------------------------
+  //====================================== ข้อมูลการโอนเงิน ADMIN ======================================
   //--ข้อมูลการโอนเงิน สำเร็จ [ confirm ]--
   getAdtransfer(id){
     this.movieService.indexadconfirm(id)
@@ -96,7 +106,34 @@ export class MovienewComponent implements OnInit {
           console.log(this.adun);
         });
   }
-  //--------------------------------------------------------------------------------------
+   //====================================== ข้อมูลการโอนเงิน ADMIN ======================================
+  //--ข้อมูลการโอนเงิน สำเร็จ [ confirm ]--
+  // getUsertransfer(id){
+  //   this.movieService.indexusconfirm(id)
+  //       .subscribe(response => {
+  //         this.usconfirm = response;
+  //         console.log(this.usconfirm);
+  //       });
+  // }
+  //--ข้อมูลการโอนเงิน ยังไม่ตรวจสอบ [ not ]--
+  // getUsertransferNot(id){
+  //   this.movieService.indexusnot(id)
+  //       .subscribe(response => {
+  //         this.usnot = response;
+  //         console.log(this.usnot);
+  //       });
+  // }
+  //--ข้อมูลการโอนเงิน ไม่ผ่าน [ not ]--
+  // getUsertransferUn(id){
+  //   this.movieService.indexusun(id)
+  //       .subscribe(response => {
+  //         this.usun = response;
+  //         console.log(this.usun);
+  //       });
+  // }
+  //=====================================================================================================
+
+
   open(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' })
       .result.then((result) => {
