@@ -112,6 +112,7 @@ export class MovieService {
     amount: string,
     percent: string
     )
+ 
   {
     // BACKEND_URL = http://localhost:8000/api/admins , method POST
     const data = {
@@ -133,6 +134,29 @@ export class MovieService {
     // console.log("เพิ่มข้อมูลเรียบร้อย!");
   }
 
-
-
+ storeprogress(
+      movie_id: string,
+      topic: string,
+      selectFileCover: any,
+      details: string,
+      date: string,
+      )
+      {
+        // BACKEND_URL = http://localhost:8000/api/admins , method POST
+        const data = {
+          movie_id: movie_id,
+          topic: topic,
+          picture : selectFileCover,
+          details: details,
+          date: date,
+        };
+        this.http.post<{data: any}>(BACKEND_URL + '/packagesall', data)
+        .subscribe(response => {
+          console.log(data);
+        this.modalService.dismissAll();
+        console.log("เพิ่มข้อมูลเรียบร้อย!");
+        });
+        // console.log(data);
+        // console.log("เพิ่มข้อมูลเรียบร้อย!");
+      }
 }
