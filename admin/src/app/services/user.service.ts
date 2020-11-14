@@ -41,6 +41,7 @@ export class UserService {
     .subscribe(response => {
       console.log(response.data);
     });
+    // console.log(data);
   }
 
   destroy(id: string)

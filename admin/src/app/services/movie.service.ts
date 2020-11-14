@@ -161,7 +161,7 @@ export class MovieService {
       movie_id: string,
       topic: string,
       selectFileCover: any,
-      details: string,
+      detail: string,
       date: string,
       )
       {
@@ -170,10 +170,10 @@ export class MovieService {
           movie_id: movie_id,
           topic: topic,
           picture : selectFileCover,
-          details: details,
+          detail: detail,
           date: date,
         };
-        this.http.post<{data: any}>(BACKEND_URL + '/packagesall', data)
+        this.http.post<{data: any}>(BACKEND_URL + '/progresses', data)
         .subscribe(response => {
           console.log(data);
         this.modalService.dismissAll();
