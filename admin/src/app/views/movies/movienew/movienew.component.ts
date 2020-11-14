@@ -20,6 +20,9 @@ export class MovienewComponent implements OnInit {
   // public categories: any;
   // public movies: any;
   confirmResut;
+  public adconfirm: any;
+  public adnot: any;
+  public adun: any;
 
   constructor(
     private movieService: MovieService,
@@ -45,6 +48,9 @@ export class MovienewComponent implements OnInit {
         this.getProgress(this.id);
         this.getSend(this.id);
         // this.getMovieAll(this.id);
+        this.getAdtransfer(this.id);
+        this.getAdtransferNot(this.id);
+        this.getAdtransferUn(this.id);
 
       }
     });
@@ -59,13 +65,38 @@ export class MovienewComponent implements OnInit {
   }
 
   getSend(id){
-    this.movieService.indexsend(id)
+    this.movieService.indexadconfirm(id)
         .subscribe(response => {
           this.sendmoneys = response;
           console.log(this.sendmoneys);
         });
   }
-
+  //-----------------------------------------ข้อมูลการโอนเงิน ADMIN--------------------------------------------
+  //--ข้อมูลการโอนเงิน สำเร็จ [ confirm ]--
+  getAdtransfer(id){
+    this.movieService.indexadconfirm(id)
+        .subscribe(response => {
+          this.adconfirm = response;
+          console.log(this.adconfirm);
+        });
+  }
+  //--ข้อมูลการโอนเงิน ยังไม่ตรวจสอบ [ not ]--
+  getAdtransferNot(id){
+    this.movieService.indexadnot(id)
+        .subscribe(response => {
+          this.adnot = response;
+          console.log(this.adnot);
+        });
+  }
+  //--ข้อมูลการโอนเงิน ไม่ผ่าน [ not ]--
+  getAdtransferUn(id){
+    this.movieService.indexadun(id)
+        .subscribe(response => {
+          this.adun = response;
+          console.log(this.adun);
+        });
+  }
+  //--------------------------------------------------------------------------------------
   open(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' })
       .result.then((result) => {

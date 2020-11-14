@@ -101,8 +101,31 @@ export class MovieService {
   {
     return this.http.get<{data: any}>(BACKEND_URL + '/movies/'+ id +'/sendmoneys');
   }
+  //-------------------------------------------------------------------------
+
+  //----ข้อมูลที่ ผ่านการตรวจสอบ [ confirm ]------//
+  indexadconfirm(id: string)
+  {
+    return this.http.get<{data: any}>(BACKEND_URL + '/movies/'+ id +'/transfersadconfirm');
+  }
+  //----ข้อมูลที่ ยังไม่ตรวจสอบตรวจสอบ [ not ]------//
+  indexadnot(id: string)
+  {
+    return this.http.get<{data: any}>(BACKEND_URL + '/movies/'+ id +'/transfersadnot');
+  }
+  //----ข้อมูลที่ ไม่ผ่านการตรวจสอบ [ unsuccessful ]------//
+  indexadun(id: string)
+  {
+    return this.http.get<{data: any}>(BACKEND_URL + '/movies/'+ id +'/transfersadunsuccessful');
+  }
 
 
+
+
+
+
+
+  //-------------------------------------------------------------------------
   storepackage(
     movie_id: string,
     type_package: string,
