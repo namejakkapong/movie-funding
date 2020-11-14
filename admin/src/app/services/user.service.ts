@@ -78,5 +78,6 @@ export class UserService {
       this.modalService.dismissAll();
 
     });
+    console.log("แก้ไขข้อมูลเรียบร้อย!");
   }
 }

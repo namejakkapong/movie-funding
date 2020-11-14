@@ -29,6 +29,7 @@ export class ExperienceService {
       console.log(response.data);
 
     });
+    console.log("เพิ่มข้อมูลเรียบร้อย!");
   }
 
   update(experience_id: string , user_id: string, start_year: string, end_year: string, position: string, workplace: string)
@@ -45,7 +46,7 @@ export class ExperienceService {
       console.log(response.data);
       this.modalService.dismissAll();
     });
-
+    console.log("แก้ไขข้อมูลเรียบร้อย!");
   }
 
   destroy(user_id : string, experience_id: string)
@@ -57,6 +58,7 @@ export class ExperienceService {
       console.log(response.data);
       this.modalService.dismissAll();
     });
+    console.log("ลบข้อมูลเรียบร้อย!");
   }
 }
 

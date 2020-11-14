@@ -16,6 +16,7 @@ export class MovieAddComponent implements OnInit {
   selectFileCover: any;
   categories: any;
 
+
   constructor(
     private movieService: MovieService,
     private modalService: NgbModal,
@@ -47,9 +48,9 @@ export class MovieAddComponent implements OnInit {
       form.value.total,
       form.value.current_total,
       form.value.status,
-      form.value.screening_date);
-      // form.value.start_date,
-      // form.value.end_date);
+      form.value.screening_date,
+      form.value.start_date,
+      form.value.end_date);
 
   }
 

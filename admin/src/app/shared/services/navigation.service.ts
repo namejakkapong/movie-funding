@@ -82,7 +82,9 @@ export class NavigationService {
                     sub: [
                         { name: 'เพิ่มภาพยนตร์', state: '/movies/movie-add', type: 'link' },
                         { name: 'เพิ่มประเภทภาพยนตร์', state: '/movies/movie-category', type: 'link' },
+                        { name: 'เพิ่มข้อมูลแพ็คเกจ', state: '/movies/package-add/', type: 'link' },
                         { name: 'เพิ่มข้อมูลธนาคาร', state: '/movies/bank-add', type: 'link' }
+
                     ]
                 },
             ]

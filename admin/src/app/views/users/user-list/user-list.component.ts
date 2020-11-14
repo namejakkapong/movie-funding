@@ -83,7 +83,9 @@ export class UserListComponent implements OnInit {
 		  //console.log(id);
 		  this.userService.destroy(id);
 		  this.getUsers();
-	  }
+    }
+
+
 
 
 

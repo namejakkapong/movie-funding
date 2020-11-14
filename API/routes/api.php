@@ -32,7 +32,7 @@ Route::resource('movies.progresses', 'Progress\ProgressController');
 Route::resource('movienew', 'Movie\MovieNewController');
 Route::resource('movies.packages', 'Package\PackageController');
 Route::resource('movies.packages2', 'Package\Package2Controller');
-Route::resource('movies.packagesall', 'Package\PackageAllController');
+Route::resource('packagesall', 'Package\PackageAllController');
 Route::resource('banks', 'Bank\BankController');
 Route::resource('movies.transfersadnot', 'Transfer\TransferAdNotController');
 Route::resource('movies.transfersadconfirm', 'Transfer\TransferAdConfirmController');
@@ -40,4 +40,6 @@ Route::resource('movies.transfersadunsuccessful', 'Transfer\TransferAdUnsuccessf
 Route::resource('users.movies.transfersnot','Transfer\TransferNotController');
 Route::resource('users.movies.transfersconfirm','Transfer\TransferConfirmController');
 Route::resource('users.movies.transfersunsuccessful','Transfer\TransferUnsuccessfulController');
-Route::resource('sendmoneys', 'SendMoney\SendMoneyController');
+Route::resource('movies.sendmoneys', 'SendMoney\SendMoneyController');
+Route::resource('sendmoneys', 'SendMoney\SendMoneyAddController');
+

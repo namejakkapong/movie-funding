@@ -16,6 +16,7 @@ export class PackageViewComponent implements OnInit {
   private id: string;
 
 
+
   constructor(
     private router: Router,
     private movieService: MovieService,
@@ -60,6 +61,12 @@ export class PackageViewComponent implements OnInit {
     transferAdd(movie_id , package_id) {
       console.log(movie_id , package_id);
       this.router.navigate(['/movies/package-view/' + movie_id + '/transfer-add/'+ package_id ]);
+
+    }
+
+    packageAdd(id) {
+      //console.log(movie_id);
+      this.router.navigate(['/movies/package-add/']);
 
     }
 

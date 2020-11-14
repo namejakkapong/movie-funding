@@ -39,9 +39,9 @@ export class MovieService {
     total : string,
     current_total : string,
     status : string,
-    screening_date : string)
-    // start_date : string,
-    // end_date : string)
+    screening_date : string,
+    start_date : string,
+    end_date : string)
   {
     // BACKEND_URL = http://localhost:8000/api/admins , method POST
     const data = {
@@ -57,16 +57,16 @@ export class MovieService {
       current_total : current_total,
       status : status,
       screening_date : screening_date,
-      // start_date : start_date,
-      // end_date : end_date,
+      start_date : start_date,
+      end_date : end_date,
 
     };
-    // this.http.post<{data: any}>(BACKEND_URL + '/movies', data)
-    // .subscribe(response => {
-    // console.log(data);
-    // console.log("เพิ่มข้อมูลเรียบร้อย!");
-    // });
+    this.http.post<{data: any}>(BACKEND_URL + '/movies', data)
+    .subscribe(response => {
     console.log(data);
+    console.log("เพิ่มข้อมูลเรียบร้อย!");
+    });
+    // console.log(data);
   }
 
   destroy(id: string)
@@ -96,5 +96,43 @@ export class MovieService {
   {
     return this.http.get<{data: any}>(BACKEND_URL + '/movies/'+ id +'/packagesall/'+ package_id);
   }
+
+  indexsend(id: string)
+  {
+    return this.http.get<{data: any}>(BACKEND_URL + '/movies/'+ id +'/sendmoneys');
+  }
+
+
+  storepackage(
+    movie_id: string,
+    type_package: string,
+    topic: string,
+    details: string,
+    reward: string,
+    amount: string,
+    percent: string
+    )
+  {
+    // BACKEND_URL = http://localhost:8000/api/admins , method POST
+    const data = {
+      movie_id: movie_id,
+      type_package: type_package,
+      topic: topic,
+      details: details,
+      reward: reward,
+      amount: amount,
+      percent: percent,
+    };
+    this.http.post<{data: any}>(BACKEND_URL + '/packagesall', data)
+    .subscribe(response => {
+      console.log(data);
+    this.modalService.dismissAll();
+    console.log("เพิ่มข้อมูลเรียบร้อย!");
+    });
+    // console.log(data);
+    // console.log("เพิ่มข้อมูลเรียบร้อย!");
+  }
+
+
 
 }

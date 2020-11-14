@@ -39,17 +39,7 @@ class PackageController extends Controller
      */
     public function store(Request $request)
     {
-        $package = new Package([
-            'movie_id' => $request->movie_id,
-            'type_package' => $request->type_package,
-            'topic' => $request->topic,
-            'details' => $request->details,
-            'reward' => $request->reward,
-            'amount' => $request->amount,
-            'percent' => $request->percent,
-        ]);
-        $package->save();
-        return $package;
+
     }
 
     /**

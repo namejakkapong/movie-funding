@@ -1,22 +1,22 @@
 <div class="">
   <div class="breadcrumb">
     <h1>ผู้ใช้งาน</h1>
-    <ul>
+    <!-- <ul>
       <li><a href="">ผู้ใช้งาน</a></li>
-      <!-- <li>Creator & Fundraiser</li> -->
+      <li>Creator & Fundraiser</li>
       <li><a href="">นักลงทุน & นักสร้างภาพยนตร์</a></li>
       <li>ชื่อผู้ใช้งาน</li>
-    </ul>
+    </ul> -->
   </div>
   <div class="separator-breadcrumb border-top"></div>
   <div class="card user-profile o-hidden mb-4">
     <div class="header-cover" style="background-image: url('assets/images/photo-wide-1.jpg')"></div>
     <div class="user-info">
-      <img class="profile-picture avatar-lg mb-2" src="assets/images/faces/1.jpg" alt="">
+      <img class="profile-picture avatar-lg mb-2" src="{{user?.profile_picture}}" alt="">
       <p class="m-0 text-24">{{user?.name}}</p>
-      <p class="text-muted m-0">นักลงทุน หรือ นักสร้างภาพยนตร์</p>
+      <p class="text-muted m-0">{{user?.user_status}}</p>
       <!-- <button type="button" class="btn btn-primary" (click)="viewMovie('movie.id')">ดูรายละเอียด</button> -->
-      <button type="button" class="btn btn-outline-success m-1" (click)="onVerification(user?.id)">ยืนยันตัวตน</button>
+      <!-- <button type="button" class="btn btn-outline-success m-1" (click)="onVerification(user?.id)">ยืนยันตัวตน</button> -->
     </div>
     <div class="card-body">
       <ngb-tabset class="nav-center">
@@ -285,13 +285,13 @@
                         </div>
                         <div class="col-md-10">
                           <div class="row">
-                            <div class="col-md-12 form-group mb-3">
+                            <!-- <div class="col-md-12 form-group mb-3">
                               <label>อีเมล (ชื่อผู้ใช้งาน)</label>
                               <input type="text" class="form-control form-control-rounded" name="email"
                                 ngModel="{{user?.email}}" #emailInput="ngModel" required
-                                placeholder="อีเมล (ชื่อผู้ใช้งาน)">
-                            </div>
-                            <div class="col-md-6 form-group mb-3">
+                                placeholder="อีเมล (ชื่อผู้ใช้งาน)" >
+                            </div> -->
+                            <!-- <div class="col-md-6 form-group mb-3">
                               <label>รหัสผ่าน</label>
                               <input type="password" class="form-control form-control-rounded" name="password"
                                 ngModel="{{user?.password}}" #passwordInput="ngModel" placeholder="รหัสผ่าน">
@@ -302,7 +302,7 @@
                               <input type="password" class="form-control form-control-rounded"
                                 name="password_confirmation" ngModel="{{user?.password_confirmation}}"
                                 #password_confirmationInput="ngModel" required placeholder="ยืนยันรหัสผ่าน">
-                            </div>
+                            </div> -->
                             <div class="col-md-6 form-group mb-3">
                               <label>ชื่อ - นามสกุล</label>
                               <input type="text" class="form-control form-control-rounded" name="name"

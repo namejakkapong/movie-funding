@@ -17,7 +17,8 @@ export class EducationService {
     return this.http.get<{data: any}>(BACKEND_URL + '/users/'+ id +'/educations');
   }
 
-  store(id: string ,
+  store(
+    id: string ,
     graduation_year: string,
     level: string,
     subject: string,
@@ -37,6 +38,7 @@ export class EducationService {
       console.log(response.data);
       //this.modalService.dismissAll();
     });
+    console.log("เพิ่มข้อมูลเรียบร้อย!");
   }
 
   update(education_id: string , user_id: string, graduation_year: string, level: string, subject: string, faculty: string, school: string)
@@ -53,7 +55,7 @@ export class EducationService {
       console.log(response.data);
 
     });
-
+    console.log("แก้ไขข้อมูลเรียบร้อย!");
   }
 
   destroy(user_id : string, education_id: string)
@@ -65,5 +67,6 @@ export class EducationService {
       console.log(response.data);
       this.modalService.dismissAll();
     });
+    console.log("ลบข้อมูลเรียบร้อย!");
   }
 }

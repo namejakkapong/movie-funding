@@ -3,7 +3,7 @@ import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { CategoriesService } from 'src/app/services/categories.service';
 import { MovieService } from 'src/app/services/movie.service';
 import { SharedAnimations } from 'src/app/shared/animations/shared-animations';
-//import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-movienew',
@@ -13,17 +13,20 @@ import { SharedAnimations } from 'src/app/shared/animations/shared-animations';
 })
 export class MovienewComponent implements OnInit {
   public movie: any;
+  public movies: any;
   public progresses: any;
+  public sendmoneys: any;
   private id: string;
   // public categories: any;
   // public movies: any;
+  confirmResut;
 
   constructor(
     private movieService: MovieService,
     private route: ActivatedRoute,
     private router: Router,
     private categoriesService: CategoriesService,
-    // private modalService: NgbModal
+    private modalService: NgbModal
 
     ) { }
 
@@ -40,6 +43,7 @@ export class MovienewComponent implements OnInit {
           console.log(this.movie);
         });
         this.getProgress(this.id);
+        this.getSend(this.id);
         // this.getMovieAll(this.id);
 
       }
@@ -54,6 +58,31 @@ export class MovienewComponent implements OnInit {
         });
   }
 
+  getSend(id){
+    this.movieService.indexsend(id)
+        .subscribe(response => {
+          this.sendmoneys = response;
+          console.log(this.sendmoneys);
+        });
+  }
+
+  open(content) {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' })
+      .result.then((result) => {
+        console.log(result);
+      }, (reason) => {
+        console.log('Err!', reason);
+      });
+  }
+  confirm(content) {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', centered: true })
+      .result.then((result) => {
+        this.confirmResut = `Closed with: ${result}`;
+      }, (reason) => {
+        this.confirmResut = `Dismissed with: ${reason}`;
+      });
+
+    }
   // getCategory(id) {
   //   this.categoriesService.index()
   //   .subscribe(response => {

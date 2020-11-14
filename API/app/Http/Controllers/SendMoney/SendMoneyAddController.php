@@ -7,7 +7,7 @@ use App\Movie;
 use App\SendMoney;
 use Illuminate\Http\Request;
 
-class SendMoneyController extends Controller
+class SendMoneyAddController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class SendMoneyController extends Controller
      */
     public function index(Movie $movie)
     {
-        $sendmoneys = SendMoney::where('movie_id', $movie->id)->get();
-        return $sendmoneys;
+        // $sendmoneys = SendMoney::where('movie_id', $movie->id)->get();
+        // return $sendmoneys;
 
     }
 

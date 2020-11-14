@@ -104,4 +104,31 @@ export class AdminService {
 
 
   }
+
+  storesendmoneys(
+    movie_id: string,
+    topic: string,
+    details: string,
+    amount: string,
+    sendmoney_date: string,
+    selectFileCover: any)
+  {
+    // BACKEND_URL = http://localhost:8000/api/admins , method POST
+    const data = {
+      movie_id: movie_id,
+      topic: topic,
+      details: details,
+      amount: amount,
+      sendmoney_date: sendmoney_date,
+      sendmoney_pic: selectFileCover,
+    };
+    this.http.post<{data: any}>(BACKEND_URL + '/sendmoneys', data)
+    .subscribe(response => {
+      console.log(data);
+    this.modalService.dismissAll();
+    console.log("เพิ่มข้อมูลเรียบร้อย!");
+    });
+
+}
+
 }

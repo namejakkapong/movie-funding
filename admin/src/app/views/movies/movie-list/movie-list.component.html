@@ -15,7 +15,7 @@
       <!-- BG IMAGE CARDS -->
       <div class="col-lg-3 col-md-3" *ngFor="let movie of movies">
         <div class="card bg-dark text-white o-hidden md-3" (click)="viewMovieNew(movie.id)">
-          <img class="card-img" src="./assets/images/avg.jpg" alt="Card image" (click)="viewMovieNew(movie.id)">
+          <img class="card-img" width="200" height="350" src="{{movie?.movie_pic}}" alt="Card image" (click)="viewMovieNew(movie.id)">
           <div class="card-img-overlay">
             <div class="text-center pt-4">
               <h5 class="card-title mb-2 text-white">{{movie.name_en}}</h5>

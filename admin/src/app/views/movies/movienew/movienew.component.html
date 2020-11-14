@@ -15,7 +15,7 @@
 
         <div class="row">
           <div class="col-sm-4 col-mb-4">
-            <img class="card-img-" src="./assets/images/avg.jpg">
+            <img class="card-img-" src="{{movie?.movie_pic}}">
           </div>
 
           <div class="col-sm-8 col-mb-8">
@@ -256,25 +256,27 @@
               <ng-template ngbTabContent>
                 <!-- --------------------------------------------ข้อมูล 1 -------------------------------------------- -->
                 <div class="row">
-                  <div class="col-sm-8 col-mb-8">
+                  <div class="col-sm-8 col-mb-8" *ngFor="let sendmoney of sendmoneys">
                     <div class="card mb-12">
                       <div class="card-header">
 
                       </div>
                       <div class="card-body">
-                        <h4 class="card-title" class="font2">รอบแรก</h4><br>
-                        <p class="card-text">รายละเอียด : โอนเงินรอบแรก</p>
+                        <h4 class="card-title" class="font2">{{sendmoney?.topic}}</h4><br>
+                        <p class="card-text">รายละเอียด : {{sendmoney?.details}}</p>
                         <!-- <h5 class="card-text">Reward</h5> -->
-                        <p class="card-text">วันที่โอน : 10/09/2020</p>
+                        <p class="card-text">วันที่โอน : {{sendmoney?.sendmoney_date}}</p>
                         <ul class="list-group list-group-flush">
                           <div class="row">
                             <div class="col-sm-12 col-mb-12">
-                              <h5 class="list-group-item">จำนวนเงิน : 20000 บาท</h5>
+                              <h5 class="list-group-item">จำนวนเงิน : {{sendmoney?.amount}} บาท</h5>
                             </div>
-
                           </div>
                         </ul>
-
+                        <div class="col-sm-4 col-mb-4">
+                          <img class="card-img" width="200" height="350" src="{{sendmoney?.sendmoney_pic}}" alt="รูปภาพสลิป">
+                          <!-- <img class="card-img-" src="{{sendmoney?.sendmoney_pic}}"> -->
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -282,34 +284,6 @@
                 </div>
                 <br>
 
-                <!-- --------------------------------------------ข้อมูล 2 -------------------------------------------- -->
-                <div class="row">
-                  <div class="col-sm-8 col-mb-8">
-                    <div class="card mb-12">
-                      <div class="card-header">
-
-                      </div>
-                      <div class="card-body">
-                        <h4 class="card-title" class="font2">รอบ2</h4><br>
-                        <p class="card-text">รายละเอียด : โอนเงินรอบที่2</p>
-                        <!-- <h5 class="card-text">Reward</h5> -->
-                        <p class="card-text">วันที่โอน : 10/08/2020</p>
-                        <ul class="list-group list-group-flush">
-                          <div class="row">
-                            <div class="col-sm-12 col-mb-12">
-                              <h5 class="list-group-item">จำนวนเงิน : 10000 บาท</h5>
-                            </div>
-
-                          </div>
-                        </ul>
-
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-2 col-mb-2"></div>
-                </div>
-                <br>
-                <!-- ------------------------------------------------------------------------------------------------------------ -->
               </ng-template>
             </ngb-tab>
 

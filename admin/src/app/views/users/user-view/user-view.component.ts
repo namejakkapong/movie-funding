@@ -14,6 +14,7 @@ import { NgForm } from '@angular/forms';
 })
 export class UserViewComponent implements OnInit {
   public user: any;
+  public users: any;
   private id: string;
   public educations: any;
   public experiences: any;
@@ -28,6 +29,12 @@ export class UserViewComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+
+    this.userService.index()
+      .subscribe(response => {
+        this.users = response.data;
+        console.log(this.users);
+      });
 
     this.route.paramMap.subscribe((paraMap: ParamMap)=>{
       if(paraMap.has('id')){
