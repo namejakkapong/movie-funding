@@ -7,24 +7,27 @@ use App\Transfer;
 use App\Bank;
 use App\Package;
 use App\User;
+use App\Movie;
 
 use Illuminate\Http\Request;
 
-class TransferController extends Controller
+class TransferAdConfirmController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Movie $movie)
     {
-        $transfers = Transfer::
+        $transfers = Transfer::where('movie_id', $movie->id)->
+        where('status', 'confirm')->
         with('user')->
+        with('movie')->
         with('package')->
         with('bank')->get();
+        // $packages = Package::with('movie')->orderBy('created_at', 'DESC')->get();
         return $transfers;
-
     }
 
     /**
@@ -62,6 +65,7 @@ class TransferController extends Controller
 
         $transfer = new Transfer([
             'user_id' => $request->user_id,
+            'movie_id' => $request->movie_id,
             'package_id' => $request->package_id,
             'bank_id' => $request->bank_id,
             'transfer_amount' => $request->transfer_amount,
@@ -85,6 +89,7 @@ class TransferController extends Controller
     {
         $transfer = Transfer::
         with('user')->where('id', $id)->
+        with('movie')->where('id', $id)->
         with('package')->where('id', $id)->
         with('bank')->where('id', $id)->firstOrFail();
         return $transfer;

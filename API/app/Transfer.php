@@ -8,6 +8,7 @@ class Transfer extends Model
 {
     protected $fillable = [
         'user_id',
+        'movie_id',
         'package_id',
         'bank_id',
         'transfer_amount',
@@ -21,6 +22,10 @@ class Transfer extends Model
     public function user()
     {
     	return $this->hasOne('App\User', 'id', 'user_id');
+    }
+    public function movie()
+    {
+    	return $this->hasOne('App\Movie', 'id', 'movie_id');
     }
     public function package()
     {
