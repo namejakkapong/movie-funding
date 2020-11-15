@@ -59,8 +59,36 @@ class TransferNotController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->transfer_pic) {
+            $image = $request->transfer_pic;  // your base64 encoded
+            $image = str_replace('data:image/png;base64,', '', $image);
+            $image = str_replace('data:image/jpg;base64,', '', $image);
+            $image = str_replace('data:image/jpeg;base64,', '', $image);
+            $image = str_replace('data:image/gif;base64,', '', $image);
+	        $image = str_replace(' ', '+', $image);
+	        $imageName = md5(rand()*time()).'.'.'png';
+	        \File::put(public_path(). '/images/transfer/' . $imageName, base64_decode($image));
 
+
+        }else{
+            $imageName ='';
+        }
+
+        $transfer = new Transfer([
+            'user_id' => $request->user_id,
+            'movie_id' => $request->movie_id,
+            'package_id' => $request->package_id,
+            'bank_id' => $request->bank_id,
+            'transfer_amount' => $request->transfer_amount,
+            'transfer_date' => $request->transfer_date,
+            'transfer_pic' => $imageName,
+            'status' => $request->status,
+            // 'transfer_note' => $request->transfer_note
+        ]);
+        $transfer->save();
+        return $transfer;
     }
+
 
 
     /**

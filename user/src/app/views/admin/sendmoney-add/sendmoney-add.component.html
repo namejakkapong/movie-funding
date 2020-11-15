@@ -1,0 +1,95 @@
+<div class="separator-breadcrumb border-top"></div>
+<!-- MANAGE ACCOUNT -->
+
+<div class="row">
+
+  <div class="col-md-2"></div>
+
+  <div class="col-md-8">
+    <div class="card mb-12">
+      <div class="card-body">
+        <div class="col-12 text-center">
+          <h2>เพิ่มข้อมูลการส่งเงิน</h2>
+        </div>
+        <hr>
+
+        <form (submit)="onAddSend(formSend)" #formSend="ngForm">
+          <div>
+
+            <div class="col-md-12 form-group mb-3">
+              <label>ชื่อภาพยนตร์</label>
+              <select class="custom-select" name="movie_id" ngModel id="inputGroupSelect04"
+                aria-label="Example select with button addon">
+                <option>----เลือกภาพยนตร์----</option>
+                <option *ngFor="let movie of movies" value="{{movie?.id}}">{{movie?.name_th}}</option>
+              </select>
+            </div>
+
+            <div class="col-md-12 form-group mb-3">
+              <label for="topic"> ชื่อหัวข้อ </label>
+              <input type="text" class="form-control form-control-rounded" name="topic" ngModel
+                placeholder="ชื่อหัวข้อ">
+            </div>
+
+            <div class="col-md-12 form-group mb-3">
+              <label for="details">รายละเอียด</label>
+              <input type="text" class="form-control form-control-rounded" name="details" ngModel
+                placeholder="รายละเอียด">
+            </div>
+
+            <div class="col-md-12 form-group mb-3">
+              <label for="amount">จำนวนเงิน</label>
+              <input type="text" class="form-control form-control-rounded" name="amount" ngModel
+                placeholder="จำนวนเงิน">
+            </div>
+
+            <div class="col-md-6 form-group mb-3">
+              <label>วันที่</label>
+              <input type="date" class="form-control form-control-rounded" name="sendmoney_date" ngModel
+                placeholder="วันที่">
+            </div>
+
+            <!-- ---------------------------------------อัพโหลดรูปภาพ-------------------------------- -->
+            <div class="col-md-5">
+
+              <label class="mb-4">หลักฐานการโอนเงิน</label>
+              <div class="mb-3" *ngIf="!imageCoverPreview">
+                <img src="./assets/images/sleep.png">
+              </div>
+              <div *ngIf="imageCoverPreview !== '' && imageCoverPreview">
+                <img [src]="imageCoverPreview">
+              </div>
+
+              <section id="intro-wrap" class="intro-three-Wrap text-center">
+                <div class="intro-three-Description">
+                  <span>
+                    <button type="button" class="btn btn-outline-white" (click)="fileCover.click()"><i
+                        class="fas fa-camera"></i>อัพโหลดรูปภาพ</button>
+                    <input class="d-none" type="file" #fileCover #fileCoverReset (change)="onImageCover($event)"
+                      accept="images/*">
+                  </span>
+                  <span *ngIf="imageCoverPreview !== '' && imageCoverPreview">
+                    <!-- <button type="button" class="btn btn-success mr-2" (click)="onUploadImageCover()"><i class="far fa-check-circle"></i> บันทึก </button>
+                                <button type="button" class="btn btn-outline-white border-0" (click)="onCancelImagCover()">ยกเลิก</button> -->
+                  </span>
+                </div>
+                <div class="overlay">
+                </div>
+              </section>
+            </div>
+            <!-- ------------------------------------------------------------------------------------------ -->
+            <br>
+
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-primary btn-block">บันทึกข้อมูล</button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-2"></div>
+
+</div>

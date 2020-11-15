@@ -1,0 +1,126 @@
+<div class="separator-breadcrumb border-top"></div>
+<!-- MANAGE ACCOUNT -->
+
+<div class="row">
+  <div class="col-md-5">
+    <div class="card mb-12">
+      <div class="card-body">
+        <div class="card-title mb-3">เพิ่มข้อมูลบัญชีธนาคาร</div>
+
+        <!-- <form> -->
+        <form (submit)="onAddBank(formBank)" #formBank="ngForm">
+          <div>
+            <div class="col-md-12 form-group mb-3">
+              <label for="bank_account">ชื่อธนาคาร</label>
+              <input type="text" class="form-control form-control-rounded" name="bank_account" ngModel
+                placeholder="ชื่อธนาคาร">
+            </div>
+            <div class="col-md-12 form-group mb-3">
+              <label for="account_number">เลขที่บัญชี</label>
+              <input type="text" class="form-control form-control-rounded" name="account_number" ngModel
+                placeholder="เลขที่บัญชี">
+            </div>
+            <div class="col-md-12 form-group mb-3">
+              <label for="account_name">ชื่อบัญชี</label>
+              <input type="text" class="form-control form-control-rounded" name="account_name" ngModel
+                placeholder="ชื่อบัญชี">
+            </div>
+
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-primary btn-block">บันทึกข้อมูล</button>
+            </div>
+
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-md-7">
+    <div class="card mb-12" *ngFor="let bank of banks">
+      <div class="card-body">
+        <div class="card-title mb-3" class="button-center">ข้อมูลบัญชีธนาคาร</div>
+
+        <div class="row">
+          <div class="col-md-1"></div>
+
+          <div class="col-md-10">
+            <div class="col-md-12" class="center">
+              <div class="card bg-dark text-white o-hidden mb-4">
+                <img class="card-img " width="100" height="250" src="./assets/images/photo-long-3.jpg" alt="Card image">
+
+                <div class="card-img-overlay">
+
+                  <div class="row">
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-10">
+                      <div class="col-md-12" class="font">
+                        <div class="card mb-12">
+                          <div class="card-body">
+                            <p class="button-center">ธนาคาร : {{bank.bank_account}}</p>
+                            <p class="button-center">เลขที่บัญชี : {{bank.account_number}}</p>
+                            <p class="button-center">ชื่อบัญชี : {{bank.account_name}}</p>
+
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-1"></div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-1"></div>
+            </div>
+            <button type="button" class="btn btn-light btn-rounded bg-white "
+              (click)="open(modalEditBank)">แก้ไข</button>
+            <button type="button" class="btn btn-light btn-rounded bg-white "
+              (click)="deleteBank(bank?.id)">ลบ</button>
+          </div>
+
+          <!-- MODEL CROPPER --------------------------------------------------------------------------------------------------------------->
+          <ng-template #modalEditBank let-modal>
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal-basic-title">แก้ไขข้อมูลธนาคาร</h4>
+              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form (submit)="onEditBank(formBank,bank.id)" #formBank="ngForm">
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-md-6 form-group mb-3">
+                    <label>ชื่อธนาคาร</label>
+                    <input type="text" class="form-control form-control-rounded" name="account_name"
+                      ngModel="{{bank.account_name}}" #account_nameInput="ngModel" required placeholder="account_name">
+                  </div>
+                  <div class="col-md-6 form-group mb-3">
+                    <label>เลขที่บัญชี</label>
+                    <input type="text" class="form-control form-control-rounded" name="account_number"
+                      ngModel="{{bank.account_number}}" #account_numberInput="ngModel" required
+                      placeholder="account_number">
+                  </div>
+                  <div class="col-md-6 form-group mb-3">
+                    <label>ชื่อบัญชี</label>
+                    <input type="text" class="form-control form-control-rounded" name="bank_account"
+                      ngModel="{{bank.bank_account}}" #bank_accountInput="ngModel" required placeholder="bank_account">
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary btn-block">บันทึกข้อมูล</button>
+                <!-- <button type="submit" class="btn btn-primary btn-block" >บันทึกข้อมูล</button> -->
+
+              </div>
+            </form>
+          </ng-template>
+          <!-- MODEL CROPPER --------------------------------------------------------------------------------------------------------------->
+        </div>
+      </div>
+    </div>
+  </div>

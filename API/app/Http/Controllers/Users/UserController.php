@@ -18,6 +18,7 @@ class UserController extends ApiController
     {
         $users = User::where('user_status', 'member')->get();
         return $this->showAllTransform("load data users" , $users , 200);
+        // return $users;
     }
 
 

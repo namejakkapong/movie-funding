@@ -1,0 +1,194 @@
+<div class="">
+  <div class="breadcrumb">
+    <h1>ภาพยนตร์</h1>
+    <ul>
+      <li><a href="">ภาพยนตร์</a></li>
+      <li>เพิ่มข้อมูล</li>
+    </ul>
+  </div>
+
+  <div class="separator-breadcrumb border-top"></div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card mb-4">
+        <div class="card-body">
+          <div class="card-title mb-3">เพิ่มข้อมูล ภาพยนตร์</div>
+
+          <form (submit)="onAddMovie(formMovie)" #formMovie="ngForm">
+
+            <!-- <div class="col-md-12 form-group mb-3">
+              <label>รหัสประเภทภาพยนตร์</label>
+              <input type="text" class="form-control form-control-rounded" name="category_id" ngModel
+                placeholder="รหัสประเภทภาพยนตร์">
+            </div> -->
+            <div class="col-md-12 form-group mb-3">
+              <label>ประเภทภาพยนตร์</label>
+              <select class="custom-select" name="category_id" ngModel id="inputGroupSelect04"
+                aria-label="Example select with button addon">
+                <option>ประเภทภาพยนตร์</option>
+                <option *ngFor="let categorie of categories" value="{{categorie?.id}}">{{categorie?.name}}</option>
+              </select>
+            </div>
+            <div class="col-md-12 form-group mb-3">
+              <label>ชื่อภาษาไทย</label>
+              <input type="text" class="form-control form-control-rounded" name="name_th" ngModel
+                placeholder="ชื่อภาษาไทย">
+            </div>
+            <div class="col-md-12 form-group mb-3">
+              <label>ชื่อภาษาอังกฤษ</label>
+              <input type="text" class="form-control form-control-rounded" name="name_en" ngModel
+                placeholder="ชื่อภาษาอังกฤษ">
+            </div>
+
+            <!-- ---------------------------------------อัพโหลดรูปภาพ-------------------------------- -->
+            <div class="col-md-6">
+              <label class="mb-4">รูปภาพประจำตัว</label>
+              <div class="mb-3" *ngIf="!imageCoverPreview">
+                <img src="./assets/images/movies/1.png">
+              </div>
+              <div *ngIf="imageCoverPreview !== '' && imageCoverPreview">
+                <img [src]="imageCoverPreview">
+              </div>
+
+              <section id="intro-wrap" class="intro-three-Wrap text-center">
+                <div class="intro-three-Description">
+                  <span>
+                    <button type="button" class="btn btn-outline-white" (click)="fileCover.click()"><i
+                        class="fas fa-camera"></i> อัพโหลดรูปภาพ</button>
+                    <input class="d-none" type="file" #fileCover #fileCoverReset (change)="onImageCover($event)"
+                      accept="images/*">
+                  </span>
+                  <span *ngIf="imageCoverPreview !== '' && imageCoverPreview">
+                    <!-- <button type="button" class="btn btn-success mr-2" (click)="onUploadImageCover()"><i class="far fa-check-circle"></i> บันทึก </button>
+                                <button type="button" class="btn btn-outline-white border-0" (click)="onCancelImagCover()">ยกเลิก</button> -->
+                  </span>
+                </div>
+                <div class="overlay">
+                </div>
+              </section>
+            </div>
+            <!-- ------------------------------------------------------------------------------------------ -->
+            <br>
+
+
+            <div class="col-md-12 form-group mb-3">
+              <label>คำอธิบาย</label>
+              <textarea class="form-control form-control-rounded" name="description" rows="10" ngModel
+                placeholder="คำอธิบาย"></textarea>
+            </div>
+
+            <div class="col-md-12 form-group mb-3">
+              <label>เรื่องย่อ</label>
+              <textarea class="form-control form-control-rounded" name="resume" rows="10" ngModel
+                placeholder="เรื่องย่อ"></textarea>
+            </div>
+
+            <div class="col-md-12 form-group mb-3">
+              <label>ชื่อผู้กำกับ</label>
+              <input type="text" class="form-control form-control-rounded" name="director" ngModel
+                placeholder="ชื่อผู้กำกับ">
+            </div>
+
+            <div class="col-md-12 form-group mb-3">
+              <label>ยอดระดมทุน</label>
+              <input type="text" class="form-control form-control-rounded" name="total" ngModel
+                placeholder="ยอดระดมทุน">
+            </div>
+
+            <div class="col-md-12 form-group mb-3">
+              <label>ยอดปัจจุบัน</label>
+              <input type="text" class="form-control form-control-rounded" name="current_total" ngModel
+                placeholder="ยอดระดมทุน">
+            </div>
+
+            <h5>ประเภทแพ็คเกจ</h5>
+            <input type="radio" id="funds" name="status" ngModel value="on">
+            <label for="funds"> เปิดระดมทุน </label><br>
+            <input type="radio" id="invest" name="status" ngModel value="off">
+            <label for="invest"> ปิดระดมทุน </label>
+
+            <div class="col-md-6 form-group mb-3">
+
+              <label>วันออกฉาย</label>
+              <input type="date" class="form-control form-control-rounded" name="screening_date" ngModel
+                placeholder="วันออกฉาย">
+
+                <label>วันเริ่มการระดมทุน</label>
+              <input type="date" class="form-control form-control-rounded" name="start_date" ngModel
+                placeholder="วันเริ่มการระดมทุน">
+
+                <label>วันสิ้นสุดการระดมทุน</label>
+              <input type="date" class="form-control form-control-rounded" name="end_date" ngModel
+                placeholder="วันสิ้นสุดการระดมทุน">
+
+              <!-- <label for="screening_date">วันออกฉาย</label>
+              <div class="input-group">
+                <input id="screening_date" class="form-control" placeholder="yyyy-mm-dd" name="screening_date"
+                  ngbDatepicker #screening_date="ngbDatepicker" ngModel>
+                <div class="input-group-append">
+                  <button class="btn btn-secondary" (click)="screening_date.toggle()" type="button">
+                    <i class="icon-regular i-Calendar-4"></i>
+                  </button>
+                </div>
+              </div> -->
+
+
+
+              <!-- <label for="start_date">วันเริ่มการระดมทุน</label>
+              <div class="input-group">
+                  <input id="start_date" class="form-control" placeholder="yyyy-mm-dd" name="start_date"
+                      ngbDatepicker #start_date="ngbDatepicker" ngModel>
+                  <div class="input-group-append">
+                      <button class="btn btn-secondary" (click)="start_date.toggle()" type="button">
+                          <i class="icon-regular i-Calendar-4"></i>
+                      </button>
+                  </div>
+              </div>
+
+              <label for="end_date">วันสิ้นสุดการระดมทุน</label>
+              <div class="input-group">
+                  <input id="end_date" class="form-control" placeholder="yyyy-mm-dd" name="end_date"
+                      ngbDatepicker #end_date="ngbDatepicker" ngModel>
+                  <div class="input-group-append">
+                      <button class="btn btn-secondary" (click)="end_date.toggle()" type="button">
+                          <i class="icon-regular i-Calendar-4"></i>
+                      </button>
+                  </div>
+              </div> -->
+
+            </div>
+
+
+
+            <!-- <div class="col-md-6 form-group mb-3">
+              <label for="start">วันออกฉาย</label>
+              <input class="form-control form-control-rounded" type="date" id="end" name="screening_date" ngModel
+                placeholder="yyyy-mm-dd" min="2020-01-01" max="2040-12-31" ngbDatepicker #dp="ngbDatepicker">
+
+            </div>
+
+            <div class="col-md-6 form-group mb-3">
+              <label for="start">วันเริ่มการระดมทุน</label>
+              <input class="form-control form-control-rounded" type="date" id="start" name="start_date" ngModel
+                placeholder="yyyy-mm-dd" min="2020-01-01" max="2040-12-31" ngbDatepicker #dp="ngbDatepicker">
+
+            </div>
+
+            <div class="col-md-6 form-group mb-3">
+              <label for="start">วันสิ้นสุดการระดมทุน</label>
+              <input value="2020-11-15" class="form-control form-control-rounded" type="date" id="end" name="end_date"
+                ngModel min="2020-01-01" max="2040-12-31" ngbDatepicker #dp="ngbDatepicker">
+
+            </div> -->
+
+
+            <div class="col-md-6 form-group mb-3">
+              <button type="submit" class="btn btn-primary ">เพิ่มข้อมูล</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
