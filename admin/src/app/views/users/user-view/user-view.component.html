@@ -94,8 +94,8 @@
         <!-- ==================================================   ข้อมูลการศึกษา   ========================================================== -->
         <ngb-tab title="ข้อมูลการศึกษา">
           <ng-template ngbTabContent>
-            <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0"
-              (click)="addEducation(user?.id)">เพิ่มข้อมูลการศึกษา</button>
+            <!-- <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0"
+              (click)="addEducation(user?.id)">เพิ่มข้อมูลการศึกษา</button> -->
 
             <div *ngFor="let education of educations">
               <div class="separator-breadcrumb border-top"></div>
@@ -110,10 +110,10 @@
                       <p>สาขาวิชา/วิชาเอก/สายการศึกษา : {{education.subject}}</p>
                       <p>คณะ : {{education.faculty}}</p>
                       <p>โรงเรียน/สถานศึกษา : {{education.school}}</p>
-                      <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0"
+                      <!-- <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0"
                         (click)="deleteEducation(user?.id, education.id)">ลบ</button>
                       <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0"
-                        (click)="open(modalEditEducation)">แก้ไข</button>
+                        (click)="open(modalEditEducation)">แก้ไข</button> -->
                     </div>
                   </div>
                 </div>
@@ -173,8 +173,8 @@
         <!-- ==================================================   ประสบการณ์ทำงาน   ======================================================== -->
         <ngb-tab title="ประสบการณ์ทำงาน">
           <ng-template ngbTabContent>
-            <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0"
-              (click)="addExperience(user?.id)">เพิ่มข้อมูลประสบการณ์ทำงาน</button>
+            <!-- <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0"
+              (click)="addExperience(user?.id)">เพิ่มข้อมูลประสบการณ์ทำงาน</button> -->
 
             <div *ngFor="let experience of experiences">
               <div class="separator-breadcrumb border-top"></div>
@@ -188,10 +188,10 @@
                       <p>ปีที่ออกจากงาน : {{experience.end_year}}</p>
                       <p>ตำแหน่ง : {{experience.position}}</p>
                       <p>ที่ทำงาน : {{experience.workplace}}</p>
-                      <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0"
+                      <!-- <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0"
                         (click)="deleteExperienceWork(user?.id, experience.id)">ลบ</button>
                       <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0"
-                        (click)="open(modalEditExperience)">แก้ไข</button>
+                        (click)="open(modalEditExperience)">แก้ไข</button> -->
                     </div>
                   </div>
                 </div>
@@ -244,124 +244,7 @@
           </ng-template>
         </ngb-tab>
         <!-- =====================================================      แก้ไข     ========================================================== -->
-        <ngb-tab title="แก้ไขข้อมูลส่วนตัว">
-          <ng-template ngbTabContent>
 
-
-            <!-- MANAGE ACCOUNT -->
-            <div class="row">
-              <div class="col-md-12">
-                <div class="card card-profile-1 mb-12">
-                  <div class="card-body">
-                    <!-- <div class="card-title mb-3">เพิ่มนักลงทุน หรือ ผู้สร้างภาพยนตร์</div> -->
-                    <form (submit)="onEditUser(formUser)" #formUser="ngForm">
-                      <div class="row">
-                        <div class="col-md-1">
-                        </div>
-                        <div class="col-md-10">
-                          <div class="row">
-                            <!-- <div class="col-md-12 form-group mb-3">
-                              <label>อีเมล (ชื่อผู้ใช้งาน)</label>
-                              <input type="text" class="form-control form-control-rounded" name="email"
-                                ngModel="{{user?.email}}" #emailInput="ngModel" required
-                                placeholder="อีเมล (ชื่อผู้ใช้งาน)" >
-                            </div> -->
-                            <!-- <div class="col-md-6 form-group mb-3">
-                              <label>รหัสผ่าน</label>
-                              <input type="password" class="form-control form-control-rounded" name="password"
-                                ngModel="{{user?.password}}" #passwordInput="ngModel" placeholder="รหัสผ่าน">
-                            </div>
-
-                            <div class="col-md-6 form-group mb-3">
-                              <label>ยืนยันรหัสผ่าน</label>
-                              <input type="password" class="form-control form-control-rounded"
-                                name="password_confirmation" ngModel="{{user?.password_confirmation}}"
-                                #password_confirmationInput="ngModel" required placeholder="ยืนยันรหัสผ่าน">
-                            </div> -->
-                            <div class="col-md-6 form-group mb-3">
-                              <label>ชื่อ - นามสกุล</label>
-                              <input type="text" class="form-control form-control-rounded" name="name"
-                                ngModel="{{user?.name}}" #nameInput="ngModel" required placeholder="ชื่อ - นามสกุล">
-                            </div>
-                            <!-- <div class="col-md-6 form-group mb-3">
-                                        <label>วันเกิด</label>
-                                        <div class="input-group">
-                                            <input id="picker1" class="form-control form-control-rounded" placeholder="yyyy-mm-dd" name="birthday"
-                                                ngbDatepicker #birthday="ngbDatepicker">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-secondary btn-rounded" (click)="birthday.toggle()" type="button">
-                                                    <i class="icon-regular i-Calendar-4"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div> -->
-                            <div class="col-md-6 form-group mb-3">
-                              <label>เบอร์โทรศัพท์</label>
-                              <input type="text" class="form-control form-control-rounded" name="tel"
-                                ngModel="{{user?.tel}}" #telInput="ngModel" required placeholder="เบอร์โทรศัพท์">
-                            </div>
-                            <div class="col-md-6 form-group mb-3">
-                              <label>ที่อยู่</label>
-                              <input type="text" class="form-control form-control-rounded" name="address"
-                                ngModel="{{user?.address}}" #addressInput="ngModel" required placeholder="ที่อยู่">
-                            </div>
-                            <div class="col-md-6 form-group mb-3">
-                              <label>ตำบล</label>
-                              <input type="text" class="form-control form-control-rounded" name="district"
-                                ngModel="{{user?.district}}" #districtInput="ngModel" required placeholder="ตำบล">
-                            </div>
-                            <div class="col-md-6 form-group mb-3">
-                              <label>อำเภอ</label>
-                              <input type="text" class="form-control form-control-rounded" name="amphoe"
-                                ngModel="{{user?.amphoe}}" #amphoeInput="ngModel" required placeholder="อำเภอ">
-                            </div>
-                            <div class="col-md-6 form-group mb-3">
-                              <label>จังหวัด</label>
-                              <input type="text" class="form-control form-control-rounded" name="province"
-                                ngModel="{{user?.province}}" #provinceInput="ngModel" required placeholder="จังหวัด">
-                            </div>
-                            <div class="col-md-6 form-group mb-3">
-                              <label>รหัสไปรษณีย์</label>
-                              <input type="text" class="form-control form-control-rounded" name="zipcode"
-                                ngModel="{{user?.zipcode}}" #zipcodeInput="ngModel" required placeholder="รหัสไปรษณีย์">
-                            </div>
-                            <div class="col-md-6 form-group mb-3">
-                              <label>ประเทศ</label>
-                              <input type="text" class="form-control form-control-rounded" name="country"
-                                ngModel="{{user?.country}}" #countryInput="ngModel" required placeholder="ประเทศ">
-                            </div>
-                            <div class="col-md-6 form-group mb-3">
-                              <label>อาชีพ</label>
-                              <input type="text" class="form-control form-control-rounded" name="career"
-                                ngModel="{{user?.career}}" #careerInput="ngModel" required placeholder="อาชีพ">
-                            </div>
-                            <div class="col-md-6 form-group mb-3">
-                              <label>สถานที่ทำงาน</label>
-                              <input type="text" class="form-control form-control-rounded" name="workplace"
-                                ngModel="{{user?.workplace}}" #workplaceInput="ngModel" required
-                                placeholder="สถานที่ทำงาน">
-                            </div>
-
-                            <div class="col-md-12">
-                              <button type="submit" class="btn btn-main btn-block">บันทึกข้อมูล</button>
-
-                              <!-- <btn-loading  btnClass="btn-primary btn-rounded" [loading]="loading">บันทึกข้อมูล</btn-loading> -->
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-1">
-                        </div>
-                      </div>
-
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-          </ng-template>
-        </ngb-tab>
       </ngb-tabset>
     </div>
   </div>

@@ -20,6 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('login', 'APIAuth\LoginController@login');
 Route::get('logout', 'APIAuth\LoginController@logout')->middleware('auth:api');
 Route::resource('admins', 'Users\AdminController');
+Route::resource('adminshows', 'Users\AdminShowController');
 Route::resource('users', 'Users\UserController');
 Route::resource('userss', 'Users\UserssController');
 Route::resource('users.educations', 'Educations\EducationController');
@@ -41,6 +42,7 @@ Route::resource('packagesadd', 'Package\PackageAddController');
 Route::resource('banks', 'Bank\BankController');
 
 Route::resource('transfersadd', 'Transfer\TransferAddController');
+Route::resource('movies.transfersedit', 'Transfer\TransferEditController');
 Route::resource('movies.transfersadnot', 'Transfer\TransferAdNotController');
 Route::resource('movies.transfersadconfirm', 'Transfer\TransferAdConfirmController');
 Route::resource('movies.transfersadunsuccessful', 'Transfer\TransferAdUnsuccessfulController');

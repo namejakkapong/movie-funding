@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
   selector: 'app-admin-view',
@@ -7,15 +8,33 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin-view.component.scss']
 })
 export class AdminViewComponent implements OnInit {
+  private id: string;
+  public admin: any;
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private adminService: AdminService
+
+    ) { }
 
   ngOnInit() {
+
+    this.route.paramMap.subscribe((paraMap: ParamMap)=>{
+      if(paraMap.has('id')){
+        this.id = paraMap.get('id');
+        console.log(this.id);
+
+        this.adminService.show(this.id)
+        .subscribe(response => {
+          this.admin = response;
+          console.log(this.admin);
+        });
+
+      }
+    });
   }
 
-  bankAdd(id) {
-    // console.log(id);
-    this.router.navigate(['/admin/bank-add']);
-  }
+
 
 }

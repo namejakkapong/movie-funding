@@ -117,13 +117,16 @@ class ProgressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Movie $movie, $id)
     {
         //return $id; (   1. รับ id เข้ามา เพื่อเช็คว่าตรงกับ id ที่เราจะลบรึป่าว )
 
-        $progress = Progress::where('id', $id)->firstOrFail();
+        // $progress = Progress::where('id', $id)->firstOrFail();
+        // $progress->delete();
+        // return $progress;
+
+        $progress = Progress::where('id', $id)->where('movie_id', $movie->id)->firstOrFail();
         $progress->delete();
-        return $progress;
     }
 
     public function uploadImageCover(Request $request)

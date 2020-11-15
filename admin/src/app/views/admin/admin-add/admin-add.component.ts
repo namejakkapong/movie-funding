@@ -20,7 +20,7 @@ export class AdminAddComponent implements OnInit {
   onAddAdmin(form: NgForm)
   {
       console.log(form.form.value);
-      this.adminService.store(form.form.value.first_name +' '+ form.form.value.last_name, form.form.value.email, form.form.value.password, form.form.value.password_confirmation);
+      this.adminService.store(form.form.value.name , form.form.value.email, form.form.value.password, form.form.value.password_confirmation);
   }
 
 }

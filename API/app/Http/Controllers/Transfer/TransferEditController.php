@@ -11,7 +11,7 @@ use App\Movie;
 
 use Illuminate\Http\Request;
 
-class TransferAdNotController extends Controller
+class TransferEditController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,14 +20,24 @@ class TransferAdNotController extends Controller
      */
     public function index(Movie $movie)
     {
+        // $transfers = Transfer::
+        // with('user')->
+        // with('package')->
+        // with('bank')->get();
+        // return $transfers;
+
+        // $packages = Package::where('movie_id', $movie->id)->where('type_package', 'invest')->get();
+        // // $packages = Package::with('movie')->orderBy('created_at', 'DESC')->get();
+        // return $packages;
+
         $transfers = Transfer::where('movie_id', $movie->id)->
-        where('status', 'not')->
         with('user')->
         with('movie')->
         with('package')->
         with('bank')->get();
         // $packages = Package::with('movie')->orderBy('created_at', 'DESC')->get();
         return $transfers;
+
     }
 
     /**
@@ -79,19 +89,16 @@ class TransferAdNotController extends Controller
     }
 
 
+
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Movie $movie, $id)
     {
-        $transfer = Transfer::
-        with('user')->where('id', $id)->
-        with('movie')->where('id', $id)->
-        with('package')->where('id', $id)->
-        with('bank')->where('id', $id)->firstOrFail();
+        $transfer = Transfer::where('movie_id', $movie->id)->with('movie')->where('id', $id)->get();
         return $transfer;
     }
 

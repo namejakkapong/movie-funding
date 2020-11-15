@@ -19,36 +19,32 @@
                     <form  (submit)="onAddAdmin(formAdmin)" #formAdmin="ngForm">
                         <div class="row">
                             <div class="col-md-12 form-group mb-3">
-                                <label>Email</label>
-                                <input type="text" class="form-control form-control-rounded" name="email" ngModel placeholder="Enter Email">
+                                <label>อีเมล</label>
+                                <input type="text" class="form-control form-control-rounded" name="email" ngModel placeholder="อีเมล">
                             </div>
+
+                            <div class="col-md-12 form-group mb-3">
+                              <label for="firstName">ชื่อ - นามสกุล</label>
+                              <input type="text" class="form-control form-control-rounded" name="name" ngModel placeholder="ชื่อ - นามสกุล">
+                          </div>
+
                             <div class="col-md-6 form-group mb-3">
-                                <label for="firstName">Password</label>
-                                <input type="password" class="form-control form-control-rounded" name="password" ngModel placeholder="Enter your password">
+                                <label for="firstName">รหัสผ่าน</label>
+                                <input type="password" class="form-control form-control-rounded" name="password" ngModel placeholder="รหัสผ่าน">
                             </div>
-    
+
                             <div class="col-md-6 form-group mb-3">
-                                <label for="lastName">Confirm Password</label>
-                                <input type="password" class="form-control form-control-rounded" name="password_confirmation" ngModel placeholder="Enter confirm password">
+                                <label for="lastName">ยืนยันรหัสผ่าน</label>
+                                <input type="password" class="form-control form-control-rounded" name="password_confirmation" ngModel placeholder="ยืนยันรหัสผ่าน">
                             </div>
-                            <div class="col-md-6 form-group mb-3">
-                                <label for="firstName">First name</label>
-                                <input type="text" class="form-control form-control-rounded" name="first_name" ngModel placeholder="Enter your first name">
-                            </div>
-    
-                            <div class="col-md-6 form-group mb-3">
-                                <label for="lastName">Last name</label>
-                                <input type="text" class="form-control form-control-rounded" name="last_name" ngModel placeholder="Enter your last name">
-                            </div>
-    
-  
-                
+
+
                             <!-- <div class="col-md-6 form-group mb-3">
                                 <label for="credit">Website</label>
                                 <input class="form-control form-control-rounded" id="credit" placeholder="Web address">
                             </div> -->
 
-    
+
                             <div class="col-md-12">
                                 <!-- <button type="submit" class="btn btn-main btn-block" >บันทึกข้อมูล</button> -->
 
@@ -72,7 +68,7 @@
     </button>
   </div>
   <div class="modal-body">
-    
+
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-rounded btn-light" (click)="filePicker.click()">เลือกรูปภาพ</button>

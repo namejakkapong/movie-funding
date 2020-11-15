@@ -24,7 +24,7 @@ export class AdminListComponent implements OnInit {
         console.log(this.admins);
       });
   }
-  
+
   open(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' })
     .result.then((result) => {
@@ -52,7 +52,7 @@ export class AdminListComponent implements OnInit {
 
   viewAdmin(id) {
     // console.log(id);
-    this.router.navigate(['/admin/admin-view']);
+    this.router.navigate(['/admin/admin-view/' + id]);
   }
 
   view(color,size) {

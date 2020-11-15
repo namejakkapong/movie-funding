@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-sm-12 col-mb-12">
     <div class="card bg-dark text-white o-hidden mb-4">
-      <img class="card-img" src="./assets/images/avgen2.jpg" alt="Card image">
+      <!-- <img class="card-img" src="./assets/images/avgen2.jpg" alt="Card image"> -->
     </div>
   </div>
 </div>
@@ -32,7 +32,7 @@
             </div>
 
             <p class="font2">ประเภท : {{ movie?.category?.name }}</p>
-            <p>เรื่องย่อ :
+            <p>
               {{ movie?.description }}</p>
 
 
@@ -61,7 +61,89 @@
               <ng-template ngbTabContent>
 
                 <p>เรื่องย่อ : {{ movie?.resume }}</p>
+                <button type="button" class="btn btn-primary btn-rounded m-1" (click)="open(modalEdit)">แก้ไขข้อมูล</button>
+                 <!-- ----------------------------------------------------- -->
+                 <ng-template #modalEdit let-modal>
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">แก้ไขข้อมูลภาพยนตร์</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form (submit)="editMovie(formMovie)" #formMovie="ngForm">
 
+                      <div class="row">
+                        <div class="col-md-6 form-group mb-3">
+                          <label for="topic"> ชื่อภาพยนตร์ภาษาไทย </label>
+                          <input type="text" class="form-control form-control-rounded" name="name_th" ngModel
+                            placeholder="{{movie.name_th}}">
+                        </div>
+                        <div class="col-md-6 form-group mb-3">
+                          <label for="topic"> ชื่อภาพยนตร์ภาษาอังกฤษ </label>
+                          <input type="text" class="form-control form-control-rounded" name="name_en" ngModel
+                            placeholder="{{movie.name_en}}">
+                        </div>
+                      </div>
+
+                        <div class="col-md-12 form-group mb-5">
+                          <label for="topic"> เรื่องย่อ </label>
+                          <textarea type="text" class="form-control form-control-rounded" name="resume" ngModel
+                            placeholder="{{movie.resume}}"></textarea>
+                        </div>
+                        <div class="col-md-12 form-group mb-5">
+                          <label for="topic"> รายละเอียด </label>
+                          <textarea type="text" class="form-control form-control-rounded" name="description" ngModel
+                            placeholder="{{movie.description}}"></textarea>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-md-6 form-group mb-3">
+                            <label for="topic"> ชื่อผู้กำกับ </label>
+                            <input type="text" class="form-control form-control-rounded" name="director" ngModel
+                              placeholder="{{movie.director}}">
+                          </div>
+                          <div class="col-md-6 form-group mb-3">
+                            <label for="topic"> ยอดปัจจุบัน </label>
+                            <input type="text" class="form-control form-control-rounded" name="current_total" ngModel
+                              placeholder="{{movie.current_total}}">
+                          </div>
+                        </div>
+
+                        <div class="col-md-12 form-group mb-3">
+                          <label>วันปิดระดมทุน</label>
+                          <input type="date" class="form-control form-control-rounded" name="end_date" ngModel
+                            placeholder="{{movie.end_date}}">
+                        </div>
+
+
+                      <!-- <div class="row">
+                        <div class="col-sm-6 col-mb-6">
+                          <div class="form-group">
+                          <h5>ผ่านการตรวจสอบ</h5>
+                          <input type="radio" id="confirm" name="status" ngModel value="confirm">
+                          <label for="confirm"></label>
+                          </div>
+                        </div>
+
+                        <div class="col-sm-6 col-mb-6">
+                          <div class="form-group">
+                          <h5>ไม่ผ่านการตรวจสอบ</h5>
+                          <input type="radio" id="unsuccessful" name="status" ngModel value="unsuccessful">
+                          <label for="unsuccessful"></label>
+                          </div>
+                        </div>
+                      </div> -->
+
+                          <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary btn-block">บันทึกข้อมูล</button>
+                          </div>
+                    </form>
+                  </div>
+
+                </ng-template>
+
+                <!-- --------------------------------------------------------------- -->
               </ng-template>
             </ngb-tab>
 
@@ -69,7 +151,7 @@
               <ng-template ngbTabContent>
                 <button type="button" class="btn btn-primary btn-rounded m-1" (click)="progressAdd(id)">เพิ่มความคืบหน้า</button>
 
-                <div class="col-md-12" *ngFor="let progress of progresses">
+                <div class="col-sm-12 col-mb-12" *ngFor="let progress of progresses">
                   <div class="card mb-12">
                     <div class="card-body p-0">
                       <div class="card-title border-bottom d-flex align-items-center m-3 p-3">
@@ -93,8 +175,9 @@
                         <div class="shadow p-3 mb-5 bg-white rounded">รายละเอียด : {{ progress.detail }}</div>
                         <div class="shadow p-3 mb-5 bg-white rounded">วัน/เดือน/ปี : {{ progress.date }}</div>
                       </div>
-                      <div class="col-md-6 form-group mb-3">
-                      </div><br>
+
+                      <button type="button" class="btn btn-light btn-rounded bg-white m-3 my-0"
+                        (click)="deletePro(movie.id, progress.id)">ลบ</button>
                     </div>
                   </div>
                 </div>
@@ -165,19 +248,65 @@
                                         <h5 class="list-group-item">จำนวนเงิน : {{transfer.transfer_amount}} บาท</h5>
                                       </div>
                                       <div class="col-sm-4 col-mb-4">
-                                        <button type="button"
-                                          class="btn btn-primary btn-rounded m-1">ตรวจสอบ</button>
-                                      </div>
-
+                                        <button type="button" class="btn btn-light btn-rounded bg-white m-1 my-0"
+                                        (click)="open(modalBasic)">อัพเดตสถานะ</button>
+                                         </div>
                                     </div>
                                   </ul>
-
                                 </div>
                               </div>
-                            </div>
 
+                              <!-- ----------------------------------------------------- -->
+                              <ng-template #modalBasic let-modal>
+                                <div class="modal-header">
+                                  <h4 class="modal-title" id="modal-basic-title">อนุมัติการตรวจสอบ</h4>
+                                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <form (submit)="editStatus(formStatus)" #formStatus="ngForm">
+                                    <p>รหัสการแก้ไข : {{transfer.id}}</p>
+
+                                    <div class="col-md-5 form-group mb-3">
+                                      <label for="topic"> กรอกตัวเลขด้านบน </label>
+                                      <input type="text" class="form-control form-control-rounded" name="transfer_id" ngModel
+                                        placeholder="{{transfer.id}}">
+                                    </div>
+
+                                    <div class="row">
+                                      <div class="col-sm-6 col-mb-6">
+                                        <div class="form-group">
+                                        <h5>ผ่านการตรวจสอบ</h5>
+                                        <input type="radio" id="confirm" name="status" ngModel value="confirm">
+                                        <label for="confirm"></label>
+                                        </div>
+                                      </div>
+
+                                      <div class="col-sm-6 col-mb-6">
+                                        <div class="form-group">
+                                        <h5>ไม่ผ่านการตรวจสอบ</h5>
+                                        <input type="radio" id="unsuccessful" name="status" ngModel value="unsuccessful">
+                                        <label for="unsuccessful"></label>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                        <div class="modal-footer">
+                                          <button type="submit" class="btn btn-primary btn-block">บันทึกข้อมูล</button>
+                                        </div>
+                                  </form>
+                                </div>
+
+                              </ng-template>
+
+                              <!-- --------------------------------------------------------------- -->
+
+
+                            </div>
                           </div>
                           <br>
+
 
                         </ng-template>
                       </ngb-tab>

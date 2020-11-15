@@ -113,9 +113,13 @@ class TransferAdConfirmController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Movie $movie, $id, Request $request)
     {
-        //
+        $transfer = Transfer::where(['id' => $id, 'movie_id' => $movie->id])->firstOrFail();
+        $transfer->status = $request->status;
+        $transfer->save();
+        return $this->showOneTransform("insert data education complete" , $transfer , 200);
+
     }
 
     /**

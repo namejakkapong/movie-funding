@@ -238,5 +238,62 @@ export class MovieService {
         // console.log("เพิ่มข้อมูลเรียบร้อย!");
       }
 
+      updatestatus(movie_id: string, transfer_id: string , status: string)
+        {
+          const data = {
+            movie_id: movie_id,
+            transfer_id: transfer_id,
+            status: status,
+          };
+          this.http.patch<{data: any}>(BACKEND_URL + '/movies/'+ movie_id + '/transfersedit/'+ transfer_id, data)
+          .subscribe(response => {
+            console.log(response.data);
+          });
+          // console.log(data);
+          console.log("แก้ไขข้อมูลเรียบร้อย!");
+    }
+
+    destroyprogress(movie_id : string, progress_id: string)
+    {
+      // console.log(movie_id);
+      // console.log(progress_id);
+      this.http.delete<{data: any}>(BACKEND_URL + '/movies/'+ movie_id +'/progresses/' + progress_id).subscribe(response=>{
+        this.modalService.dismissAll();
+        console.log("ลบข้อมูลเรียบร้อย!");
+      });
+
+    }
+
+    updateMovie(
+      movie_id: string,
+      name_th: string ,
+      name_en: string ,
+      resume: string ,
+      description: string ,
+      director: string ,
+      current_total: string,
+      end_date: string)
+        {
+          const data = {
+            movie_id: movie_id,
+            name_th: name_th,
+            name_en: name_en,
+            resume: resume,
+            description: description,
+            director: director,
+            current_total: current_total,
+            end_date: end_date,
+          };
+          this.http.patch<{data: any}>(BACKEND_URL + '/movies/'+ movie_id , data)
+          .subscribe(response => {
+          console.log(response.data);
+            this.modalService.dismissAll();
+          });
+          // console.log(data);
+          console.log("ลบข้อมูลเรียบร้อย!");
+    }
+
+
+
 
 }

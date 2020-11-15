@@ -5,6 +5,8 @@ import { MovieService } from 'src/app/services/movie.service';
 import { SharedAnimations } from 'src/app/shared/animations/shared-animations';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UserService } from 'src/app/services/user.service';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-movienew',
@@ -197,4 +199,42 @@ export class MovienewComponent implements OnInit {
     this.router.navigate(['/movies/progress-add']);
   }
 
+  editStatus(form: NgForm) {
+    // console.log(form.value);
+    this.movieService.updatestatus(this.id, form.value.transfer_id , form.value.status);
+    // this.getEducation(this.id);
+    // this.modalService.dismissAll();
+  }
+
+  openSmall(content) {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', size: 'sm' })
+    .result.then((result) => {
+      console.log(result);
+    }, (reason) => {
+      console.log('Err!', reason);
+    });
+  }
+
+  deletePro(movie_id , progress_id) {
+    // console.log(movie_id , progress_id);
+    this.movieService.destroyprogress(movie_id , progress_id);
+    // this.getEducation(this.id);
+
+  }
+
+  editMovie(form: NgForm) {
+    //console.log(form.value);
+    this.movieService.updateMovie(
+      this.id,
+      form.value.name_th,
+      form.value.name_en,
+      form.value.resume,
+      form.value.description,
+      form.value.director,
+      form.value.current_total,
+      form.value.end_date
+      );
+    // this.getEducation(this.id);
+    // this.modalService.dismissAll();
+  }
 }

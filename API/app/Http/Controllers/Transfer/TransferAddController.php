@@ -18,7 +18,7 @@ class TransferAddController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(User $user , Movie $movie)
+    public function index(Movie $movie)
     {
         // $transfers = Transfer::
         // with('user')->
@@ -30,8 +30,7 @@ class TransferAddController extends Controller
         // // $packages = Package::with('movie')->orderBy('created_at', 'DESC')->get();
         // return $packages;
 
-        $transfers = Transfer::where('user_id', $user->id)->where('movie_id', $movie->id)->
-        where('status', 'not')->
+        $transfers = Transfer::where('movie_id', $movie->id)->
         with('user')->
         with('movie')->
         with('package')->

@@ -17,34 +17,34 @@ const routes: Routes = [
   {
     path: 'admin-list',
     component: AdminListComponent,
-    
+
   },
   {
     path: 'admin-list/add',
     component: AdminAddComponent,
-    
+
   },
   {
     path: 'admin-list/edit',
     component: AdminEditComponent,
-    
+
   },
   {
-    path: 'admin-view',
+    path: 'admin-view/:id',
     component: AdminViewComponent,
-    
+
   },
   {
     path: 'sendmoney-add',
     component: SendmoneyAddComponent,
-    
+
   },
   {
     path: 'sendmoney-view',
     component: SendmoneyViewComponent,
-    
+
   },
- 
+
 ];
 
 @NgModule({

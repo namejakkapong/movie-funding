@@ -122,18 +122,18 @@ class MovieController extends ApiController
         //return $id; (1. รับ id เข้ามา เพื่อเช็คว่าตรงกับ id ที่เราจะแก้ไขรึป่าว)
         //return $request; (3.  รับข้อมูลที่กรอกเข้ามา เพื่อเช็คว่าตรงกับ ข้อมูล ตาม database)
         $movie = Movie::where('id', $id)->firstOrFail(); //(2.  เอา id ที่รับเข้ามาเทียบกับ $id ของ Movie)
-        $movie->category_id = $request->category_id;
+        // $movie->category_id = $request->category_id;
         $movie->name_en = $request->name_en;
         $movie->name_th = $request->name_th;
-        $movie->movie_pic = $request->movie_pic;
+        // $movie->movie_pic = $request->movie_pic;
         $movie->description = $request->description;
         $movie->resume = $request->resume;
         $movie->director = $request->director;
-        $movie->total = $request->total;
+        // $movie->total = $request->total;
         $movie->current_total = $request->current_total;
-        $movie->status = $request->status;
-        $movie->screening_date = $request->screening_date;
-        $movie->start_date = $request->start_date;
+        // $movie->status = $request->status;
+        // $movie->screening_date = $request->screening_date;
+        // $movie->start_date = $request->start_date;
         $movie->end_date = $request->end_date;
         $movie->save();
         return $movie;

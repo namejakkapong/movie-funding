@@ -25,7 +25,7 @@ export class AdminService {
 
   show(id: string)
   {
-    // BACKEND_URL = http://localhost:8000/api/admins/2
+    return this.http.get<{data: any}>(BACKEND_URL + '/adminshows/' + id);
   }
 
   store(name: string, email: string, password: string, password_confirmation)
