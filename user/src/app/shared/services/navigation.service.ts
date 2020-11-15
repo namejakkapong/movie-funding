@@ -64,7 +64,7 @@ export class NavigationService {
             icon: 'i-Administrator',
             sub: [
                 { icon: 'i-Business-ManWoman', name: 'ผู้ใช้', state: '/users/creator&fundraiser', type: 'link' },
-                { icon: 'i-Add-User', name: 'เพิ่มผู้ใช้', state: '/users/create', type: 'link' },
+                // { icon: 'i-Add-User', name: 'เพิ่มผู้ใช้', state: '/users/create', type: 'link' },
                 // { icon: 'i-Checked-User', name: 'ยืนยันตัวตน', state: '/users/verification', type: 'link' },
             ]
         },
@@ -75,33 +75,33 @@ export class NavigationService {
             icon: 'i-Film',
             sub: [
                 { icon: 'i-Video-4', name: 'ภาพยนตร์', state: '/movies/movie-list/', type: 'link' },
-                {
-                    icon: 'i-Video-5',
-                    name: 'เพิ่มข้อมูล',
-                    type: 'dropDown',
-                    sub: [
-                        { name: 'เพิ่มภาพยนตร์', state: '/movies/movie-add', type: 'link' },
-                        { name: 'เพิ่มประเภทภาพยนตร์', state: '/movies/movie-category', type: 'link' },
-                        { name: 'เพิ่มข้อมูลแพ็คเกจ', state: '/movies/package-add/', type: 'link' },
-                        { name: 'เพิ่มข้อมูลธนาคาร', state: '/movies/bank-add', type: 'link' }
+                // {
+                //     icon: 'i-Video-5',
+                //     name: 'เพิ่มข้อมูล',
+                //     type: 'dropDown',
+                //     sub: [
+                //         { name: 'เพิ่มภาพยนตร์', state: '/movies/movie-add', type: 'link' },
+                //         { name: 'เพิ่มประเภทภาพยนตร์', state: '/movies/movie-category', type: 'link' },
+                //         { name: 'เพิ่มข้อมูลแพ็คเกจ', state: '/movies/package-add/', type: 'link' },
+                //         { name: 'เพิ่มข้อมูลธนาคาร', state: '/movies/bank-add', type: 'link' }
 
-                    ]
-                },
+                //     ]
+                // },
             ]
         },
-        {
-            name: 'บัญชีผู้ใช้',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-            type: 'dropDown',
-            icon: 'i-Gear',
-            sub: [
-                { icon: 'i-Lock-User', name: 'จัดการบัญชีผู้ใช้', state: '/admin/account', type: 'link' },
-                { icon: 'i-Administrator', name: 'ข้อมูลผู้ดูแลระบบ', state: '/admin/admin-list', type: 'link' },
-                { icon: 'i-Money-2', name: 'เพิ่มข้อมูลการส่งเงิน', state: '/admin/sendmoney-add', type: 'link' },
-                // { icon: 'i-Letter-Open', name: 'ดูข้อมูลการส่งเงิน', state: '/admin/sendmoney-view', type: 'link' },
-                // { icon: 'i-Letter-Open', name: 'ข้อมูลการโอนเงิน', state: '/movies/transfer-view', type: 'link' },
-            ]
-        },
+        // {
+        //     name: 'บัญชีผู้ใช้',
+        //     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+        //     type: 'dropDown',
+        //     icon: 'i-Gear',
+        //     sub: [
+        //         { icon: 'i-Lock-User', name: 'จัดการบัญชีผู้ใช้', state: '/admin/account', type: 'link' },
+        //         { icon: 'i-Administrator', name: 'ข้อมูลผู้ดูแลระบบ', state: '/admin/admin-list', type: 'link' },
+        //         { icon: 'i-Money-2', name: 'เพิ่มข้อมูลการส่งเงิน', state: '/admin/sendmoney-add', type: 'link' },
+        //          { icon: 'i-Letter-Open', name: 'ดูข้อมูลการส่งเงิน', state: '/admin/sendmoney-view', type: 'link' },
+        //          { icon: 'i-Letter-Open', name: 'ข้อมูลการโอนเงิน', state: '/movies/transfer-view', type: 'link' },
+        //     ]
+        // },
         // {
         //     name: 'Doc',
         //     type: 'extLink',
