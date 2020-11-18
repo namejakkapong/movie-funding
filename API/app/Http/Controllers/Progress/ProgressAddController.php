@@ -6,6 +6,7 @@ use App\Movie;
 use App\Progress;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Resources\Progress as ProgressResource;
 
 class ProgressAddController extends Controller
 {
@@ -16,9 +17,10 @@ class ProgressAddController extends Controller
      */
     public function index(Movie $movie)
     {
-        // $progresses = Progress::where('movie_id', $movie->id)->get();
+        $progresses = Progress::where('movie_id', $movie->id)->get();
         // return $progresses;
         //$movies = Movie::with('category')->orderBy('created_at', 'DESC')->get();
+        return ProgressResource::collection($progresses);
 
     }
 

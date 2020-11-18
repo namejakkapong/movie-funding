@@ -79,7 +79,7 @@ export class MovienewComponent implements OnInit {
   getProgress(id){
     this.movieService.indexprogress(id)
         .subscribe(response => {
-          this.progresses = response;
+          this.progresses = response.data;
           console.log(this.progresses);
         });
   }

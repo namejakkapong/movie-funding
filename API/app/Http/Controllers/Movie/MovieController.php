@@ -90,6 +90,7 @@ class MovieController extends ApiController
 
         $movie = Movie::with('category')->where('id', $id)->firstOrFail();
         return $movie;
+        // return MovieResource::collection($movie);
         // // return $this->showOneTransform("insert data user complete" , $movie , 200);
 
 
