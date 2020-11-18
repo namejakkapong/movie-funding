@@ -76,9 +76,11 @@ export class TransferAddComponent implements OnInit {
       form.value.transfer_amount,
       form.value.transfer_date,
       this.selectFileCover,
-      form.value.status
+      form.value.status,
+      form.value.transfer_type
       );
 }
+
 
   getBank(){
     this.adminService.bank()

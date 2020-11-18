@@ -79,7 +79,9 @@ export class MovieService {
     transfer_amount: string,
     transfer_date: string,
     selectFileCover: any,
-    status: string)
+    status: string,
+    transfer_type: string
+    )
   {
     // BACKEND_URL = http://localhost:8000/api/admins , method POST
     const data = {
@@ -92,6 +94,7 @@ export class MovieService {
       transfer_date: transfer_date,
       transfer_pic: selectFileCover,
       status: status,
+      transfer_type:transfer_type,
 
     };
     this.http.post<{data: any}>(BACKEND_URL + '/transfersadd', data)
@@ -237,6 +240,16 @@ export class MovieService {
         // console.log(data);
         // console.log("เพิ่มข้อมูลเรียบร้อย!");
       }
+
+    indexfund(id: string)
+  {
+    return this.http.get<{data: any}>(BACKEND_URL + '/movies/'+ id +'/transferfunds');
+  }
+
+  indexinvest(id: string)
+  {
+    return this.http.get<{data: any}>(BACKEND_URL + '/movies/'+ id +'/transferinvest');
+  }
 
 
 }

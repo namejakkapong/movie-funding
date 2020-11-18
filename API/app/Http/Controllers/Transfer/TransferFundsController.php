@@ -11,30 +11,22 @@ use App\Movie;
 
 use Illuminate\Http\Request;
 
-class TransferAddController extends Controller
+class TransferFundsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Movie $movie)
+    public function index(Movie $movie, Package $package)
     {
-        // $transfers = Transfer::
-        // with('user')->
-        // with('package')->
-        // with('bank')->get();
-        // return $transfers;
-
-        // $packages = Package::where('movie_id', $movie->id)->where('type_package', 'invest')->get();
-        // // $packages = Package::with('movie')->orderBy('created_at', 'DESC')->get();
-        // return $packages;
-
         $transfers = Transfer::where('movie_id', $movie->id)->
+        where('status', 'confirm')->
+        where('transfer_type', 'funds')->
         with('user')->
-        with('movie')->
-        with('package')->
-        with('bank')->get();
+        // with('movie')->
+        with('package')->get();
+        // with('bank')->
         // $packages = Package::with('movie')->orderBy('created_at', 'DESC')->get();
         return $transfers;
 
@@ -58,36 +50,35 @@ class TransferAddController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->transfer_pic) {
-            $image = $request->transfer_pic;  // your base64 encoded
-            $image = str_replace('data:image/png;base64,', '', $image);
-            $image = str_replace('data:image/jpg;base64,', '', $image);
-            $image = str_replace('data:image/jpeg;base64,', '', $image);
-            $image = str_replace('data:image/gif;base64,', '', $image);
-	        $image = str_replace(' ', '+', $image);
-	        $imageName = md5(rand()*time()).'.'.'png';
-	        \File::put(public_path(). '/images/transfer/' . $imageName, base64_decode($image));
+        // if ($request->transfer_pic) {
+        //     $image = $request->transfer_pic;  // your base64 encoded
+        //     $image = str_replace('data:image/png;base64,', '', $image);
+        //     $image = str_replace('data:image/jpg;base64,', '', $image);
+        //     $image = str_replace('data:image/jpeg;base64,', '', $image);
+        //     $image = str_replace('data:image/gif;base64,', '', $image);
+	    //     $image = str_replace(' ', '+', $image);
+	    //     $imageName = md5(rand()*time()).'.'.'png';
+	    //     \File::put(public_path(). '/images/transfer/' . $imageName, base64_decode($image));
 
 
-        }else{
-            $imageName ='';
-        }
+        // }else{
+        //     $imageName ='';
+        // }
 
-        $transfer = new Transfer([
-            'user_id' => $request->user_id,
-            'movie_id' => $request->movie_id,
-            'package_id' => $request->package_id,
-            'bank_id' => $request->bank_id,
-            'transfer_amount' => $request->transfer_amount,
-            'transfer_date' => $request->transfer_date,
-            'transfer_pic' => $imageName,
-            'status' => $request->status,
-            'transfer_type' => $request->transfer_type,
-        ]);
-        $transfer->save();
-        return $transfer;
+        // $transfer = new Transfer([
+        //     'user_id' => $request->user_id,
+        //     'movie_id' => $request->movie_id,
+        //     'package_id' => $request->package_id,
+        //     'bank_id' => $request->bank_id,
+        //     'transfer_amount' => $request->transfer_amount,
+        //     'transfer_date' => $request->transfer_date,
+        //     'transfer_pic' => $imageName,
+        //     'status' => $request->status,
+        //     // 'transfer_note' => $request->transfer_note
+        // ]);
+        // $transfer->save();
+        // return $transfer;
     }
-
 
 
     /**
@@ -124,9 +115,13 @@ class TransferAddController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Movie $movie, $id, Request $request)
     {
-        //
+        $transfer = Transfer::where(['id' => $id, 'movie_id' => $movie->id])->firstOrFail();
+        $transfer->status = $request->status;
+        $transfer->save();
+        return $this->showOneTransform("insert data education complete" , $transfer , 200);
+
     }
 
     /**

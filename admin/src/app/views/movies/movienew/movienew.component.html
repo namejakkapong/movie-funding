@@ -39,12 +39,12 @@
             <div class="row">
               <div class="col-sm-6 col-mb-6">
                 <p class="font2">ยอดปัจจุบัน</p>
-                <p class="font3">{{ movie?.current_total }} ฿</p>
+                <p class="font3">{{ movie?.current_total }} บาท</p>
               </div>
 
               <div class="col-sm-6 col-mb-6">
                 <p class="font2">ยอดระดมทุนที่ต้องการ</p>
-                <p class="font4">{{ movie?.total }} ฿</p>
+                <p class="font4">{{ movie?.total }} บาท</p>
               </div>
             </div>
 
@@ -206,6 +206,7 @@
                                 </div>
                                 <div class="card-body">
                                   <h4 class="card-title" class="font2">ชื่อแพ็คเกจที่เลือก : {{transfer.package?.topic}}</h4><br>
+                                  <img class="profile-picture avatar-lg mb-2" src="http://localhost:8000/images/user/{{transfer.user?.profile_picture}}" alt="">
                                   <p class="card-text">ชื่อผู้ใช้ : {{transfer.user?.name}}</p>
                                   <!-- <h5 class="card-text">Reward</h5> -->
                                   <p class="card-text">วันที่โอน : {{transfer.transfer_date}}</p>
@@ -239,6 +240,7 @@
                                 </div>
                                 <div class="card-body">
                                   <h4 class="card-title" class="font2">ชื่อแพ็คเกจที่เลือก : {{transfer.package?.topic}}</h4><br>
+                                  <img class="profile-picture avatar-lg mb-2" src="http://localhost:8000/images/user/{{transfer.user?.profile_picture}}" alt="">
                                   <p class="card-text">ชื่อผู้ใช้ : {{transfer.user?.name}}</p>
                                   <!-- <h5 class="card-text">Reward</h5> -->
                                   <p class="card-text">วันที่โอน : {{transfer.transfer_date}}</p>
@@ -336,6 +338,7 @@
                                 </div>
                                 <div class="card-body">
                                   <h4 class="card-title" class="font2">ชื่อแพ็คเกจที่เลือก : {{transfer.package?.topic}}</h4><br>
+                                  <img class="profile-picture avatar-lg mb-2" src="http://localhost:8000/images/user/{{transfer.user?.profile_picture}}" alt="">
                                   <p class="card-text">ชื่อผู้ใช้ : {{transfer.user?.name}}</p>
                                   <!-- <h5 class="card-text">Reward</h5> -->
                                   <p class="card-text">วันที่โอน : {{transfer.transfer_date}}</p>
@@ -409,6 +412,60 @@
 
               </ng-template>
             </ngb-tab>
+
+
+            <ngb-tab title="รายชื่อผู้ระดมทุนทั้งหมด">
+              <ng-template ngbTabContent>
+
+                <div class="row">
+
+                  <div class="col-md-6">
+                    <div class="card mb-4">
+                      <div class="card-body">
+
+                        <div class="card-title">รายชื่อผู้ระดมทุน</div>
+                        <div class="d-flex align-items-center border-bottom-dotted-dim pb-3 mb-3" *ngFor="let transfer of funds">
+                          <img class="avatar-md rounded mr-3" src="http://localhost:8000/images/user/{{transfer.user?.profile_picture}}" alt="">
+                          <div class="flex-grow-1">
+                            <h6 class="m-0">ชื่อ : {{transfer.user?.name}}</h6>
+                            <p class="m-0 text-small text-muted">ชื่อแพ็คเกจที่เลือก : {{transfer.package?.topic}}</p>
+                          </div>
+                          <div>
+                            <span class="font-weight-bold text-success text-16">฿{{transfer.transfer_amount}}</span>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- --------------------------------------------------------------------------------------------------- -->
+
+                  <div class="col-md-6">
+                    <div class="card mb-4">
+                      <div class="card-body">
+                        <div class="card-title">รายชื่อผู้ลงทุน</div>
+                        <div class="d-flex align-items-center border-bottom-dotted-dim pb-3 mb-3" *ngFor="let transfer of invests">
+                          <img class="avatar-md rounded mr-3" src="http://localhost:8000/images/user/{{transfer.user?.profile_picture}}" alt="">
+                          <div class="flex-grow-1">
+                            <h6 class="m-0">ชื่อ : {{transfer.user?.name}}</h6>
+                            <p class="m-0 text-small text-muted">ชื่อแพ็คเกจที่เลือก : {{transfer.package?.topic}}</p>
+                          </div>
+                          <div>
+                            <span class="font-weight-bold text-primary text-16">฿{{transfer.transfer_amount}}</span>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </ng-template>
+            </ngb-tab>
+
+
 
           </ngb-tabset>
         </div>

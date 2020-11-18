@@ -46,6 +46,8 @@ Route::resource('movies.transfersedit', 'Transfer\TransferEditController');
 Route::resource('movies.transfersadnot', 'Transfer\TransferAdNotController');
 Route::resource('movies.transfersadconfirm', 'Transfer\TransferAdConfirmController');
 Route::resource('movies.transfersadunsuccessful', 'Transfer\TransferAdUnsuccessfulController');
+Route::resource('movies.transferfunds', 'Transfer\TransferFundsController');
+Route::resource('movies.transferinvest', 'Transfer\TransferInvestController');
 
 Route::resource('users.movies.transfersnot','Transfer\TransferNotController');
 Route::resource('users.movies.transfersconfirm','Transfer\TransferConfirmController');

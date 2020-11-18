@@ -29,6 +29,13 @@ export class UserListComponent implements OnInit {
 	 }
 
 	ngOnInit() {
+
+    this.userService.index()
+      .subscribe(response => {
+        this.users = response.data;
+        console.log(this.users);
+      });
+
 		this.getUsers();
 
 		this.searchControl.valueChanges

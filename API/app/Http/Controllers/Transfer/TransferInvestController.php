@@ -11,33 +11,24 @@ use App\Movie;
 
 use Illuminate\Http\Request;
 
-class TransferAddController extends Controller
+class TransferInvestController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Movie $movie)
+    public function index(Movie $movie , Transfer $transfer)
     {
-        // $transfers = Transfer::
-        // with('user')->
-        // with('package')->
-        // with('bank')->get();
-        // return $transfers;
-
-        // $packages = Package::where('movie_id', $movie->id)->where('type_package', 'invest')->get();
-        // // $packages = Package::with('movie')->orderBy('created_at', 'DESC')->get();
-        // return $packages;
-
         $transfers = Transfer::where('movie_id', $movie->id)->
+        where('status', 'confirm')->
+        where('transfer_type', 'invest')->
         with('user')->
-        with('movie')->
-        with('package')->
-        with('bank')->get();
+        // with('movie')->
+        with('package')->get();
+        // with('bank')->
         // $packages = Package::with('movie')->orderBy('created_at', 'DESC')->get();
         return $transfers;
-
     }
 
     /**
@@ -82,12 +73,11 @@ class TransferAddController extends Controller
             'transfer_date' => $request->transfer_date,
             'transfer_pic' => $imageName,
             'status' => $request->status,
-            'transfer_type' => $request->transfer_type,
+            // 'transfer_note' => $request->transfer_note
         ]);
         $transfer->save();
         return $transfer;
     }
-
 
 
     /**
@@ -124,9 +114,13 @@ class TransferAddController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Movie $movie, $id, Request $request)
     {
-        //
+        $transfer = Transfer::where(['id' => $id, 'movie_id' => $movie->id])->firstOrFail();
+        $transfer->status = $request->status;
+        $transfer->save();
+        return $this->showOneTransform("insert data education complete" , $transfer , 200);
+
     }
 
     /**

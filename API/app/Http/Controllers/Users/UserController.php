@@ -38,7 +38,7 @@ class UserController extends ApiController
             $image = str_replace('data:image/gif;base64,', '', $image);
 	        $image = str_replace(' ', '+', $image);
 	        $imageName = md5(rand()*time()).'.'.'png';
-	        \File::put(public_path(). '/images/profile/' . $imageName, base64_decode($image));
+	        \File::put(public_path(). '/images/user/' . $imageName, base64_decode($image));
 
 
         }else{

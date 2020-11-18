@@ -30,7 +30,7 @@ export class UserViewComponent implements OnInit {
 
   ngOnInit() {
 
-    this.userService.index2()
+    this.userService.index()
       .subscribe(response => {
         this.users = response.data;
         console.log(this.users);
