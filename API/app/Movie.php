@@ -19,6 +19,8 @@ class Movie extends Model
         'director',
         'total',
         'current_total',
+        'funds_total',
+        'invest_total',
         'status',
         'screening_date',
         'start_date',

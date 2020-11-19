@@ -35,6 +35,8 @@ export class MovienewComponent implements OnInit {
   // public usun: any;
   public funds: any;
   public invests: any;
+  // public fundssum: any;
+  // public investsum: any;
 
   constructor(
     private movieService: MovieService,
@@ -78,6 +80,9 @@ export class MovienewComponent implements OnInit {
 
         this.getTransferFunds(this.id);
         this.getTransferInvest(this.id);
+
+        // this.getTransferFundsSum(this.id);
+        // this.getTransferInvestSum(this.id);
       }
     });
   }
@@ -113,6 +118,24 @@ export class MovienewComponent implements OnInit {
           console.log(this.invests);
         });
   }
+
+  // getTransferFundsSum(id){
+  //   this.movieService.indexfund(id)
+  //       .subscribe(response => {
+  //         this.fundssum = response;
+  //         console.log(this.fundssum);
+  //       });
+  // }
+
+  // getTransferInvestSum(id){
+  //   this.movieService.indexinvestsum(id)
+  //       .subscribe(response => {
+  //         this.investsum = response;
+  //         console.log(this.investsum);
+  //       });
+  // }
+
+
   //====================================== ข้อมูลการโอนเงิน ADMIN ======================================
   //--ข้อมูลการโอนเงิน สำเร็จ [ confirm ]--
   getAdtransfer(id){

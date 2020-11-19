@@ -11,37 +11,32 @@ use App\Movie;
 
 use Illuminate\Http\Request;
 
-class TransferFundsController extends Controller
+class SumTotalController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Movie $movie, Package $package)
+    public function index(Movie $movie , $id)
     {
-        //$transfers = Transfer::where('movie_id', $movie->id)->
-        //where('status', 'confirm')->
-        //where('transfer_type', 'funds')->
-        //with('user')->
-        // with('movie')->
-        //with('package')->get();
-        // with('bank')->
-        // $packages = Package::with('movie')->orderBy('created_at', 'DESC')->get();
-        //return $transfers;
 
-
-        $transfers = Transfer::where('movie_id', $movie->id)->
+        $sumfunds = Transfer::where('movie_id', $movie->id)->
         where('status', 'confirm')->
         where('transfer_type', 'funds')->
         with('user')->
-        with('package')->get();
-        return $transfers;
+        with('package')->sum("transfer_amount");
 
-        // $sum = Transfer::where('movie_id', $movie->id)->
-        // where('status', 'confirm')->
-        // where('transfer_type', 'funds')->sum('transfer_amount');
-        // return $sum;
+        $suminvest = Transfer::where('movie_id', $movie->id)->
+        where('status', 'confirm')->
+        where('transfer_type', 'invest')->
+        with('user')->
+        with('package')->sum("transfer_amount");
+
+        $movie = Movie::where('id', $movie->id)->firstOrFail(); //(2.  เอา id ที่รับเข้ามาเทียบกับ $id ของ Movie)
+        $movie->current_total = $sumfunds + $suminvest;
+        $movie->save();
+        return $movie;
 
     }
 
@@ -131,19 +126,20 @@ class TransferFundsController extends Controller
      */
     public function update(Movie $movie, $id, Request $request)
     {
-        $transfer = Transfer::where(['id' => $id, 'movie_id' => $movie->id])->firstOrFail();
-        $transfer->status = $request->status;
-        $transfer->save();
-        return $this->showOneTransform("insert data education complete" , $transfer , 200);
+        // $transferssum = Transfer::where('movie_id', $movie->id)->
+        // where('status', 'confirm')->
+        // where('transfer_type', 'funds')->
+        // with('user')->
+        // with('package')->sum("transfer_amount");
+        // // return $transferssum;
 
+        // $movie = Movie::where('id', $id)->firstOrFail();
+        // $movie->current_total = $request->$transferssum;
+        // $movie->save();
+        // return $movie;
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         $transfer = Transfer::where('id', $id)->firstOrFail();
