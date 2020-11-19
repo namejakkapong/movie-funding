@@ -18,7 +18,7 @@ class SumTotalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Movie $movie , $id)
+    public function index(Movie $movie)
     {
 
         $sumfunds = Transfer::where('movie_id', $movie->id)->

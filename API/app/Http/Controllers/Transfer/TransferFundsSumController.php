@@ -25,7 +25,7 @@ class TransferFundsSumController extends Controller
 
         $transferssum = Transfer::where('movie_id', $movie->id)->
         where('status', 'confirm')->
-        where('transfer_type', 'funds')->
+        where('transfer_type','funds')->
         with('user')->
         with('package')->sum("transfer_amount");
 

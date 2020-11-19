@@ -49,9 +49,13 @@ Route::resource('movies.transfersadunsuccessful', 'Transfer\TransferAdUnsuccessf
 Route::resource('movies.transferfunds', 'Transfer\TransferFundsController');
 Route::resource('movies.transferinvest', 'Transfer\TransferInvestController');
 
+//=============================== SUM TRANSFER ======================================================
+
 Route::resource('movies.transferfundssum', 'Transfer\TransferFundsSumController');
 Route::resource('movies.transferinvestsum', 'Transfer\TransferInvestSumController');
 Route::resource('movies.sumtotal', 'Transfer\SumTotalController');
+
+//===================================================================================================
 
 Route::resource('users.movies.transfersnot','Transfer\TransferNotController');
 Route::resource('users.movies.transfersconfirm','Transfer\TransferConfirmController');
