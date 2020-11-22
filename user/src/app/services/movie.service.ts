@@ -261,5 +261,16 @@ export class MovieService {
     return this.http.get<{data: any}>(BACKEND_URL + '/movies/'+ id +'/transferinvestsum');
   }
 
+  indextotal(id: string)
+  {
+    return this.http.get<{data: any}>(BACKEND_URL + '/movies/'+ id +'/sumtotal');
+  }
+
+  indexdevide(id: string)
+  {
+    return this.http.get<{data: any}>(BACKEND_URL + '/movies/'+ id +'/dividetotal');
+  }
+
+
 
 }

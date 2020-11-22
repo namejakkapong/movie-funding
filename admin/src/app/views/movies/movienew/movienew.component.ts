@@ -35,8 +35,12 @@ export class MovienewComponent implements OnInit {
   // public usun: any;
   public funds: any;
   public invests: any;
-  // public fundssum: any;
-  // public investsum: any;
+
+  public fundssum: any;
+  public investsum: any;
+  public totals: any;
+  public devides: any;
+
 
   constructor(
     private movieService: MovieService,
@@ -59,6 +63,10 @@ export class MovienewComponent implements OnInit {
         .subscribe(response => {
           this.movie = response;
           console.log(this.movie);
+          this.getTransferFundsSum(this.id);
+          this.getTransferInvestSum(this.id);
+          this.getSumTotal(this.id);
+          this.getDevideTotal(this.id);
         });
 
         this.movieService.showuser(this.id)
@@ -81,8 +89,6 @@ export class MovienewComponent implements OnInit {
         this.getTransferFunds(this.id);
         this.getTransferInvest(this.id);
 
-        // this.getTransferFundsSum(this.id);
-        // this.getTransferInvestSum(this.id);
       }
     });
   }
@@ -118,22 +124,41 @@ export class MovienewComponent implements OnInit {
           console.log(this.invests);
         });
   }
+  //===================== Sum ====================================
 
-  // getTransferFundsSum(id){
-  //   this.movieService.indexfund(id)
-  //       .subscribe(response => {
-  //         this.fundssum = response;
-  //         console.log(this.fundssum);
-  //       });
-  // }
+  getDevideTotal(id){
+    this.movieService.indexdevide(id)
+        .subscribe(response => {
+          this.devides = response;
+          console.log(this.devides);
+        });
+  }
 
-  // getTransferInvestSum(id){
-  //   this.movieService.indexinvestsum(id)
-  //       .subscribe(response => {
-  //         this.investsum = response;
-  //         console.log(this.investsum);
-  //       });
-  // }
+  getSumTotal(id){
+    this.movieService.indextotal(id)
+        .subscribe(response => {
+          this.totals = response;
+          console.log(this.totals);
+        });
+  }
+
+  getTransferFundsSum(id){
+    this.movieService.indexfundsum(id)
+        .subscribe(response => {
+          this.fundssum = response;
+          console.log(this.fundssum);
+        });
+  }
+
+  getTransferInvestSum(id){
+    this.movieService.indexinvestsum(id)
+        .subscribe(response => {
+          this.investsum = response;
+          console.log(this.investsum);
+        });
+  }
+
+
 
 
   //====================================== ข้อมูลการโอนเงิน ADMIN ======================================

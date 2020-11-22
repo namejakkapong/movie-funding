@@ -18,6 +18,7 @@ class Transfer extends Model
         'transfer_type'
 
 
+
     ];
 
     public function user()

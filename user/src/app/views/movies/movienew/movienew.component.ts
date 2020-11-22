@@ -34,6 +34,12 @@ export class MovienewComponent implements OnInit {
   public funds: any;
   public invests: any;
 
+  public fundssum: any;
+  public investsum: any;
+  public totals: any;
+  public devides: any;
+
+
   constructor(
     private movieService: MovieService,
     private route: ActivatedRoute,
@@ -55,6 +61,10 @@ export class MovienewComponent implements OnInit {
         .subscribe(response => {
           this.movie = response;
           console.log(this.movie);
+          this.getTransferFundsSum(this.id);
+          this.getTransferInvestSum(this.id);
+          this.getSumTotal(this.id);
+          this.getDevideTotal(this.id);
         });
 
         this.movieService.showuser(this.id)
@@ -107,6 +117,40 @@ export class MovienewComponent implements OnInit {
         .subscribe(response => {
           this.invests = response;
           console.log(this.invests);
+        });
+  }
+
+  //===================== Sum ====================================
+
+  getDevideTotal(id){
+    this.movieService.indexdevide(id)
+        .subscribe(response => {
+          this.devides = response;
+          console.log(this.devides);
+        });
+  }
+
+  getSumTotal(id){
+    this.movieService.indextotal(id)
+        .subscribe(response => {
+          this.totals = response;
+          console.log(this.totals);
+        });
+  }
+
+  getTransferFundsSum(id){
+    this.movieService.indexfundsum(id)
+        .subscribe(response => {
+          this.fundssum = response;
+          console.log(this.fundssum);
+        });
+  }
+
+  getTransferInvestSum(id){
+    this.movieService.indexinvestsum(id)
+        .subscribe(response => {
+          this.investsum = response;
+          console.log(this.investsum);
         });
   }
   //====================================== ข้อมูลการโอนเงิน ADMIN ======================================

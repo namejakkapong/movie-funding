@@ -21,6 +21,7 @@ class Movie extends Model
         'current_total',
         'funds_total',
         'invest_total',
+        'share',
         'status',
         'screening_date',
         'start_date',

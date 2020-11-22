@@ -51,9 +51,11 @@ Route::resource('movies.transferinvest', 'Transfer\TransferInvestController');
 
 //=============================== SUM TRANSFER ======================================================
 
+
 Route::resource('movies.transferfundssum', 'Transfer\TransferFundsSumController');
 Route::resource('movies.transferinvestsum', 'Transfer\TransferInvestSumController');
 Route::resource('movies.sumtotal', 'Transfer\SumTotalController');
+Route::resource('movies.dividetotal', 'Transfer\DivideTotalController');
 
 //===================================================================================================
 
